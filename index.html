@@ -1147,23 +1147,8 @@
             
             loadState();
             
-            // OAuth 콜백 처리 (팝업에서 열린 경우)
-            if (window.opener && window.location.hash.includes('access_token')) {
-                // 팝업 창에서 실행된 경우: 토큰을 부모 창으로 전송
-                const params = new URLSearchParams(window.location.hash.substring(1));
-                const accessToken = params.get('access_token');
-                if (accessToken) {
-                    window.opener.postMessage({
-                        type: 'google_oauth_token',
-                        token: accessToken
-                    }, window.location.origin);
-                    window.close(); // 팝업 닫기
-                    return; // 팝업이므로 나머지 초기화 불필요
-                }
-            }
-            
-            // 부모 창에서 메시지 수신 리스너 등록
-            window.addEventListener('message', handleOAuthMessage);
+            // OAuth 콜백 처리 (리다이렉트 후 URL 해시에서 토큰 추출)
+            handleOAuthCallback();
             
             updateTime();
             setInterval(updateTime, 1000);
@@ -1542,39 +1527,25 @@
                 return;
             }
 
-            // 팝업으로 Google OAuth 인증
-            // redirectUri를 Google Cloud Console에 등록된 값과 정확히 일치시킴
+            // 리다이렉트 방식 OAuth
             const redirectUri = 'https://jang1117.github.io/dashboard/index.html';
-            console.log('Redirect URI:', redirectUri); // 디버깅용
-            
             const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
-
-            const width = 500, height = 600;
-            const left = (window.screen.width / 2) - (width / 2);
-            const top = (window.screen.height / 2) - (height / 2);
             
-            const authWindow = window.open(
-                authUrl, 
-                'google_auth_popup', 
-                `width=${width},height=${height},top=${top},left=${left},scrollbars=yes`
-            );
-
-            if (!authWindow) {
-                alert('팝업이 차단되었습니다. 브라우저 설정에서 팝업을 허용해주세요.');
-            }
+            window.location.href = authUrl;
         }
 
-        // 팝업에서 postMessage로 전달된 토큰 수신
-        function handleOAuthMessage(event) {
-            // 같은 origin에서 온 메시지만 처리
-            if (event.origin !== window.location.origin) return;
-            
-            if (event.data && event.data.type === 'google_oauth_token') {
-                const token = event.data.token;
-                if (token) {
-                    state.googleAccessToken = token;
+        // OAuth 콜백 처리 (리다이렉트 후)
+        function handleOAuthCallback() {
+            const hash = window.location.hash;
+            if (hash && hash.includes('access_token')) {
+                const params = new URLSearchParams(hash.substring(1));
+                const accessToken = params.get('access_token');
+                if (accessToken) {
+                    state.googleAccessToken = accessToken;
                     state.googleConnected = true;
-                    localStorage.setItem('googleAccessToken', token);
+                    localStorage.setItem('googleAccessToken', accessToken);
+                    // URL에서 해시 제거
+                    window.history.replaceState({}, document.title, window.location.pathname);
                     updateGoogleStatus();
                     fetchGoogleCalendarList();
                     fetchGoogleCalendarEvents();
