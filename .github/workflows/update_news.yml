@@ -3,32 +3,43 @@ name: Update News Data
 on:
   schedule:
     - cron: '2,17,32,47 * * * *'  # 15분마다, 정각 피해서 지연 감소
-  workflow_dispatch:      # 수동 실행 버튼 활성화
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
+      - uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
-          
+
       - name: Install dependencies
         run: pip install requests
-        
-      - name: Run fetch script
+
+      - name: Run fetch script (with debug)
         env:
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
-        run: python fetch_news.py
-        
+        run: |
+          echo "== RUN AT (UTC) ==" 
+          date -u
+          python fetch_news.py
+          echo "== news.json diff ==" 
+          git diff -- news.json || true
+          echo "== news.json mtime =="
+          ls -al news.json || true
+
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add news.json
-          git commit -m "Update news data" || exit 0
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "Update news data"
           git push
