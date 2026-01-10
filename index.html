@@ -158,16 +158,19 @@
       border-color: var(--accent);
     }
 
-    /* ===== Bookmarks: Groups one-line + 4 columns ===== */
+    .card-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
 
+    /* ===== Bookmarks Groups ===== */
     .bookmark-groups-scroll {
       flex: 1;
       overflow-y: auto;
-      padding: 10px 6px 6px 6px; /* 상단 잘림 방지 */
+      padding: 10px 6px 6px 6px; /* 상단 테두리 잘림 방지 */
       align-content: start;
     }
 
-    /* 그룹 박스: 그룹명 + 사이트가 같은 줄 */
     .bookmark-group {
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -201,13 +204,12 @@
       text-overflow: ellipsis;
     }
 
-    /* 그룹 내 사이트 영역: 한 줄에 최대 4개 = 4열 */
     .bookmarks-grid {
       flex: 1;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr)); /* 한 줄 최대 4개 */
       gap: 10px;
-      padding-top: 2px; /* hover 테두리 안정 */
+      padding-top: 2px;
       min-width: 0;
     }
 
@@ -228,7 +230,7 @@
       min-width: 0;
     }
 
-    /* 위로 뜨는 transform 제거(잘림 원인) */
+    /* hover transform 제거(잘림 방지) */
     .bookmark-item:hover {
       background: var(--bg-hover);
       border-color: var(--accent);
@@ -242,9 +244,13 @@
       border-style: dashed;
     }
 
-    /* 드랍 위치 표시 */
+    /* 드롭 위치 표시(좌/우) */
     .bookmark-item.drop-before {
       box-shadow: inset 4px 0 0 0 rgba(78, 205, 196, 0.85);
+      border-color: var(--accent);
+    }
+    .bookmark-item.drop-after {
+      box-shadow: inset -4px 0 0 0 rgba(78, 205, 196, 0.85);
       border-color: var(--accent);
     }
 
@@ -272,14 +278,11 @@
       min-width: 0;
     }
 
-    /* 삭제 X: 내부 고정 */
-    .bookmark-delete {
+    .bookmark-action {
       position: absolute;
       top: 7px;
-      right: 7px;
       width: 18px;
       height: 18px;
-      background: var(--danger);
       border: none;
       border-radius: 50%;
       color: white;
@@ -290,9 +293,26 @@
       justify-content: center;
       z-index: 2;
     }
-    .bookmark-item:hover .bookmark-delete { display: flex; }
 
-    /* Calendar (원본 유지) */
+    .bookmark-delete {
+      right: 7px;
+      background: var(--danger);
+    }
+
+    .bookmark-edit {
+      right: 30px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .bookmark-edit:hover {
+      background: var(--accent);
+      color: var(--bg-primary);
+      border-color: var(--accent);
+    }
+
+    .bookmark-item:hover .bookmark-action { display: flex; }
+
+    /* Calendar */
     .calendar-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
     .calendar-nav { display:flex; gap:6px; }
     .calendar-nav button {
@@ -307,24 +327,6 @@
     }
     .calendar-nav button:hover { background: var(--accent); color: var(--bg-primary); }
     .calendar-week-label { font-weight: 600; color: var(--text-primary); font-size: 0.9rem; }
-
-    .google-status {
-      display:flex; align-items:center; gap:8px;
-      padding:6px 10px; background: var(--bg-secondary);
-      border-radius:6px; margin-bottom:8px; font-size:0.75rem;
-    }
-    .google-status.connected { border: 1px solid #4285f4; }
-    .google-status.disconnected { border: 1px solid var(--border); }
-    .google-status-text { flex:1; color: var(--text-secondary); }
-    .google-btn {
-      background:#4285f4; border:none; color:white;
-      padding:4px 10px; border-radius:5px;
-      cursor:pointer; font-size:0.75rem;
-      transition:background 0.2s;
-    }
-    .google-btn:hover { background:#3367d6; }
-    .google-btn.disconnect { background: var(--bg-hover); color: var(--text-secondary); }
-    .google-btn.disconnect:hover { background: var(--danger); color:white; }
 
     .week-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:10px; }
     .week-day {
@@ -372,7 +374,29 @@
     }
     .event-empty { text-align:center; color: var(--text-muted); padding:30px 16px; font-size:0.85rem; }
 
-    /* Memo (원본 유지) */
+    /* Google status pill */
+    .g-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+    .g-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-muted);
+    }
+    .g-pill.connected .g-dot { background: #4285f4; }
+    .g-pill.connected { border-color: rgba(66, 133, 244, 0.6); }
+
+    /* Memo */
     .memo-container { min-height:200px; max-height:200px; }
     .memo-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; max-height:200px; overflow-y:auto; padding:4px; }
     .memo-postit {
@@ -417,7 +441,7 @@
     }
     .memo-postit-add:hover { border-color: var(--accent); color: var(--accent); transform:none; box-shadow:none; }
 
-    /* News (7줄 표시) */
+    /* News */
     .news-keyword-bar { display:flex; gap:5px; margin-bottom:8px; flex-wrap:wrap; }
     .news-keyword {
       background: var(--bg-secondary);
@@ -489,7 +513,7 @@
     .modal-close:hover { color: var(--text-primary); }
     .form-group { margin-bottom:16px; }
     .form-label { display:block; margin-bottom:6px; color: var(--text-secondary); font-size:0.85rem; }
-    .form-input, .form-textarea {
+    .form-input, .form-textarea, select.form-input {
       width:100%;
       background: var(--bg-secondary);
       border: 1px solid var(--border);
@@ -501,6 +525,7 @@
     }
     .form-textarea { min-height:120px; resize:vertical; }
     .form-input:focus, .form-textarea:focus { outline:none; border-color: var(--accent); }
+
     .form-color-options { display:flex; gap:8px; }
     .color-option {
       width:28px; height:28px;
@@ -629,16 +654,17 @@
     <div class="card">
       <div class="card-header">
         <div class="card-title"><span class="card-title-icon">📅</span>주간 일정</div>
+
+        <!-- ✅ 여기로 이동: 연결/캘린더선택은 +일정 왼쪽 -->
         <div class="card-actions">
+          <span class="g-pill disconnected" id="gPill">
+            <span class="g-dot"></span>
+            <span id="gPillText">Google 미연결</span>
+          </span>
+          <button class="card-btn" id="googleCalendarSelectBtn" onclick="openCalendarSelectModal()" style="display:none;">캘린더 선택</button>
+          <button class="card-btn" id="googleBtn" onclick="handleGoogleAuth()">Google 연결</button>
           <button class="card-btn" onclick="openAddEventModal()">+ 일정</button>
         </div>
-      </div>
-
-      <div class="google-status disconnected" id="googleStatus">
-        <span>📆</span>
-        <span class="google-status-text" id="googleStatusText">Google 캘린더 연결 안됨</span>
-        <button class="google-btn" id="googleBtn" onclick="handleGoogleAuth()">연결</button>
-        <button class="google-btn" id="googleCalendarSelectBtn" onclick="openCalendarSelectModal()" style="display:none;">캘린더 선택</button>
       </div>
 
       <div class="calendar-header">
@@ -684,15 +710,16 @@
     </div>
   </main>
 
-  <!-- Add Bookmark Modal -->
+  <!-- Add/Edit Bookmark Modal -->
   <div class="modal-overlay" id="bookmarkModal">
     <div class="modal">
       <div class="modal-header">
-        <div class="modal-title">사이트 추가</div>
+        <div class="modal-title" id="bookmarkModalTitle">사이트 추가</div>
         <button class="modal-close" onclick="closeModal('bookmarkModal')">×</button>
       </div>
 
-      <form onsubmit="addBookmark(event)">
+      <form onsubmit="saveBookmark(event)">
+        <input type="hidden" id="bookmarkEditId" value="">
         <div class="form-group">
           <label class="form-label">사이트 이름</label>
           <input type="text" class="form-input" id="bookmarkName" placeholder="예: ChatGPT" required>
@@ -713,12 +740,12 @@
           <select class="form-input" id="bookmarkGroup"></select>
         </div>
 
-        <button type="submit" class="form-submit">추가하기</button>
+        <button type="submit" class="form-submit" id="bookmarkSubmitBtn">추가하기</button>
       </form>
     </div>
   </div>
 
-  <!-- Bookmark Group Modal (여기서만 이름변경/삭제) -->
+  <!-- Bookmark Group Modal -->
   <div class="modal-overlay" id="bookmarkGroupModal">
     <div class="modal">
       <div class="modal-header">
@@ -839,7 +866,7 @@
     let state = {
       bookmarks: [],
       bookmarkGroups: [{ id: 'default', name: '기본' }],
-      bookmarkOrderMap: {}, // ✅ 그룹별 정렬 순서(배열)
+      bookmarkOrderMap: {},
       events: [],
       googleEvents: [],
       googleCalendars: [],
@@ -850,8 +877,10 @@
       newsProvider: 'naver',
       currentWeekStart: null,
       selectedDate: null,
+
       googleConnected: false,
       googleAccessToken: null,
+      googleTokenExpiresAt: null,  // ✅ expires_in 기반으로 만료 시각 저장(밀리초)
       selectedMemoColor: 'yellow'
     };
 
@@ -862,7 +891,7 @@
     let dragState = {
       draggingId: null,
       isDragging: false,
-      lastDropTargetId: null
+      lastMarkerId: null
     };
 
     // Utils
@@ -915,9 +944,13 @@
       }
 
       const googleToken = localStorage.getItem('googleAccessToken');
+      const googleExpiresAt = localStorage.getItem('googleTokenExpiresAt');
       if (googleToken) {
         state.googleAccessToken = googleToken;
         state.googleConnected = true;
+      }
+      if (googleExpiresAt) {
+        state.googleTokenExpiresAt = Number(googleExpiresAt);
       }
 
       state.currentWeekStart = getWeekStart(new Date());
@@ -952,7 +985,6 @@
       if (!Array.isArray(state.bookmarks)) state.bookmarks = [];
       if (!state.bookmarkOrderMap || typeof state.bookmarkOrderMap !== 'object') state.bookmarkOrderMap = {};
 
-      // bookmarks id/groupId 보정
       state.bookmarks = state.bookmarks.map(b => ({
         id: b.id || uid('bm'),
         name: b.name || '(이름 없음)',
@@ -961,11 +993,9 @@
         groupId: b.groupId || 'default'
       }));
 
-      // 없는 groupId는 default
       const groupIds = new Set(state.bookmarkGroups.map(g => g.id));
       state.bookmarks = state.bookmarks.map(b => groupIds.has(b.groupId) ? b : ({ ...b, groupId: 'default' }));
 
-      // 초기 기본 북마크
       if (state.bookmarks.length === 0) {
         state.bookmarks = [
           { id: uid('bm'), name: 'ChatGPT', url: 'https://chat.openai.com', icon: '🤖', groupId: 'default' },
@@ -975,14 +1005,11 @@
         ];
       }
 
-      // orderMap 보정: 그룹별로 id 목록 유지
       for (const g of state.bookmarkGroups) {
         const existing = Array.isArray(state.bookmarkOrderMap[g.id]) ? state.bookmarkOrderMap[g.id] : [];
         const groupBms = state.bookmarks.filter(b => b.groupId === g.id).map(b => b.id);
 
-        // existing 중 실제 존재하는 것만
         const cleaned = existing.filter(id => groupBms.includes(id));
-        // 누락된 id는 뒤에 붙임
         const missing = groupBms.filter(id => !cleaned.includes(id));
         state.bookmarkOrderMap[g.id] = [...cleaned, ...missing];
       }
@@ -1003,6 +1030,9 @@
 
       updateTime();
       setInterval(updateTime, 1000);
+
+      // 토큰 만료 체크(있으면)
+      setInterval(checkGoogleTokenExpiry, 30 * 1000);
 
       getWeather();
       renderBookmarkGroups();
@@ -1031,7 +1061,7 @@
 
     function exportToJson() {
       const exportData = {
-        version: '2.1',
+        version: '2.2',
         exportDate: getLocalDateStr(new Date()),
         bookmarks: state.bookmarks,
         bookmarkGroups: state.bookmarkGroups,
@@ -1159,7 +1189,9 @@
                ondragleave="onBookmarkDragLeaveItem(event, '${b.id}')"
                ondrop="onBookmarkDropOnItem(event, '${g.id}', '${b.id}')"
                onclick="onBookmarkClick('${escapeQuotes(b.url)}')">
-            <button class="bookmark-delete" onclick="deleteBookmark(event, '${b.id}')">×</button>
+            <button class="bookmark-action bookmark-edit" onclick="openEditBookmarkModal(event, '${b.id}')">✎</button>
+            <button class="bookmark-action bookmark-delete" onclick="deleteBookmark(event, '${b.id}')">×</button>
+
             <div class="bookmark-icon">${b.icon || '🔗'}</div>
             <div class="bookmark-name" title="${escapeHtml(b.name)}">${escapeHtml(b.name)}</div>
           </div>
@@ -1181,39 +1213,88 @@
     }
 
     function onBookmarkClick(url) {
-      // 드래그 직후 클릭 방지
       if (dragState.isDragging) return;
       if (!url || url === '#') return;
       window.open(url, '_blank', 'noopener,noreferrer');
     }
 
-    // ==================== Bookmarks: CRUD ====================
-    function openAddBookmarkModal() {
+    // ==================== Bookmarks: Add/Edit Modal ====================
+    function fillBookmarkGroupSelect(selectedId = 'default') {
       const select = document.getElementById('bookmarkGroup');
       select.innerHTML = state.bookmarkGroups.map(g => `
-        <option value="${g.id}">${escapeHtml(g.name)}</option>
+        <option value="${g.id}" ${g.id === selectedId ? 'selected' : ''}>${escapeHtml(g.name)}</option>
       `).join('');
+    }
+
+    function openAddBookmarkModal() {
+      document.getElementById('bookmarkModalTitle').textContent = '사이트 추가';
+      document.getElementById('bookmarkSubmitBtn').textContent = '추가하기';
+      document.getElementById('bookmarkEditId').value = '';
+      document.getElementById('bookmarkName').value = '';
+      document.getElementById('bookmarkUrl').value = '';
+      document.getElementById('bookmarkIcon').value = '';
+      fillBookmarkGroupSelect('default');
       document.getElementById('bookmarkModal').classList.add('active');
     }
 
-    function addBookmark(e) {
+    function openEditBookmarkModal(e, bookmarkId) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const bm = state.bookmarks.find(b => b.id === bookmarkId);
+      if (!bm) return;
+
+      document.getElementById('bookmarkModalTitle').textContent = '사이트 수정';
+      document.getElementById('bookmarkSubmitBtn').textContent = '저장하기';
+      document.getElementById('bookmarkEditId').value = bm.id;
+      document.getElementById('bookmarkName').value = bm.name;
+      document.getElementById('bookmarkUrl').value = bm.url;
+      document.getElementById('bookmarkIcon').value = bm.icon || '';
+      fillBookmarkGroupSelect(bm.groupId);
+
+      document.getElementById('bookmarkModal').classList.add('active');
+    }
+
+    function saveBookmark(e) {
       e.preventDefault();
 
+      const editId = document.getElementById('bookmarkEditId').value || '';
       const name = document.getElementById('bookmarkName').value.trim();
       const url = document.getElementById('bookmarkUrl').value.trim();
       const icon = (document.getElementById('bookmarkIcon').value || '🔗').trim();
       const groupId = document.getElementById('bookmarkGroup').value || 'default';
 
-      const id = uid('bm');
-      state.bookmarks.push({ id, name, url, icon, groupId });
+      if (!editId) {
+        // add
+        const id = uid('bm');
+        state.bookmarks.push({ id, name, url, icon, groupId });
 
-      if (!Array.isArray(state.bookmarkOrderMap[groupId])) state.bookmarkOrderMap[groupId] = [];
-      state.bookmarkOrderMap[groupId].push(id); // 마지막에 추가
+        if (!Array.isArray(state.bookmarkOrderMap[groupId])) state.bookmarkOrderMap[groupId] = [];
+        state.bookmarkOrderMap[groupId].push(id);
+      } else {
+        // edit
+        const bm = state.bookmarks.find(b => b.id === editId);
+        if (!bm) return;
+
+        const oldGroupId = bm.groupId;
+
+        bm.name = name;
+        bm.url = url;
+        bm.icon = icon;
+
+        if (oldGroupId !== groupId) {
+          // group 이동(모달로도 가능)
+          bm.groupId = groupId;
+
+          state.bookmarkOrderMap[oldGroupId] = (state.bookmarkOrderMap[oldGroupId] || []).filter(x => x !== editId);
+          if (!Array.isArray(state.bookmarkOrderMap[groupId])) state.bookmarkOrderMap[groupId] = [];
+          state.bookmarkOrderMap[groupId].push(editId);
+        }
+      }
 
       saveState();
       renderBookmarkGroups();
       closeModal('bookmarkModal');
-      e.target.reset();
     }
 
     function deleteBookmark(e, bookmarkId) {
@@ -1225,16 +1306,17 @@
       if (!bm) return;
 
       state.bookmarks = state.bookmarks.filter(b => b.id !== bookmarkId);
-      const groupId = bm.groupId;
-      state.bookmarkOrderMap[groupId] = (state.bookmarkOrderMap[groupId] || []).filter(id => id !== bookmarkId);
+      state.bookmarkOrderMap[bm.groupId] = (state.bookmarkOrderMap[bm.groupId] || []).filter(id => id !== bookmarkId);
 
       saveState();
       renderBookmarkGroups();
     }
 
-    // ==================== Bookmarks: DnD (reorder + move) ====================
+    // ==================== Bookmarks: DnD (좌/우 반으로 before/after) ====================
     function clearDropMarkers() {
       document.querySelectorAll('.bookmark-item.drop-before').forEach(el => el.classList.remove('drop-before'));
+      document.querySelectorAll('.bookmark-item.drop-after').forEach(el => el.classList.remove('drop-after'));
+      dragState.lastMarkerId = null;
     }
 
     function onBookmarkDragStart(e, bookmarkId) {
@@ -1253,7 +1335,6 @@
       e.currentTarget.classList.remove('dragging');
       dragState.draggingId = null;
 
-      // 약간의 딜레이 후 클릭 허용
       setTimeout(() => { dragState.isDragging = false; }, 80);
 
       state.bookmarkGroups.forEach(g => {
@@ -1264,7 +1345,6 @@
       clearDropMarkers();
     }
 
-    // 그룹 박스 위로 드래그
     function onGroupDragOver(e, groupId) {
       e.preventDefault();
       e.dataTransfer.dropEffect = 'move';
@@ -1272,7 +1352,6 @@
       const groupEl = document.getElementById(`group_${groupId}`);
       if (groupEl) groupEl.classList.add('drag-over');
 
-      // 그룹 위에서는 "아이템 앞 표시" 제거
       clearDropMarkers();
     }
 
@@ -1286,90 +1365,111 @@
       if (!inside) groupEl.classList.remove('drag-over');
     }
 
-    // 그룹에 드롭(빈 공간 드롭) => 해당 그룹 맨 뒤로
     function onGroupDrop(e, targetGroupId) {
       e.preventDefault();
       const bookmarkId = e.dataTransfer.getData('text/plain') || dragState.draggingId;
       if (!bookmarkId) return;
 
-      const bm = state.bookmarks.find(b => b.id === bookmarkId);
-      if (!bm) return;
-
-      moveBookmarkToGroupAndIndex(bookmarkId, targetGroupId, null); // null => append
+      moveBookmarkToGroupAppend(bookmarkId, targetGroupId);
       saveState();
       renderBookmarkGroups();
     }
 
-    // 아이템 위로 드래그(삽입 위치 표시)
     function onBookmarkDragOverItem(e, targetId) {
       e.preventDefault();
       e.dataTransfer.dropEffect = 'move';
 
+      if (dragState.draggingId && dragState.draggingId === targetId) {
+        clearDropMarkers();
+        return;
+      }
+
       const el = document.querySelector(`.bookmark-item[data-bm-id="${targetId}"]`);
       if (!el) return;
 
-      clearDropMarkers();
-      // 자기 자신이면 표시 안 함
-      if (dragState.draggingId && dragState.draggingId === targetId) return;
+      const rect = el.getBoundingClientRect();
+      const isBefore = e.clientX < (rect.left + rect.width / 2);
 
-      el.classList.add('drop-before');
+      // marker 갱신
+      clearDropMarkers();
+      el.classList.add(isBefore ? 'drop-before' : 'drop-after');
+      dragState.lastMarkerId = targetId;
     }
 
     function onBookmarkDragLeaveItem(e, targetId) {
       const el = document.querySelector(`.bookmark-item[data-bm-id="${targetId}"]`);
-      if (el) el.classList.remove('drop-before');
+      if (el) {
+        el.classList.remove('drop-before');
+        el.classList.remove('drop-after');
+      }
     }
 
-    // 아이템 위에 드롭 => 그 아이템 "앞"으로 삽입
     function onBookmarkDropOnItem(e, targetGroupId, targetBookmarkId) {
       e.preventDefault();
       const bookmarkId = e.dataTransfer.getData('text/plain') || dragState.draggingId;
       if (!bookmarkId) return;
-
-      // 자기 자신 위 드롭은 무시
       if (bookmarkId === targetBookmarkId) return;
 
-      moveBookmarkToGroupAndIndex(bookmarkId, targetGroupId, targetBookmarkId);
+      const el = document.querySelector(`.bookmark-item[data-bm-id="${targetBookmarkId}"]`);
+      let position = 'before';
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        position = (e.clientX < (rect.left + rect.width / 2)) ? 'before' : 'after';
+      }
+
+      moveBookmarkToGroupRelative(bookmarkId, targetGroupId, targetBookmarkId, position);
       saveState();
       renderBookmarkGroups();
     }
 
-    // 핵심 이동/정렬 로직
-    // insertBeforeId가 null이면 append, 아니면 그 id 앞에 삽입
-    function moveBookmarkToGroupAndIndex(bookmarkId, targetGroupId, insertBeforeId) {
+    function moveBookmarkToGroupAppend(bookmarkId, targetGroupId) {
       const bm = state.bookmarks.find(b => b.id === bookmarkId);
       if (!bm) return;
 
       const sourceGroupId = bm.groupId;
 
-      // order 배열 준비
       if (!Array.isArray(state.bookmarkOrderMap[sourceGroupId])) state.bookmarkOrderMap[sourceGroupId] = [];
       if (!Array.isArray(state.bookmarkOrderMap[targetGroupId])) state.bookmarkOrderMap[targetGroupId] = [];
 
-      // source에서 제거
+      // source 제거
       state.bookmarkOrderMap[sourceGroupId] = state.bookmarkOrderMap[sourceGroupId].filter(id => id !== bookmarkId);
 
-      // groupId 변경
       bm.groupId = targetGroupId;
 
-      // target에 삽입
+      // target append
+      const targetOrder = state.bookmarkOrderMap[targetGroupId].filter(id => id !== bookmarkId);
+      targetOrder.push(bookmarkId);
+      state.bookmarkOrderMap[targetGroupId] = targetOrder;
+    }
+
+    function moveBookmarkToGroupRelative(bookmarkId, targetGroupId, targetId, position) {
+      const bm = state.bookmarks.find(b => b.id === bookmarkId);
+      if (!bm) return;
+
+      const sourceGroupId = bm.groupId;
+
+      if (!Array.isArray(state.bookmarkOrderMap[sourceGroupId])) state.bookmarkOrderMap[sourceGroupId] = [];
+      if (!Array.isArray(state.bookmarkOrderMap[targetGroupId])) state.bookmarkOrderMap[targetGroupId] = [];
+
+      // source 제거
+      state.bookmarkOrderMap[sourceGroupId] = state.bookmarkOrderMap[sourceGroupId].filter(id => id !== bookmarkId);
+
+      bm.groupId = targetGroupId;
+
       const targetOrder = state.bookmarkOrderMap[targetGroupId].filter(id => id !== bookmarkId);
 
-      if (!insertBeforeId) {
+      const idx = targetOrder.indexOf(targetId);
+      if (idx === -1) {
         targetOrder.push(bookmarkId);
       } else {
-        const idx = targetOrder.indexOf(insertBeforeId);
-        if (idx === -1) targetOrder.push(bookmarkId);
-        else targetOrder.splice(idx, 0, bookmarkId);
+        const insertAt = (position === 'before') ? idx : (idx + 1);
+        targetOrder.splice(insertAt, 0, bookmarkId);
       }
 
       state.bookmarkOrderMap[targetGroupId] = targetOrder;
-
-      // sourceGroupId가 target과 같았던(그룹내 reorder) 케이스도 정상 동작하도록
-      // (위에서 source 제거 후 target 삽입이 같은 배열에 적용되면 문제 없음)
     }
 
-    // ==================== Group Management (rename/delete here only) ====================
+    // ==================== Group Management (rename/delete only here) ====================
     function openBookmarkGroupModal() {
       document.getElementById('bookmarkGroupModal').classList.add('active');
       renderBookmarkGroupList();
@@ -1389,7 +1489,7 @@
 
             <button class="card-btn" type="button" onclick="renameBookmarkGroup('${g.id}')">이름변경</button>
             <button class="card-btn" type="button"
-              ${disabled ? 'disabled style="opacity:.45; cursor:not-allowed;"' : `onclick="deleteBookmarkGroup('${g.id}')"`}>
+              ${disabled ? 'disabled' : `onclick="deleteBookmarkGroup('${g.id}')"`}>
               삭제
             </button>
           </div>
@@ -1437,15 +1537,12 @@
 
       if (!confirm(`${groupName}을(를) 삭제할까요?\n그룹 안의 북마크는 "기본" 그룹으로 이동됩니다.`)) return;
 
-      // 그룹 내 북마크들을 default로 이동 + default 맨 뒤에 append
       const movingIds = (state.bookmarkOrderMap[groupId] || []).slice();
       if (!Array.isArray(state.bookmarkOrderMap['default'])) state.bookmarkOrderMap['default'] = [];
       state.bookmarkOrderMap['default'] = [...state.bookmarkOrderMap['default'], ...movingIds];
 
-      // 실제 bookmarks groupId 변경
       state.bookmarks = state.bookmarks.map(b => b.groupId === groupId ? { ...b, groupId: 'default' } : b);
 
-      // 그룹 삭제
       state.bookmarkGroups = state.bookmarkGroups.filter(g => g.id !== groupId);
       delete state.bookmarkOrderMap[groupId];
 
@@ -1454,7 +1551,7 @@
       renderBookmarkGroups();
     }
 
-    // ==================== Calendar (Weekly) - 기존 코드 유지 ====================
+    // ==================== Calendar (Weekly) ====================
     function renderWeeklyCalendar() {
       const grid = document.getElementById('weekGrid');
       const weekLabel = document.getElementById('calendarWeekLabel');
@@ -1576,41 +1673,43 @@
       }
     }
 
-    // ==================== Google Calendar (원본 유지) ====================
+    // ==================== Google Calendar ====================
     function updateGoogleStatus() {
-      const statusEl = document.getElementById('googleStatus');
-      const textEl = document.getElementById('googleStatusText');
+      const pill = document.getElementById('gPill');
+      const text = document.getElementById('gPillText');
       const btnEl = document.getElementById('googleBtn');
       const selectBtnEl = document.getElementById('googleCalendarSelectBtn');
 
-      if (state.googleConnected) {
-        statusEl.classList.remove('disconnected');
-        statusEl.classList.add('connected');
-        textEl.textContent = 'Google 캘린더 연결됨';
+      if (state.googleConnected && state.googleAccessToken) {
+        pill.classList.add('connected');
+        text.textContent = 'Google 연결됨';
         btnEl.textContent = '연결 해제';
-        btnEl.classList.add('disconnect');
         selectBtnEl.style.display = 'inline-block';
       } else {
-        statusEl.classList.remove('connected');
-        statusEl.classList.add('disconnected');
-        textEl.textContent = 'Google 캘린더 연결 안됨';
-        btnEl.textContent = '연결';
-        btnEl.classList.remove('disconnect');
+        pill.classList.remove('connected');
+        text.textContent = 'Google 미연결';
+        btnEl.textContent = 'Google 연결';
         selectBtnEl.style.display = 'none';
       }
     }
 
     function handleGoogleAuth() {
       if (state.googleConnected) {
+        // 연결 해제
         state.googleConnected = false;
         state.googleAccessToken = null;
         state.googleEvents = [];
+        state.googleTokenExpiresAt = null;
+
         localStorage.removeItem('googleAccessToken');
+        localStorage.removeItem('googleTokenExpiresAt');
+
         updateGoogleStatus();
         renderWeeklyCalendar();
         return;
       }
 
+      // Implicit Flow: 토큰 자체가 짧음(대개 ~1시간).
       const redirectUri = window.location.origin + window.location.pathname;
       const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
       window.location.href = authUrl;
@@ -1621,15 +1720,43 @@
       if (hash && hash.includes('access_token')) {
         const params = new URLSearchParams(hash.substring(1));
         const accessToken = params.get('access_token');
+        const expiresIn = Number(params.get('expires_in') || '0'); // ✅ 보통 초 단위
+
         if (accessToken) {
           state.googleAccessToken = accessToken;
           state.googleConnected = true;
           localStorage.setItem('googleAccessToken', accessToken);
+
+          if (expiresIn > 0) {
+            state.googleTokenExpiresAt = Date.now() + expiresIn * 1000;
+            localStorage.setItem('googleTokenExpiresAt', String(state.googleTokenExpiresAt));
+          }
+
           window.history.replaceState({}, document.title, window.location.pathname);
+
           updateGoogleStatus();
           fetchGoogleCalendarList();
           fetchGoogleCalendarEvents();
         }
+      }
+    }
+
+    function checkGoogleTokenExpiry() {
+      if (!state.googleConnected || !state.googleAccessToken || !state.googleTokenExpiresAt) return;
+
+      const msLeft = state.googleTokenExpiresAt - Date.now();
+      // 2분 이하 남으면 안내(자동 재연장은 이 플로우에선 어렵고, 재연결이 필요)
+      if (msLeft > 0 && msLeft < 2 * 60 * 1000) {
+        // 너무 자주 뜨는 건 방지(한 번만)
+        if (!state.__warnedExpiry) {
+          state.__warnedExpiry = true;
+          alert('Google 인증이 곧 만료됩니다. 끊기면 "Google 연결"을 다시 눌러주세요.');
+        }
+      }
+      if (msLeft <= 0) {
+        // 만료 추정: 상태만 정리(실제는 401에서 확정)
+        state.googleTokenExpiresAt = null;
+        localStorage.removeItem('googleTokenExpiresAt');
       }
     }
 
@@ -1639,29 +1766,43 @@
         const res = await fetch('https://www.googleapis.com/calendar/v3/users/me/calendarList', {
           headers: { 'Authorization': `Bearer ${state.googleAccessToken}` }
         });
+
+        if (res.status === 401) {
+          handleGoogle401();
+          return;
+        }
+
         if (res.ok) {
           const data = await res.json();
           state.googleCalendars = data.items || [];
+
           if (state.selectedCalendars.length === 0) {
             state.selectedCalendars = state.googleCalendars.map(c => c.id);
             saveState();
           }
         }
-      } catch (e) { console.error('Calendar list error:', e); }
+      } catch (e) {
+        console.error('Calendar list error:', e);
+      }
     }
 
     async function openCalendarSelectModal() {
       document.getElementById('calendarSelectModal').classList.add('active');
-      if (state.googleCalendars.length === 0) await fetchGoogleCalendarList();
+
+      if (state.googleCalendars.length === 0) {
+        await fetchGoogleCalendarList();
+      }
       renderCalendarList();
     }
 
     function renderCalendarList() {
       const list = document.getElementById('calendarList');
+
       if (state.googleCalendars.length === 0) {
         list.innerHTML = '<div class="news-loading">캘린더가 없습니다</div>';
         return;
       }
+
       list.innerHTML = state.googleCalendars.map(cal => {
         const isChecked = state.selectedCalendars.includes(cal.id);
         const bgColor = cal.backgroundColor || '#4285f4';
@@ -1678,13 +1819,30 @@
     function saveCalendarSelection() {
       const checkboxes = document.querySelectorAll('#calendarList input[type="checkbox"]');
       state.selectedCalendars = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+
       saveState();
       closeModal('calendarSelectModal');
       fetchGoogleCalendarEvents();
     }
 
+    function handleGoogle401() {
+      state.googleConnected = false;
+      state.googleAccessToken = null;
+      state.googleEvents = [];
+      state.googleTokenExpiresAt = null;
+      state.__warnedExpiry = false;
+
+      localStorage.removeItem('googleAccessToken');
+      localStorage.removeItem('googleTokenExpiresAt');
+
+      updateGoogleStatus();
+      renderWeeklyCalendar();
+      alert('Google 인증이 만료되었습니다. 다시 연결해주세요.');
+    }
+
     async function fetchGoogleCalendarEvents() {
       if (!state.googleAccessToken) return;
+
       try {
         const weekStart = new Date(state.currentWeekStart);
         const weekEnd = new Date(weekStart);
@@ -1701,11 +1859,7 @@
             );
 
             if (res.status === 401) {
-              state.googleConnected = false;
-              state.googleAccessToken = null;
-              localStorage.removeItem('googleAccessToken');
-              updateGoogleStatus();
-              alert('Google 인증이 만료되었습니다. 다시 연결해주세요.');
+              handleGoogle401();
               return;
             }
 
@@ -1728,15 +1882,19 @@
                 allEvents = allEvents.concat(events);
               }
             }
-          } catch (e) { console.error(`Calendar ${calendarId} error:`, e); }
+          } catch (e) {
+            console.error(`Calendar ${calendarId} error:`, e);
+          }
         }
 
         state.googleEvents = allEvents;
         renderWeeklyCalendar();
-      } catch (e) { console.error('Google Calendar error:', e); }
+      } catch (e) {
+        console.error('Google Calendar error:', e);
+      }
     }
 
-    // ==================== Memos (원본 유지) ====================
+    // ==================== Memos ====================
     function renderMemos() {
       const grid = document.getElementById('memoGrid');
 
@@ -1824,7 +1982,7 @@
       XLSX.writeFile(wb, filename);
     }
 
-    // ==================== News (7줄 표시) ====================
+    // ==================== News (7 lines) ====================
     function renderNewsKeywords() {
       const container = document.getElementById('newsKeywords');
       container.innerHTML = state.newsKeywords.map(k => `
@@ -1889,7 +2047,7 @@
 
     function renderNewsItems(items) {
       const list = document.getElementById('newsList');
-      const displayItems = (items || []).slice(0, 7); // ✅ 7줄
+      const displayItems = (items || []).slice(0, 7);
       if (displayItems.length === 0) {
         list.innerHTML = '<div class="news-loading">표시할 뉴스가 없습니다.</div>';
         return;
