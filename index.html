@@ -184,51 +184,23 @@
             border-color: var(--accent);
         }
 
-        /* --- Bookmarks Grouped Style --- */
-        .bookmarks-container {
+        /* Bookmarks Widget */
+        .bookmarks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); 
+            gap: 8px;
             flex: 1;
             overflow-y: auto;
-            padding-right: 4px;
+            align-content: start; /* 위쪽으로 밀착 */
         }
 
-        .bookmark-group {
-            margin-bottom: 16px;
-            background: rgba(0, 0, 0, 0.15);
-            border-radius: 10px;
-            padding: 10px;
-            border: 1px solid var(--border);
-        }
-
-        .group-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .group-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent);
-            cursor: pointer;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        .group-title:hover { background: var(--bg-hover); }
-
-        .bookmarks-grid-inner {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-            gap: 8px;
-        }
-
+        /* 개별 항목 수정: 세로 배치에서 가로 배치로 변경 */
         .bookmark-item {
             display: flex;
-            flex-direction: row;
+            flex-direction: row; /* 가로 배치 */
             align-items: center;
             gap: 8px;
-            padding: 6px 10px;
+            padding: 6px 10px; /* 패딩 축소 */
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -237,7 +209,7 @@
             text-decoration: none;
             color: var(--text-primary);
             position: relative;
-            height: 42px;
+            height: 42px; /* 높이 고정으로 통일감 부여 */
         }
 
         .bookmark-item:hover {
@@ -246,6 +218,7 @@
             border-color: var(--accent);
         }
 
+        /* 아이콘 크기 축소 */
         .bookmark-icon {
             width: 24px;
             height: 24px;
@@ -257,34 +230,44 @@
             justify-content: center;
             font-size: 0.9rem;
         }
-
+        
+        /* 이름 정렬 수정 */
         .bookmark-name {
             font-size: 0.75rem;
-            text-align: left;
+            text-align: left; /* 왼쪽 정렬 */
             color: var(--text-secondary);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             flex: 1;
         }
+        
+        /* 추가 버튼 스타일 정렬 조정 */
+        .bookmark-add {
+            justify-content: center; /* 추가 버튼은 중앙 정렬 유지 */
+            border: 1px dashed var(--border);
+        }
 
-        /* 고정: 삭제 버튼 위치 수정 (내부로 옮겨 잘림 방지) */
+        .bookmark-add:hover {
+            border-color: var(--accent);
+            background: rgba(78, 205, 196, 0.1);
+        }
+
         .bookmark-delete {
             position: absolute;
-            top: 2px;
-            right: 2px;
-            width: 16px;
-            height: 16px;
+            top: -6px;
+            right: -6px;
+            width: 18px;
+            height: 18px;
             background: var(--danger);
             border: none;
-            border-radius: 4px;
+            border-radius: 50%;
             color: white;
-            font-size: 10px;
+            font-size: 11px;
             cursor: pointer;
             display: none;
             align-items: center;
             justify-content: center;
-            z-index: 10;
         }
 
         .bookmark-item:hover .bookmark-delete {
@@ -751,7 +734,7 @@
             font-size: 0.85rem;
         }
 
-        .form-input, .form-textarea, .form-select {
+        .form-input, .form-textarea {
             width: 100%;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -893,1066 +876,1028 @@
     </style>
 </head>
 <body>
-        <header class="header">
-        <div class="header-left">
-            <h1>Jang's Dashboard</h1>
-        </div>
-        <div class="header-right">
-            <div class="weather-inline" id="weatherWidget">
-                <span class="weather-icon" id="weatherIcon">🌡️</span>
-                <div>
-                    <span class="weather-temp" id="weatherTemp">--°</span>
-                    <span class="weather-desc" id="weatherDesc">로딩중...</span>
-                </div>
-                <span class="weather-location" id="weatherLocation">📍 --</span>
-            </div>
-            <div class="current-time" id="currentTime">00:00:00</div>
-            <div class="settings-dropdown">
-                <button class="settings-btn" onclick="toggleSettingsMenu()">⚙️ 설정</button>
-                <div class="settings-menu" id="settingsMenu">
-                    <button onclick="exportToJson()">📥 JSON 내보내기</button>
-                    <button onclick="document.getElementById('jsonFileInput').click()">📤 JSON 불러오기</button>
-                    <input type="file" id="jsonFileInput" accept=".json" style="display:none" onchange="importFromJson(event)">
-                </div>
-            </div>
-        </div>
-    </header>
-
-        <main class="main-container">
-                <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <span class="card-title-icon">⭐</span>
-                    즐겨찾는 사이트
-                </div>
-                <div class="card-actions">
-                    <button class="card-btn" onclick="addGroup()">+ 그룹</button>
-                </div>
-            </div>
-            <div class="bookmarks-container" id="bookmarksGrid"></div>
-        </div>
-
-                <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <span class="card-title-icon">📅</span>
-                    주간 일정
-                </div>
-                <div class="card-actions">
-                    <button class="card-btn" onclick="openAddEventModal()">+ 일정</button>
-                </div>
-            </div>
-            <div class="google-status disconnected" id="googleStatus">
-                <span>📆</span>
-                <span class="google-status-text" id="googleStatusText">Google 캘린더 연결 안됨</span>
-                <button class="google-btn" id="googleBtn" onclick="handleGoogleAuth()">연결</button>
-                <button class="google-btn" id="googleCalendarSelectBtn" onclick="openCalendarSelectModal()" style="display:none;">캘린더 선택</button>
-            </div>
-            <div class="calendar-header">
-                <div class="calendar-nav">
-                    <button onclick="changeWeek(-1)">◀</button>
-                    <button onclick="goToToday()">오늘</button>
-                    <button onclick="changeWeek(1)">▶</button>
-                </div>
-                <div class="calendar-week-label" id="calendarWeekLabel">1월 2주차</div>
-            </div>
-            <div class="week-grid" id="weekGrid"></div>
-            <div id="selectedDateHeader" class="events-date-header"></div>
-            <div class="events-list" id="eventsList"></div>
-        </div>
-
-                <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <span class="card-title-icon">📝</span>
-                    메모
-                </div>
-                <div class="card-actions">
-                    <button class="card-btn" onclick="exportAllMemos()">내보내기</button>
-                </div>
-            </div>
-            <div class="memo-container">
-                <div class="memo-grid" id="memoGrid"></div>
-            </div>
-        </div>
-
-                <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <span class="card-title-icon">📰</span>
-                    뉴스
-                </div>
-                <div class="card-actions">
-                    <button class="card-btn" onclick="openKeywordModal()">키워드</button>
-                    <button class="card-btn" onclick="refreshNews()">새로고침</button>
-                </div>
-            </div>
-            <div class="news-keyword-bar" id="newsKeywords"></div>
-            <div class="news-list" id="newsList">
-                <div class="news-loading">뉴스를 불러오는 중...</div>
-            </div>
-        </div>
-    </main>
-
-        <div class="modal-overlay" id="bookmarkModal">
-        <div class="modal">
-            <div class="modal-header">
-                <div class="modal-title">즐겨찾기 추가</div>
-                <button class="modal-close" onclick="closeModal('bookmarkModal')">×</button>
-            </div>
-            <form onsubmit="addBookmark(event)">
-                <div class="form-group">
-                    <label class="form-label">그룹 선택</label>
-                    <select class="form-select" id="bookmarkGroupSelect"></select>
+    <!-- Header with Weather -->
+    <header class="header">
+        <div class="header-left">
+            <h1>Jang's Dashboard</h1>
+        </div>
+        <div class="header-right">
+            <div class="weather-inline" id="weatherWidget">
+                <span class="weather-icon" id="weatherIcon">🌡️</span>
+                <div>
+                    <span class="weather-temp" id="weatherTemp">--°</span>
+                    <span class="weather-desc" id="weatherDesc">로딩중...</span>
                 </div>
-                <div class="form-group">
-                    <label class="form-label">사이트 이름</label>
-                    <input type="text" class="form-input" id="bookmarkName" placeholder="예: Google" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">URL</label>
-                    <input type="url" class="form-input" id="bookmarkUrl" placeholder="https://..." required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">아이콘 (이모지)</label>
-                    <input type="text" class="form-input" id="bookmarkIcon" placeholder="🌐" maxlength="2">
-                </div>
-                <button type="submit" class="form-submit">추가하기</button>
-            </form>
-        </div>
-    </div>
+                <span class="weather-location" id="weatherLocation">📍 --</span>
+            </div>
+            <div class="current-time" id="currentTime">00:00:00</div>
+            <div class="settings-dropdown">
+                <button class="settings-btn" onclick="toggleSettingsMenu()">⚙️ 설정</button>
+                <div class="settings-menu" id="settingsMenu">
+                    <button onclick="exportToJson()">📥 JSON 내보내기</button>
+                    <button onclick="document.getElementById('jsonFileInput').click()">📤 JSON 불러오기</button>
+                    <input type="file" id="jsonFileInput" accept=".json" style="display:none" onchange="importFromJson(event)">
+                </div>
+            </div>
+        </div>
+    </header>
 
-        <div class="modal-overlay" id="eventModal">
-        <div class="modal">
-            <div class="modal-header">
-                <div class="modal-title">일정 추가</div>
-                <button class="modal-close" onclick="closeModal('eventModal')">×</button>
-            </div>
-            <form onsubmit="addEvent(event)">
-                <div class="form-group">
-                    <label class="form-label">일정 제목</label>
-                    <input type="text" class="form-input" id="eventTitle" placeholder="회의, 약속 등" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">날짜</label>
-                    <input type="date" class="form-input" id="eventDate" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">시간</label>
-                    <input type="time" class="form-input" id="eventTime">
-                </div>
-                <button type="submit" class="form-submit">추가하기</button>
-            </form>
-        </div>
-    </div>
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Bookmarks Widget -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="card-title-icon">⭐</span>
+                    즐겨찾는 사이트
+                </div>
+                <div class="card-actions">
+                    <button class="card-btn" onclick="openAddBookmarkModal()">+ 추가</button>
+                </div>
+            </div>
+            <div class="bookmarks-grid" id="bookmarksGrid"></div>
+        </div>
 
-        <div class="modal-overlay" id="memoModal">
-        <div class="modal">
-            <div class="modal-header">
-                <div class="modal-title" id="memoModalTitle">메모 추가</div>
-                <button class="modal-close" onclick="closeModal('memoModal')">×</button>
-            </div>
-            <form onsubmit="saveMemo(event)">
-                <input type="hidden" id="memoEditIndex" value="-1">
-                <div class="form-group">
-                    <label class="form-label">제목</label>
-                    <input type="text" class="form-input" id="memoTitle" placeholder="메모 제목" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">내용</label>
-                    <textarea class="form-textarea" id="memoContent" placeholder="메모 내용을 입력하세요..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">색상</label>
-                    <div class="form-color-options" id="colorOptions">
-                        <div class="color-option yellow selected" data-color="yellow" onclick="selectColor('yellow')"></div>
-                        <div class="color-option pink" data-color="pink" onclick="selectColor('pink')"></div>
-                        <div class="color-option blue" data-color="blue" onclick="selectColor('blue')"></div>
-                        <div class="color-option green" data-color="green" onclick="selectColor('green')"></div>
-                        <div class="color-option purple" data-color="purple" onclick="selectColor('purple')"></div>
-                    </div>
-                </div>
-                <button type="submit" class="form-submit">저장하기</button>
-            </form>
-        </div>
-    </div>
+        <!-- Calendar Widget -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="card-title-icon">📅</span>
+                    주간 일정
+                </div>
+                <div class="card-actions">
+                    <button class="card-btn" onclick="openAddEventModal()">+ 일정</button>
+                </div>
+            </div>
+            <div class="google-status disconnected" id="googleStatus">
+                <span>📆</span>
+                <span class="google-status-text" id="googleStatusText">Google 캘린더 연결 안됨</span>
+                <button class="google-btn" id="googleBtn" onclick="handleGoogleAuth()">연결</button>
+                <button class="google-btn" id="googleCalendarSelectBtn" onclick="openCalendarSelectModal()" style="display:none;">캘린더 선택</button>
+            </div>
+            <div class="calendar-header">
+                <div class="calendar-nav">
+                    <button onclick="changeWeek(-1)">◀</button>
+                    <button onclick="goToToday()">오늘</button>
+                    <button onclick="changeWeek(1)">▶</button>
+                </div>
+                <div class="calendar-week-label" id="calendarWeekLabel">1월 2주차</div>
+            </div>
+            <div class="week-grid" id="weekGrid"></div>
+            <div id="selectedDateHeader" class="events-date-header"></div>
+            <div class="events-list" id="eventsList"></div>
+        </div>
 
-        <div class="modal-overlay" id="keywordModal">
-        <div class="modal">
-            <div class="modal-header">
-                <div class="modal-title">뉴스 키워드 관리</div>
-                <button class="modal-close" onclick="closeModal('keywordModal')">×</button>
-            </div>
-            <form onsubmit="addKeyword(event)">
-                <div class="form-group">
-                    <label class="form-label">새 키워드</label>
-                    <input type="text" class="form-input" id="newKeyword" placeholder="예: AI, 주식, 부동산" required>
-                </div>
-                <button type="submit" class="form-submit">추가하기</button>
-            </form>
-            <div style="margin-top: 16px;">
-                <label class="form-label">현재 키워드 (클릭하여 삭제)</label>
-                <div id="keywordList" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;"></div>
-            </div>
-        </div>
-    </div>
+        <!-- Memo Widget -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="card-title-icon">📝</span>
+                    메모
+                </div>
+                <div class="card-actions">
+                    <button class="card-btn" onclick="exportAllMemos()">내보내기</button>
+                </div>
+            </div>
+            <div class="memo-container">
+                <div class="memo-grid" id="memoGrid"></div>
+            </div>
+        </div>
 
-        <div class="modal-overlay" id="calendarSelectModal">
-        <div class="modal">
-            <div class="modal-header">
-                <div class="modal-title">표시할 캘린더 선택</div>
-                <button class="modal-close" onclick="closeModal('calendarSelectModal')">×</button>
-            </div>
-            <div id="calendarList" style="max-height: 300px; overflow-y: auto;">
-                <div class="news-loading">캘린더 목록을 불러오는 중...</div>
-            </div>
-            <button class="form-submit" onclick="saveCalendarSelection()" style="margin-top: 16px;">저장</button>
-        </div>
-    </div>
+        <!-- News Widget -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="card-title-icon">📰</span>
+                    뉴스
+                </div>
+                <div class="card-actions">
+                    <button class="card-btn" onclick="openKeywordModal()">키워드</button>
+                    <button class="card-btn" onclick="refreshNews()">새로고침</button>
+                </div>
+            </div>
+            <div class="news-keyword-bar" id="newsKeywords"></div>
+            <div class="news-list" id="newsList">
+                <div class="news-loading">뉴스를 불러오는 중...</div>
+            </div>
+        </div>
+    </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script>
-        // ==================== State Management ====================
-        let state = {
-            bookmarkGroups: [{ name: "기본", items: [] }],
-            events: [],
-            googleEvents: [],
-            googleCalendars: [],
-            selectedCalendars: [],
-            memos: [],
-            newsKeywords: ['IT', '경제', '부동산'],
-            activeKeyword: 'IT',
-            newsProvider: 'naver',
-            currentWeekStart: null,
-            selectedDate: null,
-            googleConnected: false,
-            googleAccessToken: null,
-            selectedMemoColor: 'yellow'
-        };
+    <!-- Add Bookmark Modal -->
+    <div class="modal-overlay" id="bookmarkModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">즐겨찾기 추가</div>
+                <button class="modal-close" onclick="closeModal('bookmarkModal')">×</button>
+            </div>
+            <form onsubmit="addBookmark(event)">
+                <div class="form-group">
+                    <label class="form-label">사이트 이름</label>
+                    <input type="text" class="form-input" id="bookmarkName" placeholder="예: Google" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">URL</label>
+                    <input type="url" class="form-input" id="bookmarkUrl" placeholder="https://..." required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">아이콘 (이모지)</label>
+                    <input type="text" class="form-input" id="bookmarkIcon" placeholder="🌐" maxlength="2">
+                </div>
+                <button type="submit" class="form-submit">추가하기</button>
+            </form>
+        </div>
+    </div>
 
-        // Google Calendar API
-        const GOOGLE_CLIENT_ID = '616051020242-mg4r2ccc0iks3ssqhjuula6f1sr1o0p8.apps.googleusercontent.com';
-        const GOOGLE_SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
+    <!-- Add Event Modal -->
+    <div class="modal-overlay" id="eventModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">일정 추가</div>
+                <button class="modal-close" onclick="closeModal('eventModal')">×</button>
+            </div>
+            <form onsubmit="addEvent(event)">
+                <div class="form-group">
+                    <label class="form-label">일정 제목</label>
+                    <input type="text" class="form-input" id="eventTitle" placeholder="회의, 약속 등" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">날짜</label>
+                    <input type="date" class="form-input" id="eventDate" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">시간</label>
+                    <input type="time" class="form-input" id="eventTime">
+                </div>
+                <button type="submit" class="form-submit">추가하기</button>
+            </form>
+        </div>
+    </div>
 
-        // 로컬 날짜 문자열 생성 (timezone 문제 해결)
-        function getLocalDateStr(date) {
-            const d = date || new Date();
-            const year = d.getFullYear();
-            const month = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
+    <!-- Add/Edit Memo Modal -->
+    <div class="modal-overlay" id="memoModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title" id="memoModalTitle">메모 추가</div>
+                <button class="modal-close" onclick="closeModal('memoModal')">×</button>
+            </div>
+            <form onsubmit="saveMemo(event)">
+                <input type="hidden" id="memoEditIndex" value="-1">
+                <div class="form-group">
+                    <label class="form-label">제목</label>
+                    <input type="text" class="form-input" id="memoTitle" placeholder="메모 제목" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">내용</label>
+                    <textarea class="form-textarea" id="memoContent" placeholder="메모 내용을 입력하세요..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">색상</label>
+                    <div class="form-color-options" id="colorOptions">
+                        <div class="color-option yellow selected" data-color="yellow" onclick="selectColor('yellow')"></div>
+                        <div class="color-option pink" data-color="pink" onclick="selectColor('pink')"></div>
+                        <div class="color-option blue" data-color="blue" onclick="selectColor('blue')"></div>
+                        <div class="color-option green" data-color="green" onclick="selectColor('green')"></div>
+                        <div class="color-option purple" data-color="purple" onclick="selectColor('purple')"></div>
+                    </div>
+                </div>
+                <button type="submit" class="form-submit">저장하기</button>
+            </form>
+        </div>
+    </div>
 
-        // 날짜 문자열에서 Date 객체 생성 (로컬 시간 기준)
-        function parseLocalDate(dateStr) {
-            const [year, month, day] = dateStr.split('-').map(Number);
-            return new Date(year, month - 1, day);
-        }
+    <!-- Keyword Modal -->
+    <div class="modal-overlay" id="keywordModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">뉴스 키워드 관리</div>
+                <button class="modal-close" onclick="closeModal('keywordModal')">×</button>
+            </div>
+            <form onsubmit="addKeyword(event)">
+                <div class="form-group">
+                    <label class="form-label">새 키워드</label>
+                    <input type="text" class="form-input" id="newKeyword" placeholder="예: AI, 주식, 부동산" required>
+                </div>
+                <button type="submit" class="form-submit">추가하기</button>
+            </form>
+            <div style="margin-top: 16px;">
+                <label class="form-label">현재 키워드 (클릭하여 삭제)</label>
+                <div id="keywordList" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;"></div>
+            </div>
+        </div>
+    </div>
 
-        function getWeekStart(date) {
-            const d = new Date(date);
-            const day = d.getDay();
-            d.setDate(d.getDate() - day);
-            d.setHours(0, 0, 0, 0);
-            return d;
-        }
+    <!-- Calendar Select Modal -->
+    <div class="modal-overlay" id="calendarSelectModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">표시할 캘린더 선택</div>
+                <button class="modal-close" onclick="closeModal('calendarSelectModal')">×</button>
+            </div>
+            <div id="calendarList" style="max-height: 300px; overflow-y: auto;">
+                <div class="news-loading">캘린더 목록을 불러오는 중...</div>
+            </div>
+            <button class="form-submit" onclick="saveCalendarSelection()" style="margin-top: 16px;">저장</button>
+        </div>
+    </div>
 
-        // ==================== Initialize ====================
-        function init() {
-            state.currentWeekStart = getWeekStart(new Date());
-            state.selectedDate = getLocalDateStr(new Date());
-            
-            loadState();
-            
-            // OAuth 콜백 처리 (리다이렉트 후 URL 해시에서 토큰 추출)
-            handleOAuthCallback();
-            
-            updateTime();
-            setInterval(updateTime, 1000);
-            getWeather();
-            renderBookmarks();
-            updateGoogleStatus();
-            renderWeeklyCalendar();
-            renderMemos();
-            renderNewsKeywords();
-            loadNews();
-            
-            if (state.googleConnected) {
-                fetchGoogleCalendarList();
-                fetchGoogleCalendarEvents();
-            }
-        }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        // ==================== State Management ====================
+        let state = {
+            bookmarks: [],
+            events: [],
+            googleEvents: [],
+            googleCalendars: [],
+            selectedCalendars: [],
+            memos: [],
+            newsKeywords: ['IT', '경제', '부동산'],
+            activeKeyword: 'IT',
+            newsProvider: 'naver',
+            currentWeekStart: null,
+            selectedDate: null,
+            googleConnected: false,
+            googleAccessToken: null,
+            selectedMemoColor: 'yellow'
+        };
 
-        // ==================== Local Storage ====================
-        function loadState() {
-            const saved = localStorage.getItem('dashboardState_v5');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                state = { ...state, ...parsed };
-                // 기존 데이터가 state.bookmarks에 있는 경우 마이그레이션
-                if (parsed.bookmarks && !parsed.bookmarkGroups) {
-                    state.bookmarkGroups = [{ name: "기본", items: parsed.bookmarks }];
+        // Google Calendar API
+        const GOOGLE_CLIENT_ID = '616051020242-mg4r2ccc0iks3ssqhjuula6f1sr1o0p8.apps.googleusercontent.com';
+        const GOOGLE_SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
+
+        // 로컬 날짜 문자열 생성 (timezone 문제 해결)
+        function getLocalDateStr(date) {
+            const d = date || new Date();
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // 날짜 문자열에서 Date 객체 생성 (로컬 시간 기준)
+        function parseLocalDate(dateStr) {
+            const [year, month, day] = dateStr.split('-').map(Number);
+            return new Date(year, month - 1, day);
+        }
+
+        function getWeekStart(date) {
+            const d = new Date(date);
+            const day = d.getDay();
+            d.setDate(d.getDate() - day);
+            d.setHours(0, 0, 0, 0);
+            return d;
+        }
+
+        // ==================== Initialize ====================
+        function init() {
+            state.currentWeekStart = getWeekStart(new Date());
+            state.selectedDate = getLocalDateStr(new Date());
+            
+            loadState();
+            
+            // OAuth 콜백 처리 (리다이렉트 후 URL 해시에서 토큰 추출)
+            handleOAuthCallback();
+            
+            updateTime();
+            setInterval(updateTime, 1000);
+            getWeather();
+            renderBookmarks();
+            updateGoogleStatus();
+            renderWeeklyCalendar();
+            renderMemos();
+            renderNewsKeywords();
+            loadNews();
+            
+            if (state.googleConnected) {
+                fetchGoogleCalendarList();
+                fetchGoogleCalendarEvents();
+            }
+        }
+
+        // ==================== Local Storage ====================
+        function loadState() {
+            const saved = localStorage.getItem('dashboardState_v3');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                state = { ...state, ...parsed };
+                state.currentWeekStart = getWeekStart(new Date());
+                state.selectedDate = getLocalDateStr(new Date());
+            }
+            
+            const googleToken = localStorage.getItem('googleAccessToken');
+            if (googleToken) {
+                state.googleAccessToken = googleToken;
+                state.googleConnected = true;
+            }
+        }
+
+        function saveState() {
+            const toSave = {
+                bookmarks: state.bookmarks,
+                events: state.events,
+                memos: state.memos,
+                newsKeywords: state.newsKeywords,
+                newsProvider: state.newsProvider,
+                selectedCalendars: state.selectedCalendars
+            };
+            localStorage.setItem('dashboardState_v3', JSON.stringify(toSave));
+        }
+
+        // ==================== JSON Export/Import ====================
+        function toggleSettingsMenu() {
+            const menu = document.getElementById('settingsMenu');
+            menu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', (e) => {
+            const dropdown = document.querySelector('.settings-dropdown');
+            const menu = document.getElementById('settingsMenu');
+            if (dropdown && !dropdown.contains(e.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        function exportToJson() {
+            const exportData = {
+                version: '1.0',
+                exportDate: getLocalDateStr(new Date()),
+                bookmarks: state.bookmarks,
+                events: state.events,
+                memos: state.memos,
+                newsKeywords: state.newsKeywords,
+                newsProvider: state.newsProvider,
+                selectedCalendars: state.selectedCalendars
+            };
+            
+            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `dashboard_backup_${getLocalDateStr(new Date())}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            document.getElementById('settingsMenu').classList.remove('active');
+            alert('설정이 JSON 파일로 저장되었습니다.');
+        }
+
+        function importFromJson(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const importData = JSON.parse(e.target.result);
+                    
+                    if (importData.bookmarks) state.bookmarks = importData.bookmarks;
+                    if (importData.events) state.events = importData.events;
+                    if (importData.memos) state.memos = importData.memos;
+                    if (importData.newsKeywords) state.newsKeywords = importData.newsKeywords;
+                    if (importData.newsProvider) state.newsProvider = importData.newsProvider;
+                    if (importData.selectedCalendars) state.selectedCalendars = importData.selectedCalendars;
+                    
+                    saveState();
+                    
+                    renderBookmarks();
+                    renderWeeklyCalendar();
+                    renderMemos();
+                    renderNewsKeywords();
+                    loadNews();
+                    
+                    alert('설정을 불러왔습니다.');
+                } catch (err) {
+                    alert('JSON 파일을 읽는 중 오류가 발생했습니다.');
+                    console.error(err);
                 }
-                state.currentWeekStart = getWeekStart(new Date());
-                state.selectedDate = getLocalDateStr(new Date());
-            }
-            
-            const googleToken = localStorage.getItem('googleAccessToken');
-            if (googleToken) {
-                state.googleAccessToken = googleToken;
-                state.googleConnected = true;
-            }
-        }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+            document.getElementById('settingsMenu').classList.remove('active');
+        }
 
-        function saveState() {
-            const toSave = {
-                bookmarkGroups: state.bookmarkGroups,
-                events: state.events,
-                memos: state.memos,
-                newsKeywords: state.newsKeywords,
-                newsProvider: state.newsProvider,
-                selectedCalendars: state.selectedCalendars
-            };
-            localStorage.setItem('dashboardState_v5', JSON.stringify(toSave));
-        }
+        // ==================== Time ====================
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString('ko-KR', { hour12: false });
+        }
 
-        // ==================== JSON Export/Import ====================
-        function toggleSettingsMenu() {
-            const menu = document.getElementById('settingsMenu');
-            menu.classList.toggle('active');
-        }
+        // ==================== Weather ====================
+        async function getWeather() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    pos => fetchWeather(pos.coords.latitude, pos.coords.longitude),
+                    () => fetchWeather(37.5665, 126.9780)
+                );
+            } else {
+                fetchWeather(37.5665, 126.9780);
+            }
+        }
 
-        document.addEventListener('click', (e) => {
-            const dropdown = document.querySelector('.settings-dropdown');
-            const menu = document.getElementById('settingsMenu');
-            if (dropdown && !dropdown.contains(e.target)) {
-                menu.classList.remove('active');
-            }
-        });
+        async function fetchWeather(lat, lon) {
+            try {
+                const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&timezone=auto`);
+                const data = await res.json();
+                
+                const temp = Math.round(data.current.temperature_2m);
+                const code = data.current.weather_code;
+                
+                document.getElementById('weatherTemp').textContent = temp + '°';
+                document.getElementById('weatherDesc').textContent = getWeatherDesc(code);
+                document.getElementById('weatherIcon').textContent = getWeatherIcon(code);
+                
+                const geoRes = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&accept-language=ko`);
+                const geoData = await geoRes.json();
+                const loc = geoData.address.city || geoData.address.town || geoData.address.district || '알 수 없음';
+                document.getElementById('weatherLocation').textContent = '📍 ' + loc;
+            } catch (e) {
+                document.getElementById('weatherDesc').textContent = '날씨 정보 없음';
+            }
+        }
 
-        function exportToJson() {
-            const exportData = {
-                version: '1.1',
-                exportDate: getLocalDateStr(new Date()),
-                bookmarkGroups: state.bookmarkGroups,
-                events: state.events,
-                memos: state.memos,
-                newsKeywords: state.newsKeywords,
-                newsProvider: state.newsProvider,
-                selectedCalendars: state.selectedCalendars
-            };
-            
-            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `dashboard_backup_${getLocalDateStr(new Date())}.json`;
-            a.click();
-            URL.revokeObjectURL(url);
-            
-            document.getElementById('settingsMenu').classList.remove('active');
-            alert('설정이 JSON 파일로 저장되었습니다.');
-        }
+        function getWeatherIcon(code) {
+            const icons = { 0:'☀️', 1:'🌤️', 2:'⛅', 3:'☁️', 45:'🌫️', 48:'🌫️', 51:'🌧️', 53:'🌧️', 55:'🌧️', 61:'🌧️', 63:'🌧️', 65:'🌧️', 71:'🌨️', 73:'🌨️', 75:'🌨️', 80:'🌧️', 81:'🌧️', 82:'🌧️', 95:'⛈️', 96:'⛈️', 99:'⛈️' };
+            return icons[code] || '🌡️';
+        }
 
-        function importFromJson(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const importData = JSON.parse(e.target.result);
-                    
-                    if (importData.bookmarkGroups) state.bookmarkGroups = importData.bookmarkGroups;
-                    if (importData.events) state.events = importData.events;
-                    if (importData.memos) state.memos = importData.memos;
-                    if (importData.newsKeywords) state.newsKeywords = importData.newsKeywords;
-                    if (importData.newsProvider) state.newsProvider = importData.newsProvider;
-                    if (importData.selectedCalendars) state.selectedCalendars = importData.selectedCalendars;
-                    
-                    saveState();
-                    
-                    renderBookmarks();
-                    renderWeeklyCalendar();
-                    renderMemos();
-                    renderNewsKeywords();
-                    loadNews();
-                    
-                    alert('설정을 불러왔습니다.');
-                } catch (err) {
-                    alert('JSON 파일을 읽는 중 오류가 발생했습니다.');
-                    console.error(err);
-                }
-            };
-            reader.readAsText(file);
-            event.target.value = '';
-            document.getElementById('settingsMenu').classList.remove('active');
-        }
+        function getWeatherDesc(code) {
+            const desc = { 0:'맑음', 1:'대체로 맑음', 2:'부분적 흐림', 3:'흐림', 45:'안개', 48:'안개', 51:'이슬비', 53:'이슬비', 55:'이슬비', 61:'비', 63:'비', 65:'폭우', 71:'눈', 73:'눈', 75:'폭설', 80:'소나기', 81:'소나기', 82:'폭우', 95:'뇌우', 96:'뇌우', 99:'뇌우' };
+            return desc[code] || '정보 없음';
+        }
 
-        // ==================== Time ====================
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('currentTime').textContent = now.toLocaleTimeString('ko-KR', { hour12: false });
-        }
-
-        // ==================== Weather ====================
-        async function getWeather() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    pos => fetchWeather(pos.coords.latitude, pos.coords.longitude),
-                    () => fetchWeather(37.5665, 126.9780)
-                );
-            } else {
-                fetchWeather(37.5665, 126.9780);
-            }
-        }
-
-        async function fetchWeather(lat, lon) {
-            try {
-                const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&timezone=auto`);
-                const data = await res.json();
-                
-                const temp = Math.round(data.current.temperature_2m);
-                const code = data.current.weather_code;
-                
-                document.getElementById('weatherTemp').textContent = temp + '°';
-                document.getElementById('weatherDesc').textContent = getWeatherDesc(code);
-                document.getElementById('weatherIcon').textContent = getWeatherIcon(code);
-                
-                const geoRes = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&accept-language=ko`);
-                const geoData = await geoRes.json();
-                const loc = geoData.address.city || geoData.address.town || geoData.address.district || '알 수 없음';
-                document.getElementById('weatherLocation').textContent = '📍 ' + loc;
-            } catch (e) {
-                document.getElementById('weatherDesc').textContent = '날씨 정보 없음';
-            }
-        }
-
-        function getWeatherIcon(code) {
-            const icons = { 0:'☀️', 1:'🌤️', 2:'⛅', 3:'☁️', 45:'🌫️', 48:'🌫️', 51:'🌧️', 53:'🌧️', 55:'🌧️', 61:'🌧️', 63:'🌧️', 65:'🌧️', 71:'🌨️', 73:'🌨️', 75:'🌨️', 80:'🌧️', 81:'🌧️', 82:'🌧️', 95:'⛈️', 96:'⛈️', 99:'⛈️' };
-            return icons[code] || '🌡️';
-        }
-
-        function getWeatherDesc(code) {
-            const desc = { 0:'맑음', 1:'대체로 맑음', 2:'부분적 흐림', 3:'흐림', 45:'안개', 48:'안개', 51:'이슬비', 53:'이슬비', 55:'이슬비', 61:'비', 63:'비', 65:'폭우', 71:'눈', 73:'눈', 75:'폭설', 80:'소나기', 81:'소나기', 82:'폭우', 95:'뇌우', 96:'뇌우', 99:'뇌우' };
-            return desc[code] || '정보 없음';
-        }
-
-        // ==================== Bookmarks (Grouped) ====================
-        function renderBookmarks() {
-            const container = document.getElementById('bookmarksGrid');
-            
-            if (state.bookmarkGroups.length === 0 || (state.bookmarkGroups.length === 1 && state.bookmarkGroups[0].items.length === 0)) {
-                state.bookmarkGroups = [{
-                    name: "AI 도구",
-                    items: [
-                        { name: 'ChatGPT', url: 'https://chat.openai.com', icon: '🤖' },
-                        { name: 'Gemini', url: 'https://gemini.google.com', icon: '✨' },
-                        { name: 'Claude', url: 'https://claude.ai', icon: '✍️' }
-                    ]
-                }];
+        // ==================== Bookmarks ====================
+        function renderBookmarks() {
+            const grid = document.getElementById('bookmarksGrid');
+            
+            if (state.bookmarks.length === 0) {
+                state.bookmarks = [
+                    { name: 'ChatGPT', url: 'https://chat.openai.com', icon: '🤖' },
+                    { name: 'Gemini', url: 'https://gemini.google.com', icon: '✨' },
+                    { name: 'Claude', url: 'https://claude.ai', icon: '✍️' },
+                    { name: 'GitHub', url: 'https://github.com', icon: '💻' }
+                ];
                 saveState();
             }
+        
+            grid.innerHTML = state.bookmarks.map((b, i) => `
+                <a href="${b.url}" target="_blank" class="bookmark-item">
+                    <button class="bookmark-delete" onclick="deleteBookmark(event, ${i})">×</button>
+                    <div class="bookmark-icon">${b.icon || '🔗'}</div>
+                    <div class="bookmark-name">${b.name}</div>
+                </a>
+            `).join('') + `
+                <div class="bookmark-item bookmark-add" onclick="openAddBookmarkModal()">
+                    <div class="bookmark-icon" style="background:none;">+</div>
+                    <div class="bookmark-name">추가</div>
+                </div>
+            `;
+        }
 
-            container.innerHTML = state.bookmarkGroups.map((group, gIdx) => `
-                <div class="bookmark-group">
-                    <div class="group-header">
-                        <span class="group-title" onclick="renameGroup(${gIdx})">${group.name} ✏️</span>
-                        <div class="card-actions">
-                            <button class="card-btn" onclick="openAddBookmarkModal(${gIdx})">+ 항목</button>
-                            <button class="card-btn" onclick="deleteGroup(${gIdx})" style="color:var(--danger);">×</button>
-                        </div>
+        function openAddBookmarkModal() {
+            document.getElementById('bookmarkModal').classList.add('active');
+        }
+
+        function addBookmark(e) {
+            e.preventDefault();
+            state.bookmarks.push({
+                name: document.getElementById('bookmarkName').value,
+                url: document.getElementById('bookmarkUrl').value,
+                icon: document.getElementById('bookmarkIcon').value || '🔗'
+            });
+            saveState();
+            renderBookmarks();
+            closeModal('bookmarkModal');
+            e.target.reset();
+        }
+
+        function deleteBookmark(e, index) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (confirm('이 북마크를 삭제하시겠습니까?')) {
+                state.bookmarks.splice(index, 1);
+                saveState();
+                renderBookmarks();
+            }
+        }
+
+        // ==================== Calendar (Weekly) ====================
+        function renderWeeklyCalendar() {
+            const grid = document.getElementById('weekGrid');
+            const weekLabel = document.getElementById('calendarWeekLabel');
+            const weekStart = state.currentWeekStart;
+            const todayStr = getLocalDateStr(new Date());
+            
+            const month = weekStart.getMonth() + 1;
+            const weekOfMonth = Math.ceil((weekStart.getDate() + weekStart.getDay()) / 7);
+            weekLabel.textContent = `${weekStart.getFullYear()}년 ${month}월 ${weekOfMonth}주차`;
+
+            const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+            let html = '';
+
+            for (let i = 0; i < 7; i++) {
+                const date = new Date(weekStart);
+                date.setDate(date.getDate() + i);
+                const dateStr = getLocalDateStr(date);
+                
+                const isToday = dateStr === todayStr;
+                const isSelected = dateStr === state.selectedDate;
+                
+                const localEvents = state.events.filter(e => e.date === dateStr);
+                const googleEvts = state.googleEvents.filter(e => e.date === dateStr);
+                const allEvents = [...localEvents, ...googleEvts];
+                
+                let classes = 'week-day';
+                if (isToday) classes += ' today';
+                if (isSelected && !isToday) classes += ' selected';
+                
+                const dots = allEvents.slice(0, 3).map(() => '<span class="event-dot"></span>').join('');
+                
+                html += `
+                    <div class="${classes}" onclick="selectDate('${dateStr}')">
+                        <div class="week-day-name">${dayNames[i]}</div>
+                        <div class="week-day-num">${date.getDate()}</div>
+                        <div class="week-day-dots">${dots}</div>
                     </div>
-                    <div class="bookmarks-grid-inner">
-                        ${group.items.map((b, i) => `
-                            <a href="${b.url}" target="_blank" class="bookmark-item">
-                                <button class="bookmark-delete" onclick="deleteBookmark(event, ${gIdx}, ${i})">×</button>
-                                <div class="bookmark-icon">${b.icon || '🔗'}</div>
-                                <div class="bookmark-name">${b.name}</div>
-                            </a>
-                        `).join('')}
+                `;
+            }
+
+            grid.innerHTML = html;
+            renderEventsForDate(state.selectedDate);
+        }
+
+        function changeWeek(delta) {
+            state.currentWeekStart.setDate(state.currentWeekStart.getDate() + (delta * 7));
+            renderWeeklyCalendar();
+            if (state.googleConnected) fetchGoogleCalendarEvents();
+        }
+
+        function goToToday() {
+            state.currentWeekStart = getWeekStart(new Date());
+            state.selectedDate = getLocalDateStr(new Date());
+            renderWeeklyCalendar();
+            if (state.googleConnected) fetchGoogleCalendarEvents();
+        }
+
+        function selectDate(dateStr) {
+            state.selectedDate = dateStr;
+            renderWeeklyCalendar();
+        }
+
+        function renderEventsForDate(dateStr) {
+            const list = document.getElementById('eventsList');
+            const header = document.getElementById('selectedDateHeader');
+            
+            const date = parseLocalDate(dateStr);
+            header.textContent = date.toLocaleDateString('ko-KR', { month: 'long', day: 'numeric', weekday: 'long' });
+            
+            const localEvents = state.events.filter(e => e.date === dateStr).map(e => ({ ...e, source: 'local' }));
+            const googleEvts = state.googleEvents.filter(e => e.date === dateStr).map(e => ({ ...e, source: 'google' }));
+            const allEvents = [...localEvents, ...googleEvts].sort((a, b) => (a.time || '').localeCompare(b.time || ''));
+
+            if (allEvents.length === 0) {
+                list.innerHTML = '<div class="event-empty">이 날의 일정이 없습니다</div>';
+                return;
+            }
+
+            list.innerHTML = allEvents.map((e, i) => {
+                const isGoogle = e.source === 'google';
+                const timeDisplay = e.time || '종일';
+                return `
+                    <div class="event-item ${isGoogle ? 'google-event' : ''}">
+                        <div class="event-time">${timeDisplay}</div>
+                        <div class="event-title">${e.title}</div>
+                        ${isGoogle ? '<span class="event-source">Google</span>' : `<button class="card-btn" onclick="deleteEvent('${e.date}', '${e.title}', '${e.time || ''}')" style="padding:3px 6px;font-size:0.7rem;">삭제</button>`}
                     </div>
+                `;
+            }).join('');
+        }
+
+        function openAddEventModal() {
+            document.getElementById('eventModal').classList.add('active');
+            document.getElementById('eventDate').value = state.selectedDate;
+        }
+
+        function addEvent(e) {
+            e.preventDefault();
+            state.events.push({
+                title: document.getElementById('eventTitle').value,
+                date: document.getElementById('eventDate').value,
+                time: document.getElementById('eventTime').value
+            });
+            saveState();
+            renderWeeklyCalendar();
+            closeModal('eventModal');
+            e.target.reset();
+        }
+
+        function deleteEvent(date, title, time) {
+            const idx = state.events.findIndex(e => e.date === date && e.title === title && (e.time || '') === time);
+            if (idx > -1) {
+                state.events.splice(idx, 1);
+                saveState();
+                renderWeeklyCalendar();
+            }
+        }
+
+        // ==================== Google Calendar ====================
+        function updateGoogleStatus() {
+            const statusEl = document.getElementById('googleStatus');
+            const textEl = document.getElementById('googleStatusText');
+            const btnEl = document.getElementById('googleBtn');
+            const selectBtnEl = document.getElementById('googleCalendarSelectBtn');
+
+            if (state.googleConnected) {
+                statusEl.classList.remove('disconnected');
+                statusEl.classList.add('connected');
+                textEl.textContent = 'Google 캘린더 연결됨';
+                btnEl.textContent = '연결 해제';
+                btnEl.classList.add('disconnect');
+                selectBtnEl.style.display = 'inline-block';
+            } else {
+                statusEl.classList.remove('connected');
+                statusEl.classList.add('disconnected');
+                textEl.textContent = 'Google 캘린더 연결 안됨';
+                btnEl.textContent = '연결';
+                btnEl.classList.remove('disconnect');
+                selectBtnEl.style.display = 'none';
+            }
+        }
+
+        function handleGoogleAuth() {
+            if (state.googleConnected) {
+                // 연결 해제
+                state.googleConnected = false;
+                state.googleAccessToken = null;
+                state.googleEvents = [];
+                localStorage.removeItem('googleAccessToken');
+                updateGoogleStatus();
+                renderWeeklyCalendar();
+                return;
+            }
+
+            // 리다이렉트 방식 OAuth (동적 URI)
+            const redirectUri = window.location.origin + window.location.pathname;
+            console.log('OAuth Redirect URI:', redirectUri);
+            const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
+            
+            window.location.href = authUrl;
+        }
+
+        // OAuth 콜백 처리 (리다이렉트 후)
+        function handleOAuthCallback() {
+            const hash = window.location.hash;
+            if (hash && hash.includes('access_token')) {
+                const params = new URLSearchParams(hash.substring(1));
+                const accessToken = params.get('access_token');
+                if (accessToken) {
+                    state.googleAccessToken = accessToken;
+                    state.googleConnected = true;
+                    localStorage.setItem('googleAccessToken', accessToken);
+                    // URL에서 해시 제거
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                    updateGoogleStatus();
+                    fetchGoogleCalendarList();
+                    fetchGoogleCalendarEvents();
+                }
+            }
+        }
+
+        async function fetchGoogleCalendarList() {
+            if (!state.googleAccessToken) return;
+            try {
+                const res = await fetch('https://www.googleapis.com/calendar/v3/users/me/calendarList', {
+                    headers: { 'Authorization': `Bearer ${state.googleAccessToken}` }
+                });
+                
+                if (res.ok) {
+                    const data = await res.json();
+                    state.googleCalendars = data.items || [];
+                    
+                    if (state.selectedCalendars.length === 0) {
+                        state.selectedCalendars = state.googleCalendars.map(c => c.id);
+                        saveState();
+                    }
+                }
+            } catch (e) {
+                console.error('Calendar list error:', e);
+            }
+        }
+
+        async function openCalendarSelectModal() {
+            document.getElementById('calendarSelectModal').classList.add('active');
+            
+            if (state.googleCalendars.length === 0) {
+                await fetchGoogleCalendarList();
+            }
+            
+            renderCalendarList();
+        }
+
+        function renderCalendarList() {
+            const list = document.getElementById('calendarList');
+            
+            if (state.googleCalendars.length === 0) {
+                list.innerHTML = '<div class="news-loading">캘린더가 없습니다</div>';
+                return;
+            }
+            
+            list.innerHTML = state.googleCalendars.map(cal => {
+                const isChecked = state.selectedCalendars.includes(cal.id);
+                const bgColor = cal.backgroundColor || '#4285f4';
+                return `
+                    <label style="display: flex; align-items: center; gap: 10px; padding: 10px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 8px; cursor: pointer;">
+                        <input type="checkbox" value="${cal.id}" ${isChecked ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: ${bgColor};">
+                        <span style="width: 12px; height: 12px; background: ${bgColor}; border-radius: 3px;"></span>
+                        <span style="flex: 1; color: var(--text-primary);">${cal.summary}</span>
+                    </label>
+                `;
+            }).join('');
+        }
+
+        function saveCalendarSelection() {
+            const checkboxes = document.querySelectorAll('#calendarList input[type="checkbox"]');
+            state.selectedCalendars = Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            
+            saveState();
+            closeModal('calendarSelectModal');
+            fetchGoogleCalendarEvents();
+        }
+
+        async function fetchGoogleCalendarEvents() {
+            if (!state.googleAccessToken) return;
+            try {
+                const weekStart = new Date(state.currentWeekStart);
+                const weekEnd = new Date(weekStart);
+                weekEnd.setDate(weekEnd.getDate() + 7);
+
+                const calendarsToFetch = state.selectedCalendars.length > 0 
+                    ? state.selectedCalendars 
+                    : ['primary'];
+                
+                let allEvents = [];
+                
+                for (const calendarId of calendarsToFetch) {
+                    try {
+                        const res = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?timeMin=${encodeURIComponent(weekStart.toISOString())}&timeMax=${encodeURIComponent(weekEnd.toISOString())}&singleEvents=true&orderBy=startTime`, {
+                            headers: { 'Authorization': `Bearer ${state.googleAccessToken}` }
+                        });
+
+                        if (res.status === 401) {
+                            state.googleConnected = false;
+                            state.googleAccessToken = null;
+                            localStorage.removeItem('googleAccessToken');
+                            updateGoogleStatus();
+                            alert('Google 인증이 만료되었습니다. 다시 연결해주세요.');
+                            return;
+                        }
+
+                        if (res.ok) {
+                            const data = await res.json();
+                            if (data.items) {
+                                const events = data.items.map(event => {
+                                    const start = event.start.dateTime || event.start.date;
+                                    let date, time;
+                                    if (event.start.dateTime) {
+                                        const d = new Date(start);
+                                        date = getLocalDateStr(d);
+                                        time = d.toTimeString().slice(0, 5);
+                                    } else {
+                                        date = start;
+                                        time = null;
+                                    }
+                                    return { id: event.id, title: event.summary || '(제목 없음)', date, time, calendarId };
+                                });
+                                allEvents = allEvents.concat(events);
+                            }
+                        }
+                    } catch (e) {
+                        console.error(`Calendar ${calendarId} error:`, e);
+                    }
+                }
+                
+                state.googleEvents = allEvents;
+                renderWeeklyCalendar();
+            } catch (e) {
+                console.error('Google Calendar error:', e);
+            }
+        }
+
+        // ==================== Memos (Post-it) ====================
+        function renderMemos() {
+            const grid = document.getElementById('memoGrid');
+            
+            let html = state.memos.map((m, i) => `
+                <div class="memo-postit ${m.color || 'yellow'}" onclick="openEditMemo(${i})">
+                    <button class="memo-postit-delete" onclick="deleteMemo(event, ${i})">×</button>
+                    <div class="memo-postit-header">
+                        <div class="memo-postit-title">${m.title}</div>
+                    </div>
+                    <div class="memo-postit-content">${m.content}</div>
+                    <div class="memo-postit-date">${m.date}</div>
                 </div>
             `).join('');
-        }
+            
+            html += `<div class="memo-postit memo-postit-add" onclick="openAddMemo()">+</div>`;
+            grid.innerHTML = html;
+        }
 
-        function openAddBookmarkModal(gIdx = 0) {
-            const select = document.getElementById('bookmarkGroupSelect');
-            select.innerHTML = state.bookmarkGroups.map((g, i) => `<option value="${i}">${g.name}</option>`).join('');
-            select.value = gIdx;
-            document.getElementById('bookmarkModal').classList.add('active');
-        }
+        function openAddMemo() {
+            document.getElementById('memoModalTitle').textContent = '메모 추가';
+            document.getElementById('memoEditIndex').value = '-1';
+            document.getElementById('memoTitle').value = '';
+            document.getElementById('memoContent').value = '';
+            selectColor('yellow');
+            document.getElementById('memoModal').classList.add('active');
+        }
 
-        function addBookmark(e) {
-            e.preventDefault();
-            const gIdx = document.getElementById('bookmarkGroupSelect').value;
-            state.bookmarkGroups[gIdx].items.push({
-                name: document.getElementById('bookmarkName').value,
-                url: document.getElementById('bookmarkUrl').value,
-                icon: document.getElementById('bookmarkIcon').value || '🔗'
-            });
-            saveState();
-            renderBookmarks();
-            closeModal('bookmarkModal');
-            e.target.reset();
-        }
+        function openEditMemo(index) {
+            const memo = state.memos[index];
+            document.getElementById('memoModalTitle').textContent = '메모 수정';
+            document.getElementById('memoEditIndex').value = index;
+            document.getElementById('memoTitle').value = memo.title;
+            document.getElementById('memoContent').value = memo.content;
+            selectColor(memo.color || 'yellow');
+            document.getElementById('memoModal').classList.add('active');
+        }
 
-        function deleteBookmark(e, gIdx, iIdx) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (confirm('이 북마크를 삭제하시겠습니까?')) {
-                state.bookmarkGroups[gIdx].items.splice(iIdx, 1);
-                saveState();
-                renderBookmarks();
-            }
-        }
+        function selectColor(color) {
+            state.selectedMemoColor = color;
+            document.querySelectorAll('.color-option').forEach(el => {
+                el.classList.toggle('selected', el.dataset.color === color);
+            });
+        }
 
-        function addGroup() {
-            const name = prompt("새 그룹 이름을 입력하세요:");
-            if (name) {
-                state.bookmarkGroups.push({ name, items: [] });
+        function saveMemo(e) {
+            e.preventDefault();
+            const index = parseInt(document.getElementById('memoEditIndex').value);
+            const now = new Date();
+            const dateStr = getLocalDateStr(now);
+            
+            const memo = {
+                title: document.getElementById('memoTitle').value,
+                content: document.getElementById('memoContent').value,
+                color: state.selectedMemoColor,
+                date: dateStr
+            };
+
+            if (index === -1) {
+                state.memos.push(memo);
+            } else {
+                state.memos[index] = memo;
+            }
+            
+            saveState();
+            renderMemos();
+            closeModal('memoModal');
+        }
+
+        function deleteMemo(e, index) {
+            e.stopPropagation();
+            if (confirm('이 메모를 삭제하시겠습니까?')) {
+                state.memos.splice(index, 1);
                 saveState();
-                renderBookmarks();
+                renderMemos();
             }
         }
 
-        function renameGroup(idx) {
-            const newName = prompt("그룹 이름 수정:", state.bookmarkGroups[idx].name);
-            if (newName) {
-                state.bookmarkGroups[idx].name = newName;
+        function exportAllMemos() {
+            if (state.memos.length === 0) {
+                alert('내보낼 메모가 없습니다.');
+                return;
+            }
+            
+            const wsData = [['제목', '내용', '색상', '작성일']];
+            state.memos.forEach(m => {
+                wsData.push([m.title, m.content, m.color, m.date]);
+            });
+            
+            const ws = XLSX.utils.aoa_to_sheet(wsData);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, '메모');
+            
+            const filename = `memos_${getLocalDateStr(new Date())}.xlsx`;
+            XLSX.writeFile(wb, filename);
+        }
+
+        // ==================== News ====================
+        function renderNewsKeywords() {
+            const container = document.getElementById('newsKeywords');
+            container.innerHTML = state.newsKeywords.map(k => `
+                <div class="news-keyword ${k === state.activeKeyword ? 'active' : ''}" onclick="selectKeyword('${k}')">${k}</div>
+            `).join('');
+        }
+
+        function selectKeyword(keyword) {
+            state.activeKeyword = keyword;
+            renderNewsKeywords();
+            loadNews();
+        }
+
+        function openKeywordModal() {
+            document.getElementById('keywordModal').classList.add('active');
+            renderKeywordList();
+        }
+
+        function renderKeywordList() {
+            document.getElementById('keywordList').innerHTML = state.newsKeywords.map(k => `
+                <span class="news-keyword" onclick="deleteKeyword('${k}')" style="cursor:pointer;">${k} ×</span>
+            `).join('');
+        }
+
+        function addKeyword(e) {
+            e.preventDefault();
+            const keyword = document.getElementById('newKeyword').value.trim();
+            if (keyword && !state.newsKeywords.includes(keyword)) {
+                state.newsKeywords.push(keyword);
+                state.activeKeyword = keyword;
                 saveState();
-                renderBookmarks();
+                renderNewsKeywords();
+                renderKeywordList();
+                loadNews();
+            }
+            document.getElementById('newKeyword').value = '';
+        }
+
+        function deleteKeyword(keyword) {
+            if (state.newsKeywords.length > 1) {
+                state.newsKeywords = state.newsKeywords.filter(k => k !== keyword);
+                if (state.activeKeyword === keyword) state.activeKeyword = state.newsKeywords[0];
+                saveState();
+                renderNewsKeywords();
+                renderKeywordList();
             }
         }
 
-        function deleteGroup(idx) {
-            if (confirm(`'${state.bookmarkGroups[idx].name}' 그룹과 내부 항목들을 모두 삭제하시겠습니까?`)) {
-                state.bookmarkGroups.splice(idx, 1);
-                if (state.bookmarkGroups.length === 0) state.bookmarkGroups = [{ name: "기본", items: [] }];
-                saveState();
-                renderBookmarks();
+        // 뉴스 로드 함수 (news.json 파일에서 로드)
+        async function loadNews() {
+            const list = document.getElementById('newsList');
+            list.innerHTML = '<div class="news-loading">뉴스를 가져오는 중...</div>';
+
+            try {
+                const res = await fetch('news.json');
+                const allNewsData = await res.json();
+                
+                if (allNewsData[state.activeKeyword]) {
+                    renderNewsItems(allNewsData[state.activeKeyword]);
+                } else {
+                    list.innerHTML = `<div class="news-loading">'${state.activeKeyword}'에 대한 뉴스가 없습니다.<br><small>다음 업데이트를 기다려주세요.</small></div>`;
+                }
+            } catch (e) {
+                list.innerHTML = '<div class="news-loading">뉴스 데이터를 불러올 수 없습니다.</div>';
             }
         }
 
-        // ==================== Calendar (Weekly) ====================
-        function renderWeeklyCalendar() {
-            const grid = document.getElementById('weekGrid');
-            const weekLabel = document.getElementById('calendarWeekLabel');
-            const weekStart = state.currentWeekStart;
-            const todayStr = getLocalDateStr(new Date());
-            
-            const month = weekStart.getMonth() + 1;
-            const weekOfMonth = Math.ceil((weekStart.getDate() + weekStart.getDay()) / 7);
-            weekLabel.textContent = `${weekStart.getFullYear()}년 ${month}월 ${weekOfMonth}주차`;
+        function renderNewsItems(items) {
+            const list = document.getElementById('newsList');
+            list.innerHTML = items.map(item => {
+                const pubDate = new Date(item.pubDate);
+                const timeAgo = getTimeAgo(pubDate);
+                const cleanTitle = item.title.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
 
-            const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
-            let html = '';
+                return `
+                    <a href="${item.link}" target="_blank" class="news-item">
+                        <span class="news-title">${cleanTitle}</span>
+                        <span class="news-time">${timeAgo}</span>
+                    </a>
+                `;
+            }).join('');
+        }
 
-            for (let i = 0; i < 7; i++) {
-                const date = new Date(weekStart);
-                date.setDate(date.getDate() + i);
-                const dateStr = getLocalDateStr(date);
-                
-                const isToday = dateStr === todayStr;
-                const isSelected = dateStr === state.selectedDate;
-                
-                const localEvents = state.events.filter(e => e.date === dateStr);
-                const googleEvts = state.googleEvents.filter(e => e.date === dateStr);
-                const allEvents = [...localEvents, ...googleEvts];
-                
-                let classes = 'week-day';
-                if (isToday) classes += ' today';
-                if (isSelected && !isToday) classes += ' selected';
-                
-                const dots = allEvents.slice(0, 3).map(() => '<span class="event-dot"></span>').join('');
-                
-                html += `
-                    <div class="${classes}" onclick="selectDate('${dateStr}')">
-                        <div class="week-day-name">${dayNames[i]}</div>
-                        <div class="week-day-num">${date.getDate()}</div>
-                        <div class="week-day-dots">${dots}</div>
-                    </div>
-                `;
-            }
+        function getTimeAgo(date) {
+            const diff = new Date() - date;
+            const mins = Math.floor(diff / 60000);
+            const hrs = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+            if (mins < 1) return '방금';
+            if (mins < 60) return mins + '분 전';
+            if (hrs < 24) return hrs + '시간 전';
+            return days + '일 전';
+        }
 
-            grid.innerHTML = html;
-            renderEventsForDate(state.selectedDate);
-        }
+        function refreshNews() {
+            loadNews();
+        }
 
-        function changeWeek(delta) {
-            state.currentWeekStart.setDate(state.currentWeekStart.getDate() + (delta * 7));
-            renderWeeklyCalendar();
-            if (state.googleConnected) fetchGoogleCalendarEvents();
-        }
+        // ==================== Modal ====================
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
 
-        function goToToday() {
-            state.currentWeekStart = getWeekStart(new Date());
-            state.selectedDate = getLocalDateStr(new Date());
-            renderWeeklyCalendar();
-            if (state.googleConnected) fetchGoogleCalendarEvents();
-        }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+            }
+        });
 
-        function selectDate(dateStr) {
-            state.selectedDate = dateStr;
-            renderWeeklyCalendar();
-        }
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', e => {
+                if (e.target === overlay) overlay.classList.remove('active');
+            });
+        });
 
-        function renderEventsForDate(dateStr) {
-            const list = document.getElementById('eventsList');
-            const header = document.getElementById('selectedDateHeader');
-            
-            const date = parseLocalDate(dateStr);
-            header.textContent = date.toLocaleDateString('ko-KR', { month: 'long', day: 'numeric', weekday: 'long' });
-            
-            const localEvents = state.events.filter(e => e.date === dateStr).map(e => ({ ...e, source: 'local' }));
-            const googleEvts = state.googleEvents.filter(e => e.date === dateStr).map(e => ({ ...e, source: 'google' }));
-            const allEvents = [...localEvents, ...googleEvts].sort((a, b) => (a.time || '').localeCompare(b.time || ''));
-
-            if (allEvents.length === 0) {
-                list.innerHTML = '<div class="event-empty">이 날의 일정이 없습니다</div>';
-                return;
-            }
-
-            list.innerHTML = allEvents.map((e, i) => {
-                const isGoogle = e.source === 'google';
-                const timeDisplay = e.time || '종일';
-                return `
-                    <div class="event-item ${isGoogle ? 'google-event' : ''}">
-                        <div class="event-time">${timeDisplay}</div>
-                        <div class="event-title">${e.title}</div>
-                        ${isGoogle ? '<span class="event-source">Google</span>' : `<button class="card-btn" onclick="deleteEvent('${e.date}', '${e.title}', '${e.time || ''}')" style="padding:3px 6px;font-size:0.7rem;">삭제</button>`}
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function openAddEventModal() {
-            document.getElementById('eventModal').classList.add('active');
-            document.getElementById('eventDate').value = state.selectedDate;
-        }
-
-        function addEvent(e) {
-            e.preventDefault();
-            state.events.push({
-                title: document.getElementById('eventTitle').value,
-                date: document.getElementById('eventDate').value,
-                time: document.getElementById('eventTime').value
-            });
-            saveState();
-            renderWeeklyCalendar();
-            closeModal('eventModal');
-            e.target.reset();
-        }
-
-        function deleteEvent(date, title, time) {
-            const idx = state.events.findIndex(e => e.date === date && e.title === title && (e.time || '') === time);
-            if (idx > -1) {
-                state.events.splice(idx, 1);
-                saveState();
-                renderWeeklyCalendar();
-            }
-        }
-
-        // ==================== Google Calendar ====================
-        function updateGoogleStatus() {
-            const statusEl = document.getElementById('googleStatus');
-            const textEl = document.getElementById('googleStatusText');
-            const btnEl = document.getElementById('googleBtn');
-            const selectBtnEl = document.getElementById('googleCalendarSelectBtn');
-
-            if (state.googleConnected) {
-                statusEl.classList.remove('disconnected');
-                statusEl.classList.add('connected');
-                textEl.textContent = 'Google 캘린더 연결됨';
-                btnEl.textContent = '연결 해제';
-                btnEl.classList.add('disconnect');
-                selectBtnEl.style.display = 'inline-block';
-            } else {
-                statusEl.classList.remove('connected');
-                statusEl.classList.add('disconnected');
-                textEl.textContent = 'Google 캘린더 연결 안됨';
-                btnEl.textContent = '연결';
-                btnEl.classList.remove('disconnect');
-                selectBtnEl.style.display = 'none';
-            }
-        }
-
-        function handleGoogleAuth() {
-            if (state.googleConnected) {
-                // 연결 해제
-                state.googleConnected = false;
-                state.googleAccessToken = null;
-                state.googleEvents = [];
-                localStorage.removeItem('googleAccessToken');
-                updateGoogleStatus();
-                renderWeeklyCalendar();
-                return;
-            }
-
-            // 리다이렉트 방식 OAuth (동적 URI)
-            const redirectUri = window.location.origin + window.location.pathname;
-            console.log('OAuth Redirect URI:', redirectUri);
-            const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
-            
-            window.location.href = authUrl;
-        }
-
-        // OAuth 콜백 처리 (리다이렉트 후)
-        function handleOAuthCallback() {
-            const hash = window.location.hash;
-            if (hash && hash.includes('access_token')) {
-                const params = new URLSearchParams(hash.substring(1));
-                const accessToken = params.get('access_token');
-                if (accessToken) {
-                    state.googleAccessToken = accessToken;
-                    state.googleConnected = true;
-                    localStorage.setItem('googleAccessToken', accessToken);
-                    // URL에서 해시 제거
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                    updateGoogleStatus();
-                    fetchGoogleCalendarList();
-                    fetchGoogleCalendarEvents();
-                }
-            }
-        }
-
-        async function fetchGoogleCalendarList() {
-            if (!state.googleAccessToken) return;
-            try {
-                const res = await fetch('https://www.googleapis.com/calendar/v3/users/me/calendarList', {
-                    headers: { 'Authorization': `Bearer ${state.googleAccessToken}` }
-                });
-                
-                if (res.ok) {
-                    const data = await res.json();
-                    state.googleCalendars = data.items || [];
-                    
-                    if (state.selectedCalendars.length === 0) {
-                        state.selectedCalendars = state.googleCalendars.map(c => c.id);
-                        saveState();
-                    }
-                }
-            } catch (e) {
-                console.error('Calendar list error:', e);
-            }
-        }
-
-        async function openCalendarSelectModal() {
-            document.getElementById('calendarSelectModal').classList.add('active');
-            
-            if (state.googleCalendars.length === 0) {
-                await fetchGoogleCalendarList();
-            }
-            
-            renderCalendarList();
-        }
-
-        function renderCalendarList() {
-            const list = document.getElementById('calendarList');
-            
-            if (state.googleCalendars.length === 0) {
-                list.innerHTML = '<div class="news-loading">캘린더가 없습니다</div>';
-                return;
-            }
-            
-            list.innerHTML = state.googleCalendars.map(cal => {
-                const isChecked = state.selectedCalendars.includes(cal.id);
-                const bgColor = cal.backgroundColor || '#4285f4';
-                return `
-                    <label style="display: flex; align-items: center; gap: 10px; padding: 10px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 8px; cursor: pointer;">
-                        <input type="checkbox" value="${cal.id}" ${isChecked ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: ${bgColor};">
-                        <span style="width: 12px; height: 12px; background: ${bgColor}; border-radius: 3px;"></span>
-                        <span style="flex: 1; color: var(--text-primary);">${cal.summary}</span>
-                    </label>
-                `;
-            }).join('');
-        }
-
-        function saveCalendarSelection() {
-            const checkboxes = document.querySelectorAll('#calendarList input[type="checkbox"]');
-            state.selectedCalendars = Array.from(checkboxes)
-                .filter(cb => cb.checked)
-                .map(cb => cb.value);
-            
-            saveState();
-            closeModal('calendarSelectModal');
-            fetchGoogleCalendarEvents();
-        }
-
-        async function fetchGoogleCalendarEvents() {
-            if (!state.googleAccessToken) return;
-            try {
-                const weekStart = new Date(state.currentWeekStart);
-                const weekEnd = new Date(weekStart);
-                weekEnd.setDate(weekEnd.getDate() + 7);
-
-                const calendarsToFetch = state.selectedCalendars.length > 0 
-                    ? state.selectedCalendars 
-                    : ['primary'];
-                
-                let allEvents = [];
-                
-                for (const calendarId of calendarsToFetch) {
-                    try {
-                        const res = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?timeMin=${encodeURIComponent(weekStart.toISOString())}&timeMax=${encodeURIComponent(weekEnd.toISOString())}&singleEvents=true&orderBy=startTime`, {
-                            headers: { 'Authorization': `Bearer ${state.googleAccessToken}` }
-                        });
-
-                        if (res.status === 401) {
-                            state.googleConnected = false;
-                            state.googleAccessToken = null;
-                            localStorage.removeItem('googleAccessToken');
-                            updateGoogleStatus();
-                            alert('Google 인증이 만료되었습니다. 다시 연결해주세요.');
-                            return;
-                        }
-
-                        if (res.ok) {
-                            const data = await res.json();
-                            if (data.items) {
-                                const events = data.items.map(event => {
-                                    const start = event.start.dateTime || event.start.date;
-                                    let date, time;
-                                    if (event.start.dateTime) {
-                                        const d = new Date(start);
-                                        date = getLocalDateStr(d);
-                                        time = d.toTimeString().slice(0, 5);
-                                    } else {
-                                        date = start;
-                                        time = null;
-                                    }
-                                    return { id: event.id, title: event.summary || '(제목 없음)', date, time, calendarId };
-                                });
-                                allEvents = allEvents.concat(events);
-                            }
-                        }
-                    } catch (e) {
-                        console.error(`Calendar ${calendarId} error:`, e);
-                    }
-                }
-                
-                state.googleEvents = allEvents;
-                renderWeeklyCalendar();
-            } catch (e) {
-                console.error('Google Calendar error:', e);
-            }
-        }
-
-        // ==================== Memos (Post-it) ====================
-        function renderMemos() {
-            const grid = document.getElementById('memoGrid');
-            
-            let html = state.memos.map((m, i) => `
-                <div class="memo-postit ${m.color || 'yellow'}" onclick="openEditMemo(${i})">
-                    <button class="memo-postit-delete" onclick="deleteMemo(event, ${i})">×</button>
-                    <div class="memo-postit-header">
-                        <div class="memo-postit-title">${m.title}</div>
-                    </div>
-                    <div class="memo-postit-content">${m.content}</div>
-                    <div class="memo-postit-date">${m.date}</div>
-                </div>
-            `).join('');
-            
-            html += `<div class="memo-postit memo-postit-add" onclick="openAddMemo()">+</div>`;
-            grid.innerHTML = html;
-        }
-
-        function openAddMemo() {
-            document.getElementById('memoModalTitle').textContent = '메모 추가';
-            document.getElementById('memoEditIndex').value = '-1';
-            document.getElementById('memoTitle').value = '';
-            document.getElementById('memoContent').value = '';
-            selectColor('yellow');
-            document.getElementById('memoModal').classList.add('active');
-        }
-
-        function openEditMemo(index) {
-            const memo = state.memos[index];
-            document.getElementById('memoModalTitle').textContent = '메모 수정';
-            document.getElementById('memoEditIndex').value = index;
-            document.getElementById('memoTitle').value = memo.title;
-            document.getElementById('memoContent').value = memo.content;
-            selectColor(memo.color || 'yellow');
-            document.getElementById('memoModal').classList.add('active');
-        }
-
-        function selectColor(color) {
-            state.selectedMemoColor = color;
-            document.querySelectorAll('.color-option').forEach(el => {
-                el.classList.toggle('selected', el.dataset.color === color);
-            });
-        }
-
-        function saveMemo(e) {
-            e.preventDefault();
-            const index = parseInt(document.getElementById('memoEditIndex').value);
-            const now = new Date();
-            const dateStr = getLocalDateStr(now);
-            
-            const memo = {
-                title: document.getElementById('memoTitle').value,
-                content: document.getElementById('memoContent').value,
-                color: state.selectedMemoColor,
-                date: dateStr
-            };
-
-            if (index === -1) {
-                state.memos.push(memo);
-            } else {
-                state.memos[index] = memo;
-            }
-            
-            saveState();
-            renderMemos();
-            closeModal('memoModal');
-        }
-
-        function deleteMemo(e, index) {
-            e.stopPropagation();
-            if (confirm('이 메모를 삭제하시겠습니까?')) {
-                state.memos.splice(index, 1);
-                saveState();
-                renderMemos();
-            }
-        }
-
-        function exportAllMemos() {
-            if (state.memos.length === 0) {
-                alert('내보낼 메모가 없습니다.');
-                return;
-            }
-            
-            const wsData = [['제목', '내용', '색상', '작성일']];
-            state.memos.forEach(m => {
-                wsData.push([m.title, m.content, m.color, m.date]);
-            });
-            
-            const ws = XLSX.utils.aoa_to_sheet(wsData);
-            const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, '메모');
-            
-            const filename = `memos_${getLocalDateStr(new Date())}.xlsx`;
-            XLSX.writeFile(wb, filename);
-        }
-
-        // ==================== News ====================
-        function renderNewsKeywords() {
-            const container = document.getElementById('newsKeywords');
-            container.innerHTML = state.newsKeywords.map(k => `
-                <div class="news-keyword ${k === state.activeKeyword ? 'active' : ''}" onclick="selectKeyword('${k}')">${k}</div>
-            `).join('');
-        }
-
-        function selectKeyword(keyword) {
-            state.activeKeyword = keyword;
-            renderNewsKeywords();
-            loadNews();
-        }
-
-        function openKeywordModal() {
-            document.getElementById('keywordModal').classList.add('active');
-            renderKeywordList();
-        }
-
-        function renderKeywordList() {
-            document.getElementById('keywordList').innerHTML = state.newsKeywords.map(k => `
-                <span class="news-keyword" onclick="deleteKeyword('${k}')" style="cursor:pointer;">${k} ×</span>
-            `).join('');
-        }
-
-        function addKeyword(e) {
-            e.preventDefault();
-            const keyword = document.getElementById('newKeyword').value.trim();
-            if (keyword && !state.newsKeywords.includes(keyword)) {
-                state.newsKeywords.push(keyword);
-                state.activeKeyword = keyword;
-                saveState();
-                renderNewsKeywords();
-                renderKeywordList();
-                loadNews();
-            }
-            document.getElementById('newKeyword').value = '';
-        }
-
-        function deleteKeyword(keyword) {
-            if (state.newsKeywords.length > 1) {
-                state.newsKeywords = state.newsKeywords.filter(k => k !== keyword);
-                if (state.activeKeyword === keyword) state.activeKeyword = state.newsKeywords[0];
-                saveState();
-                renderNewsKeywords();
-                renderKeywordList();
-            }
-        }
-
-        // 뉴스 로드 함수 (news.json 파일에서 로드)
-        async function loadNews() {
-            const list = document.getElementById('newsList');
-            list.innerHTML = '<div class="news-loading">뉴스를 가져오는 중...</div>';
-
-            try {
-                const res = await fetch('news.json');
-                const allNewsData = await res.json();
-                
-                if (allNewsData[state.activeKeyword]) {
-                    renderNewsItems(allNewsData[state.activeKeyword]);
-                } else {
-                    list.innerHTML = `<div class="news-loading">'${state.activeKeyword}'에 대한 뉴스가 없습니다.<br><small>다음 업데이트를 기다려주세요.</small></div>`;
-                }
-            } catch (e) {
-                list.innerHTML = '<div class="news-loading">뉴스 데이터를 불러올 수 없습니다.</div>';
-            }
-        }
-
-        function renderNewsItems(items) {
-            const list = document.getElementById('newsList');
-            list.innerHTML = items.map(item => {
-                const pubDate = new Date(item.pubDate);
-                const timeAgo = getTimeAgo(pubDate);
-                const cleanTitle = item.title.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
-
-                return `
-                    <a href="${item.link}" target="_blank" class="news-item">
-                        <span class="news-title">${cleanTitle}</span>
-                        <span class="news-time">${timeAgo}</span>
-                    </a>
-                `;
-            }).join('');
-        }
-
-        function getTimeAgo(date) {
-            const diff = new Date() - date;
-            const mins = Math.floor(diff / 60000);
-            const hrs = Math.floor(diff / 3600000);
-            const days = Math.floor(diff / 86400000);
-            if (mins < 1) return '방금';
-            if (mins < 60) return mins + '분 전';
-            if (hrs < 24) return hrs + '시간 전';
-            return days + '일 전';
-        }
-
-        function refreshNews() {
-            loadNews();
-        }
-
-        // ==================== Modal ====================
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('active');
-        }
-
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
-            }
-        });
-
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', e => {
-                if (e.target === overlay) overlay.classList.remove('active');
-            });
-        });
-
-        // Start
-        init();
-    </script>
+        // Start
+        init();
+    </script>
 </body>
 </html>
