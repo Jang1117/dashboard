@@ -619,43 +619,6 @@
             overflow-y: auto;
         }
 
-        /* 뉴스 제공자 토글 버튼 스타일 */
-        .provider-toggle {
-            display: flex;
-            gap: 0;
-            background: var(--bg-secondary);
-            padding: 2px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            margin-right: 8px;
-        }
-
-        .provider-btn {
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            border: none;
-            background: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-
-        .provider-btn:hover {
-            color: var(--text-primary);
-        }
-
-        .provider-btn.active.daum {
-            background: var(--daum-blue);
-            color: white;
-        }
-
-        .provider-btn.active.google {
-            background: var(--google-blue);
-            color: white;
-        }
-
         .news-item {
             display: flex;
             justify-content: space-between;
@@ -1183,7 +1146,25 @@
             state.selectedDate = getLocalDateStr(new Date());
             
             loadState();
-            handleOAuthCallback();
+            
+            // OAuth 콜백 처리 (팝업에서 열린 경우)
+            if (window.opener && window.location.hash.includes('access_token')) {
+                // 팝업 창에서 실행된 경우: 토큰을 부모 창으로 전송
+                const params = new URLSearchParams(window.location.hash.substring(1));
+                const accessToken = params.get('access_token');
+                if (accessToken) {
+                    window.opener.postMessage({
+                        type: 'google_oauth_token',
+                        token: accessToken
+                    }, window.location.origin);
+                    window.close(); // 팝업 닫기
+                    return; // 팝업이므로 나머지 초기화 불필요
+                }
+            }
+            
+            // 부모 창에서 메시지 수신 리스너 등록
+            window.addEventListener('message', handleOAuthMessage);
+            
             updateTime();
             setInterval(updateTime, 1000);
             getWeather();
@@ -1289,7 +1270,6 @@
                     renderWeeklyCalendar();
                     renderMemos();
                     renderNewsKeywords();
-                    // updateProviderButtons();
                     loadNews();
                     
                     alert('설정을 불러왔습니다.');
@@ -1527,9 +1507,6 @@
         }
 
         // ==================== Google Calendar ====================
-        // 중요: Google Cloud Console에서 "웹 애플리케이션" 타입으로 OAuth 클라이언트를 새로 만들어야 합니다
-        // 현재 클라이언트가 "데스크톱 앱" 타입이면 오류가 발생합니다
-        
         function updateGoogleStatus() {
             const statusEl = document.getElementById('googleStatus');
             const textEl = document.getElementById('googleStatusText');
@@ -1553,76 +1530,48 @@
             }
         }
 
-		function handleGoogleAuth() {
-		    // 1. 현재 접속한 주소를 기반으로 리디렉션 URI 추출
-		    const redirectUri = window.location.origin + window.location.pathname;
-		    
-		    // 디버깅용: 연결 버튼 클릭 시 실제 전송되는 주소를 보여줍니다.
-		    // 400 에러가 다시 뜨면 이 주소가 구글 콘솔에 정확히 있는지 확인하세요.
-		    console.log("전송되는 Redirect URI:", redirectUri);
-		
-		    if (state.googleConnected) {
-		        state.googleConnected = false;
-		        state.googleAccessToken = null;
-		        state.googleEvents = [];
-		        localStorage.removeItem('googleAccessToken');
-		        updateGoogleStatus();
-		        renderWeeklyCalendar();
-		        return;
-		    }
-		
-		    // 2. OAuth 인증 URL 생성
-		    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
-		
-		    // 3. 팝업 창 열기 (현재 창에서 열리지 않음)
-		    const width = 500, height = 600;
-		    const left = (window.screen.width / 2) - (width / 2);
-		    const top = (window.screen.height / 2) - (height / 2);
-		    const authWindow = window.open(authUrl, 'google_auth_popup', `width=${width},height=${height},top=${top},left=${left}`);
-		
-		    if (!authWindow) {
-		        alert("팝업이 차단되었습니다. 브라우저 설정에서 팝업을 허용해주세요.");
-		        return;
-		    }
-		
-		    // 4. 인증 완료 감지 (팝업 창의 URL 변화 감시)
-		    const checkAuth = setInterval(() => {
-		        try {
-		            // 팝업 창의 해시(#)값에 access_token이 있는지 확인
-		            if (authWindow.location.hash.includes('access_token')) {
-		                const params = new URLSearchParams(authWindow.location.hash.substring(1));
-		                const token = params.get('access_token');
-		                
-		                if (token) {
-		                    state.googleAccessToken = token;
-		                    state.googleConnected = true;
-		                    localStorage.setItem('googleAccessToken', token);
-		                    updateGoogleStatus();
-		                    fetchGoogleCalendarList();
-		                    fetchGoogleCalendarEvents();
-		                    
-		                    authWindow.close(); // 성공하면 팝업 닫기
-		                    clearInterval(checkAuth);
-		                }
-		            }
-		        } catch (e) {
-		            // 다른 도메인(구글 로그인 창)에 있을 때는 보안상 URL을 읽을 수 없으므로 무시
-		        }
-		        
-		        if (authWindow.closed) clearInterval(checkAuth);
-		    }, 500);
-		}
+        function handleGoogleAuth() {
+            if (state.googleConnected) {
+                // 연결 해제
+                state.googleConnected = false;
+                state.googleAccessToken = null;
+                state.googleEvents = [];
+                localStorage.removeItem('googleAccessToken');
+                updateGoogleStatus();
+                renderWeeklyCalendar();
+                return;
+            }
 
-        function handleOAuthCallback() {
-            const hash = window.location.hash;
-            if (hash && hash.includes('access_token')) {
-                const params = new URLSearchParams(hash.substring(1));
-                const accessToken = params.get('access_token');
-                if (accessToken) {
-                    state.googleAccessToken = accessToken;
+            // 팝업으로 Google OAuth 인증
+            const redirectUri = window.location.origin + window.location.pathname;
+            const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
+
+            const width = 500, height = 600;
+            const left = (window.screen.width / 2) - (width / 2);
+            const top = (window.screen.height / 2) - (height / 2);
+            
+            const authWindow = window.open(
+                authUrl, 
+                'google_auth_popup', 
+                `width=${width},height=${height},top=${top},left=${left},scrollbars=yes`
+            );
+
+            if (!authWindow) {
+                alert('팝업이 차단되었습니다. 브라우저 설정에서 팝업을 허용해주세요.');
+            }
+        }
+
+        // 팝업에서 postMessage로 전달된 토큰 수신
+        function handleOAuthMessage(event) {
+            // 같은 origin에서 온 메시지만 처리
+            if (event.origin !== window.location.origin) return;
+            
+            if (event.data && event.data.type === 'google_oauth_token') {
+                const token = event.data.token;
+                if (token) {
+                    state.googleAccessToken = token;
                     state.googleConnected = true;
-                    localStorage.setItem('googleAccessToken', accessToken);
-                    window.history.replaceState({}, document.title, window.location.pathname);
+                    localStorage.setItem('googleAccessToken', token);
                     updateGoogleStatus();
                     fetchGoogleCalendarList();
                     fetchGoogleCalendarEvents();
@@ -1874,21 +1823,19 @@
             `).join('');
         }
 
-		// 1. 키워드 추가 시 즉시 뉴스 로드하도록 수정
-		function addKeyword(e) {
-		    e.preventDefault();
-		    const keyword = document.getElementById('newKeyword').value.trim();
-		    if (keyword && !state.newsKeywords.includes(keyword)) {
-		        state.newsKeywords.push(keyword);
-		        state.activeKeyword = keyword; // 추가한 키워드를 바로 활성화
-		        saveState();
-		        renderNewsKeywords();
-		        renderKeywordList();
-		        
-		        loadNews(); // 신규 키워드 등록 시 즉시 뉴스 호출
-		    }
-		    document.getElementById('newKeyword').value = '';
-		}
+        function addKeyword(e) {
+            e.preventDefault();
+            const keyword = document.getElementById('newKeyword').value.trim();
+            if (keyword && !state.newsKeywords.includes(keyword)) {
+                state.newsKeywords.push(keyword);
+                state.activeKeyword = keyword;
+                saveState();
+                renderNewsKeywords();
+                renderKeywordList();
+                loadNews();
+            }
+            document.getElementById('newKeyword').value = '';
+        }
 
         function deleteKeyword(keyword) {
             if (state.newsKeywords.length > 1) {
@@ -1900,55 +1847,40 @@
             }
         }
 
-        // 네이버 뉴스 프록시 서버 주소 (미니PC에서 실행)
-		const NEWS_PROXY_URL = 'http://221.141.142.12:5000';
+        // 뉴스 로드 함수 (news.json 파일에서 로드)
+        async function loadNews() {
+            const list = document.getElementById('newsList');
+            list.innerHTML = '<div class="news-loading">뉴스를 가져오는 중...</div>';
 
-		// 2. loadNews 함수 보완: news.json에 없는 키워드는 직접 호출 시도
-		async function loadNews() {
-		    const list = document.getElementById('newsList');
-		    list.innerHTML = '<div class="news-loading">뉴스를 가져오는 중...</div>';
-		
-		    try {
-		        // 우선 GitHub에 저장된 news.json 시도
-		        const res = await fetch('news.json');
-		        const allNewsData = await res.json();
-		        
-		        if (allNewsData[state.activeKeyword]) {
-		            renderNewsItems(allNewsData[state.activeKeyword]);
-		        } else {
-		            // news.json에 없는 '방금 추가된' 키워드인 경우: CORS 프록시를 통해 직접 호출
-		            // (무료 프록시 서비스 예시: allorigins)
-		            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
-		                `https://openapi.naver.com/v1/search/news.json?query=${state.activeKeyword}&display=10&sort=date`
-		            )}`;
-		            
-		            // 주의: 이 방식은 네이버 Client ID/Secret이 노출될 수 있으므로 
-		            // 가장 좋은 방법은 파이썬 스크립트가 모든 키워드를 다 가져오게 하는 것입니다.
-		            list.innerHTML = `<div class="news-loading">'${state.activeKeyword}'에 대한 첫 업데이트 대기 중...<br><small>1시간 내로 반영됩니다.</small></div>`;
-		        }
-		    } catch (e) {
-		        list.innerHTML = '<div class="news-loading">뉴스 데이터를 불러올 수 없습니다.</div>';
-		    }
-		}
+            try {
+                const res = await fetch('news.json');
+                const allNewsData = await res.json();
+                
+                if (allNewsData[state.activeKeyword]) {
+                    renderNewsItems(allNewsData[state.activeKeyword]);
+                } else {
+                    list.innerHTML = `<div class="news-loading">'${state.activeKeyword}'에 대한 뉴스가 없습니다.<br><small>다음 업데이트를 기다려주세요.</small></div>`;
+                }
+            } catch (e) {
+                list.innerHTML = '<div class="news-loading">뉴스 데이터를 불러올 수 없습니다.</div>';
+            }
+        }
 
-		// 뉴스 아이템 렌더링 (기존 HTML 구조 유지)
-		function renderNewsItems(items) {
-			const list = document.getElementById('newsList');
-			list.innerHTML = items.map(item => {
-				const pubDate = new Date(item.pubDate);
-				const timeAgo = getTimeAgo(pubDate);
-				
-				// HTML 태그 제거 (<b> 등)
-				const cleanTitle = item.title.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"');
+        function renderNewsItems(items) {
+            const list = document.getElementById('newsList');
+            list.innerHTML = items.map(item => {
+                const pubDate = new Date(item.pubDate);
+                const timeAgo = getTimeAgo(pubDate);
+                const cleanTitle = item.title.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
 
-				return `
-					<a href="${item.link}" target="_blank" class="news-item">
-						<span class="news-title">${cleanTitle}</span>
-						<span class="news-time">${timeAgo}</span>
-					</a>
-				`;
-			}).join('');
-		}
+                return `
+                    <a href="${item.link}" target="_blank" class="news-item">
+                        <span class="news-title">${cleanTitle}</span>
+                        <span class="news-time">${timeAgo}</span>
+                    </a>
+                `;
+            }).join('');
+        }
 
         function getTimeAgo(date) {
             const diff = new Date() - date;
