@@ -1543,7 +1543,10 @@
             }
 
             // 팝업으로 Google OAuth 인증
-            const redirectUri = window.location.origin + window.location.pathname;
+            // redirectUri를 Google Cloud Console에 등록된 값과 정확히 일치시킴
+            const redirectUri = 'https://jang1117.github.io/dashboard/index.html';
+            console.log('Redirect URI:', redirectUri); // 디버깅용
+            
             const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
 
             const width = 500, height = 600;
