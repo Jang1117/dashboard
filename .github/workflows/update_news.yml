@@ -2,40 +2,33 @@ name: Update News Data
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 * * * *' # 매 시간 0분에 실행
+  workflow_dispatch:      # 수동 실행 버튼 활성화
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # [최적화 1] fetch-depth: 1 설정으로 최신 커밋만 가져와 체크아웃 속도 향상
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-
-      # [최적화 2] cache: 'pip' 옵션 추가로 의존성 설치 속도 향상
+      
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-          cache: 'pip' # pip 캐싱 활성화
-
-      # 캐시가 동작하므로 두 번째 실행부터는 이 단계가 매우 빨라짐
+          
       - name: Install dependencies
         run: pip install requests
-
+        
       - name: Run fetch script
         env:
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
         run: python fetch_news.py
-
+        
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add news.json
-          # 변경사항이 없으면 커밋하지 않고 종료 (에러 방지 및 시간 절약)
           git commit -m "Update news data" || exit 0
           git push
