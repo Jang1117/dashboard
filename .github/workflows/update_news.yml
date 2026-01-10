@@ -2,7 +2,7 @@ name: Update News Data
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # 15분마다 실행
+    - cron: '2,17,32,47 * * * *'  # 15분마다, 정각 피해서 지연 감소
   workflow_dispatch:      # 수동 실행 버튼 활성화
 
 jobs:
