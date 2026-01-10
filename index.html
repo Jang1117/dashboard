@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jang's Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg-primary: #0f0f0f;
@@ -17,15 +18,12 @@
       --accent: #4ecdc4;
       --accent-hover: #45b7aa;
       --border: #333333;
-      --success: #4ade80;
-      --warning: #fbbf24;
       --danger: #f87171;
       --memo-yellow: #fef3c7;
       --memo-pink: #fce7f3;
       --memo-blue: #dbeafe;
       --memo-green: #d1fae5;
       --memo-purple: #ede9fe;
-      --google-blue: #4285f4;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -131,6 +129,7 @@
       gap: 8px;
       white-space: nowrap;
     }
+
     .card-title-icon { color: var(--accent); }
 
     .card-actions {
@@ -152,23 +151,23 @@
       transition: all 0.2s;
       white-space: nowrap;
     }
+
     .card-btn:hover {
       background: var(--accent);
       color: var(--bg-primary);
       border-color: var(--accent);
     }
 
-    /* ====== BOOKMARKS: 그룹 박스 형태 + DnD ====== */
+    /* ===== Bookmarks: Groups one-line + 4 columns ===== */
 
-    /* 즐겨찾기 전체 스크롤 영역 */
     .bookmark-groups-scroll {
       flex: 1;
       overflow-y: auto;
-      padding: 10px 6px 6px 6px; /* ✅ FIX: 상단 여백으로 hover/점선 테두리 짤림 방지 */
+      padding: 10px 6px 6px 6px; /* 상단 잘림 방지 */
       align-content: start;
     }
 
-    /* 그룹 박스 */
+    /* 그룹 박스: 그룹명 + 사이트가 같은 줄 */
     .bookmark-group {
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -176,6 +175,9 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       margin-bottom: 12px;
       transition: border-color .2s, box-shadow .2s;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
     }
 
     .bookmark-group.drag-over {
@@ -183,79 +185,32 @@
       box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.12);
     }
 
-    .bookmark-group-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .bookmark-group-title {
+    .bookmark-group-name {
+      flex: 0 0 140px;
+      max-width: 140px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--text-primary);
       display: flex;
       align-items: center;
       gap: 8px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      color: var(--text-primary);
+      padding-top: 6px;
+      user-select: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* 그룹 내 사이트 영역: 한 줄에 최대 4개 = 4열 */
+    .bookmarks-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      padding-top: 2px; /* hover 테두리 안정 */
       min-width: 0;
     }
 
-    .bookmark-group-title span.name {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 320px;
-    }
-
-    .bookmark-group-meta {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .bookmark-group-actions {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .mini-btn {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      padding: 5px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.78rem;
-      transition: all .2s;
-      white-space: nowrap;
-    }
-    .mini-btn:hover {
-      background: var(--accent);
-      color: var(--bg-primary);
-      border-color: var(--accent);
-    }
-    .mini-btn.danger:hover {
-      background: var(--danger);
-      border-color: var(--danger);
-      color: white;
-    }
-
-    /* 그룹 안 북마크 grid */
-    .bookmarks-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 10px;
-      padding-top: 4px; /* ✅ FIX: hover 테두리 안정 */
-    }
-
-    /* 개별 북마크 타일 */
     .bookmark-item {
       display: flex;
       flex-direction: row;
@@ -270,22 +225,27 @@
       position: relative;
       height: 52px;
       user-select: none;
+      min-width: 0;
     }
 
-    /* ✅ FIX: 위로 떠서 잘리는 원인(transform) 제거 */
+    /* 위로 뜨는 transform 제거(잘림 원인) */
     .bookmark-item:hover {
       background: var(--bg-hover);
       border-color: var(--accent);
       box-shadow: 0 0 0 2px rgba(78, 205, 196, 0.12);
     }
 
-    .bookmark-item:active {
-      cursor: grabbing;
-    }
+    .bookmark-item:active { cursor: grabbing; }
 
     .bookmark-item.dragging {
       opacity: 0.55;
       border-style: dashed;
+    }
+
+    /* 드랍 위치 표시 */
+    .bookmark-item.drop-before {
+      box-shadow: inset 4px 0 0 0 rgba(78, 205, 196, 0.85);
+      border-color: var(--accent);
     }
 
     .bookmark-icon {
@@ -303,15 +263,16 @@
 
     .bookmark-name {
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 650;
       color: var(--text-primary);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       flex: 1;
+      min-width: 0;
     }
 
-    /* 삭제 X 버튼: 내부로 고정 */
+    /* 삭제 X: 내부 고정 */
     .bookmark-delete {
       position: absolute;
       top: 7px;
@@ -331,31 +292,9 @@
     }
     .bookmark-item:hover .bookmark-delete { display: flex; }
 
-    /* 그룹 내 +추가 타일 */
-    .bookmark-add {
-      background: rgba(0,0,0,0.0);
-      border: 2px dashed var(--border);
-      color: var(--text-secondary);
-      justify-content: center;
-      cursor: pointer;
-    }
-    .bookmark-add:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(78, 205, 196, 0.08);
-      box-shadow: none;
-    }
-    .bookmark-add .bookmark-icon {
-      background: transparent;
-      border: none;
-      font-weight: 900;
-    }
-
-    /* Calendar, Memo, News: 원본 유지 (필요 최소 수정만) */
-    .calendar-header {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
-    }
-    .calendar-nav { display: flex; gap: 6px; }
+    /* Calendar (원본 유지) */
+    .calendar-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    .calendar-nav { display:flex; gap:6px; }
     .calendar-nav button {
       background: var(--bg-hover);
       border: 1px solid var(--border);
@@ -370,175 +309,205 @@
     .calendar-week-label { font-weight: 600; color: var(--text-primary); font-size: 0.9rem; }
 
     .google-status {
-      display: flex; align-items: center; gap: 8px;
-      padding: 6px 10px; background: var(--bg-secondary);
-      border-radius: 6px; margin-bottom: 8px; font-size: 0.75rem;
+      display:flex; align-items:center; gap:8px;
+      padding:6px 10px; background: var(--bg-secondary);
+      border-radius:6px; margin-bottom:8px; font-size:0.75rem;
     }
     .google-status.connected { border: 1px solid #4285f4; }
     .google-status.disconnected { border: 1px solid var(--border); }
-    .google-status-text { flex: 1; color: var(--text-secondary); }
+    .google-status-text { flex:1; color: var(--text-secondary); }
     .google-btn {
-      background: #4285f4;
-      border: none; color: white; padding: 4px 10px;
-      border-radius: 5px; cursor: pointer;
-      font-size: 0.75rem; transition: background 0.2s;
+      background:#4285f4; border:none; color:white;
+      padding:4px 10px; border-radius:5px;
+      cursor:pointer; font-size:0.75rem;
+      transition:background 0.2s;
     }
-    .google-btn:hover { background: #3367d6; }
+    .google-btn:hover { background:#3367d6; }
     .google-btn.disconnect { background: var(--bg-hover); color: var(--text-secondary); }
-    .google-btn.disconnect:hover { background: var(--danger); color: white; }
+    .google-btn.disconnect:hover { background: var(--danger); color:white; }
 
-    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 10px; }
+    .week-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:10px; }
     .week-day {
-      text-align: center; padding: 8px 4px;
-      background: var(--bg-secondary); border-radius: 6px;
-      cursor: pointer; transition: all 0.2s; border: 2px solid transparent;
+      text-align:center; padding:8px 4px;
+      background: var(--bg-secondary);
+      border-radius:6px;
+      cursor:pointer; transition:all 0.2s;
+      border:2px solid transparent;
     }
     .week-day:hover { background: var(--bg-hover); }
     .week-day.today { background: var(--accent); color: var(--bg-primary); }
     .week-day.today .week-day-name { color: var(--bg-primary); }
     .week-day.selected { border-color: var(--accent); background: rgba(78, 205, 196, 0.15); }
-    .week-day-name { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 2px; }
-    .week-day-num { font-size: 1rem; font-weight: 600; }
-    .week-day-dots { display: flex; justify-content: center; gap: 2px; margin-top: 4px; min-height: 5px; }
-    .event-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .week-day-name { font-size:0.7rem; color: var(--text-muted); margin-bottom:2px; }
+    .week-day-num { font-size:1rem; font-weight:600; }
+    .week-day-dots { display:flex; justify-content:center; gap:2px; margin-top:4px; min-height:5px; }
+    .event-dot { width:5px; height:5px; border-radius:50%; background: var(--accent); }
     .week-day.today .event-dot { background: var(--bg-primary); }
 
     .events-date-header {
-      font-size: 0.8rem; color: var(--text-muted);
-      margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border);
+      font-size:0.8rem; color: var(--text-muted);
+      margin-bottom:8px; padding-bottom:6px;
+      border-bottom:1px solid var(--border);
     }
-    .events-list { height: 88px; min-height: 88px; max-height: 88px; overflow-y: auto; }
+    .events-list { height:88px; min-height:88px; max-height:88px; overflow-y:auto; }
     .event-item {
-      display: flex; align-items: center; gap: 10px;
-      padding: 8px 10px; background: var(--bg-secondary);
-      border-radius: 6px; margin-bottom: 4px;
-      border-left: 3px solid var(--accent); font-size: 0.85rem;
+      display:flex; align-items:center; gap:10px;
+      padding:8px 10px; background: var(--bg-secondary);
+      border-radius:6px; margin-bottom:4px;
+      border-left:3px solid var(--accent);
+      font-size:0.85rem;
     }
-    .event-item.google-event { border-left-color: #4285f4; }
-    .event-time { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); min-width: 80px; }
-    .event-item.google-event .event-time { color: #4285f4; }
-    .event-title { flex: 1; }
+    .event-item.google-event { border-left-color:#4285f4; }
+    .event-time {
+      font-family:'JetBrains Mono', monospace;
+      font-size:0.75rem; color: var(--accent);
+      min-width:80px;
+    }
+    .event-item.google-event .event-time { color:#4285f4; }
+    .event-title { flex:1; }
     .event-source {
-      font-size: 0.65rem; color: var(--text-muted);
-      background: var(--bg-hover); padding: 2px 5px; border-radius: 3px;
+      font-size:0.65rem; color: var(--text-muted);
+      background: var(--bg-hover);
+      padding:2px 5px; border-radius:3px;
     }
-    .event-empty { text-align: center; color: var(--text-muted); padding: 30px 16px; font-size: 0.85rem; }
+    .event-empty { text-align:center; color: var(--text-muted); padding:30px 16px; font-size:0.85rem; }
 
-    /* Memo */
-    .memo-container { min-height: 200px; max-height: 200px; }
-    .memo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-height: 200px; overflow-y: auto; padding: 4px; }
+    /* Memo (원본 유지) */
+    .memo-container { min-height:200px; max-height:200px; }
+    .memo-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; max-height:200px; overflow-y:auto; padding:4px; }
     .memo-postit {
-      background: var(--memo-yellow); border-radius: 4px; padding: 10px;
-      min-height: 90px; max-height: 90px; cursor: pointer; transition: all 0.2s;
-      position: relative; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-      display: flex; flex-direction: column; overflow: hidden;
+      background: var(--memo-yellow);
+      border-radius:4px; padding:10px;
+      min-height:90px; max-height:90px;
+      cursor:pointer; transition:all 0.2s;
+      position:relative;
+      box-shadow:2px 2px 8px rgba(0,0,0,0.3);
+      display:flex; flex-direction:column; overflow:hidden;
     }
-    .memo-postit:hover { transform: translateY(-3px) rotate(1deg); box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4); }
+    .memo-postit:hover { transform: translateY(-3px) rotate(1deg); box-shadow:4px 4px 12px rgba(0,0,0,0.4); }
     .memo-postit.yellow { background: var(--memo-yellow); }
     .memo-postit.pink { background: var(--memo-pink); }
     .memo-postit.blue { background: var(--memo-blue); }
     .memo-postit.green { background: var(--memo-green); }
     .memo-postit.purple { background: var(--memo-purple); }
-
-    .memo-postit-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-    .memo-postit-title { font-size: 0.8rem; font-weight: 600; color: #333; flex: 1; word-break: break-word; }
-    .memo-postit-date { font-size: 0.65rem; color: #666; }
+    .memo-postit-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; }
+    .memo-postit-title { font-size:0.8rem; font-weight:600; color:#333; flex:1; word-break:break-word; }
+    .memo-postit-date { font-size:0.65rem; color:#666; }
     .memo-postit-content {
-      font-size: 0.7rem; color: #444; flex: 1; overflow: hidden;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-      line-height: 1.3; word-break: break-word;
+      font-size:0.7rem; color:#444; flex:1; overflow:hidden;
+      display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+      line-height:1.3; word-break:break-word;
     }
     .memo-postit-delete {
-      position: absolute; top: 4px; right: 4px; width: 18px; height: 18px;
-      background: rgba(0, 0, 0, 0.3); border: none; border-radius: 50%;
-      color: white; font-size: 10px; cursor: pointer; display: none;
-      align-items: center; justify-content: center;
+      position:absolute; top:4px; right:4px;
+      width:18px; height:18px;
+      background: rgba(0,0,0,0.3);
+      border:none; border-radius:50%;
+      color:white; font-size:10px;
+      cursor:pointer; display:none;
+      align-items:center; justify-content:center;
     }
-    .memo-postit:hover .memo-postit-delete { display: flex; }
+    .memo-postit:hover .memo-postit-delete { display:flex; }
     .memo-postit-add {
-      background: var(--bg-secondary); border: 2px dashed var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted); font-size: 2rem;
+      background: var(--bg-secondary);
+      border:2px dashed var(--border);
+      display:flex; align-items:center; justify-content:center;
+      color: var(--text-muted);
+      font-size:2rem;
     }
-    .memo-postit-add:hover {
-      border-color: var(--accent); color: var(--accent);
-      transform: none; box-shadow: none;
-    }
+    .memo-postit-add:hover { border-color: var(--accent); color: var(--accent); transform:none; box-shadow:none; }
 
-    /* News */
-    .news-keyword-bar { display: flex; gap: 5px; margin-bottom: 8px; flex-wrap: wrap; }
+    /* News (7줄 표시) */
+    .news-keyword-bar { display:flex; gap:5px; margin-bottom:8px; flex-wrap:wrap; }
     .news-keyword {
-      background: var(--bg-secondary); border: 1px solid var(--border);
-      padding: 4px 12px; border-radius: 16px; font-size: 0.8rem;
-      color: var(--text-secondary); cursor: pointer; transition: all 0.2s;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      padding:4px 12px;
+      border-radius:16px;
+      font-size:0.8rem;
+      color: var(--text-secondary);
+      cursor:pointer; transition:all 0.2s;
     }
     .news-keyword:hover, .news-keyword.active {
-      background: var(--accent); color: var(--bg-primary); border-color: var(--accent);
+      background: var(--accent);
+      color: var(--bg-primary);
+      border-color: var(--accent);
     }
-    .news-list { max-height: 200px; overflow-y: auto; }
+    .news-list { max-height:200px; overflow-y:auto; }
     .news-item {
-      display: flex; justify-content: space-between; align-items: center; gap: 10px;
-      padding: 8px 10px; background: var(--bg-secondary); border-radius: 5px;
-      margin-bottom: 4px; text-decoration: none; transition: all 0.2s; border: 1px solid transparent;
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      padding:8px 10px;
+      background: var(--bg-secondary);
+      border-radius:5px;
+      margin-bottom:4px;
+      text-decoration:none;
+      transition:all 0.2s;
+      border:1px solid transparent;
     }
     .news-item:hover { background: var(--bg-hover); border-color: var(--accent); }
     .news-title {
-      color: var(--text-primary); font-size: 0.78rem; line-height: 1.3;
-      flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      color: var(--text-primary);
+      font-size:0.78rem;
+      line-height:1.3;
+      flex:1;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
-    .news-time { font-size: 0.7rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
-    .news-loading { text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+    .news-time { font-size:0.7rem; color: var(--text-muted); white-space:nowrap; flex-shrink:0; }
+    .news-loading { text-align:center; padding:30px; color: var(--text-muted); font-size:0.85rem; line-height:1.6; }
 
     /* Modal */
     .modal-overlay {
-      display: none;
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
+      display:none;
+      position:fixed; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.8);
+      z-index:1000;
+      align-items:center;
+      justify-content:center;
     }
-    .modal-overlay.active { display: flex; }
+    .modal-overlay.active { display:flex; }
     .modal {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      width: 90%;
-      max-width: 520px;
-      max-height: 80vh;
-      overflow-y: auto;
+      border-radius:16px;
+      padding:24px;
+      width:90%;
+      max-width:520px;
+      max-height:80vh;
+      overflow-y:auto;
     }
     .modal-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 20px;
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:20px;
     }
-    .modal-title { font-size: 1.1rem; font-weight: 600; }
+    .modal-title { font-size:1.1rem; font-weight:600; }
     .modal-close {
-      background: none; border: none; color: var(--text-muted);
-      font-size: 1.5rem; cursor: pointer;
+      background:none; border:none;
+      color: var(--text-muted);
+      font-size:1.5rem;
+      cursor:pointer;
     }
     .modal-close:hover { color: var(--text-primary); }
-
-    .form-group { margin-bottom: 16px; }
-    .form-label { display: block; margin-bottom: 6px; color: var(--text-secondary); font-size: 0.85rem; }
+    .form-group { margin-bottom:16px; }
+    .form-label { display:block; margin-bottom:6px; color: var(--text-secondary); font-size:0.85rem; }
     .form-input, .form-textarea {
-      width: 100%;
+      width:100%;
       background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 12px;
+      border-radius:8px;
+      padding:10px 12px;
       color: var(--text-primary);
-      font-size: 0.9rem;
-      font-family: 'Noto Sans KR', sans-serif;
+      font-size:0.9rem;
+      font-family:'Noto Sans KR', sans-serif;
     }
-    .form-textarea { min-height: 120px; resize: vertical; }
-    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--accent); }
-
-    .form-color-options { display: flex; gap: 8px; }
+    .form-textarea { min-height:120px; resize:vertical; }
+    .form-input:focus, .form-textarea:focus { outline:none; border-color: var(--accent); }
+    .form-color-options { display:flex; gap:8px; }
     .color-option {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: 2px solid transparent; cursor: pointer; transition: all 0.2s;
+      width:28px; height:28px;
+      border-radius:50%;
+      border:2px solid transparent;
+      cursor:pointer;
+      transition:all 0.2s;
     }
     .color-option:hover, .color-option.selected { transform: scale(1.1); border-color: var(--text-primary); }
     .color-option.yellow { background: var(--memo-yellow); }
@@ -548,65 +517,65 @@
     .color-option.purple { background: var(--memo-purple); }
 
     .form-submit {
-      width: 100%;
+      width:100%;
       background: var(--accent);
-      border: none;
+      border:none;
       color: var(--bg-primary);
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
+      padding:12px;
+      border-radius:8px;
+      font-size:0.95rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:background 0.2s;
     }
     .form-submit:hover { background: var(--accent-hover); }
 
-    /* Settings Dropdown */
-    .settings-dropdown { position: relative; }
+    /* Settings dropdown */
+    .settings-dropdown { position:relative; }
     .settings-btn {
       background: var(--bg-card);
       border: 1px solid var(--border);
       color: var(--text-secondary);
-      padding: 8px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      transition: all 0.2s;
-      white-space: nowrap;
+      padding:8px 14px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:0.85rem;
+      transition:all 0.2s;
+      white-space:nowrap;
     }
     .settings-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
     .settings-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      margin-top: 8px;
+      display:none;
+      position:absolute;
+      top:100%;
+      right:0;
+      margin-top:8px;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px;
-      min-width: 180px;
-      z-index: 100;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-radius:10px;
+      padding:8px;
+      min-width:180px;
+      z-index:100;
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
     }
-    .settings-menu.active { display: block; }
+    .settings-menu.active { display:block; }
     .settings-menu button {
-      display: block; width: 100%;
-      background: none; border: none;
+      display:block; width:100%;
+      background:none; border:none;
       color: var(--text-secondary);
-      padding: 10px 12px;
-      text-align: left;
-      cursor: pointer;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      transition: all 0.2s;
+      padding:10px 12px;
+      text-align:left;
+      cursor:pointer;
+      border-radius:6px;
+      font-size:0.85rem;
+      transition:all 0.2s;
     }
     .settings-menu button:hover { background: var(--bg-hover); color: var(--text-primary); }
 
     /* Scrollbar */
-    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar { width:5px; }
     ::-webkit-scrollbar-track { background: var(--bg-secondary); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius:3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
   </style>
 </head>
@@ -647,14 +616,12 @@
           즐겨찾는 사이트
         </div>
 
-        <!-- ✅ 같은 줄: 그룹관리 + 사이트추가 -->
         <div class="card-actions">
           <button class="card-btn" onclick="openBookmarkGroupModal()">그룹 관리</button>
           <button class="card-btn" onclick="openAddBookmarkModal()">사이트 추가</button>
         </div>
       </div>
 
-      <!-- ✅ 그룹 박스들이 들어가는 스크롤 영역 -->
       <div class="bookmark-groups-scroll" id="bookmarkGroupsScroll"></div>
     </div>
 
@@ -751,7 +718,7 @@
     </div>
   </div>
 
-  <!-- Bookmark Group Modal -->
+  <!-- Bookmark Group Modal (여기서만 이름변경/삭제) -->
   <div class="modal-overlay" id="bookmarkGroupModal">
     <div class="modal">
       <div class="modal-header">
@@ -872,6 +839,7 @@
     let state = {
       bookmarks: [],
       bookmarkGroups: [{ id: 'default', name: '기본' }],
+      bookmarkOrderMap: {}, // ✅ 그룹별 정렬 순서(배열)
       events: [],
       googleEvents: [],
       googleCalendars: [],
@@ -891,7 +859,17 @@
     const GOOGLE_CLIENT_ID = '616051020242-mg4r2ccc0iks3ssqhjuula6f1sr1o0p8.apps.googleusercontent.com';
     const GOOGLE_SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
 
-    // 로컬 날짜 문자열 생성
+    let dragState = {
+      draggingId: null,
+      isDragging: false,
+      lastDropTargetId: null
+    };
+
+    // Utils
+    function uid(prefix = 'id') {
+      return `${prefix}_${Math.random().toString(16).slice(2)}_${Date.now()}`;
+    }
+
     function getLocalDateStr(date) {
       const d = date || new Date();
       const year = d.getFullYear();
@@ -913,8 +891,17 @@
       return d;
     }
 
-    function uid(prefix = 'id') {
-      return `${prefix}_${Math.random().toString(16).slice(2)}_${Date.now()}`;
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function escapeQuotes(str) {
+      return String(str ?? '').replaceAll("'", "\\'").replaceAll('"', '\\"');
     }
 
     // ==================== Storage ====================
@@ -933,7 +920,6 @@
         state.googleConnected = true;
       }
 
-      // 날짜/주 초기화
       state.currentWeekStart = getWeekStart(new Date());
       state.selectedDate = getLocalDateStr(new Date());
 
@@ -944,6 +930,7 @@
       const toSave = {
         bookmarks: state.bookmarks,
         bookmarkGroups: state.bookmarkGroups,
+        bookmarkOrderMap: state.bookmarkOrderMap,
         events: state.events,
         memos: state.memos,
         newsKeywords: state.newsKeywords,
@@ -953,9 +940,8 @@
       localStorage.setItem('dashboardState_v3', JSON.stringify(toSave));
     }
 
-    // ==================== Migration / Normalize ====================
+    // ==================== Normalize / Migration ====================
     function normalizeBookmarksAndGroups() {
-      // groups 보정
       if (!Array.isArray(state.bookmarkGroups) || state.bookmarkGroups.length === 0) {
         state.bookmarkGroups = [{ id: 'default', name: '기본' }];
       }
@@ -963,9 +949,10 @@
         state.bookmarkGroups.unshift({ id: 'default', name: '기본' });
       }
 
-      // bookmarks 보정
       if (!Array.isArray(state.bookmarks)) state.bookmarks = [];
+      if (!state.bookmarkOrderMap || typeof state.bookmarkOrderMap !== 'object') state.bookmarkOrderMap = {};
 
+      // bookmarks id/groupId 보정
       state.bookmarks = state.bookmarks.map(b => ({
         id: b.id || uid('bm'),
         name: b.name || '(이름 없음)',
@@ -974,11 +961,11 @@
         groupId: b.groupId || 'default'
       }));
 
-      // 존재하지 않는 groupId는 default로
+      // 없는 groupId는 default
       const groupIds = new Set(state.bookmarkGroups.map(g => g.id));
       state.bookmarks = state.bookmarks.map(b => groupIds.has(b.groupId) ? b : ({ ...b, groupId: 'default' }));
 
-      // 기본 북마크 주입(초기)
+      // 초기 기본 북마크
       if (state.bookmarks.length === 0) {
         state.bookmarks = [
           { id: uid('bm'), name: 'ChatGPT', url: 'https://chat.openai.com', icon: '🤖', groupId: 'default' },
@@ -986,8 +973,27 @@
           { id: uid('bm'), name: 'Claude', url: 'https://claude.ai', icon: '✍️', groupId: 'default' },
           { id: uid('bm'), name: 'GitHub', url: 'https://github.com', icon: '💻', groupId: 'default' }
         ];
-        saveState();
       }
+
+      // orderMap 보정: 그룹별로 id 목록 유지
+      for (const g of state.bookmarkGroups) {
+        const existing = Array.isArray(state.bookmarkOrderMap[g.id]) ? state.bookmarkOrderMap[g.id] : [];
+        const groupBms = state.bookmarks.filter(b => b.groupId === g.id).map(b => b.id);
+
+        // existing 중 실제 존재하는 것만
+        const cleaned = existing.filter(id => groupBms.includes(id));
+        // 누락된 id는 뒤에 붙임
+        const missing = groupBms.filter(id => !cleaned.includes(id));
+        state.bookmarkOrderMap[g.id] = [...cleaned, ...missing];
+      }
+
+      saveState();
+    }
+
+    function getBookmarksByGroupOrdered(groupId) {
+      const order = state.bookmarkOrderMap[groupId] || [];
+      const map = new Map(state.bookmarks.map(b => [b.id, b]));
+      return order.map(id => map.get(id)).filter(Boolean);
     }
 
     // ==================== Init ====================
@@ -999,7 +1005,7 @@
       setInterval(updateTime, 1000);
 
       getWeather();
-      renderBookmarkGroups();  // ✅ 그룹 박스 렌더
+      renderBookmarkGroups();
       updateGoogleStatus();
       renderWeeklyCalendar();
       renderMemos();
@@ -1025,16 +1031,18 @@
 
     function exportToJson() {
       const exportData = {
-        version: '2.0',
+        version: '2.1',
         exportDate: getLocalDateStr(new Date()),
         bookmarks: state.bookmarks,
         bookmarkGroups: state.bookmarkGroups,
+        bookmarkOrderMap: state.bookmarkOrderMap,
         events: state.events,
         memos: state.memos,
         newsKeywords: state.newsKeywords,
         newsProvider: state.newsProvider,
         selectedCalendars: state.selectedCalendars
       };
+
       const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -1042,6 +1050,7 @@
       a.download = `dashboard_backup_${getLocalDateStr(new Date())}.json`;
       a.click();
       URL.revokeObjectURL(url);
+
       document.getElementById('settingsMenu').classList.remove('active');
       alert('설정이 JSON 파일로 저장되었습니다.');
     }
@@ -1057,6 +1066,7 @@
 
           if (importData.bookmarks) state.bookmarks = importData.bookmarks;
           if (importData.bookmarkGroups) state.bookmarkGroups = importData.bookmarkGroups;
+          if (importData.bookmarkOrderMap) state.bookmarkOrderMap = importData.bookmarkOrderMap;
           if (importData.events) state.events = importData.events;
           if (importData.memos) state.memos = importData.memos;
           if (importData.newsKeywords) state.newsKeywords = importData.newsKeywords;
@@ -1064,7 +1074,6 @@
           if (importData.selectedCalendars) state.selectedCalendars = importData.selectedCalendars;
 
           normalizeBookmarksAndGroups();
-          saveState();
 
           renderBookmarkGroups();
           renderWeeklyCalendar();
@@ -1132,155 +1141,58 @@
       return desc[code] || '정보 없음';
     }
 
-    // ==================== Bookmarks: Render (그룹 박스) ====================
+    // ==================== Bookmarks: Render ====================
     function renderBookmarkGroups() {
       const wrap = document.getElementById('bookmarkGroupsScroll');
 
       wrap.innerHTML = state.bookmarkGroups.map(g => {
-        const items = state.bookmarks.filter(b => b.groupId === g.id);
-        const count = items.length;
+        const items = getBookmarksByGroupOrdered(g.id);
 
-        const gridHtml = items.map(b => `
+        const tiles = items.map(b => `
           <div class="bookmark-item"
                draggable="true"
                data-bm-id="${b.id}"
+               data-group-id="${g.id}"
                ondragstart="onBookmarkDragStart(event, '${b.id}')"
                ondragend="onBookmarkDragEnd(event)"
-               onclick="openBookmarkUrl('${escapeQuotes(b.url)}')">
+               ondragover="onBookmarkDragOverItem(event, '${b.id}')"
+               ondragleave="onBookmarkDragLeaveItem(event, '${b.id}')"
+               ondrop="onBookmarkDropOnItem(event, '${g.id}', '${b.id}')"
+               onclick="onBookmarkClick('${escapeQuotes(b.url)}')">
             <button class="bookmark-delete" onclick="deleteBookmark(event, '${b.id}')">×</button>
             <div class="bookmark-icon">${b.icon || '🔗'}</div>
             <div class="bookmark-name" title="${escapeHtml(b.name)}">${escapeHtml(b.name)}</div>
           </div>
         `).join('');
 
-        const addTile = `
-          <div class="bookmark-item bookmark-add"
-               onclick="openAddBookmarkModal('${g.id}')"
-               ondragover="onGroupDragOver(event)"
-               ondrop="onGroupDrop(event, '${g.id}')">
-            <div class="bookmark-icon">+</div>
-            <div class="bookmark-name">추가</div>
-          </div>
-        `;
-
         return `
           <div class="bookmark-group"
                id="group_${g.id}"
-               ondragover="onGroupDragOver(event)"
-               ondrop="onGroupDrop(event, '${g.id}')"
-               ondragleave="onGroupDragLeave(event, '${g.id}')">
-            <div class="bookmark-group-header">
-              <div class="bookmark-group-title">
-                📁 <span class="name" title="${escapeHtml(g.name)}">${escapeHtml(g.name)}</span>
-                <span class="bookmark-group-meta">(${count})</span>
-              </div>
-              <div class="bookmark-group-actions">
-                <button class="mini-btn" type="button" onclick="renameBookmarkGroup('${g.id}')">이름변경</button>
-                ${g.id === 'default'
-                  ? `<button class="mini-btn danger" type="button" disabled style="opacity:.45; cursor:not-allowed;">삭제</button>`
-                  : `<button class="mini-btn danger" type="button" onclick="deleteBookmarkGroup('${g.id}')">삭제</button>`
-                }
-              </div>
-            </div>
-
+               ondragover="onGroupDragOver(event, '${g.id}')"
+               ondragleave="onGroupDragLeave(event, '${g.id}')"
+               ondrop="onGroupDrop(event, '${g.id}')">
+            <div class="bookmark-group-name" title="${escapeHtml(g.name)}">📁 ${escapeHtml(g.name)}</div>
             <div class="bookmarks-grid">
-              ${gridHtml}
-              ${addTile}
+              ${tiles}
             </div>
           </div>
         `;
       }).join('');
     }
 
-    function openBookmarkUrl(url) {
+    function onBookmarkClick(url) {
+      // 드래그 직후 클릭 방지
+      if (dragState.isDragging) return;
       if (!url || url === '#') return;
       window.open(url, '_blank', 'noopener,noreferrer');
     }
 
-    // 안전한 문자열 처리
-    function escapeHtml(str) {
-      return String(str ?? '')
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-    }
-    function escapeQuotes(str) {
-      return String(str ?? '').replaceAll("'", "\\'").replaceAll('"', '\\"');
-    }
-
-    // ==================== Bookmarks: DnD ====================
-    function onBookmarkDragStart(e, bookmarkId) {
-      try {
-        e.dataTransfer.setData('text/plain', bookmarkId);
-        e.dataTransfer.effectAllowed = 'move';
-      } catch (err) {}
-
-      const el = e.currentTarget;
-      el.classList.add('dragging');
-    }
-
-    function onBookmarkDragEnd(e) {
-      e.currentTarget.classList.remove('dragging');
-      // drag-over 제거
-      state.bookmarkGroups.forEach(g => {
-        const groupEl = document.getElementById(`group_${g.id}`);
-        if (groupEl) groupEl.classList.remove('drag-over');
-      });
-    }
-
-    function onGroupDragOver(e) {
-      e.preventDefault();
-      e.dataTransfer.dropEffect = 'move';
-      const groupEl = findParentGroupEl(e.target);
-      if (groupEl) groupEl.classList.add('drag-over');
-    }
-
-    function onGroupDragLeave(e, groupId) {
-      const groupEl = document.getElementById(`group_${groupId}`);
-      if (!groupEl) return;
-
-      // 실제로 그룹 밖으로 나갔을 때만 제거(깜빡임 방지)
-      const rect = groupEl.getBoundingClientRect();
-      const x = e.clientX, y = e.clientY;
-      const inside = x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
-      if (!inside) groupEl.classList.remove('drag-over');
-    }
-
-    function onGroupDrop(e, targetGroupId) {
-      e.preventDefault();
-      const bookmarkId = e.dataTransfer.getData('text/plain');
-      if (!bookmarkId) return;
-
-      const bm = state.bookmarks.find(b => b.id === bookmarkId);
-      if (!bm) return;
-
-      // 같은 그룹이면 아무것도 안 함
-      if (bm.groupId === targetGroupId) return;
-
-      bm.groupId = targetGroupId;
-      saveState();
-      renderBookmarkGroups();
-    }
-
-    function findParentGroupEl(node) {
-      let cur = node;
-      while (cur && cur !== document.body) {
-        if (cur.classList && cur.classList.contains('bookmark-group')) return cur;
-        cur = cur.parentNode;
-      }
-      return null;
-    }
-
     // ==================== Bookmarks: CRUD ====================
-    function openAddBookmarkModal(preselectGroupId) {
-      // 그룹 select 채우기
+    function openAddBookmarkModal() {
       const select = document.getElementById('bookmarkGroup');
       select.innerHTML = state.bookmarkGroups.map(g => `
-        <option value="${g.id}" ${g.id === (preselectGroupId || 'default') ? 'selected' : ''}>${escapeHtml(g.name)}</option>
+        <option value="${g.id}">${escapeHtml(g.name)}</option>
       `).join('');
-
       document.getElementById('bookmarkModal').classList.add('active');
     }
 
@@ -1292,13 +1204,11 @@
       const icon = (document.getElementById('bookmarkIcon').value || '🔗').trim();
       const groupId = document.getElementById('bookmarkGroup').value || 'default';
 
-      state.bookmarks.push({
-        id: uid('bm'),
-        name,
-        url,
-        icon,
-        groupId
-      });
+      const id = uid('bm');
+      state.bookmarks.push({ id, name, url, icon, groupId });
+
+      if (!Array.isArray(state.bookmarkOrderMap[groupId])) state.bookmarkOrderMap[groupId] = [];
+      state.bookmarkOrderMap[groupId].push(id); // 마지막에 추가
 
       saveState();
       renderBookmarkGroups();
@@ -1311,14 +1221,155 @@
       e.stopPropagation();
       if (!confirm('이 북마크를 삭제하시겠습니까?')) return;
 
-      const idx = state.bookmarks.findIndex(b => b.id === bookmarkId);
-      if (idx > -1) {
-        state.bookmarks.splice(idx, 1);
-        saveState();
-        renderBookmarkGroups();
-      }
+      const bm = state.bookmarks.find(b => b.id === bookmarkId);
+      if (!bm) return;
+
+      state.bookmarks = state.bookmarks.filter(b => b.id !== bookmarkId);
+      const groupId = bm.groupId;
+      state.bookmarkOrderMap[groupId] = (state.bookmarkOrderMap[groupId] || []).filter(id => id !== bookmarkId);
+
+      saveState();
+      renderBookmarkGroups();
     }
 
+    // ==================== Bookmarks: DnD (reorder + move) ====================
+    function clearDropMarkers() {
+      document.querySelectorAll('.bookmark-item.drop-before').forEach(el => el.classList.remove('drop-before'));
+    }
+
+    function onBookmarkDragStart(e, bookmarkId) {
+      dragState.draggingId = bookmarkId;
+      dragState.isDragging = true;
+      try {
+        e.dataTransfer.setData('text/plain', bookmarkId);
+        e.dataTransfer.effectAllowed = 'move';
+      } catch (err) {}
+
+      e.currentTarget.classList.add('dragging');
+      clearDropMarkers();
+    }
+
+    function onBookmarkDragEnd(e) {
+      e.currentTarget.classList.remove('dragging');
+      dragState.draggingId = null;
+
+      // 약간의 딜레이 후 클릭 허용
+      setTimeout(() => { dragState.isDragging = false; }, 80);
+
+      state.bookmarkGroups.forEach(g => {
+        const groupEl = document.getElementById(`group_${g.id}`);
+        if (groupEl) groupEl.classList.remove('drag-over');
+      });
+
+      clearDropMarkers();
+    }
+
+    // 그룹 박스 위로 드래그
+    function onGroupDragOver(e, groupId) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+
+      const groupEl = document.getElementById(`group_${groupId}`);
+      if (groupEl) groupEl.classList.add('drag-over');
+
+      // 그룹 위에서는 "아이템 앞 표시" 제거
+      clearDropMarkers();
+    }
+
+    function onGroupDragLeave(e, groupId) {
+      const groupEl = document.getElementById(`group_${groupId}`);
+      if (!groupEl) return;
+
+      const rect = groupEl.getBoundingClientRect();
+      const x = e.clientX, y = e.clientY;
+      const inside = x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+      if (!inside) groupEl.classList.remove('drag-over');
+    }
+
+    // 그룹에 드롭(빈 공간 드롭) => 해당 그룹 맨 뒤로
+    function onGroupDrop(e, targetGroupId) {
+      e.preventDefault();
+      const bookmarkId = e.dataTransfer.getData('text/plain') || dragState.draggingId;
+      if (!bookmarkId) return;
+
+      const bm = state.bookmarks.find(b => b.id === bookmarkId);
+      if (!bm) return;
+
+      moveBookmarkToGroupAndIndex(bookmarkId, targetGroupId, null); // null => append
+      saveState();
+      renderBookmarkGroups();
+    }
+
+    // 아이템 위로 드래그(삽입 위치 표시)
+    function onBookmarkDragOverItem(e, targetId) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+
+      const el = document.querySelector(`.bookmark-item[data-bm-id="${targetId}"]`);
+      if (!el) return;
+
+      clearDropMarkers();
+      // 자기 자신이면 표시 안 함
+      if (dragState.draggingId && dragState.draggingId === targetId) return;
+
+      el.classList.add('drop-before');
+    }
+
+    function onBookmarkDragLeaveItem(e, targetId) {
+      const el = document.querySelector(`.bookmark-item[data-bm-id="${targetId}"]`);
+      if (el) el.classList.remove('drop-before');
+    }
+
+    // 아이템 위에 드롭 => 그 아이템 "앞"으로 삽입
+    function onBookmarkDropOnItem(e, targetGroupId, targetBookmarkId) {
+      e.preventDefault();
+      const bookmarkId = e.dataTransfer.getData('text/plain') || dragState.draggingId;
+      if (!bookmarkId) return;
+
+      // 자기 자신 위 드롭은 무시
+      if (bookmarkId === targetBookmarkId) return;
+
+      moveBookmarkToGroupAndIndex(bookmarkId, targetGroupId, targetBookmarkId);
+      saveState();
+      renderBookmarkGroups();
+    }
+
+    // 핵심 이동/정렬 로직
+    // insertBeforeId가 null이면 append, 아니면 그 id 앞에 삽입
+    function moveBookmarkToGroupAndIndex(bookmarkId, targetGroupId, insertBeforeId) {
+      const bm = state.bookmarks.find(b => b.id === bookmarkId);
+      if (!bm) return;
+
+      const sourceGroupId = bm.groupId;
+
+      // order 배열 준비
+      if (!Array.isArray(state.bookmarkOrderMap[sourceGroupId])) state.bookmarkOrderMap[sourceGroupId] = [];
+      if (!Array.isArray(state.bookmarkOrderMap[targetGroupId])) state.bookmarkOrderMap[targetGroupId] = [];
+
+      // source에서 제거
+      state.bookmarkOrderMap[sourceGroupId] = state.bookmarkOrderMap[sourceGroupId].filter(id => id !== bookmarkId);
+
+      // groupId 변경
+      bm.groupId = targetGroupId;
+
+      // target에 삽입
+      const targetOrder = state.bookmarkOrderMap[targetGroupId].filter(id => id !== bookmarkId);
+
+      if (!insertBeforeId) {
+        targetOrder.push(bookmarkId);
+      } else {
+        const idx = targetOrder.indexOf(insertBeforeId);
+        if (idx === -1) targetOrder.push(bookmarkId);
+        else targetOrder.splice(idx, 0, bookmarkId);
+      }
+
+      state.bookmarkOrderMap[targetGroupId] = targetOrder;
+
+      // sourceGroupId가 target과 같았던(그룹내 reorder) 케이스도 정상 동작하도록
+      // (위에서 source 제거 후 target 삽입이 같은 배열에 적용되면 문제 없음)
+    }
+
+    // ==================== Group Management (rename/delete here only) ====================
     function openBookmarkGroupModal() {
       document.getElementById('bookmarkGroupModal').classList.add('active');
       renderBookmarkGroupList();
@@ -1326,18 +1377,24 @@
 
     function renderBookmarkGroupList() {
       const container = document.getElementById('bookmarkGroupList');
-      container.innerHTML = state.bookmarkGroups.map(g => `
-        <div style="display:flex; gap:8px; align-items:center; background: var(--bg-secondary); border:1px solid var(--border); padding:10px; border-radius:12px;">
-          <div style="flex:1; min-width:0; color: var(--text-primary); font-size:0.92rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-            📁 ${escapeHtml(g.name)} <span style="color:var(--text-muted); font-size:0.8rem;">(${state.bookmarks.filter(b => b.groupId === g.id).length})</span>
+      container.innerHTML = state.bookmarkGroups.map(g => {
+        const count = (state.bookmarkOrderMap[g.id] || []).length;
+        const disabled = g.id === 'default';
+
+        return `
+          <div style="display:flex; gap:8px; align-items:center; background: var(--bg-secondary); border:1px solid var(--border); padding:10px; border-radius:12px;">
+            <div style="flex:1; min-width:0; color: var(--text-primary); font-size:0.92rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+              📁 ${escapeHtml(g.name)} <span style="color:var(--text-muted); font-size:0.8rem;">(${count})</span>
+            </div>
+
+            <button class="card-btn" type="button" onclick="renameBookmarkGroup('${g.id}')">이름변경</button>
+            <button class="card-btn" type="button"
+              ${disabled ? 'disabled style="opacity:.45; cursor:not-allowed;"' : `onclick="deleteBookmarkGroup('${g.id}')"`}>
+              삭제
+            </button>
           </div>
-          <button class="mini-btn" type="button" onclick="renameBookmarkGroup('${g.id}')">이름변경</button>
-          ${g.id === 'default'
-            ? `<button class="mini-btn danger" type="button" disabled style="opacity:.45; cursor:not-allowed;">삭제</button>`
-            : `<button class="mini-btn danger" type="button" onclick="deleteBookmarkGroup('${g.id}')">삭제</button>`
-          }
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     function addBookmarkGroup() {
@@ -1345,7 +1402,10 @@
       const name = (input.value || '').trim();
       if (!name) return;
 
-      state.bookmarkGroups.push({ id: uid('g'), name });
+      const id = uid('g');
+      state.bookmarkGroups.push({ id, name });
+      state.bookmarkOrderMap[id] = [];
+
       input.value = '';
 
       saveState();
@@ -1365,7 +1425,6 @@
 
       g.name = trimmed;
       saveState();
-      // 두 화면 동시 반영
       renderBookmarkGroupList();
       renderBookmarkGroups();
     }
@@ -1378,17 +1437,24 @@
 
       if (!confirm(`${groupName}을(를) 삭제할까요?\n그룹 안의 북마크는 "기본" 그룹으로 이동됩니다.`)) return;
 
-      // 그룹 북마크 -> default 이동
+      // 그룹 내 북마크들을 default로 이동 + default 맨 뒤에 append
+      const movingIds = (state.bookmarkOrderMap[groupId] || []).slice();
+      if (!Array.isArray(state.bookmarkOrderMap['default'])) state.bookmarkOrderMap['default'] = [];
+      state.bookmarkOrderMap['default'] = [...state.bookmarkOrderMap['default'], ...movingIds];
+
+      // 실제 bookmarks groupId 변경
       state.bookmarks = state.bookmarks.map(b => b.groupId === groupId ? { ...b, groupId: 'default' } : b);
+
       // 그룹 삭제
       state.bookmarkGroups = state.bookmarkGroups.filter(g => g.id !== groupId);
+      delete state.bookmarkOrderMap[groupId];
 
       saveState();
       renderBookmarkGroupList();
       renderBookmarkGroups();
     }
 
-    // ==================== Calendar (Weekly) ====================
+    // ==================== Calendar (Weekly) - 기존 코드 유지 ====================
     function renderWeeklyCalendar() {
       const grid = document.getElementById('weekGrid');
       const weekLabel = document.getElementById('calendarWeekLabel');
@@ -1510,7 +1576,7 @@
       }
     }
 
-    // ==================== Google Calendar ====================
+    // ==================== Google Calendar (원본 유지) ====================
     function updateGoogleStatus() {
       const statusEl = document.getElementById('googleStatus');
       const textEl = document.getElementById('googleStatusText');
@@ -1573,19 +1639,15 @@
         const res = await fetch('https://www.googleapis.com/calendar/v3/users/me/calendarList', {
           headers: { 'Authorization': `Bearer ${state.googleAccessToken}` }
         });
-
         if (res.ok) {
           const data = await res.json();
           state.googleCalendars = data.items || [];
-
           if (state.selectedCalendars.length === 0) {
             state.selectedCalendars = state.googleCalendars.map(c => c.id);
             saveState();
           }
         }
-      } catch (e) {
-        console.error('Calendar list error:', e);
-      }
+      } catch (e) { console.error('Calendar list error:', e); }
     }
 
     async function openCalendarSelectModal() {
@@ -1596,20 +1658,18 @@
 
     function renderCalendarList() {
       const list = document.getElementById('calendarList');
-
       if (state.googleCalendars.length === 0) {
         list.innerHTML = '<div class="news-loading">캘린더가 없습니다</div>';
         return;
       }
-
       list.innerHTML = state.googleCalendars.map(cal => {
         const isChecked = state.selectedCalendars.includes(cal.id);
         const bgColor = cal.backgroundColor || '#4285f4';
         return `
-          <label style="display: flex; align-items: center; gap: 10px; padding: 10px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 8px; cursor: pointer;">
-            <input type="checkbox" value="${cal.id}" ${isChecked ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: ${bgColor};">
-            <span style="width: 12px; height: 12px; background: ${bgColor}; border-radius: 3px;"></span>
-            <span style="flex: 1; color: var(--text-primary);">${escapeHtml(cal.summary)}</span>
+          <label style="display:flex; align-items:center; gap:10px; padding:10px; background: var(--bg-secondary); border-radius:8px; margin-bottom:8px; cursor:pointer;">
+            <input type="checkbox" value="${cal.id}" ${isChecked ? 'checked' : ''} style="width:18px; height:18px; accent-color:${bgColor};">
+            <span style="width:12px; height:12px; background:${bgColor}; border-radius:3px;"></span>
+            <span style="flex:1; color: var(--text-primary);">${escapeHtml(cal.summary)}</span>
           </label>
         `;
       }).join('');
@@ -1668,19 +1728,15 @@
                 allEvents = allEvents.concat(events);
               }
             }
-          } catch (e) {
-            console.error(`Calendar ${calendarId} error:`, e);
-          }
+          } catch (e) { console.error(`Calendar ${calendarId} error:`, e); }
         }
 
         state.googleEvents = allEvents;
         renderWeeklyCalendar();
-      } catch (e) {
-        console.error('Google Calendar error:', e);
-      }
+      } catch (e) { console.error('Google Calendar error:', e); }
     }
 
-    // ==================== Memos ====================
+    // ==================== Memos (원본 유지) ====================
     function renderMemos() {
       const grid = document.getElementById('memoGrid');
 
@@ -1759,19 +1815,16 @@
         alert('내보낼 메모가 없습니다.');
         return;
       }
-
       const wsData = [['제목', '내용', '색상', '작성일']];
       state.memos.forEach(m => wsData.push([m.title, m.content, m.color, m.date]));
-
       const ws = XLSX.utils.aoa_to_sheet(wsData);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, '메모');
-
       const filename = `memos_${getLocalDateStr(new Date())}.xlsx`;
       XLSX.writeFile(wb, filename);
     }
 
-    // ==================== News ====================
+    // ==================== News (7줄 표시) ====================
     function renderNewsKeywords() {
       const container = document.getElementById('newsKeywords');
       container.innerHTML = state.newsKeywords.map(k => `
@@ -1824,11 +1877,9 @@
     async function loadNews() {
       const list = document.getElementById('newsList');
       list.innerHTML = '<div class="news-loading">뉴스를 가져오는 중...</div>';
-
       try {
         const res = await fetch('news.json');
         const allNewsData = await res.json();
-
         if (allNewsData[state.activeKeyword]) renderNewsItems(allNewsData[state.activeKeyword]);
         else list.innerHTML = `<div class="news-loading">'${escapeHtml(state.activeKeyword)}'에 대한 뉴스가 없습니다.<br><small>다음 업데이트를 기다려주세요.</small></div>`;
       } catch (e) {
@@ -1838,20 +1889,15 @@
 
     function renderNewsItems(items) {
       const list = document.getElementById('newsList');
-
-      // ✅ 7줄만 표시
-      const displayItems = (items || []).slice(0, 7);
-
+      const displayItems = (items || []).slice(0, 7); // ✅ 7줄
       if (displayItems.length === 0) {
         list.innerHTML = '<div class="news-loading">표시할 뉴스가 없습니다.</div>';
         return;
       }
-
       list.innerHTML = displayItems.map(item => {
         const pubDate = new Date(item.pubDate);
         const timeAgo = getTimeAgo(pubDate);
         const cleanTitle = (item.title || '').replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
-
         return `
           <a href="${escapeHtml(item.link || '#')}" target="_blank" class="news-item">
             <span class="news-title">${escapeHtml(cleanTitle)}</span>
@@ -1885,7 +1931,7 @@
       overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('active'); });
     });
 
-    // ==================== Start ====================
+    // Start
     init();
   </script>
 </body>
