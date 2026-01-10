@@ -6,7 +6,7 @@ import os
 CLIENT_ID = os.environ.get("NAVER_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("NAVER_CLIENT_SECRET")
 
-keywords = ['IT', '경제', '부동산']
+keywords = ['IT', '경제', '부동산', 'AI', '주식', '날씨', '테크']
 news_data = {}
 
 def fetch_news(query):
