@@ -1554,58 +1554,63 @@
         }
 
 		function handleGoogleAuth() {
+		    // 1. 현재 접속한 주소를 기반으로 리디렉션 URI 추출
+		    const redirectUri = window.location.origin + window.location.pathname;
+		    
+		    // 디버깅용: 연결 버튼 클릭 시 실제 전송되는 주소를 보여줍니다.
+		    // 400 에러가 다시 뜨면 이 주소가 구글 콘솔에 정확히 있는지 확인하세요.
+		    console.log("전송되는 Redirect URI:", redirectUri);
+		
 		    if (state.googleConnected) {
-		        // 연결 해제 로직 (기존과 동일)
 		        state.googleConnected = false;
 		        state.googleAccessToken = null;
 		        state.googleEvents = [];
 		        localStorage.removeItem('googleAccessToken');
 		        updateGoogleStatus();
 		        renderWeeklyCalendar();
-		    } else {
-		        // 1. OAuth 요청 URL 구성
-		        const redirectUri = window.location.origin + window.location.pathname; // 실제 접속 주소
-		        const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
-		
-		        // 2. 팝업 창 옵션 설정
-		        const width = 500;
-		        const height = 600;
-		        const left = (window.screen.width / 2) - (width / 2);
-		        const top = (window.screen.height / 2) - (height / 2);
-		        
-		        // 3. 팝업 창 열기
-		        const authWindow = window.open(authUrl, 'google_auth_popup', `width=${width},height=${height},top=${top},left=${left}`);
-		
-		        // 4. 팝업 창이 닫혔는지 주기적으로 확인 (인증 완료 감지)
-		        const checkPopup = setInterval(() => {
-		            try {
-		                // 인증 완료 후 팝업 창의 URL에 access_token이 포함되어 있는지 확인
-		                if (authWindow.location.hash.includes('access_token')) {
-		                    const hash = authWindow.location.hash;
-		                    const params = new URLSearchParams(hash.substring(1));
-		                    const accessToken = params.get('access_token');
-		                    
-		                    if (accessToken) {
-		                        state.googleAccessToken = accessToken;
-		                        state.googleConnected = true;
-		                        localStorage.setItem('googleAccessToken', accessToken);
-		                        updateGoogleStatus();
-		                        fetchGoogleCalendarList();
-		                        fetchGoogleCalendarEvents();
-		                        
-		                        authWindow.close(); // 인증 성공 시 팝업 닫기
-		                        clearInterval(checkPopup);
-		                    }
-		                }
-		            } catch (e) {
-		                // 다른 도메인(구글 로그인 페이지)에 있을 때는 보안상 URL 읽기가 안 되므로 무시
-		            }
-		
-		            if (authWindow.closed) {
-		                clearInterval(checkPopup);
-		            }
-		        }, 500);
+		        return;
 		    }
+		
+		    // 2. OAuth 인증 URL 생성
+		    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
+		
+		    // 3. 팝업 창 열기 (현재 창에서 열리지 않음)
+		    const width = 500, height = 600;
+		    const left = (window.screen.width / 2) - (width / 2);
+		    const top = (window.screen.height / 2) - (height / 2);
+		    const authWindow = window.open(authUrl, 'google_auth_popup', `width=${width},height=${height},top=${top},left=${left}`);
+		
+		    if (!authWindow) {
+		        alert("팝업이 차단되었습니다. 브라우저 설정에서 팝업을 허용해주세요.");
+		        return;
+		    }
+		
+		    // 4. 인증 완료 감지 (팝업 창의 URL 변화 감시)
+		    const checkAuth = setInterval(() => {
+		        try {
+		            // 팝업 창의 해시(#)값에 access_token이 있는지 확인
+		            if (authWindow.location.hash.includes('access_token')) {
+		                const params = new URLSearchParams(authWindow.location.hash.substring(1));
+		                const token = params.get('access_token');
+		                
+		                if (token) {
+		                    state.googleAccessToken = token;
+		                    state.googleConnected = true;
+		                    localStorage.setItem('googleAccessToken', token);
+		                    updateGoogleStatus();
+		                    fetchGoogleCalendarList();
+		                    fetchGoogleCalendarEvents();
+		                    
+		                    authWindow.close(); // 성공하면 팝업 닫기
+		                    clearInterval(checkAuth);
+		                }
+		            }
+		        } catch (e) {
+		            // 다른 도메인(구글 로그인 창)에 있을 때는 보안상 URL을 읽을 수 없으므로 무시
+		        }
+		        
+		        if (authWindow.closed) clearInterval(checkAuth);
+		    }, 500);
 		}
 
         function handleOAuthCallback() {
