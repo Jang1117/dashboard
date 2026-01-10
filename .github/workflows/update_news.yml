@@ -2,7 +2,7 @@ name: Update News Data
 
 on:
   schedule:
-    - cron: '0 * * * *' # 매 시간 0분에 실행
+    - cron: '*/15 * * * *'  # 15분마다 실행
   workflow_dispatch:      # 수동 실행 버튼 활성화
 
 jobs:
