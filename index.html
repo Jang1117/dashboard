@@ -191,16 +191,15 @@
             gap: 8px;
             flex: 1;
             overflow-y: auto;
-            align-content: start; /* 위쪽으로 밀착 */
+            align-content: start;
         }
 
-        /* 개별 항목 수정: 세로 배치에서 가로 배치로 변경 */
         .bookmark-item {
             display: flex;
-            flex-direction: row; /* 가로 배치 */
+            flex-direction: row;
             align-items: center;
             gap: 8px;
-            padding: 6px 10px; /* 패딩 축소 */
+            padding: 6px 10px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -209,7 +208,8 @@
             text-decoration: none;
             color: var(--text-primary);
             position: relative;
-            height: 42px; /* 높이 고정으로 통일감 부여 */
+            height: 42px;
+            overflow: hidden; /* ✅ FIX: X가 밖으로 나가도 타일 밖으로 못 나가게 */
         }
 
         .bookmark-item:hover {
@@ -218,7 +218,6 @@
             border-color: var(--accent);
         }
 
-        /* 아이콘 크기 축소 */
         .bookmark-icon {
             width: 24px;
             height: 24px;
@@ -231,10 +230,9 @@
             font-size: 0.9rem;
         }
         
-        /* 이름 정렬 수정 */
         .bookmark-name {
             font-size: 0.75rem;
-            text-align: left; /* 왼쪽 정렬 */
+            text-align: left;
             color: var(--text-secondary);
             overflow: hidden;
             text-overflow: ellipsis;
@@ -242,9 +240,8 @@
             flex: 1;
         }
         
-        /* 추가 버튼 스타일 정렬 조정 */
         .bookmark-add {
-            justify-content: center; /* 추가 버튼은 중앙 정렬 유지 */
+            justify-content: center;
             border: 1px dashed var(--border);
         }
 
@@ -253,10 +250,11 @@
             background: rgba(78, 205, 196, 0.1);
         }
 
+        /* ✅ FIX: 삭제 버튼을 타일 내부에 고정 */
         .bookmark-delete {
             position: absolute;
-            top: -6px;
-            right: -6px;
+            top: 6px;
+            right: 6px;
             width: 18px;
             height: 18px;
             background: var(--danger);
@@ -268,10 +266,56 @@
             display: none;
             align-items: center;
             justify-content: center;
+            z-index: 2;
         }
 
         .bookmark-item:hover .bookmark-delete {
             display: flex;
+        }
+
+        /* ✅ Bookmark Groups Bar */
+        .bookmark-groups-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .bookmark-group-chip {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 6px 10px;
+            border-radius: 14px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bookmark-group-chip:hover,
+        .bookmark-group-chip.active {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+        }
+
+        .bookmark-group-manage {
+            margin-left: auto;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 6px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .bookmark-group-manage:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
         }
 
         /* Calendar Widget - Weekly View */
@@ -915,6 +959,10 @@
                     <button class="card-btn" onclick="openAddBookmarkModal()">+ 추가</button>
                 </div>
             </div>
+
+            <!-- ✅ 그룹 바 추가 -->
+            <div class="bookmark-groups-bar" id="bookmarkGroupsBar"></div>
+
             <div class="bookmarks-grid" id="bookmarksGrid"></div>
         </div>
 
@@ -1003,8 +1051,38 @@
                     <label class="form-label">아이콘 (이모지)</label>
                     <input type="text" class="form-input" id="bookmarkIcon" placeholder="🌐" maxlength="2">
                 </div>
+
+                <!-- ✅ 그룹 선택 추가 -->
+                <div class="form-group">
+                    <label class="form-label">그룹</label>
+                    <select class="form-input" id="bookmarkGroup"></select>
+                </div>
+
                 <button type="submit" class="form-submit">추가하기</button>
             </form>
+        </div>
+    </div>
+
+    <!-- ✅ Bookmark Group Modal -->
+    <div class="modal-overlay" id="bookmarkGroupModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">북마크 그룹 관리</div>
+                <button class="modal-close" onclick="closeModal('bookmarkGroupModal')">×</button>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">새 그룹 추가</label>
+                <div style="display:flex; gap:8px;">
+                    <input type="text" class="form-input" id="newBookmarkGroupName" placeholder="예: 업무, AI, 금융">
+                    <button class="card-btn" type="button" onclick="addBookmarkGroup()">추가</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 16px;">
+                <label class="form-label">현재 그룹</label>
+                <div id="bookmarkGroupList" style="display:flex; flex-direction:column; gap:8px; margin-top:8px;"></div>
+            </div>
         </div>
     </div>
 
@@ -1105,6 +1183,9 @@
         // ==================== State Management ====================
         let state = {
             bookmarks: [],
+            bookmarkGroups: [{ id: 'default', name: '기본' }],
+            activeBookmarkGroupId: 'default',
+
             events: [],
             googleEvents: [],
             googleCalendars: [],
@@ -1147,12 +1228,38 @@
             return d;
         }
 
+        // ✅ 북마크 그룹/구버전 호환 정리
+        function normalizeBookmarksAndGroups() {
+            if (!Array.isArray(state.bookmarkGroups) || state.bookmarkGroups.length === 0) {
+                state.bookmarkGroups = [{ id: 'default', name: '기본' }];
+            }
+
+            if (!state.bookmarkGroups.some(g => g.id === 'default')) {
+                state.bookmarkGroups.unshift({ id: 'default', name: '기본' });
+            }
+
+            if (!state.activeBookmarkGroupId || !state.bookmarkGroups.some(g => g.id === state.activeBookmarkGroupId)) {
+                state.activeBookmarkGroupId = 'default';
+            }
+
+            state.bookmarks = (state.bookmarks || []).map(b => ({
+                ...b,
+                groupId: b.groupId || 'default'
+            }));
+
+            // 존재하지 않는 groupId가 붙은 북마크는 default로
+            const groupIds = new Set(state.bookmarkGroups.map(g => g.id));
+            state.bookmarks = state.bookmarks.map(b => groupIds.has(b.groupId) ? b : ({ ...b, groupId: 'default' }));
+        }
+
         // ==================== Initialize ====================
         function init() {
             state.currentWeekStart = getWeekStart(new Date());
             state.selectedDate = getLocalDateStr(new Date());
             
             loadState();
+
+            normalizeBookmarksAndGroups();
             
             // OAuth 콜백 처리 (리다이렉트 후 URL 해시에서 토큰 추출)
             handleOAuthCallback();
@@ -1193,6 +1300,9 @@
         function saveState() {
             const toSave = {
                 bookmarks: state.bookmarks,
+                bookmarkGroups: state.bookmarkGroups,
+                activeBookmarkGroupId: state.activeBookmarkGroupId,
+
                 events: state.events,
                 memos: state.memos,
                 newsKeywords: state.newsKeywords,
@@ -1218,9 +1328,11 @@
 
         function exportToJson() {
             const exportData = {
-                version: '1.0',
+                version: '1.1',
                 exportDate: getLocalDateStr(new Date()),
                 bookmarks: state.bookmarks,
+                bookmarkGroups: state.bookmarkGroups,
+                activeBookmarkGroupId: state.activeBookmarkGroupId,
                 events: state.events,
                 memos: state.memos,
                 newsKeywords: state.newsKeywords,
@@ -1250,12 +1362,16 @@
                     const importData = JSON.parse(e.target.result);
                     
                     if (importData.bookmarks) state.bookmarks = importData.bookmarks;
+                    if (importData.bookmarkGroups) state.bookmarkGroups = importData.bookmarkGroups;
+                    if (importData.activeBookmarkGroupId) state.activeBookmarkGroupId = importData.activeBookmarkGroupId;
+
                     if (importData.events) state.events = importData.events;
                     if (importData.memos) state.memos = importData.memos;
                     if (importData.newsKeywords) state.newsKeywords = importData.newsKeywords;
                     if (importData.newsProvider) state.newsProvider = importData.newsProvider;
                     if (importData.selectedCalendars) state.selectedCalendars = importData.selectedCalendars;
-                    
+
+                    normalizeBookmarksAndGroups();
                     saveState();
                     
                     renderBookmarks();
@@ -1324,27 +1440,123 @@
             return desc[code] || '정보 없음';
         }
 
-        // ==================== Bookmarks ====================
+        // ==================== Bookmarks + Groups ====================
+        function renderBookmarkGroupsBar() {
+            const bar = document.getElementById('bookmarkGroupsBar');
+            if (!bar) return;
+
+            const chips = state.bookmarkGroups.map(g => `
+                <div class="bookmark-group-chip ${g.id === state.activeBookmarkGroupId ? 'active' : ''}"
+                     onclick="selectBookmarkGroup('${g.id}')">
+                    📁 ${g.name}
+                </div>
+            `).join('');
+
+            bar.innerHTML = chips + `
+                <button class="bookmark-group-manage" onclick="openBookmarkGroupModal()">그룹 관리</button>
+            `;
+        }
+
+        function selectBookmarkGroup(groupId) {
+            state.activeBookmarkGroupId = groupId;
+            saveState();
+            renderBookmarks();
+        }
+
+        function openBookmarkGroupModal() {
+            document.getElementById('bookmarkGroupModal').classList.add('active');
+            renderBookmarkGroupList();
+        }
+
+        function renderBookmarkGroupList() {
+            const container = document.getElementById('bookmarkGroupList');
+            if (!container) return;
+
+            container.innerHTML = state.bookmarkGroups.map(g => `
+                <div style="display:flex; gap:8px; align-items:center; background: var(--bg-secondary); border:1px solid var(--border); padding:10px; border-radius:10px;">
+                    <div style="flex:1; color: var(--text-primary); font-size:0.9rem;">📁 ${g.name}</div>
+                    <button class="card-btn" type="button" onclick="renameBookmarkGroup('${g.id}')">이름변경</button>
+                    ${g.id === 'default'
+                        ? `<button class="card-btn" type="button" disabled style="opacity:.4; cursor:not-allowed;">삭제</button>`
+                        : `<button class="card-btn" type="button" onclick="deleteBookmarkGroup('${g.id}')">삭제</button>`
+                    }
+                </div>
+            `).join('');
+        }
+
+        function addBookmarkGroup() {
+            const input = document.getElementById('newBookmarkGroupName');
+            const name = (input.value || '').trim();
+            if (!name) return;
+
+            const id = 'g_' + Math.random().toString(16).slice(2);
+            state.bookmarkGroups.push({ id, name });
+            input.value = '';
+
+            state.activeBookmarkGroupId = id;
+
+            saveState();
+            renderBookmarkGroupList();
+            renderBookmarks();
+        }
+
+        function renameBookmarkGroup(groupId) {
+            const g = state.bookmarkGroups.find(x => x.id === groupId);
+            if (!g) return;
+
+            const newName = prompt('그룹 이름을 입력하세요', g.name);
+            if (newName === null) return;
+
+            const trimmed = newName.trim();
+            if (!trimmed) return;
+
+            g.name = trimmed;
+            saveState();
+            renderBookmarkGroupList();
+            renderBookmarks();
+        }
+
+        function deleteBookmarkGroup(groupId) {
+            if (!confirm('이 그룹을 삭제할까요?\n그룹 안의 북마크는 "기본"으로 이동됩니다.')) return;
+
+            state.bookmarks = state.bookmarks.map(b => b.groupId === groupId ? { ...b, groupId: 'default' } : b);
+            state.bookmarkGroups = state.bookmarkGroups.filter(g => g.id !== groupId);
+
+            if (state.activeBookmarkGroupId === groupId) state.activeBookmarkGroupId = 'default';
+
+            saveState();
+            renderBookmarkGroupList();
+            renderBookmarks();
+        }
+
         function renderBookmarks() {
+            renderBookmarkGroupsBar();
+
             const grid = document.getElementById('bookmarksGrid');
             
-            if (state.bookmarks.length === 0) {
+            if ((state.bookmarks || []).length === 0) {
                 state.bookmarks = [
-                    { name: 'ChatGPT', url: 'https://chat.openai.com', icon: '🤖' },
-                    { name: 'Gemini', url: 'https://gemini.google.com', icon: '✨' },
-                    { name: 'Claude', url: 'https://claude.ai', icon: '✍️' },
-                    { name: 'GitHub', url: 'https://github.com', icon: '💻' }
+                    { name: 'ChatGPT', url: 'https://chat.openai.com', icon: '🤖', groupId: 'default' },
+                    { name: 'Gemini', url: 'https://gemini.google.com', icon: '✨', groupId: 'default' },
+                    { name: 'Claude', url: 'https://claude.ai', icon: '✍️', groupId: 'default' },
+                    { name: 'GitHub', url: 'https://github.com', icon: '💻', groupId: 'default' }
                 ];
                 saveState();
             }
-        
-            grid.innerHTML = state.bookmarks.map((b, i) => `
-                <a href="${b.url}" target="_blank" class="bookmark-item">
-                    <button class="bookmark-delete" onclick="deleteBookmark(event, ${i})">×</button>
-                    <div class="bookmark-icon">${b.icon || '🔗'}</div>
-                    <div class="bookmark-name">${b.name}</div>
-                </a>
-            `).join('') + `
+
+            const activeId = state.activeBookmarkGroupId || 'default';
+            const visibleBookmarks = (state.bookmarks || []).filter(b => (b.groupId || 'default') === activeId);
+
+            grid.innerHTML = visibleBookmarks.map((b) => {
+                const originalIndex = state.bookmarks.indexOf(b);
+                return `
+                    <a href="${b.url}" target="_blank" class="bookmark-item">
+                        <button class="bookmark-delete" onclick="deleteBookmark(event, ${originalIndex})">×</button>
+                        <div class="bookmark-icon">${b.icon || '🔗'}</div>
+                        <div class="bookmark-name">${b.name}</div>
+                    </a>
+                `;
+            }).join('') + `
                 <div class="bookmark-item bookmark-add" onclick="openAddBookmarkModal()">
                     <div class="bookmark-icon" style="background:none;">+</div>
                     <div class="bookmark-name">추가</div>
@@ -1353,6 +1565,13 @@
         }
 
         function openAddBookmarkModal() {
+            // 그룹 선택 옵션 채우기
+            const select = document.getElementById('bookmarkGroup');
+            if (select) {
+                select.innerHTML = (state.bookmarkGroups || []).map(g =>
+                    `<option value="${g.id}" ${g.id === state.activeBookmarkGroupId ? 'selected' : ''}>${g.name}</option>`
+                ).join('');
+            }
             document.getElementById('bookmarkModal').classList.add('active');
         }
 
@@ -1361,7 +1580,8 @@
             state.bookmarks.push({
                 name: document.getElementById('bookmarkName').value,
                 url: document.getElementById('bookmarkUrl').value,
-                icon: document.getElementById('bookmarkIcon').value || '🔗'
+                icon: document.getElementById('bookmarkIcon').value || '🔗',
+                groupId: document.getElementById('bookmarkGroup')?.value || state.activeBookmarkGroupId || 'default'
             });
             saveState();
             renderBookmarks();
@@ -1458,7 +1678,7 @@
                 return;
             }
 
-            list.innerHTML = allEvents.map((e, i) => {
+            list.innerHTML = allEvents.map((e) => {
                 const isGoogle = e.source === 'google';
                 const timeDisplay = e.time || '종일';
                 return `
@@ -1524,7 +1744,6 @@
 
         function handleGoogleAuth() {
             if (state.googleConnected) {
-                // 연결 해제
                 state.googleConnected = false;
                 state.googleAccessToken = null;
                 state.googleEvents = [];
@@ -1534,15 +1753,11 @@
                 return;
             }
 
-            // 리다이렉트 방식 OAuth (동적 URI)
             const redirectUri = window.location.origin + window.location.pathname;
-            console.log('OAuth Redirect URI:', redirectUri);
             const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
-            
             window.location.href = authUrl;
         }
 
-        // OAuth 콜백 처리 (리다이렉트 후)
         function handleOAuthCallback() {
             const hash = window.location.hash;
             if (hash && hash.includes('access_token')) {
@@ -1552,7 +1767,6 @@
                     state.googleAccessToken = accessToken;
                     state.googleConnected = true;
                     localStorage.setItem('googleAccessToken', accessToken);
-                    // URL에서 해시 제거
                     window.history.replaceState({}, document.title, window.location.pathname);
                     updateGoogleStatus();
                     fetchGoogleCalendarList();
@@ -1826,6 +2040,7 @@
                 saveState();
                 renderNewsKeywords();
                 renderKeywordList();
+                loadNews();
             }
         }
 
@@ -1850,7 +2065,16 @@
 
         function renderNewsItems(items) {
             const list = document.getElementById('newsList');
-            list.innerHTML = items.map(item => {
+
+            // ✅ 7줄만 표시
+            const displayItems = (items || []).slice(0, 7);
+
+            if (displayItems.length === 0) {
+                list.innerHTML = '<div class="news-loading">표시할 뉴스가 없습니다.</div>';
+                return;
+            }
+
+            list.innerHTML = displayItems.map(item => {
                 const pubDate = new Date(item.pubDate);
                 const timeAgo = getTimeAgo(pubDate);
                 const cleanTitle = item.title.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
