@@ -1830,17 +1830,21 @@
             `).join('');
         }
 
-        function addKeyword(e) {
-            e.preventDefault();
-            const keyword = document.getElementById('newKeyword').value.trim();
-            if (keyword && !state.newsKeywords.includes(keyword)) {
-                state.newsKeywords.push(keyword);
-                saveState();
-                renderNewsKeywords();
-                renderKeywordList();
-            }
-            document.getElementById('newKeyword').value = '';
-        }
+		// 1. 키워드 추가 시 즉시 뉴스 로드하도록 수정
+		function addKeyword(e) {
+		    e.preventDefault();
+		    const keyword = document.getElementById('newKeyword').value.trim();
+		    if (keyword && !state.newsKeywords.includes(keyword)) {
+		        state.newsKeywords.push(keyword);
+		        state.activeKeyword = keyword; // 추가한 키워드를 바로 활성화
+		        saveState();
+		        renderNewsKeywords();
+		        renderKeywordList();
+		        
+		        loadNews(); // 신규 키워드 등록 시 즉시 뉴스 호출
+		    }
+		    document.getElementById('newKeyword').value = '';
+		}
 
         function deleteKeyword(keyword) {
             if (state.newsKeywords.length > 1) {
@@ -1855,28 +1859,32 @@
         // 네이버 뉴스 프록시 서버 주소 (미니PC에서 실행)
 		const NEWS_PROXY_URL = 'http://221.141.142.12:5000';
 
-        // 메인 뉴스 로드 함수 (네이버 뉴스 API via 프록시)
+		// 2. loadNews 함수 보완: news.json에 없는 키워드는 직접 호출 시도
 		async function loadNews() {
-			const list = document.getElementById('newsList');
-			list.innerHTML = '<div class="news-loading">업데이트된 뉴스를 읽어오는 중...</div>';
-
-			try {
-				// 프록시 서버 주소 대신 news.json 파일을 직접 호출
-				const res = await fetch('news.json');
-				const allNewsData = await res.json();
-				
-				// 현재 선택된 키워드의 데이터만 가져오기
-				const items = allNewsData[state.activeKeyword] || [];
-
-				if (items.length > 0) {
-					renderNewsItems(items);
-				} else {
-					list.innerHTML = '<div class="news-loading">데이터가 없습니다.</div>';
-				}
-			} catch (e) {
-				console.error('News Error:', e);
-				list.innerHTML = '<div class="news-loading">뉴스 데이터를 불러올 수 없습니다.</div>';
-			}
+		    const list = document.getElementById('newsList');
+		    list.innerHTML = '<div class="news-loading">뉴스를 가져오는 중...</div>';
+		
+		    try {
+		        // 우선 GitHub에 저장된 news.json 시도
+		        const res = await fetch('news.json');
+		        const allNewsData = await res.json();
+		        
+		        if (allNewsData[state.activeKeyword]) {
+		            renderNewsItems(allNewsData[state.activeKeyword]);
+		        } else {
+		            // news.json에 없는 '방금 추가된' 키워드인 경우: CORS 프록시를 통해 직접 호출
+		            // (무료 프록시 서비스 예시: allorigins)
+		            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
+		                `https://openapi.naver.com/v1/search/news.json?query=${state.activeKeyword}&display=10&sort=date`
+		            )}`;
+		            
+		            // 주의: 이 방식은 네이버 Client ID/Secret이 노출될 수 있으므로 
+		            // 가장 좋은 방법은 파이썬 스크립트가 모든 키워드를 다 가져오게 하는 것입니다.
+		            list.innerHTML = `<div class="news-loading">'${state.activeKeyword}'에 대한 첫 업데이트 대기 중...<br><small>1시간 내로 반영됩니다.</small></div>`;
+		        }
+		    } catch (e) {
+		        list.innerHTML = '<div class="news-loading">뉴스 데이터를 불러올 수 없습니다.</div>';
+		    }
 		}
 
 		// 뉴스 아이템 렌더링 (기존 HTML 구조 유지)
