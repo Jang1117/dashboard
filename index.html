@@ -187,18 +187,20 @@
         /* Bookmarks Widget */
         .bookmarks-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); 
             gap: 8px;
             flex: 1;
             overflow-y: auto;
+            align-content: start; /* 위쪽으로 밀착 */
         }
 
+        /* 개별 항목 수정: 세로 배치에서 가로 배치로 변경 */
         .bookmark-item {
             display: flex;
-            flex-direction: column;
+            flex-direction: row; /* 가로 배치 */
             align-items: center;
-            gap: 4px;
-            padding: 10px 8px;
+            gap: 8px;
+            padding: 6px 10px; /* 패딩 축소 */
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -207,6 +209,7 @@
             text-decoration: none;
             color: var(--text-primary);
             position: relative;
+            height: 42px; /* 높이 고정으로 통일감 부여 */
         }
 
         .bookmark-item:hover {
@@ -215,30 +218,34 @@
             border-color: var(--accent);
         }
 
+        /* 아이콘 크기 축소 */
         .bookmark-icon {
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
             background: var(--bg-hover);
-            border-radius: 6px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
-
+        
+        /* 이름 정렬 수정 */
         .bookmark-name {
             font-size: 0.75rem;
-            text-align: center;
+            text-align: left; /* 왼쪽 정렬 */
             color: var(--text-secondary);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            max-width: 100%;
+            flex: 1;
         }
-
+        
+        /* 추가 버튼 스타일 정렬 조정 */
         .bookmark-add {
-            border: 2px dashed var(--border);
-            background: transparent;
+            justify-content: center; /* 추가 버튼은 중앙 정렬 유지 */
+            border: 1px dashed var(--border);
         }
 
         .bookmark-add:hover {
@@ -1323,14 +1330,14 @@
             
             if (state.bookmarks.length === 0) {
                 state.bookmarks = [
-                    { name: 'Google', url: 'https://google.com', icon: '🔍' },
-                    { name: 'YouTube', url: 'https://youtube.com', icon: '▶️' },
-                    { name: 'GitHub', url: 'https://github.com', icon: '💻' },
-                    { name: 'Gmail', url: 'https://mail.google.com', icon: '📧' }
+                    { name: 'ChatGPT', url: 'https://chat.openai.com', icon: '🤖' },
+                    { name: 'Gemini', url: 'https://gemini.google.com', icon: '✨' },
+                    { name: 'Claude', url: 'https://claude.ai', icon: '✍️' },
+                    { name: 'GitHub', url: 'https://github.com', icon: '💻' }
                 ];
                 saveState();
             }
-
+        
             grid.innerHTML = state.bookmarks.map((b, i) => `
                 <a href="${b.url}" target="_blank" class="bookmark-item">
                     <button class="bookmark-delete" onclick="deleteBookmark(event, ${i})">×</button>
@@ -1339,7 +1346,7 @@
                 </a>
             `).join('') + `
                 <div class="bookmark-item bookmark-add" onclick="openAddBookmarkModal()">
-                    <div class="bookmark-icon">➕</div>
+                    <div class="bookmark-icon" style="background:none;">+</div>
                     <div class="bookmark-name">추가</div>
                 </div>
             `;
