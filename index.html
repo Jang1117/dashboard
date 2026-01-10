@@ -1527,8 +1527,9 @@
                 return;
             }
 
-            // 리다이렉트 방식 OAuth
-            const redirectUri = 'https://jang1117.github.io/dashboard/index.html';
+            // 리다이렉트 방식 OAuth (동적 URI)
+            const redirectUri = window.location.origin + window.location.pathname;
+            console.log('OAuth Redirect URI:', redirectUri);
             const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(GOOGLE_SCOPES)}&prompt=consent`;
             
             window.location.href = authUrl;
