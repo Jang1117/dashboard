@@ -2032,18 +2032,47 @@
       }
     }
 
+    // 뉴스 요청이 겹칠 때(연타/느린 네트워크) 최신 요청만 반영하기 위한 시퀀스
+    let newsReqSeq = 0;
+    
     async function loadNews() {
       const list = document.getElementById('newsList');
       list.innerHTML = '<div class="news-loading">뉴스를 가져오는 중...</div>';
+    
+      const mySeq = ++newsReqSeq;
+    
       try {
-        const res = await fetch('news.json');
+        // ✅ 캐시 버스터: 매번 다른 URL로 요청해서 CDN/브라우저 캐시를 확실히 피함
+        const url = new URL('./news.json', window.location.href);
+        url.searchParams.set('v', String(Date.now()));
+    
+        const res = await fetch(url.toString(), {
+          cache: 'no-store',                 // ✅ 브라우저 캐시 사용 금지
+          headers: {
+            'Cache-Control': 'no-cache',     // ✅ (일부 환경에서 도움)
+            'Pragma': 'no-cache'
+          }
+        });
+    
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    
         const allNewsData = await res.json();
-        if (allNewsData[state.activeKeyword]) renderNewsItems(allNewsData[state.activeKeyword]);
-        else list.innerHTML = `<div class="news-loading">'${escapeHtml(state.activeKeyword)}'에 대한 뉴스가 없습니다.<br><small>다음 업데이트를 기다려주세요.</small></div>`;
+    
+        // ✅ 요청이 겹쳤다면 최신 요청만 화면에 반영
+        if (mySeq !== newsReqSeq) return;
+    
+        if (allNewsData[state.activeKeyword]) {
+          renderNewsItems(allNewsData[state.activeKeyword]);
+        } else {
+          list.innerHTML = `<div class="news-loading">'${state.activeKeyword}'에 대한 뉴스가 없습니다.<br><small>다음 업데이트를 기다려주세요.</small></div>`;
+        }
       } catch (e) {
+        console.error('loadNews error:', e);
+        if (mySeq !== newsReqSeq) return;
         list.innerHTML = '<div class="news-loading">뉴스 데이터를 불러올 수 없습니다.</div>';
       }
     }
+
 
     function renderNewsItems(items) {
       const list = document.getElementById('newsList');
