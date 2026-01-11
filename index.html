@@ -166,12 +166,17 @@
     .group-sites { min-width: 0; }        /* flex child가 줄어들 수 있게 */
     
     .group-sites{
-      /* 기존: repeat(4, minmax(140px, 1fr)) */
-      grid-template-columns: repeat(4, minmax(0, 1fr));  /* ✅ 4칸 유지 + 컨테이너 안에서만 수축 */
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      padding-top: 2px;
+      align-content: start;
     }
     
     .site-item{
-      min-width: 0;  /* ✅ grid item 내부 텍스트/버튼 때문에 튀는 것 방지 */
+      width: 100%;
+      min-width: 0;      /* 핵심: 그리드 안에서 넘침 방지 */
     }
     
     /* 혹시 모를 가로 삐져나옴 최후 방어 */
