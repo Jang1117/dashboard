@@ -2230,12 +2230,18 @@
       const mySeq = ++newsReqSeq;
 
       try {
-        const url = new URL('./news.json', window.location.href);
-        url.searchParams.set('v', String(Date.now()));
+        // 캐시 버스팅: 타임스탬프 + 랜덤값
+        const cacheBuster = `${Date.now()}_${Math.random().toString(36).slice(2)}`;
+        const url = `./news.json?_=${cacheBuster}`;
 
-        const res = await fetch(url.toString(), {
+        const res = await fetch(url, {
+          method: 'GET',
           cache: 'no-store',
-          headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+          }
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
