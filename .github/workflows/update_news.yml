@@ -2,8 +2,12 @@ name: Update News Data
 
 on:
   schedule:
-    - cron: '2,17,32,47 * * * *'  # 15분마다, 정각 피해서 지연 감소
+    - cron: '*/5 * * * *'
   workflow_dispatch:
+
+concurrency:
+  group: update-news
+  cancel-in-progress: true
 
 permissions:
   contents: write
