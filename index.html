@@ -1245,48 +1245,84 @@
       }
     }
 
-    function renderBookmarks() {
-      const wrap = document.getElementById('bookmarksWrap');
-      if (!wrap) return;
+function getBookmarksForGroup(groupId) {
+  const all = Array.isArray(state.bookmarks) ? state.bookmarks : [];
+  const order = (state.bookmarkOrderMap && Array.isArray(state.bookmarkOrderMap[groupId]))
+    ? state.bookmarkOrderMap[groupId]
+    : [];
 
-      wrap.innerHTML = state.bookmarkGroups.map(g => {
-        const sites = (g.items || []).map(item => `
-          <a href="${escapeAttr(item.url)}" target="_blank"
-             class="site-item"
-             draggable="true"
+  const byId = new Map(all.map(b => [b.id, b]));
+  const inGroup = all.filter(b => b.groupId === groupId);
+
+  // order 기준으로 먼저 정렬
+  const ordered = [];
+  const used = new Set();
+
+  for (const id of order) {
+    const b = byId.get(id);
+    if (b && b.groupId === groupId) {
+      ordered.push(b);
+      used.add(id);
+    }
+  }
+
+  // order에 없는 나머지(누락분)는 뒤에 붙임
+  for (const b of inGroup) {
+    if (!used.has(b.id)) ordered.push(b);
+  }
+
+  return ordered;
+}
+
+  function renderBookmarks() {
+    const wrap = document.getElementById('bookmarksWrap');
+    if (!wrap) return;
+  
+    const groups = Array.isArray(state.bookmarkGroups) ? state.bookmarkGroups : [];
+  
+    wrap.innerHTML = groups.map(g => {
+      const items = getBookmarksForGroup(g.id);
+  
+      const sites = items.map(item => `
+        <a href="${escapeAttr(item.url)}" target="_blank"
+           class="site-item"
+           draggable="true"
+           data-group-id="${escapeAttr(g.id)}"
+           data-item-id="${escapeAttr(item.id)}"
+           ondragstart="onSiteDragStart(event)"
+           ondragend="onSiteDragEnd(event)"
+           ondragover="onSiteDragOver(event)"
+           ondragleave="onSiteDragLeave(event)"
+           ondrop="onSiteDrop(event)"
+        >
+          <button class="site-delete" title="삭제"
+            onclick="deleteSite(event, '${escapeAttr(g.id)}', '${escapeAttr(item.id)}')">×</button>
+  
+          <button class="site-edit" title="이름/URL 변경"
+            onclick="openEditBookmarkModal(event, '${escapeAttr(g.id)}', '${escapeAttr(item.id)}')">✎</button>
+  
+          <div class="site-icon">${escapeHtml(item.icon || '🔗')}</div>
+          <div class="site-name">${escapeHtml(item.name || '')}</div>
+        </a>
+      `).join('');
+  
+      return `
+        <div class="group-box"
              data-group-id="${escapeAttr(g.id)}"
-             data-item-id="${escapeAttr(item.id)}"
-             ondragstart="onSiteDragStart(event)"
-             ondragend="onSiteDragEnd(event)"
-             ondragover="onSiteDragOver(event)"
-             ondragleave="onSiteDragLeave(event)"
-             ondrop="onSiteDrop(event)"
-          >
-            <button class="site-delete" title="삭제" onclick="deleteSite(event, '${escapeAttr(g.id)}', '${escapeAttr(item.id)}')">×</button>
-            <button class="site-edit" title="이름/URL 변경" onclick="openEditBookmarkModal(event, '${escapeAttr(g.id)}', '${escapeAttr(item.id)}')">✎</button>
-
-            <div class="site-icon">${escapeHtml(item.icon || '🔗')}</div>
-            <div class="site-name">${escapeHtml(item.name)}</div>
-          </a>
-        `).join('');
-
-        return `
-          <div class="group-box"
-               data-group-id="${escapeAttr(g.id)}"
-               ondragover="onGroupDragOver(event)"
-               ondragleave="onGroupDragLeave(event)"
-               ondrop="onGroupDrop(event)"
-          >
-            <div class="group-row">
-              <div class="group-name" title="${escapeAttr(g.name)}">${escapeHtml(g.name)}</div>
-              <div class="group-sites">
-                ${sites}
-              </div>
+             ondragover="onGroupDragOver(event)"
+             ondragleave="onGroupDragLeave(event)"
+             ondrop="onGroupDrop(event)"
+        >
+          <div class="group-row">
+            <div class="group-name" title="${escapeAttr(g.name)}">${escapeHtml(g.name)}</div>
+            <div class="group-sites">
+              ${sites}
             </div>
           </div>
-        `;
-      }).join('');
-    }
+        </div>
+      `;
+    }).join('');
+  }
 
     function escapeHtml(str) {
       return String(str || '')
