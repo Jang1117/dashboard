@@ -161,6 +161,22 @@
       gap: 10px;
     }
 
+    /* ✅ 오버플로우 핵심 해결 */
+    .group-row { min-width: 0; }          /* flex 컨테이너에서 자식 수축 허용 */
+    .group-sites { min-width: 0; }        /* flex child가 줄어들 수 있게 */
+    
+    .group-sites{
+      /* 기존: repeat(4, minmax(140px, 1fr)) */
+      grid-template-columns: repeat(4, minmax(0, 1fr));  /* ✅ 4칸 유지 + 컨테이너 안에서만 수축 */
+    }
+    
+    .site-item{
+      min-width: 0;  /* ✅ grid item 내부 텍스트/버튼 때문에 튀는 것 방지 */
+    }
+    
+    /* 혹시 모를 가로 삐져나옴 최후 방어 */
+    .bookmarks-wrap { overflow-x: hidden; }
+    
     .group-name {
       flex: 0 0 130px;
       max-width: 130px;
