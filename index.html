@@ -165,26 +165,12 @@
     .group-row { min-width: 0; }          /* flex 컨테이너에서 자식 수축 허용 */
     .group-sites { min-width: 0; }        /* flex child가 줄어들 수 있게 */
     
-    .group-sites{
-      flex: 1;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 8px;
-      padding-top: 2px;
-      align-content: start;
-    }
-    
-    .site-item{
-      width: 100%;
-      min-width: 0;      /* 핵심: 그리드 안에서 넘침 방지 */
-    }
-    
     /* 혹시 모를 가로 삐져나옴 최후 방어 */
     .bookmarks-wrap { overflow-x: hidden; }
     
     .group-name {
-      flex: 0 0 130px;
-      max-width: 130px;
+      flex: 0 0 80px;
+      max-width: 80px;
       color: var(--text-secondary);
       font-weight: 600;
       font-size: 0.85rem;
@@ -195,15 +181,15 @@
 
       display:flex;
       align-items:center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .group-handle {
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       border-radius: 6px;
       background: var(--bg-hover);
       border: 1px solid var(--border);
@@ -213,11 +199,12 @@
     }
     .group-handle:active { cursor: grabbing; }
 
-    /* ✅ 그룹 내 사이트: 4컬럼 고정 GRID */
+    /* ✅ 그룹 내 사이트: 4컬럼 GRID - minmax(0, 1fr)로 오버플로우 방지 */
     .group-sites {
       flex: 1;
+      min-width: 0;
       display: grid;
-      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 8px;
       align-content: start;
       padding-top: 2px;
