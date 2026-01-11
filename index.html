@@ -144,7 +144,7 @@
     .bookmarks-wrap {
       flex: 1;
       overflow-y: auto;
-      padding: 10px 6px 10px 6px; /* ✅ hover 테두리 상단 잘림 방지 */
+      padding: 10px 6px 10px 6px; /* 위쪽 여유 */
     }
 
     .group-box {
@@ -162,8 +162,8 @@
     }
 
     .group-name {
-      flex: 0 0 110px;
-      max-width: 110px;
+      flex: 0 0 130px;
+      max-width: 130px;
       color: var(--text-secondary);
       font-weight: 600;
       font-size: 0.85rem;
@@ -171,21 +171,40 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+
+      display:flex;
+      align-items:center;
+      gap: 8px;
     }
 
+    .group-handle {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--bg-hover);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      cursor: grab;
+      flex: 0 0 auto;
+    }
+    .group-handle:active { cursor: grabbing; }
+
+    /* ✅ 그룹 내 사이트: 4컬럼 고정 GRID */
     .group-sites {
       flex: 1;
-      display:flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
       gap: 8px;
-      align-content:flex-start;
+      align-content: start;
       padding-top: 2px;
     }
 
-    /* 한 줄 최대 4개 */
     .site-item {
-      width: calc((100% - 8px * 3) / 4);
-      min-width: 140px;
+      width: 100%;
+      min-width: 0;
       height: 42px;
       display:flex;
       align-items:center;
@@ -200,7 +219,6 @@
       color: var(--text-primary);
       position: relative;
       user-select: none;
-      overflow: visible;
     }
 
     .site-item:hover {
@@ -231,7 +249,6 @@
       flex: 1;
     }
 
-    /* ✅ X 버튼 튀어나감 방지: 음수 제거 */
     .site-delete {
       position:absolute;
       top: 4px;
@@ -280,6 +297,9 @@
     .site-item.drop-before { outline: 2px dashed var(--accent); outline-offset: -2px; }
     .site-item.drop-after  { outline: 2px dashed var(--accent); outline-offset: -2px; }
     .group-box.drop-over   { border-color: var(--accent); }
+
+    .group-box.drop-top    { outline: 2px dashed var(--accent); outline-offset: -2px; }
+    .group-box.drop-bottom { outline: 2px dashed var(--accent); outline-offset: -2px; }
 
     /* ===== Calendar ===== */
     .calendar-header {
@@ -498,10 +518,7 @@
       color: var(--bg-primary);
       border-color: var(--accent);
     }
-
-    /* ✅ 7줄 표시 기준 높이 */
     .news-list { max-height: 294px; overflow-y:auto; }
-
     .news-item {
       display:flex;
       justify-content:space-between;
@@ -551,7 +568,7 @@
       z-index: 1000;
       align-items:center;
       justify-content:center;
-      padding: 18px; /* ✅ 상단/우측 잘림 완화 */
+      padding: 18px;
     }
     .modal-overlay.active { display:flex; }
 
@@ -581,7 +598,7 @@
       font-size: 1.5rem;
       cursor:pointer;
       line-height: 1;
-      padding: 6px 10px; /* ✅ 클릭영역 증가 + 잘림 방지 */
+      padding: 6px 10px;
       border-radius: 10px;
     }
     .modal-close:hover {
@@ -684,7 +701,7 @@
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-    /* Helpers */
+    /* Helper */
     .row { display:flex; gap: 10px; align-items:center; }
     .grow { flex: 1; }
     .muted { color: var(--text-muted); font-size: 0.8rem; }
@@ -816,7 +833,6 @@
       </div>
 
       <form onsubmit="saveBookmark(event)">
-        <input type="hidden" id="bookmarkEditGroupId" value="">
         <input type="hidden" id="bookmarkEditItemId" value="">
 
         <div class="form-group">
@@ -972,12 +988,13 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
   <script>
     // ==================== State ====================
     let state = {
-      // ✅ 내부 표준: nested 구조 (bookmarkGroups[].items[])
+      // ✅ Bookmarks (flat model)
+      bookmarks: [],
       bookmarkGroups: [],
+      bookmarkOrderMap: {},
 
       // Calendar
       events: [],
@@ -996,10 +1013,10 @@
       // News
       newsKeywords: ['IT', '경제', '부동산'],
       activeKeyword: 'IT',
-      newsItems: [] // ✅ 로드 21개 / 표시 7개
+      newsItems: [],
     };
 
-    const STORAGE_KEY = 'dashboardState_v4';
+    const STORAGE_KEY = 'dashboardState_v5';
 
     // Google Calendar API
     const GOOGLE_CLIENT_ID = '616051020242-mg4r2ccc0iks3ssqhjuula6f1sr1o0p8.apps.googleusercontent.com';
@@ -1008,7 +1025,7 @@
     // News request sequencing
     let newsReqSeq = 0;
 
-    // Drag state
+    // Drag state (site)
     let dragData = {
       dragging: false,
       fromGroupId: null,
@@ -1018,20 +1035,13 @@
       insertPos: 'after' // 'before' | 'after'
     };
 
-    // ==================== Utils ====================
-    function uid() {
-      return Math.random().toString(16).slice(2) + Date.now().toString(16);
-    }
-
-    function escapeHtml(str) {
-      return String(str ?? '')
-        .replaceAll('&','&amp;')
-        .replaceAll('<','&lt;')
-        .replaceAll('>','&gt;')
-        .replaceAll('"','&quot;')
-        .replaceAll("'","&#39;");
-    }
-    function escapeAttr(str) { return escapeHtml(str); }
+    // Drag state (group)
+    let groupDrag = {
+      dragging: false,
+      groupId: null,
+      overGroupId: null,
+      insertPos: 'after' // 'before' | 'after'
+    };
 
     // ==================== Date Helpers ====================
     function getLocalDateStr(date) {
@@ -1053,124 +1063,14 @@
       return d;
     }
 
-    // ==================== Bookmarks Schema Helpers ====================
-    function normalizeBookmarkGroups(groups) {
-      const arr = Array.isArray(groups) ? groups : [];
-      return arr.map(g => ({
-        id: g.id || uid(),
-        name: (g.name ?? '그룹').toString(),
-        items: Array.isArray(g.items) ? g.items.map(it => ({
-          id: it.id || uid(),
-          name: (it.name ?? '').toString(),
-          url: (it.url ?? '').toString(),
-          icon: (it.icon ?? '🔗').toString()
-        })) : []
-      }));
-    }
-
-    // flat(JSON: bookmarks/bookmarkGroups/bookmarkOrderMap) -> nested(bookmarkGroups[].items[])
-    function flatToNestedBookmarkGroups(bookmarkGroups, bookmarks, bookmarkOrderMap) {
-      const groupsBase = Array.isArray(bookmarkGroups) ? bookmarkGroups : [];
-      const bms = Array.isArray(bookmarks) ? bookmarks : [];
-      const orderMap = (bookmarkOrderMap && typeof bookmarkOrderMap === 'object') ? bookmarkOrderMap : {};
-
-      const groups = groupsBase.map(g => ({ id: g.id, name: g.name, items: [] }));
-      const byGid = new Map(groups.map(g => [g.id, g]));
-
-      if (!byGid.has('default')) {
-        groups.unshift({ id: 'default', name: '기본', items: [] });
-        byGid.set('default', groups[0]);
-      }
-
-      for (const b of bms) {
-        const gid = b.groupId || 'default';
-        if (!byGid.has(gid)) {
-          const ng = { id: gid, name: '그룹', items: [] };
-          groups.push(ng);
-          byGid.set(gid, ng);
-        }
-      }
-
-      for (const g of groups) {
-        const gid = g.id;
-        const inGroup = bms.filter(b => (b.groupId || 'default') === gid);
-
-        const byId = new Map(inGroup.map(b => [b.id, b]));
-        const order = Array.isArray(orderMap[gid]) ? orderMap[gid] : [];
-
-        const used = new Set();
-        const ordered = [];
-
-        for (const id of order) {
-          const b = byId.get(id);
-          if (b) {
-            ordered.push(b);
-            used.add(id);
-          }
-        }
-        for (const b of inGroup) {
-          if (!used.has(b.id)) ordered.push(b);
-        }
-
-        g.items = ordered.map(b => ({
-          id: b.id || uid(),
-          name: (b.name ?? '').toString(),
-          url: (b.url ?? '').toString(),
-          icon: (b.icon ?? '🔗').toString()
-        }));
-      }
-
-      return normalizeBookmarkGroups(groups);
-    }
-
-    // nested(bookmarkGroups[].items[]) -> flat(bookmarks/bookmarkGroups/bookmarkOrderMap)
-    function nestedToFlatBookmarkData(bookmarkGroups) {
-      const groups = normalizeBookmarkGroups(bookmarkGroups);
-
-      const flatGroups = groups.map(g => ({ id: g.id, name: g.name }));
-      const bookmarks = [];
-      const bookmarkOrderMap = {};
-
-      for (const g of groups) {
-        bookmarkOrderMap[g.id] = [];
-        for (const it of g.items) {
-          bookmarks.push({
-            id: it.id,
-            name: it.name,
-            url: it.url,
-            icon: it.icon,
-            groupId: g.id
-          });
-          bookmarkOrderMap[g.id].push(it.id);
-        }
-      }
-
-      return { bookmarkGroups: flatGroups, bookmarks, bookmarkOrderMap };
-    }
-
-    // import된 데이터에 따라 자동 수용(Flat/Nested 둘 다)
-    function applyImportedBookmarks(importData) {
-      // 1) flat
-      if (Array.isArray(importData.bookmarks) && Array.isArray(importData.bookmarkGroups)) {
-        state.bookmarkGroups = flatToNestedBookmarkGroups(
-          importData.bookmarkGroups,
-          importData.bookmarks,
-          importData.bookmarkOrderMap
-        );
-        return;
-      }
-      // 2) nested
-      if (Array.isArray(importData.bookmarkGroups)) {
-        state.bookmarkGroups = normalizeBookmarkGroups(importData.bookmarkGroups);
-      }
-    }
-
     // ==================== Init ====================
     function init() {
       state.currentWeekStart = getWeekStart(new Date());
       state.selectedDate = getLocalDateStr(new Date());
 
       loadState();
+      migrateStateIfNeeded();
+
       handleOAuthCallback();
 
       updateTime();
@@ -1179,13 +1079,11 @@
       getWeather();
 
       ensureDefaultBookmarks();
-      renderBookmarks();
 
+      renderBookmarks();
       updateGoogleStatus();
       renderWeeklyCalendar();
-
       renderMemos();
-
       renderNewsKeywords();
       loadNews();
 
@@ -1202,17 +1100,10 @@
         try {
           const parsed = JSON.parse(saved);
           state = { ...state, ...parsed };
-        } catch (e) {
-          console.warn('loadState parse error', e);
-        }
+          state.currentWeekStart = getWeekStart(new Date());
+          state.selectedDate = getLocalDateStr(new Date());
+        } catch (e) {}
       }
-
-      // ✅ 정합성 보정
-      state.bookmarkGroups = normalizeBookmarkGroups(state.bookmarkGroups);
-
-      // week/date는 새로 계산
-      state.currentWeekStart = getWeekStart(new Date());
-      state.selectedDate = getLocalDateStr(new Date());
 
       const googleToken = localStorage.getItem('googleAccessToken');
       if (googleToken) {
@@ -1223,14 +1114,55 @@
 
     function saveState() {
       const toSave = {
-        bookmarkGroups: normalizeBookmarkGroups(state.bookmarkGroups),
+        bookmarks: state.bookmarks,
+        bookmarkGroups: state.bookmarkGroups,
+        bookmarkOrderMap: state.bookmarkOrderMap,
+
         events: state.events,
         memos: state.memos,
         newsKeywords: state.newsKeywords,
         activeKeyword: state.activeKeyword,
-        selectedCalendars: state.selectedCalendars
+        selectedCalendars: state.selectedCalendars,
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+    }
+
+    // ==================== Migration (nested -> flat) ====================
+    function migrateStateIfNeeded() {
+      // 예전 버전: bookmarkGroups[].items 형태가 남아있으면 flat로 변환
+      const hasNestedItems = Array.isArray(state.bookmarkGroups) && state.bookmarkGroups.some(g => Array.isArray(g.items));
+      const hasFlat = Array.isArray(state.bookmarks) && state.bookmarks.length > 0;
+
+      if (hasNestedItems && !hasFlat) {
+        const bookmarks = [];
+        const orderMap = {};
+
+        for (const g of state.bookmarkGroups) {
+          const gid = g.id;
+          const items = Array.isArray(g.items) ? g.items : [];
+          orderMap[gid] = items.map(it => it.id);
+
+          for (const it of items) {
+            bookmarks.push({
+              id: it.id,
+              name: it.name,
+              url: it.url,
+              icon: it.icon,
+              groupId: gid
+            });
+          }
+          delete g.items;
+        }
+
+        state.bookmarks = bookmarks;
+        state.bookmarkOrderMap = orderMap;
+        saveState();
+      }
+
+      // flat 필드가 없으면 기본값 보정
+      if (!Array.isArray(state.bookmarks)) state.bookmarks = [];
+      if (!Array.isArray(state.bookmarkGroups)) state.bookmarkGroups = [];
+      if (!state.bookmarkOrderMap || typeof state.bookmarkOrderMap !== 'object') state.bookmarkOrderMap = {};
     }
 
     // ==================== JSON Export/Import ====================
@@ -1241,23 +1173,20 @@
     document.addEventListener('click', (e) => {
       const dropdown = document.querySelector('.settings-dropdown');
       const menu = document.getElementById('settingsMenu');
-      if (dropdown && !dropdown.contains(e.target)) menu.classList.remove('active');
+      if (dropdown && !dropdown.contains(e.target)) {
+        menu.classList.remove('active');
+      }
     });
 
     function exportToJson() {
-      // ✅ flat 포맷으로 내보내기(네 백업과 동일 포맷 호환)
-      const flat = nestedToFlatBookmarkData(state.bookmarkGroups);
-
       const exportData = {
-        version: '1.1',
+        version: '1.0',
         exportDate: getLocalDateStr(new Date()),
 
-        // bookmarks (flat)
-        bookmarks: flat.bookmarks,
-        bookmarkGroups: flat.bookmarkGroups,
-        bookmarkOrderMap: flat.bookmarkOrderMap,
+        bookmarks: state.bookmarks,
+        bookmarkGroups: state.bookmarkGroups,
+        bookmarkOrderMap: state.bookmarkOrderMap,
 
-        // others
         events: state.events,
         memos: state.memos,
         newsKeywords: state.newsKeywords,
@@ -1286,16 +1215,18 @@
         try {
           const importData = JSON.parse(e.target.result);
 
-          // ✅ 북마크: flat/nested 자동 처리
-          applyImportedBookmarks(importData);
+          // ✅ 북마크(flat)
+          if (importData.bookmarks) state.bookmarks = importData.bookmarks;
+          if (importData.bookmarkGroups) state.bookmarkGroups = importData.bookmarkGroups;
+          if (importData.bookmarkOrderMap) state.bookmarkOrderMap = importData.bookmarkOrderMap;
 
-          // others
           if (importData.events) state.events = importData.events;
           if (importData.memos) state.memos = importData.memos;
           if (importData.newsKeywords) state.newsKeywords = importData.newsKeywords;
           if (importData.activeKeyword) state.activeKeyword = importData.activeKeyword;
           if (importData.selectedCalendars) state.selectedCalendars = importData.selectedCalendars;
 
+          migrateStateIfNeeded();
           saveState();
 
           renderBookmarks();
@@ -1306,7 +1237,7 @@
 
           alert('설정을 불러왔습니다.');
         } catch (err) {
-          alert('JSON 파일을 읽는 중 오류가 발생했습니다. 콘솔을 확인하세요.');
+          alert('JSON 파일을 읽는 중 오류가 발생했습니다.');
           console.error(err);
         }
       };
@@ -1365,34 +1296,95 @@
       return desc[code] || '정보 없음';
     }
 
-    // ==================== Bookmarks (Nested + DnD) ====================
+    // ==================== Bookmarks (Flat + Group DnD + Site DnD) ====================
+    function uid(prefix='id') {
+      return prefix + '_' + Math.random().toString(16).slice(2) + '_' + Date.now().toString(16);
+    }
+
     function ensureDefaultBookmarks() {
+      // 그룹이 없으면 기본 세팅 생성
       if (!Array.isArray(state.bookmarkGroups) || state.bookmarkGroups.length === 0) {
         state.bookmarkGroups = [
-          {
-            id: 'default',
-            name: '기본',
-            items: [
-              { id: uid(), name: 'ChatGPT', url: 'https://chat.openai.com', icon: '🤖' },
-              { id: uid(), name: 'Gemini', url: 'https://gemini.google.com', icon: '✨' },
-              { id: uid(), name: 'Claude', url: 'https://claude.ai', icon: '✍️' },
-              { id: uid(), name: 'GitHub', url: 'https://github.com', icon: '💻' }
-            ]
-          }
+          { id: 'default', name: '기본' },
+          { id: uid('g'), name: 'AI' },
+          { id: uid('g'), name: '프로그래밍' },
         ];
-        saveState();
       }
-      state.bookmarkGroups = normalizeBookmarkGroups(state.bookmarkGroups);
+
+      // bookmarks가 없으면 샘플 생성
+      if (!Array.isArray(state.bookmarks) || state.bookmarks.length === 0) {
+        const ai = state.bookmarkGroups.find(g => g.name === 'AI')?.id || state.bookmarkGroups[0].id;
+        const prog = state.bookmarkGroups.find(g => g.name === '프로그래밍')?.id || state.bookmarkGroups[0].id;
+
+        state.bookmarks = [
+          { id: uid('bm'), name: '지도', url: 'https://map.naver.com/v5/', icon: '📍', groupId: 'default' },
+          { id: uid('bm'), name: '날씨', url: 'https://weather.naver.com/today', icon: '🌤️', groupId: 'default' },
+          { id: uid('bm'), name: 'ChatGPT', url: 'https://chat.openai.com/', icon: '🤖', groupId: ai },
+          { id: uid('bm'), name: 'Gemini', url: 'https://gemini.google.com/', icon: '✨', groupId: ai },
+          { id: uid('bm'), name: 'Claude', url: 'https://claude.ai/', icon: '✍️', groupId: ai },
+          { id: uid('bm'), name: 'GitHub', url: 'https://github.com/', icon: '📂', groupId: prog },
+        ];
+      }
+
+      // order map 보정
+      if (!state.bookmarkOrderMap || typeof state.bookmarkOrderMap !== 'object') {
+        state.bookmarkOrderMap = {};
+      }
+      for (const g of state.bookmarkGroups) {
+        if (!Array.isArray(state.bookmarkOrderMap[g.id])) {
+          state.bookmarkOrderMap[g.id] = [];
+        }
+      }
+
+      // orderMap에 없는 북마크는 해당 그룹 뒤에 붙여줌
+      for (const g of state.bookmarkGroups) {
+        const gid = g.id;
+        const inGroup = state.bookmarks.filter(b => b.groupId === gid).map(b => b.id);
+        const order = state.bookmarkOrderMap[gid] || (state.bookmarkOrderMap[gid] = []);
+        const set = new Set(order);
+        for (const id of inGroup) {
+          if (!set.has(id)) order.push(id);
+        }
+      }
+
+      saveState();
+    }
+
+    function getBookmarksForGroup(groupId) {
+      const all = Array.isArray(state.bookmarks) ? state.bookmarks : [];
+      const order = (state.bookmarkOrderMap && Array.isArray(state.bookmarkOrderMap[groupId]))
+        ? state.bookmarkOrderMap[groupId]
+        : [];
+
+      const byId = new Map(all.map(b => [b.id, b]));
+      const inGroup = all.filter(b => b.groupId === groupId);
+
+      const ordered = [];
+      const used = new Set();
+
+      for (const id of order) {
+        const b = byId.get(id);
+        if (b && b.groupId === groupId) {
+          ordered.push(b);
+          used.add(id);
+        }
+      }
+      for (const b of inGroup) {
+        if (!used.has(b.id)) ordered.push(b);
+      }
+      return ordered;
     }
 
     function renderBookmarks() {
       const wrap = document.getElementById('bookmarksWrap');
       if (!wrap) return;
 
-      state.bookmarkGroups = normalizeBookmarkGroups(state.bookmarkGroups);
+      const groups = Array.isArray(state.bookmarkGroups) ? state.bookmarkGroups : [];
 
-      wrap.innerHTML = state.bookmarkGroups.map(g => {
-        const sites = (g.items || []).map(item => `
+      wrap.innerHTML = groups.map(g => {
+        const items = getBookmarksForGroup(g.id);
+
+        const sites = items.map(item => `
           <a href="${escapeAttr(item.url)}" target="_blank"
              class="site-item"
              draggable="true"
@@ -1407,7 +1399,7 @@
               onclick="deleteSite(event, '${escapeAttr(g.id)}', '${escapeAttr(item.id)}')">×</button>
 
             <button class="site-edit" title="이름/URL 변경"
-              onclick="openEditBookmarkModal(event, '${escapeAttr(g.id)}', '${escapeAttr(item.id)}')">✎</button>
+              onclick="openEditBookmarkModal(event, '${escapeAttr(item.id)}')">✎</button>
 
             <div class="site-icon">${escapeHtml(item.icon || '🔗')}</div>
             <div class="site-name">${escapeHtml(item.name || '')}</div>
@@ -1417,12 +1409,22 @@
         return `
           <div class="group-box"
                data-group-id="${escapeAttr(g.id)}"
-               ondragover="onGroupDragOver(event)"
-               ondragleave="onGroupDragLeave(event)"
-               ondrop="onGroupDrop(event)"
+               ondragover="onGroupBoxDragOver(event)"
+               ondragleave="onGroupBoxDragLeave(event)"
+               ondrop="onGroupBoxDrop(event)"
           >
             <div class="group-row">
-              <div class="group-name" title="${escapeAttr(g.name)}">${escapeHtml(g.name)}</div>
+              <div class="group-name" title="${escapeAttr(g.name)}">
+                <span class="group-handle"
+                      title="그룹 순서 변경"
+                      draggable="true"
+                      data-group-id="${escapeAttr(g.id)}"
+                      ondragstart="onGroupDragStart(event)"
+                      ondragend="onGroupDragEnd(event)"
+                >≡</span>
+                <span>${escapeHtml(g.name)}</span>
+              </div>
+
               <div class="group-sites">
                 ${sites}
               </div>
@@ -1432,18 +1434,19 @@
       }).join('');
     }
 
-    function fillGroupSelect(selectedGroupId) {
-      const sel = document.getElementById('bookmarkGroupSelect');
-      sel.innerHTML = state.bookmarkGroups.map(g => `
-        <option value="${escapeAttr(g.id)}" ${g.id === selectedGroupId ? 'selected' : ''}>${escapeHtml(g.name)}</option>
-      `).join('');
-      if (!selectedGroupId && state.bookmarkGroups[0]) sel.value = state.bookmarkGroups[0].id;
+    function escapeHtml(str) {
+      return String(str || '')
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'","&#39;");
     }
+    function escapeAttr(str) { return escapeHtml(str); }
 
     function openAddBookmarkModal() {
       document.getElementById('bookmarkModalTitle').textContent = '사이트 추가';
       document.getElementById('bookmarkSaveBtn').textContent = '추가하기';
-      document.getElementById('bookmarkEditGroupId').value = '';
       document.getElementById('bookmarkEditItemId').value = '';
 
       fillGroupSelect(null);
@@ -1454,63 +1457,99 @@
       document.getElementById('bookmarkModal').classList.add('active');
     }
 
-    function openEditBookmarkModal(e, groupId, itemId) {
+    function openEditBookmarkModal(e, itemId) {
       e.preventDefault();
       e.stopPropagation();
 
-      const g = state.bookmarkGroups.find(x => x.id === groupId);
-      if (!g) return;
-      const item = (g.items || []).find(x => x.id === itemId);
-      if (!item) return;
+      const b = state.bookmarks.find(x => x.id === itemId);
+      if (!b) return;
 
       document.getElementById('bookmarkModalTitle').textContent = '사이트 수정';
       document.getElementById('bookmarkSaveBtn').textContent = '저장하기';
-      document.getElementById('bookmarkEditGroupId').value = groupId;
-      document.getElementById('bookmarkEditItemId').value = itemId;
+      document.getElementById('bookmarkEditItemId').value = b.id;
 
-      fillGroupSelect(groupId);
-      document.getElementById('bookmarkName').value = item.name || '';
-      document.getElementById('bookmarkUrl').value = item.url || '';
-      document.getElementById('bookmarkIcon').value = item.icon || '';
+      fillGroupSelect(b.groupId);
+      document.getElementById('bookmarkName').value = b.name || '';
+      document.getElementById('bookmarkUrl').value = b.url || '';
+      document.getElementById('bookmarkIcon').value = b.icon || '';
 
       document.getElementById('bookmarkModal').classList.add('active');
+    }
+
+    function fillGroupSelect(selectedGroupId) {
+      const sel = document.getElementById('bookmarkGroupSelect');
+      sel.innerHTML = state.bookmarkGroups.map(g => `
+        <option value="${escapeAttr(g.id)}" ${g.id === selectedGroupId ? 'selected' : ''}>${escapeHtml(g.name)}</option>
+      `).join('');
+      if (!selectedGroupId && state.bookmarkGroups[0]) {
+        sel.value = state.bookmarkGroups[0].id;
+      }
+    }
+
+    function ensureOrderArray(groupId) {
+      if (!state.bookmarkOrderMap[groupId]) state.bookmarkOrderMap[groupId] = [];
+      if (!Array.isArray(state.bookmarkOrderMap[groupId])) state.bookmarkOrderMap[groupId] = [];
+      return state.bookmarkOrderMap[groupId];
+    }
+
+    function removeFromOrderEverywhere(itemId) {
+      for (const gid of Object.keys(state.bookmarkOrderMap || {})) {
+        const arr = state.bookmarkOrderMap[gid];
+        if (!Array.isArray(arr)) continue;
+        const i = arr.indexOf(itemId);
+        if (i >= 0) arr.splice(i, 1);
+      }
+    }
+
+    function insertIntoOrder(groupId, itemId, toItemId, insertPos) {
+      const arr = ensureOrderArray(groupId);
+
+      // 이미 있으면 제거
+      const existing = arr.indexOf(itemId);
+      if (existing >= 0) arr.splice(existing, 1);
+
+      if (!toItemId) {
+        arr.push(itemId);
+        return;
+      }
+
+      let idx = arr.indexOf(toItemId);
+      if (idx < 0) {
+        arr.push(itemId);
+        return;
+      }
+      if (insertPos === 'after') idx += 1;
+      arr.splice(idx, 0, itemId);
     }
 
     function saveBookmark(e) {
       e.preventDefault();
 
-      const editGroupId = document.getElementById('bookmarkEditGroupId').value;
       const editItemId = document.getElementById('bookmarkEditItemId').value;
-
       const targetGroupId = document.getElementById('bookmarkGroupSelect').value;
       const name = document.getElementById('bookmarkName').value.trim();
       const url = document.getElementById('bookmarkUrl').value.trim();
       const icon = document.getElementById('bookmarkIcon').value.trim() || '🔗';
       if (!name || !url || !targetGroupId) return;
 
-      // edit
-      if (editGroupId && editItemId) {
-        const fromG = state.bookmarkGroups.find(x => x.id === editGroupId);
-        const toG = state.bookmarkGroups.find(x => x.id === targetGroupId);
-        if (!fromG || !toG) return;
+      if (editItemId) {
+        const b = state.bookmarks.find(x => x.id === editItemId);
+        if (!b) return;
 
-        const idx = (fromG.items || []).findIndex(x => x.id === editItemId);
-        if (idx < 0) return;
+        const fromGroupId = b.groupId;
+        b.name = name;
+        b.url = url;
+        b.icon = icon;
 
-        const updated = { ...fromG.items[idx], name, url, icon };
-
-        if (editGroupId !== targetGroupId) {
-          fromG.items.splice(idx, 1);
-          toG.items.push(updated);
-        } else {
-          fromG.items[idx] = updated;
+        if (fromGroupId !== targetGroupId) {
+          b.groupId = targetGroupId;
+          removeFromOrderEverywhere(b.id);
+          insertIntoOrder(targetGroupId, b.id, null, 'after');
         }
       } else {
-        // add
-        const g = state.bookmarkGroups.find(x => x.id === targetGroupId);
-        if (!g) return;
-        g.items = g.items || [];
-        g.items.push({ id: uid(), name, url, icon });
+        const newItem = { id: uid('bm'), name, url, icon, groupId: targetGroupId };
+        state.bookmarks.push(newItem);
+        insertIntoOrder(targetGroupId, newItem.id, null, 'after');
       }
 
       saveState();
@@ -1524,14 +1563,11 @@
       e.stopPropagation();
       if (!confirm('이 사이트를 삭제하시겠습니까?')) return;
 
-      const g = state.bookmarkGroups.find(x => x.id === groupId);
-      if (!g) return;
-      const idx = (g.items || []).findIndex(x => x.id === itemId);
-      if (idx >= 0) {
-        g.items.splice(idx, 1);
-        saveState();
-        renderBookmarks();
-      }
+      state.bookmarks = state.bookmarks.filter(b => b.id !== itemId);
+      removeFromOrderEverywhere(itemId);
+
+      saveState();
+      renderBookmarks();
     }
 
     function openGroupManageModal() {
@@ -1543,7 +1579,11 @@
       e.preventDefault();
       const name = document.getElementById('newGroupName').value.trim();
       if (!name) return;
-      state.bookmarkGroups.push({ id: uid(), name, items: [] });
+
+      const gid = uid('g');
+      state.bookmarkGroups.push({ id: gid, name });
+      ensureOrderArray(gid);
+
       document.getElementById('newGroupName').value = '';
       saveState();
       renderGroupManageList();
@@ -1572,6 +1612,7 @@
       const gid = e.target.dataset.gid;
       const g = state.bookmarkGroups.find(x => x.id === gid);
       if (!g) return;
+
       g.name = e.target.value;
       saveState();
       renderBookmarks();
@@ -1584,20 +1625,29 @@
       }
       if (!confirm('이 그룹을 삭제할까요? (그룹 내 사이트도 함께 삭제됩니다)')) return;
 
+      // 그룹 내 북마크 삭제
+      const toDelete = state.bookmarks.filter(b => b.groupId === groupId).map(b => b.id);
+      state.bookmarks = state.bookmarks.filter(b => b.groupId !== groupId);
+      for (const id of toDelete) removeFromOrderEverywhere(id);
+
+      // 그룹 삭제
       state.bookmarkGroups = state.bookmarkGroups.filter(g => g.id !== groupId);
+      delete state.bookmarkOrderMap[groupId];
+
       saveState();
       renderGroupManageList();
       renderBookmarks();
     }
 
-    // ===== Drag & Drop =====
+    // ===== Drag & Drop: Site =====
     function onSiteDragStart(e) {
       const a = e.currentTarget;
       dragData.dragging = true;
       dragData.fromGroupId = a.dataset.groupId;
       dragData.itemId = a.dataset.itemId;
+
       e.dataTransfer.effectAllowed = 'move';
-      e.dataTransfer.setData('text/plain', JSON.stringify({ groupId: dragData.fromGroupId, itemId: dragData.itemId }));
+      e.dataTransfer.setData('application/x-dashboard-site', JSON.stringify({ groupId: dragData.fromGroupId, itemId: dragData.itemId }));
       a.style.opacity = '0.6';
     }
 
@@ -1611,7 +1661,7 @@
       dragData = { dragging:false, fromGroupId:null, itemId:null, overGroupId:null, overItemId:null, insertPos:'after' };
     }
 
-    // ✅ 왼쪽/오른쪽 반으로 before/after 결정
+    // ✅ 좌/우 반으로 before/after 결정 (정확도 ↑)
     function onSiteDragOver(e) {
       e.preventDefault();
       if (!dragData.dragging) return;
@@ -1645,49 +1695,106 @@
       moveBookmarkItem(dragData.fromGroupId, dragData.itemId, toGroupId, toItemId, dragData.insertPos);
     }
 
-    function onGroupDragOver(e) {
-      e.preventDefault();
-      if (!dragData.dragging) return;
-      e.currentTarget.classList.add('drop-over');
-    }
-    function onGroupDragLeave(e) {
-      e.currentTarget.classList.remove('drop-over');
-    }
-    function onGroupDrop(e) {
-      e.preventDefault();
-      if (!dragData.dragging) return;
+    // ===== Drag & Drop: Group =====
+    function onGroupDragStart(e) {
+      e.stopPropagation();
+      const gid = e.currentTarget.dataset.groupId;
+      groupDrag.dragging = true;
+      groupDrag.groupId = gid;
 
-      const groupBox = e.currentTarget;
-      const toGroupId = groupBox.dataset.groupId;
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('application/x-dashboard-group', gid);
+    }
 
-      // 그룹 빈공간 drop -> 맨 뒤
-      moveBookmarkItem(dragData.fromGroupId, dragData.itemId, toGroupId, null, 'after');
-      groupBox.classList.remove('drop-over');
+    function onGroupDragEnd(e) {
+      document.querySelectorAll('.group-box').forEach(x => x.classList.remove('drop-top','drop-bottom'));
+      groupDrag = { dragging:false, groupId:null, overGroupId:null, insertPos:'after' };
+    }
+
+    // ===== Group Box (drop target): handles both site move & group reorder =====
+    function onGroupBoxDragOver(e) {
+      e.preventDefault();
+      const box = e.currentTarget;
+
+      if (groupDrag.dragging) {
+        const toGroupId = box.dataset.groupId;
+        if (toGroupId === groupDrag.groupId) return;
+
+        const rect = box.getBoundingClientRect();
+        const midY = rect.top + rect.height / 2;
+        const pos = (e.clientY < midY) ? 'before' : 'after';
+
+        groupDrag.overGroupId = toGroupId;
+        groupDrag.insertPos = pos;
+
+        document.querySelectorAll('.group-box').forEach(x => x.classList.remove('drop-top','drop-bottom'));
+        box.classList.add(pos === 'before' ? 'drop-top' : 'drop-bottom');
+        return;
+      }
+
+      if (dragData.dragging) {
+        box.classList.add('drop-over');
+      }
+    }
+
+    function onGroupBoxDragLeave(e) {
+      const box = e.currentTarget;
+      box.classList.remove('drop-over');
+      box.classList.remove('drop-top','drop-bottom');
+    }
+
+    function onGroupBoxDrop(e) {
+      e.preventDefault();
+      const box = e.currentTarget;
+      const toGroupId = box.dataset.groupId;
+
+      box.classList.remove('drop-over');
+      box.classList.remove('drop-top','drop-bottom');
+
+      if (groupDrag.dragging) {
+        reorderGroups(groupDrag.groupId, toGroupId, groupDrag.insertPos);
+        onGroupDragEnd(e);
+        return;
+      }
+
+      if (dragData.dragging) {
+        // 그룹 빈 공간에 drop → 맨 뒤로
+        moveBookmarkItem(dragData.fromGroupId, dragData.itemId, toGroupId, null, 'after');
+      }
+    }
+
+    function reorderGroups(fromGroupId, toGroupId, insertPos) {
+      if (!fromGroupId || !toGroupId || fromGroupId === toGroupId) return;
+
+      const arr = state.bookmarkGroups;
+      const fromIdx = arr.findIndex(g => g.id === fromGroupId);
+      const toIdx0 = arr.findIndex(g => g.id === toGroupId);
+      if (fromIdx < 0 || toIdx0 < 0) return;
+
+      const [moving] = arr.splice(fromIdx, 1);
+
+      let toIdx = arr.findIndex(g => g.id === toGroupId);
+      if (toIdx < 0) toIdx = arr.length;
+      if (insertPos === 'after') toIdx += 1;
+
+      arr.splice(toIdx, 0, moving);
+
+      saveState();
+      renderBookmarks();
     }
 
     function moveBookmarkItem(fromGroupId, itemId, toGroupId, toItemId, insertPos) {
-      const fromG = state.bookmarkGroups.find(g => g.id === fromGroupId);
-      const toG = state.bookmarkGroups.find(g => g.id === toGroupId);
-      if (!fromG || !toG) return;
+      const b = state.bookmarks.find(x => x.id === itemId);
+      if (!b) return;
 
-      const fromItems = fromG.items || [];
-      const idx = fromItems.findIndex(x => x.id === itemId);
-      if (idx < 0) return;
+      // groupId 업데이트
+      b.groupId = toGroupId;
 
-      const [item] = fromItems.splice(idx, 1);
+      // orderMap 업데이트
+      removeFromOrderEverywhere(itemId);
 
-      const toItems = toG.items || (toG.items = []);
-      if (!toItemId) {
-        toItems.push(item);
-      } else {
-        let insertIndex = toItems.findIndex(x => x.id === toItemId);
-        if (insertIndex < 0) {
-          toItems.push(item);
-        } else {
-          if (insertPos === 'after') insertIndex += 1;
-          toItems.splice(insertIndex, 0, item);
-        }
-      }
+      // drop target이 같은 그룹 내 item이면 해당 group order 기준으로 insert
+      insertIntoOrder(toGroupId, itemId, toItemId, insertPos);
 
       saveState();
       renderBookmarks();
@@ -1777,7 +1884,7 @@
         const timeDisplay = e.time || '종일';
         return `
           <div class="event-item ${isGoogle ? 'google-event' : ''}">
-            <div class="event-time">${escapeHtml(timeDisplay)}</div>
+            <div class="event-time">${timeDisplay}</div>
             <div class="event-title">${escapeHtml(e.title)}</div>
             ${
               isGoogle
@@ -1848,7 +1955,6 @@
         return;
       }
 
-      // ⚠️ 현재는 Implicit Flow(response_type=token) 방식 (Google은 PKCE 권장)
       const redirectUri = window.location.origin + window.location.pathname;
       const authUrl =
         `https://accounts.google.com/o/oauth2/v2/auth` +
@@ -1902,7 +2008,9 @@
 
     async function openCalendarSelectModal() {
       document.getElementById('calendarSelectModal').classList.add('active');
-      if (state.googleCalendars.length === 0) await fetchGoogleCalendarList();
+      if (state.googleCalendars.length === 0) {
+        await fetchGoogleCalendarList();
+      }
       renderCalendarList();
     }
 
@@ -2114,7 +2222,6 @@
       const mySeq = ++newsReqSeq;
 
       try {
-        // ✅ 캐시 버스터 + no-store (섹션 새로고침이 안 먹는 문제 해결)
         const url = new URL('./news.json', window.location.href);
         url.searchParams.set('v', String(Date.now()));
 
@@ -2128,11 +2235,7 @@
         if (mySeq !== newsReqSeq) return;
 
         const raw = allNewsData[state.activeKeyword] || [];
-
-        // ✅ 실제 로드: 21개
-        state.newsItems = raw.slice(0, 21);
-
-        // ✅ 화면 표시: 7개
+        state.newsItems = raw.slice(0, 21);  // 로드 21개
         renderNewsItems();
       } catch (e) {
         console.error('loadNews error:', e);
@@ -2143,7 +2246,7 @@
 
     function renderNewsItems() {
       const list = document.getElementById('newsList');
-      const display = (state.newsItems || []).slice(0, 7);
+      const display = (state.newsItems || []).slice(0, 7); // 표시 7개
 
       if (display.length === 0) {
         list.innerHTML = `<div class="news-loading">'${escapeHtml(state.activeKeyword)}'에 대한 뉴스가 없습니다.<br><small>다음 업데이트를 기다려주세요.</small></div>`;
