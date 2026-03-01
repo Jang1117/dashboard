@@ -1,111 +1,4 @@
 {
-    "날씨": [
-        {
-            "title": "[<b>날씨</b>] 수도권, 10mm 비 또는 1~5cm 눈· · ·오후 비가 눈으로 둔갑",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517430",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517430",
-            "description": "이 병훈 기자 = 기상청은 &quot;오늘 늦은 새벽부터 수도권에 5~10mm의 비 또는 1~5cm의 눈이 내리겠다&quot;며 &quot;바람도 강하게 불겠다&quot;고 예보했다. 특히, 오늘(2일)부터 내일(3일) 이른 새벽까지 서울시, 인천시, 경기도에 비... ",
-            "pubDate": "Mon, 02 Mar 2026 02:10:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 경남권, 5cm 눈 / 30mm 눈· · ·얼었던 땅 녹아 산사태 우려",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517428",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517428",
-            "description": "기상청은 &quot;오늘 부산시, 울산시, 경남남해안에는 비 또는 눈이 내리겠다&quot;며 &quot;예상 적설은 1~5cm / 예상 강수량은 10~30mm 등&quot;이라고 예보했다 특히, 오늘과 내일 부산, 울산, 경남남해안에는 바람이 매우 강하게... ",
-            "pubDate": "Mon, 02 Mar 2026 02:08:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 충청북도, 전 지역 '비 또는 눈' 확대· · ·건조특보 완전 해제",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517427",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517427",
-            "description": "기상청은 &quot;오늘 아침부터 내일 이른 새벽까지 충청북도에는  5~10mm의 비 또는 1~5cm의 눈이 내리겠다&quot;고 예보했다. 특히, 오늘(2일) 아침(06~09시)부터 충북남부에 비가 시작되어, 오전(09~12시)에 충북 전 지역으로 비 또는... ",
-            "pubDate": "Mon, 02 Mar 2026 02:06:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 광주/전남, 5~20mm 비· · ·서해안 강풍ㆍ서해상 풍랑특보",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517422",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517422",
-            "description": "기상청은 &quot;오늘부터 내일 새벽 사이 광주시와 전라남도에 5~20mm의 비(전남동부내륙 비 또는 눈)가 내리겠다&quot;고 예보했다. 특히, 오늘(2일)과 내일(3일) 내리는 비 또는 눈은 저기압의 발달과 위치, 미세한 기온의 차이... ",
-            "pubDate": "Mon, 02 Mar 2026 02:04:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 강원도, 대설 예비특보 발효· · ·40cm 눈 또는 10~50mm 비",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517424",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517424",
-            "description": "기상청은 &quot;강원도 대부분 지역에 대설 예비특보가 발효된 가운데 40cm 이상의 눈 또는 10~50mm의 비가 내리는 곳이 있겠다&quot;고 예보했다. 특히, 오늘(2일)과 내일(3일) 강원도 대부분 지역에 습하고 무거운 눈이 내리겠고... ",
-            "pubDate": "Mon, 02 Mar 2026 02:04:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 대구/경북, 습하고 무거운 눈· · ·시간당 1~3cm 대설특보",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517419",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517419",
-            "description": "기상청은 &quot;대설 예비특보가 발효된 대구시와 경상북도는 1~5cm의 눈이 내리고 경북동해안에는 10~30mm의  비가 내리겠다&quot;고 예보했다. 특히 오늘(2일) 새벽(00~06시)부터 경북북부동해안, 경북북동산지에, 오전(06~12시)... ",
-            "pubDate": "Mon, 02 Mar 2026 02:00:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 대전/충남, 전역 비 또는 눈 확대· · ·건조특보 완전 해제",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517417",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517417",
-            "description": "기상청은 &quot;오늘 아침부터 밤 사이 충남권에 비 또는 눈이 내리겠고, 오늘 비가 내리기 전까지 빗방울이 떨어지는 곳이 있겠다&quot;고 예보했다. 특히. 오늘 비 또는 눈이 내리기 전까지 대기가 건조하겠다. 그러나, 오늘... ",
-            "pubDate": "Mon, 02 Mar 2026 01:58:00 +0900"
-        },
-        {
-            "title": "세종시 소방본부, '2026년 봄철 화재예방대책' 운영",
-            "originallink": "http://www.newstnt.com/news/articleView.html?idxno=591084",
-            "link": "http://www.newstnt.com/news/articleView.html?idxno=591084",
-            "description": "건조한 <b>날씨</b>와 야외 활동 증가로 화재 위험이 높아지는 3월 1일부터 5월 31일까지 3개월간 '2026년 봄철 화재예방대책'을 운영한다고 밝혔다. / 세종시청 제공 세종시 소방본부(본부장 김용수)는 건조한 <b>날씨</b>와 야외 활동... ",
-            "pubDate": "Mon, 02 Mar 2026 01:30:00 +0900"
-        },
-        {
-            "title": "진주시, ‘정월대보름 산불방지 특별대책’ 추진",
-            "originallink": "https://www.viva100.com/article/20260302500024",
-            "link": "https://www.viva100.com/article/20260302500024",
-            "description": "특히 건조한 <b>날씨</b>와 강풍이 동반되면 작은 불씨도 대형 산불로 확산할 가능성이 높다. 이에 시는 특별대책 기간에 산불 취약지 및 주요 등산로 집중 순찰, 산불 감시원 및 진화대원 전진 배치, 달집태우기 등 행사장 사전... ",
-            "pubDate": "Mon, 02 Mar 2026 01:08:00 +0900"
-        },
-        {
-            "title": "진주시, ‘산불진화·주민 대피훈련’ 실시",
-            "originallink": "https://www.viva100.com/article/20260302500021",
-            "link": "https://www.viva100.com/article/20260302500021",
-            "description": "이번 훈련은 봄철을 맞아 건조한 <b>날씨</b>와 강풍 등으로 산불 발생 위험이 증가함에 따라 유관기관 간의 공조 체계를 강화하고 초기 대응 능력과 현장의 통합 지휘 역량을 높이기 위해 마련됐다. 이날 훈련은 ‘월아산 숲속의... ",
-            "pubDate": "Mon, 02 Mar 2026 01:02:00 +0900"
-        },
-        {
-            "title": "[오늘의 <b>날씨</b>] 2026년 3월2일",
-            "originallink": "https://www.chosun.com/national/national_general/2026/03/02/Z2YXVZE7UBFRDANZJ3LYFQSQTM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003961854?sid=102",
-            "description": "전국에 눈·비, 제주는 ‘최고 14도’",
-            "pubDate": "Mon, 02 Mar 2026 00:41:00 +0900"
-        },
-        {
-            "title": "3월에 즐기는 바다 서핑",
-            "originallink": "https://www.chosun.com/national/national_general/2026/03/02/TYZBM2DXINDKDPOALLF6F3CJNA/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003961856?sid=102",
-            "description": "이날 부산은 낮 최고 기온 13도를 기록하며 포근한 초봄 <b>날씨</b>가 이어졌다. 2일 전국 아침 최저기온은 1~8도, 낮 최고기온은 4~12도로 예상되며 평년과 비슷한 수준을 보이겠다.",
-            "pubDate": "Mon, 02 Mar 2026 00:41:00 +0900"
-        },
-        {
-            "title": "네이버, 전국 축구장 <b>날씨</b> 콕 집어 알려준다",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1772348485&code=11151400&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001834592?sid=101",
-            "description": "네이버가 K리그 개막에 맞춰 전국 주요 축구장의 위도와 경도를 파악해 <b>날씨</b> 정보를 알려주는 ‘테마<b>날씨</b>-축구장’ 서비스를 시작했다. 네이버는 K리그1(12개)과 K리그2(17개) 전 구단의 홈구장을 대상으로 초단기 예보를... ",
-            "pubDate": "Mon, 02 Mar 2026 00:29:00 +0900"
-        },
-        {
-            "title": "[오늘<b>날씨</b>] '삼일절 대체공휴일' 강원·영남 많은 눈...서울 낮 7도-부산...",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517271",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517271",
-            "description": "경기북부는 4일 오후 6시 20분경 고양·파주·양주·의정부·포천 등 경기북부 전역에 폭설이 시작되며 5~6.5cm의 적설을 기록, 단시간에 강한 눈이 집중됐다. 내리던 폭설은 오후 8시 10분부터 잦아들었지만, 그사이... ",
-            "pubDate": "Mon, 02 Mar 2026 00:16:00 +0900"
-        },
-        {
-            "title": "권창훈 돌아왔다! &quot;나도 팀도, 아직 보여줄 게 많이 남았다&quot;…'윙백 기용...",
-            "originallink": "https://www.xportsnews.com/article/2117599",
-            "link": "https://m.sports.naver.com/kfootball/article/311/0001980347",
-            "description": "육지보다 <b>날씨</b>가 따뜻한 것 같다&quot;며 &quot;가족도 함께 내려와서 잘 적응하고 있다&quot;고 답했다. 끝으로 그는 &quot;오늘 추운 <b>날씨</b>에도 끝까지 응원해주신 팬분들께 정말 감사드린다&quot;며 팬들을 향한 고마움도 잊지 않았다. 비록 팀은... ",
-            "pubDate": "Mon, 02 Mar 2026 00:15:00 +0900"
-        }
-    ],
     "신재생": [
         {
             "title": "이개호 의원, 이재명 대통령 ‘농어촌 기본소득 확대’ 방침에 적극 환...",
@@ -215,17 +108,17 @@
     ],
     "주식": [
         {
-            "title": "이란, 호르무즈 해협 봉쇄 선언… 장기화 땐 ‘유가·환율’ 쇼크",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1772356824&code=11151100&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001834609?sid=101",
-            "description": "권력 공백 사태에 빠진 이란이 전면전까지 나아가지 못한다면, 국제유가와 외환·<b>주식</b>시장 혼란은 단기에... 한 연구원은 “전쟁 직후 <b>주식</b>시장은 하락했지만 이내 이전의 하락분을 만회하면서 회복하는 패턴을... ",
-            "pubDate": "Mon, 02 Mar 2026 02:02:00 +0900"
-        },
-        {
             "title": "[美-이란 군사충돌] “피난처부터 찾는다”…월가, 이란 위기에 ‘안전...",
             "originallink": "https://www.g-enews.com/view.php?ud=2026030119221933059a1f309431_1",
             "link": "https://www.g-enews.com/view.php?ud=2026030119221933059a1f309431_1",
             "description": "미국과 이란 간 군사 충돌이 확산 조짐을 보이면서 월가가 <b>주식</b> 비중을 줄이고 국채와 금, 스위스프랑 등... 그는 “문제는 보복이 아니라 호르무즈 위험”이라며 “해상 운송이 계속 열려 있다면 <b>주식</b>시장은 이를 소화할... ",
+            "pubDate": "Mon, 02 Mar 2026 02:02:00 +0900"
+        },
+        {
+            "title": "이란, 호르무즈 해협 봉쇄 선언… 장기화 땐 ‘유가·환율’ 쇼크",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1772356824&code=11151100&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001834609?sid=101",
+            "description": "권력 공백 사태에 빠진 이란이 전면전까지 나아가지 못한다면, 국제유가와 외환·<b>주식</b>시장 혼란은 단기에... 한 연구원은 “전쟁 직후 <b>주식</b>시장은 하락했지만 이내 이전의 하락분을 만회하면서 회복하는 패턴을... ",
             "pubDate": "Mon, 02 Mar 2026 02:02:00 +0900"
         },
         {
@@ -320,111 +213,218 @@
             "pubDate": "Mon, 02 Mar 2026 00:09:00 +0900"
         }
     ],
-    "AI": [
+    "날씨": [
         {
-            "title": "김영록 도지사 &quot;한국에너지공대, 에너지 대전환 시대 이끌 주역&quot;",
-            "originallink": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294608",
-            "link": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294608",
-            "description": "이날 행사는 하정우 청와대 <b>AI</b>미래기획수석, 이호현 기후에너지환경부 차관, 김동철 한국전력공사 사장, 윤병태 나주시장 등 300여 명이 참석한 가운데 진행됐다. 첫 학위수여식에서는 학사 30명, 석사 10명, 박사 1명 등 총... ",
-            "pubDate": "Mon, 02 Mar 2026 02:12:00 +0900"
+            "title": "[<b>날씨</b>] 수도권, 10mm 비 또는 1~5cm 눈· · ·오후 비가 눈으로 둔갑",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517430",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517430",
+            "description": "이 병훈 기자 = 기상청은 &quot;오늘 늦은 새벽부터 수도권에 5~10mm의 비 또는 1~5cm의 눈이 내리겠다&quot;며 &quot;바람도 강하게 불겠다&quot;고 예보했다. 특히, 오늘(2일)부터 내일(3일) 이른 새벽까지 서울시, 인천시, 경기도에 비... ",
+            "pubDate": "Mon, 02 Mar 2026 02:10:00 +0900"
         },
         {
-            "title": "‘와우멤버십’에 웃다 우는 쿠팡… 가입자 줄자 영업이익 급감",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1772351556&code=11151100&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001834613?sid=101",
-            "description": "최근에는 <b>AI</b>쇼핑을 기반으로 한 초개인화를 앞세우며 기존 유통업체와 차별화된 전략을 내세우고 있다. 기존 오프라인 유통 중심의 강자들도 이커머스 사업을 다시 한 번 정비하며 반격에 나설 태세다. SSG닷컴은 지난... ",
-            "pubDate": "Mon, 02 Mar 2026 02:07:00 +0900"
+            "title": "[<b>날씨</b>] 경남권, 5cm 눈 / 30mm 눈· · ·얼었던 땅 녹아 산사태 우려",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517428",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517428",
+            "description": "기상청은 &quot;오늘 부산시, 울산시, 경남남해안에는 비 또는 눈이 내리겠다&quot;며 &quot;예상 적설은 1~5cm / 예상 강수량은 10~30mm 등&quot;이라고 예보했다 특히, 오늘과 내일 부산, 울산, 경남남해안에는 바람이 매우 강하게... ",
+            "pubDate": "Mon, 02 Mar 2026 02:08:00 +0900"
         },
         {
-            "title": "CIT presents ultra-flat glass substrate, honored with a CES Innovation Aw...",
-            "originallink": "https://us.aving.net/news/articleView.html?idxno=53176",
-            "link": "https://us.aving.net/news/articleView.html?idxno=53176",
-            "description": "CIT receives expectations for outstanding competitiveness alongside the rapid growth of the <b>AI</b>... This level is approximately 200 times flatter than existing substrates for <b>AI</b> accelerators. Due... ",
+            "title": "[<b>날씨</b>] 충청북도, 전 지역 '비 또는 눈' 확대· · ·건조특보 완전 해제",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517427",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517427",
+            "description": "기상청은 &quot;오늘 아침부터 내일 이른 새벽까지 충청북도에는  5~10mm의 비 또는 1~5cm의 눈이 내리겠다&quot;고 예보했다. 특히, 오늘(2일) 아침(06~09시)부터 충북남부에 비가 시작되어, 오전(09~12시)에 충북 전 지역으로 비 또는... ",
+            "pubDate": "Mon, 02 Mar 2026 02:06:00 +0900"
+        },
+        {
+            "title": "[<b>날씨</b>] 강원도, 대설 예비특보 발효· · ·40cm 눈 또는 10~50mm 비",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517424",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517424",
+            "description": "기상청은 &quot;강원도 대부분 지역에 대설 예비특보가 발효된 가운데 40cm 이상의 눈 또는 10~50mm의 비가 내리는 곳이 있겠다&quot;고 예보했다. 특히, 오늘(2일)과 내일(3일) 강원도 대부분 지역에 습하고 무거운 눈이 내리겠고... ",
             "pubDate": "Mon, 02 Mar 2026 02:04:00 +0900"
         },
         {
-            "title": "대한민국 1호 '전남광주통합특별시' 탄생… 지역 균형발전 속도낸다",
-            "originallink": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294607",
-            "link": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294607",
-            "description": "특히 광주권과 서·동·남부권을 잇는 'Y4-노믹스' 비전을 구체화해 반도체, 인공지능(<b>AI</b>), 로봇, 에너지 등 미래 첨단산업의 경쟁력을 강화할 예정이다. 농·수협중앙회와 한국마사회 등 주요 공공기관 유치도 적극... ",
+            "title": "[<b>날씨</b>] 광주/전남, 5~20mm 비· · ·서해안 강풍ㆍ서해상 풍랑특보",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517422",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517422",
+            "description": "기상청은 &quot;오늘부터 내일 새벽 사이 광주시와 전라남도에 5~20mm의 비(전남동부내륙 비 또는 눈)가 내리겠다&quot;고 예보했다. 특히, 오늘(2일)과 내일(3일) 내리는 비 또는 눈은 저기압의 발달과 위치, 미세한 기온의 차이... ",
             "pubDate": "Mon, 02 Mar 2026 02:04:00 +0900"
         },
         {
-            "title": "노키아, MWC26서 <b>AI</b>-RAN 상용 로드맵 공개…'독수리' 라디오 발표",
-            "originallink": "https://www.news1.kr/it-science/mobile/6087093",
-            "link": "https://n.news.naver.com/mnews/article/421/0008800468?sid=105",
-            "description": "이제 <b>AI</b>가 차세대 핵심 워크로드가 되고 있다&quot; 저스틴 호타드(Justin Hotard) 노키아 CEO는 1일(현지시간) MWC26 개막을 하루 앞두고 열린 발표에서 이같이 말하며, 인공지능(<b>AI</b>) 확산에 따라 통신 네트워크 구조 전환이... ",
-            "pubDate": "Mon, 02 Mar 2026 02:01:00 +0900"
-        },
-        {
-            "title": "3월 2일 재물운 및 금전운 오늘의 띠별 운세",
-            "originallink": "https://www.cbci.co.kr/news/articleView.html?idxno=558207",
-            "link": "https://www.cbci.co.kr/news/articleView.html?idxno=558207",
-            "description": "뿐, 최종적인 판단 및 선택은 개인의 책임과 신중한 고려가 필요합니다. 중요한 사안은 반드시 전문가의 조언을 받아 결정하시길 권장드립니다. 본지는 책임을 지지 않습니다. <b>AI</b>가 생성한 기사와 사진입니다.]",
+            "title": "[<b>날씨</b>] 대구/경북, 습하고 무거운 눈· · ·시간당 1~3cm 대설특보",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517419",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517419",
+            "description": "기상청은 &quot;대설 예비특보가 발효된 대구시와 경상북도는 1~5cm의 눈이 내리고 경북동해안에는 10~30mm의  비가 내리겠다&quot;고 예보했다. 특히 오늘(2일) 새벽(00~06시)부터 경북북부동해안, 경북북동산지에, 오전(06~12시)... ",
             "pubDate": "Mon, 02 Mar 2026 02:00:00 +0900"
         },
         {
-            "title": "퀄컴-아너, MWC 2026서 하드웨어 협력...&quot;개인 맞춤형 <b>AI</b> 시대&quot; 선언",
-            "originallink": "http://www.edaily.co.kr/news/newspath.asp?newsid=01088966645379384",
-            "link": "https://n.news.naver.com/mnews/article/018/0006226697?sid=105",
-            "description": "하드웨어와 <b>AI</b> 소프트웨어의 결합을 극대화했다. 크리스 패트릭(Chris Patrick) 퀄컴 수석 부사장 겸 모바일... 총괄은 <b>AI</b>가 하드웨어의 잠재력을 어떻게 끌어올리는지 발표했다. 그는 “수년간 퀄컴은 CPU, GPU, NPU의... ",
-            "pubDate": "Mon, 02 Mar 2026 01:54:00 +0900"
+            "title": "[<b>날씨</b>] 대전/충남, 전역 비 또는 눈 확대· · ·건조특보 완전 해제",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517417",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517417",
+            "description": "기상청은 &quot;오늘 아침부터 밤 사이 충남권에 비 또는 눈이 내리겠고, 오늘 비가 내리기 전까지 빗방울이 떨어지는 곳이 있겠다&quot;고 예보했다. 특히. 오늘 비 또는 눈이 내리기 전까지 대기가 건조하겠다. 그러나, 오늘... ",
+            "pubDate": "Mon, 02 Mar 2026 01:58:00 +0900"
         },
         {
-            "title": "[원화스테이블코인과 은행②] IBK기업은행의 스테이블코인 접근법",
-            "originallink": "https://byline.network/?p=9004111222593945",
-            "link": "https://byline.network/?p=9004111222593945",
-            "description": "디지털자산·블록체인 업무와 은행 내부 인공지능(<b>AI</b>) 기술 활용 간 결합 가능성은 있는지 현재로서는 디지털자산·블록체인 업무와 은행 내부 <b>AI</b> 활용을 결합하는 방식에 대해 구체적으로 정해진 바 없다. 다만 기술 환경... ",
-            "pubDate": "Mon, 02 Mar 2026 01:48:00 +0900"
+            "title": "세종시 소방본부, '2026년 봄철 화재예방대책' 운영",
+            "originallink": "http://www.newstnt.com/news/articleView.html?idxno=591084",
+            "link": "http://www.newstnt.com/news/articleView.html?idxno=591084",
+            "description": "건조한 <b>날씨</b>와 야외 활동 증가로 화재 위험이 높아지는 3월 1일부터 5월 31일까지 3개월간 '2026년 봄철 화재예방대책'을 운영한다고 밝혔다. / 세종시청 제공 세종시 소방본부(본부장 김용수)는 건조한 <b>날씨</b>와 야외 활동... ",
+            "pubDate": "Mon, 02 Mar 2026 01:30:00 +0900"
         },
         {
-            "title": "[MWC26] 잘 보도록 해, 이것이 화웨이가 에이전틱 인터넷 쓸어담는 노하...",
-            "originallink": "https://www.econovill.com/news/articleView.html?idxno=731500",
-            "link": "https://www.econovill.com/news/articleView.html?idxno=731500",
-            "description": "폭증하는 <b>AI</b> 연산 수요를 감당할 컴퓨팅 인프라부터 여러 지능형 에이전트가 소통하는 표준 규약에... 대규모 <b>AI</b> 학습 및 추론 시나리오의 패러다임을 바꿨다. 나아가 범용 컴퓨팅을 위한 타이산 950(TaiShan 950)... ",
-            "pubDate": "Mon, 02 Mar 2026 01:48:00 +0900"
+            "title": "진주시, ‘정월대보름 산불방지 특별대책’ 추진",
+            "originallink": "https://www.viva100.com/article/20260302500024",
+            "link": "https://www.viva100.com/article/20260302500024",
+            "description": "특히 건조한 <b>날씨</b>와 강풍이 동반되면 작은 불씨도 대형 산불로 확산할 가능성이 높다. 이에 시는 특별대책 기간에 산불 취약지 및 주요 등산로 집중 순찰, 산불 감시원 및 진화대원 전진 배치, 달집태우기 등 행사장 사전... ",
+            "pubDate": "Mon, 02 Mar 2026 01:08:00 +0900"
         },
         {
-            "title": "강기정 시장 &quot;광주·전남 통합은 신독립이자 신균형발전&quot;",
-            "originallink": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294605",
-            "link": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294605",
-            "description": "현장 낭독에는 독립유공자 후손인 최동호씨와 고려인 후손 우민우씨, 인공지능(<b>AI</b>) 창업가 정우주 인디제이 대표 등이 참여했다. 강 시장은 민족정기 선양에 기여한 이들에게 표창도 수여했다. 건국훈장 애국장에 추서된... ",
-            "pubDate": "Mon, 02 Mar 2026 01:46:00 +0900"
+            "title": "진주시, ‘산불진화·주민 대피훈련’ 실시",
+            "originallink": "https://www.viva100.com/article/20260302500021",
+            "link": "https://www.viva100.com/article/20260302500021",
+            "description": "이번 훈련은 봄철을 맞아 건조한 <b>날씨</b>와 강풍 등으로 산불 발생 위험이 증가함에 따라 유관기관 간의 공조 체계를 강화하고 초기 대응 능력과 현장의 통합 지휘 역량을 높이기 위해 마련됐다. 이날 훈련은 ‘월아산 숲속의... ",
+            "pubDate": "Mon, 02 Mar 2026 01:02:00 +0900"
         },
         {
-            "title": "지난달 수출 29% 늘어 역대 최대… 반도체 160% 증가",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444481/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003700636?sid=101",
-            "description": "인공지능(<b>AI</b>) 투자 확대로 수요가 커지면서 메모리 가격이 상승한 영향 때문이다. 반도체와 일부 품목을 제외한 대부분의 주력 수출 품목은 부진한 모습을 보였다. 지난달 15대 주력 품목 가운데 수출액이 증가한 건... ",
-            "pubDate": "Mon, 02 Mar 2026 01:45:00 +0900"
+            "title": "3월에 즐기는 바다 서핑",
+            "originallink": "https://www.chosun.com/national/national_general/2026/03/02/TYZBM2DXINDKDPOALLF6F3CJNA/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003961856?sid=102",
+            "description": "이날 부산은 낮 최고 기온 13도를 기록하며 포근한 초봄 <b>날씨</b>가 이어졌다. 2일 전국 아침 최저기온은 1~8도, 낮 최고기온은 4~12도로 예상되며 평년과 비슷한 수준을 보이겠다.",
+            "pubDate": "Mon, 02 Mar 2026 00:41:00 +0900"
         },
         {
-            "title": "3·1운동 107주년… ‘룩스’가 비춘 독립영웅들",
-            "originallink": "https://www.donga.com/news/Society/article/all/20260301/133444666/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003700629?sid=102",
-            "description": "107주년 3·1절을 맞은 1일 오후 서울 종로구 동아미디어센터에 설치된 국내 최대 규모의 미디어 사이니지 ‘룩스(LUUX)’를 통해 독립운동가의 사진을 인공지능(<b>AI</b>)으로 재가공한 컬러 영상이 송출되고 있다.",
+            "title": "[오늘의 <b>날씨</b>] 2026년 3월2일",
+            "originallink": "https://www.chosun.com/national/national_general/2026/03/02/Z2YXVZE7UBFRDANZJ3LYFQSQTM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003961854?sid=102",
+            "description": "전국에 눈·비, 제주는 ‘최고 14도’",
+            "pubDate": "Mon, 02 Mar 2026 00:41:00 +0900"
+        },
+        {
+            "title": "네이버, 전국 축구장 <b>날씨</b> 콕 집어 알려준다",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1772348485&code=11151400&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001834592?sid=101",
+            "description": "네이버가 K리그 개막에 맞춰 전국 주요 축구장의 위도와 경도를 파악해 <b>날씨</b> 정보를 알려주는 ‘테마<b>날씨</b>-축구장’ 서비스를 시작했다. 네이버는 K리그1(12개)과 K리그2(17개) 전 구단의 홈구장을 대상으로 초단기 예보를... ",
+            "pubDate": "Mon, 02 Mar 2026 00:29:00 +0900"
+        },
+        {
+            "title": "[오늘<b>날씨</b>] '삼일절 대체공휴일' 강원·영남 많은 눈...서울 낮 7도-부산...",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517271",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517271",
+            "description": "경기북부는 4일 오후 6시 20분경 고양·파주·양주·의정부·포천 등 경기북부 전역에 폭설이 시작되며 5~6.5cm의 적설을 기록, 단시간에 강한 눈이 집중됐다. 내리던 폭설은 오후 8시 10분부터 잦아들었지만, 그사이... ",
+            "pubDate": "Mon, 02 Mar 2026 00:16:00 +0900"
+        },
+        {
+            "title": "권창훈 돌아왔다! &quot;나도 팀도, 아직 보여줄 게 많이 남았다&quot;…'윙백 기용...",
+            "originallink": "https://www.xportsnews.com/article/2117599",
+            "link": "https://m.sports.naver.com/kfootball/article/311/0001980347",
+            "description": "육지보다 <b>날씨</b>가 따뜻한 것 같다&quot;며 &quot;가족도 함께 내려와서 잘 적응하고 있다&quot;고 답했다. 끝으로 그는 &quot;오늘 추운 <b>날씨</b>에도 끝까지 응원해주신 팬분들께 정말 감사드린다&quot;며 팬들을 향한 고마움도 잊지 않았다. 비록 팀은... ",
+            "pubDate": "Mon, 02 Mar 2026 00:15:00 +0900"
+        }
+    ],
+    "부동산": [
+        {
+            "title": "이재명 대통령 &quot;다주택 보유는 자유…하지만 이익이 되지 않는 제도 만...",
+            "originallink": "https://www.abcn.kr/news/articleView.html?idxno=86713",
+            "link": "https://www.abcn.kr/news/articleView.html?idxno=86713",
+            "description": "정부가 세금·금융·규제 정책을 통해 <b>부동산</b> 투기로 얻는 이익 구조를 바꾸겠다는 의지를 밝히면서, 향후... 이 대통령은 <b>부동산</b> 투기의 원인을 개인이 아닌 제도에서 찾았다. 그는 &quot;돈이 되기 때문에 집을 사 모으는 것... ",
+            "pubDate": "Mon, 02 Mar 2026 01:50:00 +0900"
+        },
+        {
+            "title": "‘내수 가늠자’ 음식-임대업자 20개월 넘게 줄어",
+            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444496/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003700633?sid=101",
+            "description": "전국 음식업과 <b>부동산</b> 임대 사업자가 20개월 넘게 줄어들고 있는 것으로 나타났다. 특히 30대 미만 청년... 내수 경기 바로미터로 꼽히는 음식업과 <b>부동산</b> 임대업에서 줄고 있다. 올해 1월 음식업 가동사업자는... ",
             "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
         },
         {
-            "title": "삼성전자 “2030년까지 <b>AI</b>-휴머노이드 자율 공장 전환”",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444485/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003700634?sid=101",
-            "description": "삼성전자가 2030년까지 국내외 생산 공장에 인공지능(<b>AI</b>)과 휴머노이드를 도입해 자율형 공장으로... “품질·생산·물류 <b>AI</b> 에이전트를 도입해 글로벌 생산거점 전반의 품질과 생산성을 혁신할 방침”이라고 설명했다.... ",
+            "title": "李 “집 팔기 싫다면 두라, 이익-손실 정부가 정해”",
+            "originallink": "https://www.donga.com/news/Politics/article/all/20260301/133444838/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003700624?sid=100",
+            "description": "반면 국민의힘 최보윤 수석대변인은 “여당은 꼬투리 잡기를 할 게 아니라 심각한 전세대란 등 이재명 정부의 <b>부동산</b> 정책 실패부터 돌아보고 실효성 있는 대책을 내놔야 한다”고 했다.",
             "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
         },
         {
-            "title": "압류 코인 ‘비번’ 흘린 국세청… 하루만에 거액 유출",
-            "originallink": "https://www.donga.com/news/Society/article/all/20260301/133444672/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003700627?sid=102",
-            "description": "해당 사진은 해상도가 낮아 맨눈으로는 글자를 알아보기 어렵지만 생성형 인공지능(<b>AI</b>)을 통하면 내용을 판독할 수 있다. 니모닉 코드는 2048개의 고정된 단어 목록을 사용하는 표준 규격 ‘BIP-39’를 이용하기 때문에 일부... ",
+            "title": "서울 동남권 아파트, 매도-매수세 1년만에 균형",
+            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444568/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003700631?sid=101",
+            "description": "1일 한국<b>부동산</b>원에 따르면 2월 넷째 주(23일 기준) 서울 동남권(서초·강남·송파·강동구) 아파트... 이날 <b>부동산</b> 플랫폼 아파트실거래가(아실)에 따르면 서울 아파트 매물은 7만2049건으로 한 달 전(5만7132건) 대비 26.1... ",
             "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
         },
         {
-            "title": "캐리소프트, 에피소드컴퍼니로 사명 변경 &quot;전 세대 아우르는 강력한 IP ...",
-            "originallink": "https://sports.hankooki.com/news/articleView.html?idxno=6926939",
-            "link": "https://sports.hankooki.com/news/articleView.html?idxno=6926939",
-            "description": "각 계열사는 고유의 전문성과 창의성을 독립적으로 유지하되 그룹 차원에서는 IP 자산을 공유하고 <b>AI</b> 기술을... 마지막으로 에피소드컴퍼니는 컨트롤 타워로서 유니버스 내 모든 IP 자산을 통합 관리하고, 최첨단 <b>AI</b> 제작... ",
-            "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
+            "title": "리츠도입 25년 만에 시총 10조원 첫 돌파",
+            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444570/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003700613?sid=101",
+            "description": "리츠(REITs·<b>부동산</b>투자회사) 제도가 도입된 2001년 이후 25년 만에 처음으로 국내 상장 리츠의 시가총액이 10조 원을 넘었다. 리츠는 자금을 모아 <b>부동산</b>에 투자한 후 발생한 각종 수익을 나누는 회사를 말한다. 1일... ",
+            "pubDate": "Mon, 02 Mar 2026 01:43:00 +0900"
+        },
+        {
+            "title": "이 대통령, 싱가포르 동포 만찬서 &quot;귀국 때 집 걱정 없이 살도록 하겠다...",
+            "originallink": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2400140",
+            "link": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2400140",
+            "description": "대한민국 <b>부동산</b> 투기를 문제 삼으며 &quot;본국에 대해 다시 귀국할 때 집 걱정하지 않도록 살도록 하겠다&quot;고 했다. 이 대통령은 &quot;대한민국 <b>부동산</b> 투기가 고질적 문제다. 사람들이 주거하는 공간을 갖고 돈벌이 수단을 삼아야... ",
+            "pubDate": "Mon, 02 Mar 2026 01:13:00 +0900"
+        },
+        {
+            "title": "이 대통령 &quot;다주택 팔기 싫으면 그냥 두라...이익·손해는 정부가 정해...",
+            "originallink": "https://www.ytn.co.kr/_ln/0101_202603020107479840",
+            "link": "https://n.news.naver.com/mnews/article/052/0002321432?sid=100",
+            "description": "국민이 <b>부동산</b> 투기로 고통받지 않는다고 예를 들기도 했습니다. 이 대통령은 싱가포르 현지 동포 간담회에서도 한국으로 돌아가고 싶은데 <b>부동산</b> 가격이 걱정이라는 취지의 교민 언급에, 집 때문에 고민하지 않도록 할... ",
+            "pubDate": "Mon, 02 Mar 2026 01:07:00 +0900"
+        },
+        {
+            "title": "정용래 유성구청장, “구민 생명·건강 최우선” 초고압 송전탑 도심 통...",
+            "originallink": "http://www.breaknews.com/1188396",
+            "link": "http://www.breaknews.com/1188396",
+            "description": "그는 주민들의 불안과 건강 피해 우려를 강조하며, 전자파 노출과 <b>부동산</b> 가치 하락 등 장기적 피해를 지적했다. 특히 정 구청장은 대안으로 “국도 1호선 활용 등... ",
+            "pubDate": "Mon, 02 Mar 2026 01:00:00 +0900"
+        },
+        {
+            "title": "李 대통령 &quot;<b>부동산</b> 투기는 정부 책임...이익·손해 정부가 정해&quot;",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517312",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517312",
+            "description": "이재명 대통령/국제뉴스DB 이재명 대통령은 1일 <b>부동산</b> 투기 문제와 관련해 개인의 도덕성 비판보다 제도의... 또한 1인당 국민소득이 높은 싱가포르의 사례를 언급하며 &quot;좁은 국토에도 국민들이 <b>부동산</b> 투기로 고통받지... ",
+            "pubDate": "Mon, 02 Mar 2026 00:36:00 +0900"
+        },
+        {
+            "title": "&quot;다주택 팔기 싫다면 두라…이익·손실은 정부가 정해&quot;",
+            "originallink": "https://www.hankyung.com/article/2026030128161",
+            "link": "https://n.news.naver.com/mnews/article/015/0005256865?sid=100",
+            "description": "밝힘으로써 <b>부동산</b> 정상화 의지를 드러냈다는 평가가 나온다. 이 대통령은 이날 싱가포르에 도착한 이후 “주택 특히 다주택을 둘러싼 논쟁에 대해 한 말씀 드리겠다”며 <b>부동산</b> 정책 관련 글을 X(옛 트위터)에 올렸다. 이... ",
+            "pubDate": "Mon, 02 Mar 2026 00:32:00 +0900"
+        },
+        {
+            "title": "이재명 대통령 “정책 불신 다주택 투기, 결코 이익 안 되게 할 것”",
+            "originallink": "https://www.womennews.co.kr/news/articleView.html?idxno=274321",
+            "link": "https://n.news.naver.com/mnews/article/310/0000134387?sid=100",
+            "description": "통한 <b>부동산</b> 투기 근절 의지를 공개적으로 밝혔다. 이 대통령은 지난 1일 오후 엑스(X·옛 트위터)에 올린... 순방지인 싱가포르를 <b>부동산</b> 정책의 모범 사례로 제시하기도 했다. 이 대통령은 &quot;싱가포르는 좁은 국토에... ",
+            "pubDate": "Mon, 02 Mar 2026 00:28:00 +0900"
+        },
+        {
+            "title": "李대통령 &quot;집 사봤자 이것저것 떼서 남는 게 없다면 누가 사겠냐&quot;(종합...",
+            "originallink": "https://www.news1.kr/politics/president/6087096",
+            "link": "https://n.news.naver.com/mnews/article/421/0008800456?sid=100",
+            "description": "대한민국의 <b>부동산</b> 투기가 고질적 문제&quot;라며 &quot;사람들이 주거하는 공간을 갖고 돈벌이 수단을 삼아서... 이어 &quot;싱가폴은 좁은 국토에 국민소득이 1인당 10만불에 가까운 나라이지만 국민들이 <b>부동산</b>투기로 고통받고 국가... ",
+            "pubDate": "Mon, 02 Mar 2026 00:18:00 +0900"
+        },
+        {
+            "title": "[특파원 칼럼] 3000만 엔의 벽…선의의 외국인은 어디로",
+            "originallink": "https://www.joongang.co.kr/article/25408412",
+            "link": "https://n.news.naver.com/mnews/article/025/0003506150?sid=110",
+            "description": "이런 사례가 <b>부동산</b> 가격 상승의 원인이 되고 있다는 지적도 잇따랐다. 중국의 내수 경기가 안 좋아지자 중국 투자금은 상대적으로 저평가됐던 일본 <b>부동산</b> 시장으로 눈을 돌렸는데, 맨션 가격 상승의 원인이라는... ",
+            "pubDate": "Mon, 02 Mar 2026 00:10:00 +0900"
+        },
+        {
+            "title": "위기의 장동혁, 끝장투쟁으로 '이 대통령과 일대일 구도'에 안간힘",
+            "originallink": "https://www.hankookilbo.com/news/article/A2026030113400004024?did=NA",
+            "link": "https://n.news.naver.com/mnews/article/469/0000917024?sid=100",
+            "description": "장 대표가 지난 설 연휴 동안 정부 <b>부동산</b> 정책을 비판하며 이 대통령과 사회관계망서비스(SNS) 상에서 설전을 벌여 여론의 큰 주목을 받았던 상황을 재현하겠다는 것이다. 장 대표가 최근 페이스북을 통해 이 대통령을... ",
+            "pubDate": "Mon, 02 Mar 2026 00:10:00 +0900"
+        },
+        {
+            "title": "주식 더 올라갈까봐 FOMO…집값 더 떨어질까봐 FOBO",
+            "originallink": "https://www.joongang.co.kr/article/25408410",
+            "link": "https://n.news.naver.com/mnews/article/025/0003506149?sid=101",
+            "description": "<b>부동산</b> 불패의 상징인 강남3구(강남·서초·송파구)에서 매도자 우위 구도가 1년 만에 무너지면서 포보(FOBO... 지난해만 해도 상승장에서 나만 제외될까 두려운 포모(FOMO·Fear of Missing Out)가 <b>부동산</b> 시장의 기류였는데... ",
+            "pubDate": "Mon, 02 Mar 2026 00:09:00 +0900"
         }
     ],
     "풍력": [
@@ -543,17 +543,17 @@
             "pubDate": "Mon, 02 Mar 2026 02:26:00 +0900"
         },
         {
-            "title": "CIT presents ultra-flat glass substrate, honored with a CES Innovation Aw...",
-            "originallink": "https://us.aving.net/news/articleView.html?idxno=53176",
-            "link": "https://us.aving.net/news/articleView.html?idxno=53176",
-            "description": "<b>it</b> gained recognition by being published in world-renowned scientific journals such as 'Nature... <b>It</b> also enables engineers to implement intended fine-pattern designs on the substrate freely.... ",
-            "pubDate": "Mon, 02 Mar 2026 02:04:00 +0900"
-        },
-        {
             "title": "BRITAIN SOCCER",
             "originallink": "",
             "link": "https://n.news.naver.com/mnews/article/091/0010138425?sid=104",
             "description": "English Premier League - Manchester United vs Crystal Palace Benjamin Sesko of Manchester United celebrates scoring his teams second goal to make <b>it</b> 2-1 during the English Premier League match of... ",
+            "pubDate": "Mon, 02 Mar 2026 02:04:00 +0900"
+        },
+        {
+            "title": "CIT presents ultra-flat glass substrate, honored with a CES Innovation Aw...",
+            "originallink": "https://us.aving.net/news/articleView.html?idxno=53176",
+            "link": "https://us.aving.net/news/articleView.html?idxno=53176",
+            "description": "<b>it</b> gained recognition by being published in world-renowned scientific journals such as 'Nature... <b>It</b> also enables engineers to implement intended fine-pattern designs on the substrate freely.... ",
             "pubDate": "Mon, 02 Mar 2026 02:04:00 +0900"
         },
         {
@@ -606,10 +606,17 @@
             "pubDate": "Mon, 02 Mar 2026 01:00:00 +0900"
         },
         {
-            "title": "전남도, 제주권 향우회와 ‘고향 사랑’ 맞손… 협력 관계 공고히",
-            "originallink": "http://www.breaknews.com/1188407",
-            "link": "http://www.breaknews.com/1188407",
-            "description": "<b>It</b> is assumed that there may be errors in the lish translation. South Jeolla Province and Jeju Area... South Jeolla Province announced that <b>it</b> visited major Jeju area associations, the Seogwipo City Jeollanam-do... ",
+            "title": "추경호 의원, 김민석 총리에 ‘TK 행정통합법’ 조속 통과 강력 요청",
+            "originallink": "http://www.breaknews.com/1188402",
+            "link": "http://www.breaknews.com/1188402",
+            "description": "fulfill our role as a bridge between the ruling and opposition parties and dedicate all our political resources to <b>it</b> until the bill passes the plenary session.&quot; 원본 기사 보기:브레이크뉴스 대구경북",
+            "pubDate": "Mon, 02 Mar 2026 01:00:00 +0900"
+        },
+        {
+            "title": "최민호 세종시장, 3·1절 기념사서 “역경 속 행정수도 완성&quot; 다짐",
+            "originallink": "http://www.breaknews.com/1188392",
+            "link": "http://www.breaknews.com/1188392",
+            "description": "<b>It</b> is assumed that there may be errors in the English translation.&gt; Sejong Mayor Choi Min-ho Vows to &quot;Complete the Administrative Capital Amid Adversity&quot; in March 1st Independence Movement Commemorative Address... ",
             "pubDate": "Mon, 02 Mar 2026 01:00:00 +0900"
         },
         {
@@ -620,13 +627,6 @@
             "pubDate": "Mon, 02 Mar 2026 01:00:00 +0900"
         },
         {
-            "title": "이개호 의원, 이재명 대통령 ‘농어촌 기본소득 확대’ 방침에 적극 환...",
-            "originallink": "http://www.breaknews.com/1188411",
-            "link": "http://www.breaknews.com/1188411",
-            "description": "<b>It</b> is assumed that there may be errors in the lish translation. Rep. Lee Gae-ho enthusiastically welcomes... We will closely monitor the results and continue to expand <b>it</b>.&quot; In particular, responding to criticisms of... ",
-            "pubDate": "Mon, 02 Mar 2026 01:00:00 +0900"
-        },
-        {
             "title": "양승조 전 충남지사 “통합 걷어찬 시·도지사, 매향노처럼 심판 받아야...",
             "originallink": "http://www.breaknews.com/1188397",
             "link": "http://www.breaknews.com/1188397",
@@ -634,10 +634,10 @@
             "pubDate": "Mon, 02 Mar 2026 01:00:00 +0900"
         },
         {
-            "title": "추경호 의원, 김민석 총리에 ‘TK 행정통합법’ 조속 통과 강력 요청",
-            "originallink": "http://www.breaknews.com/1188402",
-            "link": "http://www.breaknews.com/1188402",
-            "description": "fulfill our role as a bridge between the ruling and opposition parties and dedicate all our political resources to <b>it</b> until the bill passes the plenary session.&quot; 원본 기사 보기:브레이크뉴스 대구경북",
+            "title": "전남도, 제주권 향우회와 ‘고향 사랑’ 맞손… 협력 관계 공고히",
+            "originallink": "http://www.breaknews.com/1188407",
+            "link": "http://www.breaknews.com/1188407",
+            "description": "<b>It</b> is assumed that there may be errors in the lish translation. South Jeolla Province and Jeju Area... South Jeolla Province announced that <b>it</b> visited major Jeju area associations, the Seogwipo City Jeollanam-do... ",
             "pubDate": "Mon, 02 Mar 2026 01:00:00 +0900"
         }
     ],
@@ -678,17 +678,17 @@
             "pubDate": "Mon, 02 Mar 2026 01:02:00 +0900"
         },
         {
-            "title": "[가리사니] 선생님, AI가 조퇴하라는데요?",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1772343505&code=11171425&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001834597?sid=110",
-            "description": "사용자를 더 오래 붙잡아두기 위한 빅<b>테크</b> 기업의 알고리즘이 우리 사회의 가장 취약한 계층을 희생양으로 삼고 있다는 진단이다. 혹자는 교통사고 사망률과 비교하며 미약한 수치라고 말하기도 한다. 과거 인터넷에서... ",
-            "pubDate": "Mon, 02 Mar 2026 00:39:00 +0900"
-        },
-        {
             "title": "6G 완성의 인프라 ‘우주·위성통신’이 화두",
             "originallink": "https://www.chosun.com/economy/tech_it/2026/03/02/SQ2K6AMBOZGXXJONWIC5FMKKG4/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
             "link": "https://n.news.naver.com/mnews/article/023/0003961844?sid=105",
             "description": "<b>테크</b>업계 올해 최대 화두인 ‘에이전틱 AI(Agentic AI)’와도 일맥상통한다. 프랑스 칸에서 열리던 행사를... 중국 최대 빅<b>테크</b> 알리바바는 자사 AI 모델 큐원(Qwen)을 탑재한 AI 스마트 안경을 공개한다. 화웨이는... ",
+            "pubDate": "Mon, 02 Mar 2026 00:39:00 +0900"
+        },
+        {
+            "title": "[가리사니] 선생님, AI가 조퇴하라는데요?",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1772343505&code=11171425&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001834597?sid=110",
+            "description": "사용자를 더 오래 붙잡아두기 위한 빅<b>테크</b> 기업의 알고리즘이 우리 사회의 가장 취약한 계층을 희생양으로 삼고 있다는 진단이다. 혹자는 교통사고 사망률과 비교하며 미약한 수치라고 말하기도 한다. 과거 인터넷에서... ",
             "pubDate": "Mon, 02 Mar 2026 00:39:00 +0900"
         },
         {
@@ -748,7 +748,128 @@
             "pubDate": "Mon, 02 Mar 2026 00:00:00 +0900"
         }
     ],
+    "AI": [
+        {
+            "title": "솔라나 ETF 자금 유입 재개…거래소로 몰리는 SOL, 88달러 돌파 분기점",
+            "originallink": "https://www.tokenpost.kr/news/cryptocurrency/334817",
+            "link": "https://www.tokenpost.kr/news/cryptocurrency/334817",
+            "description": "바로가기: https://www.tokenpost.kr/membership 기사요약 by TokenPost.<b>ai</b> 시장 해석 - 2/25 솔라나(SOL) ETF 순유입 3,086만 달러로 최근 약 2개월 반 중 ‘하루 기준’ 최대 유입 - 기관은 현물 직접 매수보다 규제된 ETF로 익스포저를... ",
+            "pubDate": "Mon, 02 Mar 2026 02:46:00 +0900"
+        },
+        {
+            "title": "김영록 도지사 &quot;한국에너지공대, 에너지 대전환 시대 이끌 주역&quot;",
+            "originallink": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294608",
+            "link": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294608",
+            "description": "이날 행사는 하정우 청와대 <b>AI</b>미래기획수석, 이호현 기후에너지환경부 차관, 김동철 한국전력공사 사장, 윤병태 나주시장 등 300여 명이 참석한 가운데 진행됐다. 첫 학위수여식에서는 학사 30명, 석사 10명, 박사 1명 등 총... ",
+            "pubDate": "Mon, 02 Mar 2026 02:12:00 +0900"
+        },
+        {
+            "title": "‘와우멤버십’에 웃다 우는 쿠팡… 가입자 줄자 영업이익 급감",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1772351556&code=11151100&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001834613?sid=101",
+            "description": "최근에는 <b>AI</b>쇼핑을 기반으로 한 초개인화를 앞세우며 기존 유통업체와 차별화된 전략을 내세우고 있다. 기존 오프라인 유통 중심의 강자들도 이커머스 사업을 다시 한 번 정비하며 반격에 나설 태세다. SSG닷컴은 지난... ",
+            "pubDate": "Mon, 02 Mar 2026 02:07:00 +0900"
+        },
+        {
+            "title": "CIT presents ultra-flat glass substrate, honored with a CES Innovation Aw...",
+            "originallink": "https://us.aving.net/news/articleView.html?idxno=53176",
+            "link": "https://us.aving.net/news/articleView.html?idxno=53176",
+            "description": "CIT receives expectations for outstanding competitiveness alongside the rapid growth of the <b>AI</b>... This level is approximately 200 times flatter than existing substrates for <b>AI</b> accelerators. Due... ",
+            "pubDate": "Mon, 02 Mar 2026 02:04:00 +0900"
+        },
+        {
+            "title": "대한민국 1호 '전남광주통합특별시' 탄생… 지역 균형발전 속도낸다",
+            "originallink": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294607",
+            "link": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294607",
+            "description": "특히 광주권과 서·동·남부권을 잇는 'Y4-노믹스' 비전을 구체화해 반도체, 인공지능(<b>AI</b>), 로봇, 에너지 등 미래 첨단산업의 경쟁력을 강화할 예정이다. 농·수협중앙회와 한국마사회 등 주요 공공기관 유치도 적극... ",
+            "pubDate": "Mon, 02 Mar 2026 02:04:00 +0900"
+        },
+        {
+            "title": "노키아, MWC26서 <b>AI</b>-RAN 상용 로드맵 공개…'독수리' 라디오 발표",
+            "originallink": "https://www.news1.kr/it-science/mobile/6087093",
+            "link": "https://n.news.naver.com/mnews/article/421/0008800468?sid=105",
+            "description": "이제 <b>AI</b>가 차세대 핵심 워크로드가 되고 있다&quot; 저스틴 호타드(Justin Hotard) 노키아 CEO는 1일(현지시간) MWC26 개막을 하루 앞두고 열린 발표에서 이같이 말하며, 인공지능(<b>AI</b>) 확산에 따라 통신 네트워크 구조 전환이... ",
+            "pubDate": "Mon, 02 Mar 2026 02:01:00 +0900"
+        },
+        {
+            "title": "3월 2일 재물운 및 금전운 오늘의 띠별 운세",
+            "originallink": "https://www.cbci.co.kr/news/articleView.html?idxno=558207",
+            "link": "https://www.cbci.co.kr/news/articleView.html?idxno=558207",
+            "description": "뿐, 최종적인 판단 및 선택은 개인의 책임과 신중한 고려가 필요합니다. 중요한 사안은 반드시 전문가의 조언을 받아 결정하시길 권장드립니다. 본지는 책임을 지지 않습니다. <b>AI</b>가 생성한 기사와 사진입니다.]",
+            "pubDate": "Mon, 02 Mar 2026 02:00:00 +0900"
+        },
+        {
+            "title": "퀄컴-아너, MWC 2026서 하드웨어 협력...&quot;개인 맞춤형 <b>AI</b> 시대&quot; 선언",
+            "originallink": "http://www.edaily.co.kr/news/newspath.asp?newsid=01088966645379384",
+            "link": "https://n.news.naver.com/mnews/article/018/0006226697?sid=105",
+            "description": "하드웨어와 <b>AI</b> 소프트웨어의 결합을 극대화했다. 크리스 패트릭(Chris Patrick) 퀄컴 수석 부사장 겸 모바일... 총괄은 <b>AI</b>가 하드웨어의 잠재력을 어떻게 끌어올리는지 발표했다. 그는 “수년간 퀄컴은 CPU, GPU, NPU의... ",
+            "pubDate": "Mon, 02 Mar 2026 01:54:00 +0900"
+        },
+        {
+            "title": "[원화스테이블코인과 은행②] IBK기업은행의 스테이블코인 접근법",
+            "originallink": "https://byline.network/?p=9004111222593945",
+            "link": "https://byline.network/?p=9004111222593945",
+            "description": "디지털자산·블록체인 업무와 은행 내부 인공지능(<b>AI</b>) 기술 활용 간 결합 가능성은 있는지 현재로서는 디지털자산·블록체인 업무와 은행 내부 <b>AI</b> 활용을 결합하는 방식에 대해 구체적으로 정해진 바 없다. 다만 기술 환경... ",
+            "pubDate": "Mon, 02 Mar 2026 01:48:00 +0900"
+        },
+        {
+            "title": "[MWC26] 잘 보도록 해, 이것이 화웨이가 에이전틱 인터넷 쓸어담는 노하...",
+            "originallink": "https://www.econovill.com/news/articleView.html?idxno=731500",
+            "link": "https://www.econovill.com/news/articleView.html?idxno=731500",
+            "description": "폭증하는 <b>AI</b> 연산 수요를 감당할 컴퓨팅 인프라부터 여러 지능형 에이전트가 소통하는 표준 규약에... 대규모 <b>AI</b> 학습 및 추론 시나리오의 패러다임을 바꿨다. 나아가 범용 컴퓨팅을 위한 타이산 950(TaiShan 950)... ",
+            "pubDate": "Mon, 02 Mar 2026 01:48:00 +0900"
+        },
+        {
+            "title": "강기정 시장 &quot;광주·전남 통합은 신독립이자 신균형발전&quot;",
+            "originallink": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294605",
+            "link": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294605",
+            "description": "현장 낭독에는 독립유공자 후손인 최동호씨와 고려인 후손 우민우씨, 인공지능(<b>AI</b>) 창업가 정우주 인디제이 대표 등이 참여했다. 강 시장은 민족정기 선양에 기여한 이들에게 표창도 수여했다. 건국훈장 애국장에 추서된... ",
+            "pubDate": "Mon, 02 Mar 2026 01:46:00 +0900"
+        },
+        {
+            "title": "지난달 수출 29% 늘어 역대 최대… 반도체 160% 증가",
+            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444481/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003700636?sid=101",
+            "description": "인공지능(<b>AI</b>) 투자 확대로 수요가 커지면서 메모리 가격이 상승한 영향 때문이다. 반도체와 일부 품목을 제외한 대부분의 주력 수출 품목은 부진한 모습을 보였다. 지난달 15대 주력 품목 가운데 수출액이 증가한 건... ",
+            "pubDate": "Mon, 02 Mar 2026 01:45:00 +0900"
+        },
+        {
+            "title": "압류 코인 ‘비번’ 흘린 국세청… 하루만에 거액 유출",
+            "originallink": "https://www.donga.com/news/Society/article/all/20260301/133444672/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003700627?sid=102",
+            "description": "해당 사진은 해상도가 낮아 맨눈으로는 글자를 알아보기 어렵지만 생성형 인공지능(<b>AI</b>)을 통하면 내용을 판독할 수 있다. 니모닉 코드는 2048개의 고정된 단어 목록을 사용하는 표준 규격 ‘BIP-39’를 이용하기 때문에 일부... ",
+            "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
+        },
+        {
+            "title": "삼성전자 “2030년까지 <b>AI</b>-휴머노이드 자율 공장 전환”",
+            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444485/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003700634?sid=101",
+            "description": "삼성전자가 2030년까지 국내외 생산 공장에 인공지능(<b>AI</b>)과 휴머노이드를 도입해 자율형 공장으로... “품질·생산·물류 <b>AI</b> 에이전트를 도입해 글로벌 생산거점 전반의 품질과 생산성을 혁신할 방침”이라고 설명했다.... ",
+            "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
+        },
+        {
+            "title": "3·1운동 107주년… ‘룩스’가 비춘 독립영웅들",
+            "originallink": "https://www.donga.com/news/Society/article/all/20260301/133444666/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003700629?sid=102",
+            "description": "107주년 3·1절을 맞은 1일 오후 서울 종로구 동아미디어센터에 설치된 국내 최대 규모의 미디어 사이니지 ‘룩스(LUUX)’를 통해 독립운동가의 사진을 인공지능(<b>AI</b>)으로 재가공한 컬러 영상이 송출되고 있다.",
+            "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
+        }
+    ],
     "경제": [
+        {
+            "title": "솔라나 ETF 자금 유입 재개…거래소로 몰리는 SOL, 88달러 돌파 분기점",
+            "originallink": "https://www.tokenpost.kr/news/cryptocurrency/334817",
+            "link": "https://www.tokenpost.kr/news/cryptocurrency/334817",
+            "description": "7단계: The Macro Master (거시 <b>경제</b>와 시장 사이클) ETF 같은 구조화 수단의 수요가 실제 가격 추세로 이어지는 조건(유동성/사이클)을 프레임으로 정리합니다. 혼재된 신호 속에서 필요한 건 ‘희망회로’가 아니라... ",
+            "pubDate": "Mon, 02 Mar 2026 02:46:00 +0900"
+        },
+        {
+            "title": "정읍시, 노인복지 예산 1787억 투입… '의료·요양·돌봄' 통합지원 본격...",
+            "originallink": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294611",
+            "link": "https://www.pointdaily.co.kr/news/articleView.html?idxno=294611",
+            "description": "<b>경제</b>적 안전망도 강화된다. 기초연금은 물가변동률을 반영해 월 최대 34만 9700원으로 인상됐으며, 선정 기준액도 완화돼 수혜 대상을 넓혔다. 100세 이상 어르신에게는 공기청정기, 전동침대 등 100만원 상당의 실용적... ",
+            "pubDate": "Mon, 02 Mar 2026 02:46:00 +0900"
+        },
         {
             "title": "이춘희 세종시장 예비후보, 공약 관련 두 번째 기자회견 개최 예정",
             "originallink": "http://www.newstnt.com/news/articleView.html?idxno=591091",
@@ -813,17 +934,17 @@
             "pubDate": "Mon, 02 Mar 2026 01:53:00 +0900"
         },
         {
-            "title": "이재명 대통령 &quot;다주택 보유는 자유…하지만 이익이 되지 않는 제도 만...",
-            "originallink": "https://www.abcn.kr/news/articleView.html?idxno=86713",
-            "link": "https://www.abcn.kr/news/articleView.html?idxno=86713",
-            "description": "정부는 앞으로 다주택 보유나 투자용 주택이 <b>경제</b>적 이익이 되지 않도록 정책 구조를 바꾸겠다는 방침이다. 세금과 금융 규제 등을 통해 투기 수요를 억제하고, 실제 거주 목적의 주택 중심으로 시장을 재편하겠다는 의미로... ",
-            "pubDate": "Mon, 02 Mar 2026 01:50:00 +0900"
-        },
-        {
             "title": "&quot;밤하늘에 수놓은 자비의 불꽃&quot;... 세종 영평사, 전통 불교 의식 '낙화법...",
             "originallink": "http://www.ccnnews.co.kr/news/articleView.html?idxno=402639",
             "link": "http://www.ccnnews.co.kr/news/articleView.html?idxno=402639",
             "description": "최민호 세종특별자치시장은 직접 현장을 찾아 낙화법의 문화재적 가치를 높이 평가했으며, 김동빈 세종시의원, 오영철 세종시체육회장(일미농수산 회장), 박상필 농협 세종본부장 등 지역 정·관계 및 <b>경제</b>계 주요... ",
+            "pubDate": "Mon, 02 Mar 2026 01:50:00 +0900"
+        },
+        {
+            "title": "이재명 대통령 &quot;다주택 보유는 자유…하지만 이익이 되지 않는 제도 만...",
+            "originallink": "https://www.abcn.kr/news/articleView.html?idxno=86713",
+            "link": "https://www.abcn.kr/news/articleView.html?idxno=86713",
+            "description": "정부는 앞으로 다주택 보유나 투자용 주택이 <b>경제</b>적 이익이 되지 않도록 정책 구조를 바꾸겠다는 방침이다. 세금과 금융 규제 등을 통해 투기 수요를 억제하고, 실제 거주 목적의 주택 중심으로 시장을 재편하겠다는 의미로... ",
             "pubDate": "Mon, 02 Mar 2026 01:50:00 +0900"
         },
         {
@@ -839,127 +960,6 @@
             "link": "https://www.sentv.co.kr/article/view/sentv202603010018",
             "description": "서울<b>경제</b>티브이 김영미 기자 전북 고창군은 제107주년 3·1운동을 맞아 1일 고창군보훈회관에서 기념식을 개최하며 순국선 열과 애국지사들의 숭고한 희생정신을 기렸다. 이번 기념식은 고창군보훈회관 개관 이후... ",
             "pubDate": "Mon, 02 Mar 2026 01:46:00 +0900"
-        },
-        {
-            "title": "심덕섭 고창군수, &quot;선열들의 숭고한 희생·헌신 깊이 감사&quot;…독립유공자...",
-            "originallink": "https://www.sentv.co.kr/article/view/sentv202603010017",
-            "link": "https://www.sentv.co.kr/article/view/sentv202603010017",
-            "description": "서울<b>경제</b>티브이 김영미 기자 심덕섭 전북 고창군수가 제107주년 3.1절을 맞아 고(故) 오흥탁 선생 독립유공자 후손을 찾아 위문품을 전달하며 위로와 감사의 마음을 전했다. 1일 고창군에 따르면 심 군수가 만난 故오흥탁... ",
-            "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
-        },
-        {
-            "title": "압류 코인 ‘비번’ 흘린 국세청… 하루만에 거액 유출",
-            "originallink": "https://www.donga.com/news/Society/article/all/20260301/133444672/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003700627?sid=102",
-            "description": "구윤철 부총리 겸 재정<b>경제</b>부 장관은 소셜미디어에 “관련 부처와 함께 정부와 공공기관의 가상자산 보유 현황과 관리 실태를 점검하고 보안 관리 강화 등 재발 방지 대책도 조속히 마련하겠다”고 밝혔다. 이번 사건은... ",
-            "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
-        }
-    ],
-    "부동산": [
-        {
-            "title": "이재명 대통령 &quot;다주택 보유는 자유…하지만 이익이 되지 않는 제도 만...",
-            "originallink": "https://www.abcn.kr/news/articleView.html?idxno=86713",
-            "link": "https://www.abcn.kr/news/articleView.html?idxno=86713",
-            "description": "정부가 세금·금융·규제 정책을 통해 <b>부동산</b> 투기로 얻는 이익 구조를 바꾸겠다는 의지를 밝히면서, 향후... 이 대통령은 <b>부동산</b> 투기의 원인을 개인이 아닌 제도에서 찾았다. 그는 &quot;돈이 되기 때문에 집을 사 모으는 것... ",
-            "pubDate": "Mon, 02 Mar 2026 01:50:00 +0900"
-        },
-        {
-            "title": "‘내수 가늠자’ 음식-임대업자 20개월 넘게 줄어",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444496/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003700633?sid=101",
-            "description": "전국 음식업과 <b>부동산</b> 임대 사업자가 20개월 넘게 줄어들고 있는 것으로 나타났다. 특히 30대 미만 청년... 내수 경기 바로미터로 꼽히는 음식업과 <b>부동산</b> 임대업에서 줄고 있다. 올해 1월 음식업 가동사업자는... ",
-            "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
-        },
-        {
-            "title": "李 “집 팔기 싫다면 두라, 이익-손실 정부가 정해”",
-            "originallink": "https://www.donga.com/news/Politics/article/all/20260301/133444838/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003700624?sid=100",
-            "description": "반면 국민의힘 최보윤 수석대변인은 “여당은 꼬투리 잡기를 할 게 아니라 심각한 전세대란 등 이재명 정부의 <b>부동산</b> 정책 실패부터 돌아보고 실효성 있는 대책을 내놔야 한다”고 했다.",
-            "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
-        },
-        {
-            "title": "서울 동남권 아파트, 매도-매수세 1년만에 균형",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444568/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003700631?sid=101",
-            "description": "1일 한국<b>부동산</b>원에 따르면 2월 넷째 주(23일 기준) 서울 동남권(서초·강남·송파·강동구) 아파트... 이날 <b>부동산</b> 플랫폼 아파트실거래가(아실)에 따르면 서울 아파트 매물은 7만2049건으로 한 달 전(5만7132건) 대비 26.1... ",
-            "pubDate": "Mon, 02 Mar 2026 01:44:00 +0900"
-        },
-        {
-            "title": "리츠도입 25년 만에 시총 10조원 첫 돌파",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260301/133444570/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003700613?sid=101",
-            "description": "리츠(REITs·<b>부동산</b>투자회사) 제도가 도입된 2001년 이후 25년 만에 처음으로 국내 상장 리츠의 시가총액이 10조 원을 넘었다. 리츠는 자금을 모아 <b>부동산</b>에 투자한 후 발생한 각종 수익을 나누는 회사를 말한다. 1일... ",
-            "pubDate": "Mon, 02 Mar 2026 01:43:00 +0900"
-        },
-        {
-            "title": "이 대통령, 싱가포르 동포 만찬서 &quot;귀국 때 집 걱정 없이 살도록 하겠다...",
-            "originallink": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2400140",
-            "link": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2400140",
-            "description": "대한민국 <b>부동산</b> 투기를 문제 삼으며 &quot;본국에 대해 다시 귀국할 때 집 걱정하지 않도록 살도록 하겠다&quot;고 했다. 이 대통령은 &quot;대한민국 <b>부동산</b> 투기가 고질적 문제다. 사람들이 주거하는 공간을 갖고 돈벌이 수단을 삼아야... ",
-            "pubDate": "Mon, 02 Mar 2026 01:13:00 +0900"
-        },
-        {
-            "title": "이 대통령 &quot;다주택 팔기 싫으면 그냥 두라...이익·손해는 정부가 정해...",
-            "originallink": "https://www.ytn.co.kr/_ln/0101_202603020107479840",
-            "link": "https://n.news.naver.com/mnews/article/052/0002321432?sid=100",
-            "description": "국민이 <b>부동산</b> 투기로 고통받지 않는다고 예를 들기도 했습니다. 이 대통령은 싱가포르 현지 동포 간담회에서도 한국으로 돌아가고 싶은데 <b>부동산</b> 가격이 걱정이라는 취지의 교민 언급에, 집 때문에 고민하지 않도록 할... ",
-            "pubDate": "Mon, 02 Mar 2026 01:07:00 +0900"
-        },
-        {
-            "title": "정용래 유성구청장, “구민 생명·건강 최우선” 초고압 송전탑 도심 통...",
-            "originallink": "http://www.breaknews.com/1188396",
-            "link": "http://www.breaknews.com/1188396",
-            "description": "그는 주민들의 불안과 건강 피해 우려를 강조하며, 전자파 노출과 <b>부동산</b> 가치 하락 등 장기적 피해를 지적했다. 특히 정 구청장은 대안으로 “국도 1호선 활용 등... ",
-            "pubDate": "Mon, 02 Mar 2026 01:00:00 +0900"
-        },
-        {
-            "title": "李 대통령 &quot;<b>부동산</b> 투기는 정부 책임...이익·손해 정부가 정해&quot;",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3517312",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3517312",
-            "description": "이재명 대통령/국제뉴스DB 이재명 대통령은 1일 <b>부동산</b> 투기 문제와 관련해 개인의 도덕성 비판보다 제도의... 또한 1인당 국민소득이 높은 싱가포르의 사례를 언급하며 &quot;좁은 국토에도 국민들이 <b>부동산</b> 투기로 고통받지... ",
-            "pubDate": "Mon, 02 Mar 2026 00:36:00 +0900"
-        },
-        {
-            "title": "&quot;다주택 팔기 싫다면 두라…이익·손실은 정부가 정해&quot;",
-            "originallink": "https://www.hankyung.com/article/2026030128161",
-            "link": "https://n.news.naver.com/mnews/article/015/0005256865?sid=100",
-            "description": "밝힘으로써 <b>부동산</b> 정상화 의지를 드러냈다는 평가가 나온다. 이 대통령은 이날 싱가포르에 도착한 이후 “주택 특히 다주택을 둘러싼 논쟁에 대해 한 말씀 드리겠다”며 <b>부동산</b> 정책 관련 글을 X(옛 트위터)에 올렸다. 이... ",
-            "pubDate": "Mon, 02 Mar 2026 00:32:00 +0900"
-        },
-        {
-            "title": "이재명 대통령 “정책 불신 다주택 투기, 결코 이익 안 되게 할 것”",
-            "originallink": "https://www.womennews.co.kr/news/articleView.html?idxno=274321",
-            "link": "https://n.news.naver.com/mnews/article/310/0000134387?sid=100",
-            "description": "통한 <b>부동산</b> 투기 근절 의지를 공개적으로 밝혔다. 이 대통령은 지난 1일 오후 엑스(X·옛 트위터)에 올린... 순방지인 싱가포르를 <b>부동산</b> 정책의 모범 사례로 제시하기도 했다. 이 대통령은 &quot;싱가포르는 좁은 국토에... ",
-            "pubDate": "Mon, 02 Mar 2026 00:28:00 +0900"
-        },
-        {
-            "title": "李대통령 &quot;집 사봤자 이것저것 떼서 남는 게 없다면 누가 사겠냐&quot;(종합...",
-            "originallink": "https://www.news1.kr/politics/president/6087096",
-            "link": "https://n.news.naver.com/mnews/article/421/0008800456?sid=100",
-            "description": "대한민국의 <b>부동산</b> 투기가 고질적 문제&quot;라며 &quot;사람들이 주거하는 공간을 갖고 돈벌이 수단을 삼아서... 이어 &quot;싱가폴은 좁은 국토에 국민소득이 1인당 10만불에 가까운 나라이지만 국민들이 <b>부동산</b>투기로 고통받고 국가... ",
-            "pubDate": "Mon, 02 Mar 2026 00:18:00 +0900"
-        },
-        {
-            "title": "[특파원 칼럼] 3000만 엔의 벽…선의의 외국인은 어디로",
-            "originallink": "https://www.joongang.co.kr/article/25408412",
-            "link": "https://n.news.naver.com/mnews/article/025/0003506150?sid=110",
-            "description": "이런 사례가 <b>부동산</b> 가격 상승의 원인이 되고 있다는 지적도 잇따랐다. 중국의 내수 경기가 안 좋아지자 중국 투자금은 상대적으로 저평가됐던 일본 <b>부동산</b> 시장으로 눈을 돌렸는데, 맨션 가격 상승의 원인이라는... ",
-            "pubDate": "Mon, 02 Mar 2026 00:10:00 +0900"
-        },
-        {
-            "title": "위기의 장동혁, 끝장투쟁으로 '이 대통령과 일대일 구도'에 안간힘",
-            "originallink": "https://www.hankookilbo.com/news/article/A2026030113400004024?did=NA",
-            "link": "https://n.news.naver.com/mnews/article/469/0000917024?sid=100",
-            "description": "장 대표가 지난 설 연휴 동안 정부 <b>부동산</b> 정책을 비판하며 이 대통령과 사회관계망서비스(SNS) 상에서 설전을 벌여 여론의 큰 주목을 받았던 상황을 재현하겠다는 것이다. 장 대표가 최근 페이스북을 통해 이 대통령을... ",
-            "pubDate": "Mon, 02 Mar 2026 00:10:00 +0900"
-        },
-        {
-            "title": "주식 더 올라갈까봐 FOMO…집값 더 떨어질까봐 FOBO",
-            "originallink": "https://www.joongang.co.kr/article/25408410",
-            "link": "https://n.news.naver.com/mnews/article/025/0003506149?sid=101",
-            "description": "<b>부동산</b> 불패의 상징인 강남3구(강남·서초·송파구)에서 매도자 우위 구도가 1년 만에 무너지면서 포보(FOBO... 지난해만 해도 상승장에서 나만 제외될까 두려운 포모(FOMO·Fear of Missing Out)가 <b>부동산</b> 시장의 기류였는데... ",
-            "pubDate": "Mon, 02 Mar 2026 00:09:00 +0900"
         }
     ]
 }
