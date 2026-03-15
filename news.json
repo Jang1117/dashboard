@@ -1,326 +1,47 @@
 {
-    "테크": [
-        {
-            "title": "&quot;입점하거나, 접점 늘리거나&quot;…해외 진출 힘싣는 K-뷰티",
-            "originallink": "https://www.pointdaily.co.kr/news/articleView.html?idxno=295960",
-            "link": "https://www.pointdaily.co.kr/news/articleView.html?idxno=295960",
-            "description": "제품 전시와 더불어 방문객이 메디큐브만의 브랜드 정체성과 뷰티 <b>테크</b> 기술력을 직접 체험할 수 있는 공간도 마련한다. 에이피알은 이번 코첼라 참가를 통해 전세계 소비자들과 소통을 강화하고 인지도, 영향력을... ",
-            "pubDate": "Mon, 16 Mar 2026 00:36:00 +0900"
-        },
-        {
-            "title": "AI·우주항공에 직접 투자… 체급 키우는 韓 VC",
-            "originallink": "https://www.chosun.com/economy/tech_it/2026/03/16/VYQGH6DIKNF4ZJTNEZOKKC4W5Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964685?sid=105",
-            "description": "실리콘밸리 딥<b>테크</b> 초기 단계 참여 한국 벤처캐피털(VC)과 기관 투자자들이 미국 실리콘밸리 딥<b>테크</b> 생태계에 직접 참여하며 투자 체급을 키우고 있다. 과거 글로벌 대형 운용사의 재간접 펀드(Fund of Funds)에 자금을... ",
-            "pubDate": "Mon, 16 Mar 2026 00:35:00 +0900"
-        },
-        {
-            "title": "[DBR]‘ONE LG’ 역량 총동원… AI 데이터센터로 글로벌 시장 공략",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260315/133525889/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003704186?sid=101",
-            "description": "15일 LG유플러스는 이달 초 스페인 바르셀로나에서 열린 MWC 26(Mobile World Congress 2026)에서 공개한 ‘ONE LG’ AIDC 전략이 글로벌 통신사, 빅<b>테크</b>들의 큰 관심을 받고 있다고 밝혔다. AIDC 가동의 핵심은 발열을 잡는... ",
-            "pubDate": "Mon, 16 Mar 2026 00:32:00 +0900"
-        },
-        {
-            "title": "“메타, 직원 20%이상 대규모 구조조정 계획”",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260315/133534122/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003704178?sid=101",
-            "description": "글로벌 빅<b>테크</b> 기업 메타(Meta)가 전체 직원의 20% 이상을 감원하는 대규모 구조조정을 계획 중인 것으로... 핀<b>테크</b> 기업 블록(Block)도 최근 AI 도구 활용 확대를 이유로 인력을 대거 줄이는 등 미국 정보통신업계 전반에... ",
-            "pubDate": "Mon, 16 Mar 2026 00:31:00 +0900"
-        },
-        {
-            "title": "교육은 결국 '신뢰'의 문제… &quot;2년 내 세종을 떠나지 않는 교육 환경 만...",
-            "originallink": "http://www.ccnnews.co.kr/news/articleView.html?idxno=404028",
-            "link": "http://www.ccnnews.co.kr/news/articleView.html?idxno=404028",
-            "description": "특히 저는 에듀<b>테크</b>를 결합한 '단계형 독서 시스템' 도입을 구상 중입니다. 아이들이 게임처럼 성취감을 느끼며 책을 읽다 보면 문해력이 살아나고, 그것이 곧 모든 공부의 기초 체력이 될 것입니다. Q. 세종시 고교 체제가... ",
-            "pubDate": "Mon, 16 Mar 2026 00:30:00 +0900"
-        },
-        {
-            "title": "기술은 앞서가고 전력은 못 따라오고… AI 인프라 투자 ‘딜레마’",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773563299&code=11151400&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001837231?sid=101",
-            "description": "스타게이트가 주춤하는 사이 빅<b>테크</b>들의 공세도 강화되고 있다. 마이크로소프트(MS)와 메타는 오픈AI... 구글 MS 메타 아마존 등 이미 탄탄한 자체 핵심 사업을 ‘캐시카우’로 보유하고 있는 빅<b>테크</b>들은 자금을 바탕으로... ",
-            "pubDate": "Mon, 16 Mar 2026 00:19:00 +0900"
-        },
-        {
-            "title": "[백서인의 중국 과학기술 굴기] AI 날개 단 에너지 굴기…10년 내 ‘글로...",
-            "originallink": "https://www.joongang.co.kr/article/25411982",
-            "link": "https://n.news.naver.com/mnews/article/025/0003509243?sid=110",
-            "description": "트럼프 대통령이 ‘AI 데이터센터 전기요금 보호 서약’을 통해 빅<b>테크</b>에게 데이터센터 구축에 필요한 전력을 자체적으로 확보하도록 요구했는데, 결국 중국의 신재생 에너지 기업들을 바라볼 수밖에 없는 상황이... ",
-            "pubDate": "Mon, 16 Mar 2026 00:16:00 +0900"
-        },
-        {
-            "title": "주식투자의 함정, '안다'는 착각 [삶과 문화]",
-            "originallink": "https://www.hankookilbo.com/news/article/A2026031313470000036?did=NA",
-            "link": "https://n.news.naver.com/mnews/article/469/0000919581?sid=110",
-            "description": "코스피 6000, 코스닥 1000 시대에, 뉴스는 물론이고 축구, <b>테크</b>, 시사 채널에서도 모두가 주식 얘기를 한다. 정치를 일컬어 '살아 움직이는 생물'이라고 하는데, 주식 시장이야말로 사람들의 맹렬한 욕망과 짙은 공포를 양분... ",
-            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
-        },
-        {
-            "title": "&quot;메모리 품귀, 내년 말까지&quot;…IT업계 '비용 폭탄' 비상",
-            "originallink": "https://www.namdonews.com/news/articleView.html?idxno=904052",
-            "link": "https://www.namdonews.com/news/articleView.html?idxno=904052",
-            "description": "황 애널리스트는 &quot;빅<b>테크</b>들의 구매 의지가 꺾이지 않는 한 하반기 공급 부족 현상이 완화될 가능성은... 끌어올릴 것으로 보이며, 낸드 시장에서도 양쯔메모리<b>테크</b>놀로지(YMTC)의 영향력이 꾸준히 확대되는 추세다.",
-            "pubDate": "Mon, 16 Mar 2026 00:06:00 +0900"
-        },
-        {
-            "title": "비트버니 퀴즈 3월 16일 정답은",
-            "originallink": "https://www.namdonews.com/news/articleView.html?idxno=904055",
-            "link": "https://www.namdonews.com/news/articleView.html?idxno=904055",
-            "description": "매일 걷기만 해도 돈 버는 앱, 용돈과 건강까지 두 마리 토끼를 챙기는 성장형 앱<b>테크</b>를 지향하는 비트버니... 한편 최근 스마트폰의 앱을 이용한 '앱<b>테크</b>'가 인기를 끌고 있다. 앱<b>테크</b>란 '애플리케이션(Application)'과... ",
-            "pubDate": "Mon, 16 Mar 2026 00:06:00 +0900"
-        },
-        {
-            "title": "대덕특구 &quot;원스톱지원센터, 특구기업 성장 지원 물꼬 틀었다&quot;",
-            "originallink": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2099266",
-            "link": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2099266",
-            "description": "연구개발특구진흥재단은 지난 10일 대전 대덕<b>테크</b>비즈센터에서 '대덕특구 딥커넥트 네트워크 데이'를 열고 원스톱지원센터의 운영 성과를 공유했다. 센터는 2025년 4월 개소 이후 대덕특구 기업과 예비 창업자를... ",
-            "pubDate": "Mon, 16 Mar 2026 00:06:00 +0900"
-        },
-        {
-            "title": "쏠퀴즈 정답 3월 16일",
-            "originallink": "https://www.bntnews.co.kr/article/view/bnt202603150060",
-            "link": "https://www.bntnews.co.kr/article/view/bnt202603150060",
-            "description": "앱<b>테크</b>는 '앱'과 '재<b>테크</b>'의 합성어로, 스마트폰 애플리케이션을 통해 돈을 벌거나 절약하는 활동을 말한다. 사용자가 특정 앱을 다운로드하거나 미션을 수행하면 소정의 포인트나 현금, 상품권 등을 지급받는... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
-        },
-        {
-            "title": "[윤주혜의 C] 손끝이 맞닿는 순간, 생명을 느끼다",
-            "originallink": "https://www.ajunews.com/view/20260313082835989",
-            "link": "https://www.ajunews.com/view/20260313082835989",
-            "description": "미국 빅<b>테크</b>는 물론이고 삼성, 현대차, LG 등 국내 주요 기업들이 로봇손 개발에 매달리는 것은 '아담의 창조'와 묘하게 겹친다. 훗날 미켈란젤로를 닮은 휴머노이드가 '아틀란티스의 창조' 혹은 '옵티머스의 창조'를... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
-        },
-        {
-            "title": "자율주행 경쟁 시대, 한국만 브레이크[동십자각]",
-            "originallink": "https://www.sedaily.com/article/20019610?ref=naver",
-            "link": "https://n.news.naver.com/mnews/article/011/0004599510?sid=110",
-            "description": "지난해 11월 정부는 ‘자율주행차 산업 경쟁력 제고 방안’을 내놓으며 한국의 글로벌 경쟁력 격차를 수치로 제시했다. 구글 웨이모는 누적 실증 거리가 1억 6000만 ㎞를 돌파했고 중국의 바이두 역시 누적 1억 ㎞를... ",
-            "pubDate": "Sun, 15 Mar 2026 23:48:00 +0900"
-        },
-        {
-            "title": "에이피알, 세계 최대 음악축제 '코첼라' 공식 스폰서 참여…스킨케어·...",
-            "originallink": "http://www.econonews.co.kr/news/articleView.html?idxno=431021",
-            "link": "http://www.econonews.co.kr/news/articleView.html?idxno=431021",
-            "description": "방문객이 메디큐브를 직접 체험할 수 있는 공간도 마련한다. 메디큐브 부스 현장에는 음악과 뷰티 <b>테크</b>, 게임 프로그램 등을 결합한 다양한 이벤트가 운영될 계획이다.",
-            "pubDate": "Sun, 15 Mar 2026 23:46:00 +0900"
-        }
-    ],
-    "날씨": [
-        {
-            "title": "[살며 사랑하며] 달라지는 소리",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773551880&code=11171315&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001837236?sid=110",
-            "description": "따듯한 햇볕과 차가운 바람이 오고 가는 <b>날씨</b>. 감기에 걸리기 딱 좋은 <b>날씨</b>. 겨울의 추위는 당연해서 추워도 이상할 게 없는데, 봄의 추위는 차가움을 더 정확하게 느끼게 한다. 봄을 떠올리면 봄볕과 꽃 축제와 산들바람이... ",
-            "pubDate": "Mon, 16 Mar 2026 00:34:00 +0900"
-        },
-        {
-            "title": "'에이스' 이동경의 냉정한 현실인식 &quot;울산, 아직 우승후보 아냐&quot;[현장 인...",
-            "originallink": "https://www.sportschosun.com/football/2026-03-15/202603150100101830007195",
-            "link": "https://m.sports.naver.com/kfootball/article/076/0004384873",
-            "description": "1로빈에 <b>날씨</b>도 춥고 개막한지 얼마 안되는 상황에서 결과가 중요하다. 그런 부분에서 조금 부족하더라도 경기력 측면에서 가져갈 수 있게 하려는 부분이 크다&quot;고 했다. 올 시즌 2경기에서 3골을 기록 중인 야고에... ",
-            "pubDate": "Mon, 16 Mar 2026 00:21:00 +0900"
-        },
-        {
-            "title": "[시론] 중국의 5개년 계획과 에너지 정책",
-            "originallink": "https://www.hankyung.com/article/2026031521221",
-            "link": "https://n.news.naver.com/mnews/article/015/0005262562?sid=110",
-            "description": "AI 시대 전력 수요가 급증하는 상황에서 태양광, 풍력 등 재생에너지는 <b>날씨</b>와 기후 조건에 크게 좌우되는 데 비해 원자력 에너지는 이와 관계없이 꾸준한 발전이 가능하다. 상대적으로 소비지 근처에서 생산할 수... ",
-            "pubDate": "Mon, 16 Mar 2026 00:20:00 +0900"
-        },
-        {
-            "title": "[오늘<b>날씨</b>] 아침 영하권 기온 쌀쌀...서울 낮 13도-부산 15도 '미세먼지...",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529582",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529582",
-            "description": "봄 나들이 시기, 인천시 섬 나들이 이용객 러시 (사진=안희영 기자) 월요일인 16일은 낮과 밤의 기온차가 크겠고 아침 기온이 영하권으로 낮겠다. 기상청 예보에 따르면 전국 대부분 지역에서 아침 기온이 0도 이하가... ",
-            "pubDate": "Mon, 16 Mar 2026 00:16:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 수도권, 경기 북부 -3~2℃ 한파· · ·낮과 밤 기온차 15℃ 안팎",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529693",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529693",
-            "description": "기상청은 &quot;경기도 내륙을 중심으로 서리가 내리는 곳이 많겠다&quot;며 &quot;내륙을 중심으로 낮과 밤의 기온차가 15℃ 안팎으로 크겠다&quot;고 예보했다. 특히, 오늘(16일)과 내일(17일) 아침기온이 영하로 내려가는 곳이 많고... ",
-            "pubDate": "Mon, 16 Mar 2026 00:12:00 +0900"
-        },
-        {
-            "title": "월드컵 엔트리 간절한 K리그 MVP…이동경 &quot;올 상반기 가장 큰 목표, 좋은...",
-            "originallink": "https://www.xportsnews.com/article/2123380",
-            "link": "https://m.sports.naver.com/kfootball/article/311/0001986107",
-            "description": "우리도 지지 않고 하려는 마음을 가장 크게 갖고 있다&quot;면서 &quot;1로빈에서 <b>날씨</b>도 춥고, 개막한 지 얼마 되지 않은 상황에서 무엇보다 중요한 것을 결과다. 경기력이 부족하더라도 경기력 측면보다는 결과를 가져올 수 있도록... ",
-            "pubDate": "Mon, 16 Mar 2026 00:11:00 +0900"
-        },
-        {
-            "title": "“골프계 판도 바꿀 TGL…골프를 더 멋지게 만들 것”",
-            "originallink": "https://www.mk.co.kr/article/11988675",
-            "link": "https://m.sports.naver.com/golf/article/009/0005650566",
-            "description": "이어 “PGA 투어 대회의 경우 바람과 <b>날씨</b> 등의 영향을 받는 만큼 동일한 규정을 적용하기 어려울 것이라고 생각한다”며 “미국프로야구 메이저리그(MLB)에서도 피치 클록이 성공적으로 운영되고 있다. 각 투어에... ",
-            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
-        },
-        {
-            "title": "[오늘<b>날씨</b>]출근길 '쌀쌀' 낮최고 16도...미세먼지 '나쁨'",
-            "originallink": "https://www.gametoc.co.kr/news/articleView.html?idxno=107056",
-            "link": "https://www.gametoc.co.kr/news/articleView.html?idxno=107056",
-            "description": "오늘(16일) <b>날씨</b>는 전국이 가끔 구름 많겠으나, 강원영동과 경상권 동해안은 대체로 흐리겠다. 미세먼지는... 기상청 오늘<b>날씨</b> 예보에 따르면 당분간 기온은 평년(최저 -3~5도, 최고 10~14도)과 비슷하거나 조금 높겠다.... ",
-            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 충청북도, 새벽 안개 또는 서리· · ·아침 기온 0℃ 이하 쌀쌀",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529691",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529691",
-            "description": "기상청은 &quot;충청북도는 오늘과 내일 서리가 내리는 곳이 있겠다&quot;며 &quot;오늘 새벽에서 아침 사이 곳에 따라 안개가 끼겠다&quot;고 예보했다. 한편, 오늘과 내일 서리가 내리는 곳이 있겠으니, 농작물 관리에 유의하기... ",
-            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 경남권, 당분간 0~5℃ 꽃샘 추위· · ·남해안 너울성 파도 유입",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529692",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529692",
-            "description": "기상청은 &quot;경남권은 내일까지 내륙을 중심으로 낮과 밤의 기온차가 크겠다&quot;며 &quot;남해안에는 너울이 유입되겠다&quot;고 예보했다. 특히, 내일(17일)까지 경남내륙은 낮과 밤의 기온차가 15℃ 안팎으로 크겠다. 그리고... ",
-            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
-        },
-        {
-            "title": "속초 설악산 구름의 신비 기상청 사진공모 대상",
-            "originallink": "https://www.kado.net/news/articleView.html?idxno=2038900",
-            "link": "https://n.news.naver.com/mnews/article/654/0000170796?sid=102",
-            "description": "작품은 거센 눈보라와 강풍을 이겨내며 묵묵히 발걸음을 옮기는 장면을 통해 <b>날씨</b>와 함께 살아가는 삶의 현장을 생생하게 표현했다. 이번 수상작들은 오는 23일 세계기상의 날을 기념해 대전 엑스포시민광장에서의... ",
-            "pubDate": "Mon, 16 Mar 2026 00:08:00 +0900"
-        },
-        {
-            "title": "&quot;오기 직전까지 드론 공격…남편은 아직 일해야 해서 남아 걱정&quot;",
-            "originallink": "https://www.newsis.com/view/NISX20260315_0003548991",
-            "link": "https://n.news.naver.com/mnews/article/003/0013823214?sid=100",
-            "description": "전반적으로 얇은 옷차림이 많았고 쌀쌀한 <b>날씨</b> 때문에 추위를 타는 모습도 보였다. 남자 형제로 추정되는 아이들은 한국에 온 것에 만족해하면서도 &quot;아 근데 너무 추워&quot;, &quot;패딩 못 챙겼어&quot;라고 안타까워하기도 했다. 한국... ",
-            "pubDate": "Mon, 16 Mar 2026 00:08:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 강원도, 산지 아침 기온 영하권· · ·도로 얼었다 녹았다 반복",
-            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529690",
-            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529690",
-            "description": "기상청은 &quot;당분간 강원도 내륙과 산지는 아침 기온이 영하권으로 낮겠다&quot;며 &quot;오늘과 내일 내륙을 중심으로 서리가 내리는 곳이 있겠다&quot;고 예보했다. 특히, 내일(17일)까지 강원도 내륙과 산지를 중심으로 아침 기온이 0... ",
-            "pubDate": "Mon, 16 Mar 2026 00:08:00 +0900"
-        },
-        {
-            "title": "속초시보건소, 해빙기 모기 유충 선제방역 실시",
-            "originallink": "https://www.kwnews.co.kr/page/view/2026031509093678532",
-            "link": "https://n.news.naver.com/mnews/article/087/0001180054?sid=102",
-            "description": "추운 <b>날씨</b>를 피해 겨울을 나는 모기의 특성을 고려해 건물 내외 정화조와 하수구를 중심으로 모기 유충 서식 여부를 확인하고 구제약품을 살포할 예정이다. 시는 본격적인 기온 상승 전에 해빙기 유충 구제를 우선... ",
-            "pubDate": "Mon, 16 Mar 2026 00:08:00 +0900"
-        },
-        {
-            "title": "[<b>날씨</b>] 아침 영하권에 큰 일교차‥미세먼지 '나쁨'",
-            "originallink": "https://imnews.imbc.com/news/2026/society/article/6807599_36918.html",
-            "link": "https://n.news.naver.com/mnews/article/214/0001486274?sid=102",
-            "description": "오늘(16일)은 내륙 일부 지역에서 아침 기온이 영하권으로 떨어지는 가운데, 일교차가 15도 안팎으로 크겠습니다. 중부 내륙과 전라권 내륙을 중심으로는 서리가 내릴 수 있어 농작물과 시설물 관리에... ",
-            "pubDate": "Mon, 16 Mar 2026 00:07:00 +0900"
-        }
-    ],
-    "IT": [
-        {
-            "title": "[CISO 조찬] 카스퍼스키 &quot;기술보다 중요한 것은 공격 전체 흐름을 보는 ...",
-            "originallink": "https://www.dailysecu.com/news/articleView.html?idxno=205714",
-            "link": "https://www.dailysecu.com/news/articleView.html?idxno=205714",
-            "description": "이 구조는 SIEM이 여러 네트워크 장비와 <b>IT</b> 시스템의 로그를 수집한 뒤, 원시 로그를 카스퍼스키 사이버 트레이스(Cyber Trace)로 보내고, 여기서 위협 데이터 피드와 대조해 탐지 이벤트만 다시 SIEM과 웹 콘솔로 돌려주는... ",
-            "pubDate": "Mon, 16 Mar 2026 00:44:00 +0900"
-        },
-        {
-            "title": "Iran US Israel",
-            "originallink": "",
-            "link": "https://n.news.naver.com/mnews/article/077/0006937464?sid=104",
-            "description": "Iran US Israel The shattered structure of a police station is seen after <b>it</b> was hit Friday in a U.S.-Israeli strike in Tehran, Iran, Sunday, March 15, 2026. (AP Photo/Vahid Salemi)",
-            "pubDate": "Mon, 16 Mar 2026 00:42:00 +0900"
-        },
-        {
-            "title": "[뉴스룸에서] 월가에 퍼지는 바퀴벌레들",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773552227&code=11171222&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001837238?sid=110",
-            "description": "앞서 지난달에는 정보기술(<b>IT</b>) 분야 투자를 늘리던 미국 사모펀드 블루아울캐피털이 자사 펀드 3개 중 하나의 환매를 영구 중단해 시장을 충격에 빠뜨렸다. 사모 대출 자금이 동결되면 미국에서 연 매출 10억 달러 미만... ",
-            "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
-        },
-        {
-            "title": "Nations Respond With Caution to Trump’s Call to Send Warships to Strait...",
-            "originallink": "https://www.nytimes.com/2026/03/15/world/middleeast/trump-strait-of-hormuz-iran-warships.html?partner=naver",
-            "link": "https://www.nytimes.com/2026/03/15/world/middleeast/trump-strait-of-hormuz-iran-warships.html?partner=naver",
-            "description": "“<b>It</b> is very important that we get the Strait of Hormuz reopened,” he told the BBC in an... South Korea: The office of President Lee Jae Myung of South Korea said in a statement that <b>it</b> would... ",
-            "pubDate": "Mon, 16 Mar 2026 00:16:00 +0900"
-        },
-        {
-            "title": "&quot;메모리 품귀, 내년 말까지&quot;…<b>IT</b>업계 '비용 폭탄' 비상",
-            "originallink": "https://www.namdonews.com/news/articleView.html?idxno=904052",
-            "link": "https://www.namdonews.com/news/articleView.html?idxno=904052",
-            "description": "메모리 단가 상승은 고스란히 <b>IT</b> 제조사의 부담으로 전이되고 있다. 스마트폰의 경우 전체 부품원가(BOM)에서 D램과 낸드플래시가 차지하는 비중이 절반 수준까지 육박할 것으로 전망된다. 원가 상승분을 소비자 가격에... ",
-            "pubDate": "Mon, 16 Mar 2026 00:06:00 +0900"
-        },
-        {
-            "title": "Between two cities",
-            "originallink": "https://koreajoongangdaily.joins.com/news/2026-03-16/opinion/letters/Between-two-cities/2543244",
-            "link": "https://n.news.naver.com/mnews/article/640/0000085695?sid=110",
-            "description": "“I need time to think about <b>it</b>,” I replied. I was happy enough at my elementary school in... <b>It</b> almost never snows in Busan. My classmates’ eyes widened when they saw the snowflakes. Nobody... ",
-            "pubDate": "Mon, 16 Mar 2026 00:05:00 +0900"
-        },
-        {
-            "title": "LEBANON ISRAEL CONFLICT",
-            "originallink": "",
-            "link": "https://n.news.naver.com/mnews/article/091/0010151670?sid=104",
-            "description": "airstrikes on Lebanon since the start of renewed hostilities. The Israeli military stated <b>it</b> is conducting strikes across the country targeting Hezbollah infrastructure and personnel. EPA/WAEL HAMZEH",
-            "pubDate": "Mon, 16 Mar 2026 00:05:00 +0900"
-        },
-        {
-            "title": "‘Trash’ Review: Bickering About Chores, in Sign Language",
-            "originallink": "https://www.nytimes.com/2026/03/15/theater/trash-review-perelman.html?partner=naver",
-            "link": "https://www.nytimes.com/2026/03/15/theater/trash-review-perelman.html?partner=naver",
-            "description": "<b>It</b> wouldn’t seem of much use to a pair of Deaf 20-something roommates, except that <b>it</b> is touched with a kind of theatrical magic. <b>It</b> still plays songs, but its more practical use is as a real... ",
-            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
-        },
-        {
-            "title": "[사설]활기 잃어가는 강원도 명산, 콘텐츠 개발 시급하다",
-            "originallink": "https://www.kwnews.co.kr/page/view/2026031518180428102",
-            "link": "https://n.news.naver.com/mnews/article/087/0001179990?sid=110",
-            "description": "인근 지자체의 로컬 축제와 연계한 패키지, 산 위에서 즐기는 요가나 명상 같은 웰니스 프로그램, <b>IT</b>를 접목한 스마트 탐방로 등 MZ세대의 취향을 저격할 디테일한 기획이 필요하다. 강원의 명산들이 ‘추억 속의... ",
-            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
-        },
-        {
-            "title": "We have played this game before",
-            "originallink": "https://koreajoongangdaily.joins.com/news/2026-03-16/opinion/columns/We-have-played-this-game-before/2545031",
-            "link": "https://n.news.naver.com/mnews/article/640/0000085694?sid=110",
-            "description": "Excessive borrowing creates the illusion that economic growth is stronger than <b>it</b> truly is.... livelihoods.” <b>It</b> used tax revenue collected beyond expectations the previous year to provide oil... ",
-            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
-        },
-        {
-            "title": "Déjà vu of 2008? fears grow over private credit risks",
-            "originallink": "https://koreajoongangdaily.joins.com/news/2026-03-16/opinion/columns/Dj-vu-of-2008-fears-grow-over-private-credit-risks/2545097",
-            "link": "https://n.news.naver.com/mnews/article/640/0000085693?sid=110",
-            "description": "“Something unexpected always happens during credit cycles, and <b>it</b> can grow into a larger... 19, the firm announced that <b>it</b> would end quarterly redemptions for its unlisted business development... ",
-            "pubDate": "Mon, 16 Mar 2026 00:03:00 +0900"
-        },
-        {
-            "title": "보험 DB 리스크 커진 GA, 해킹 후폭풍에 영업모델 전환 압박",
-            "originallink": "https://www.insnews.co.kr/news/articleView.html?idxno=89427",
-            "link": "https://www.insnews.co.kr/news/articleView.html?idxno=89427",
-            "description": "금융감독원에 따르면 보험영업지원 <b>IT</b>업체 개발자 PC가 악성코드에 감염되면서 GA 14개사의 웹서버 접근... 외부 DB업체뿐 아니라 <b>IT</b> 협력업체와 전산 운영 방식 자체가 새로운 취약점으로 드러난 것이다. ■ 감독 강화... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
-        },
-        {
-            "title": "신혜영, 지방 정치권 첫 '밤샘 정책 해커톤'",
-            "originallink": "https://www.ccdailynews.com/news/articleView.html?idxno=2403207",
-            "link": "https://www.ccdailynews.com/news/articleView.html?idxno=2403207",
-            "description": "해커톤은 <b>IT</b>와 스타트업 분야에서 활용되는 방식으로 일정 시간 동안 집중 토론과 협업을 통해 아이디어와 해결책을 도출하는 프로그램이다. 최근 공공정책 영역에서도 시민 참여형 정책 발굴 모델로 활용되고 있다. 이번... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
-        },
-        {
-            "title": "[연중기획-새로운 리스크, 새로운 규제 ②-2] 요양시설, 인력난 속 '스마...",
-            "originallink": "https://www.insnews.co.kr/news/articleView.html?idxno=89571",
-            "link": "https://www.insnews.co.kr/news/articleView.html?idxno=89571",
-            "description": "여기에 정보기술(<b>IT</b>)을 결합해 자립적인 생활을 돕는 '스마트 요양' 환경도 빠르게 확산되고 있다.... 일본의 솜포케어(Sompo Care)는 전국에 수백 개 재가 서비스 거점과 요양시설을 운영하는 대형 요양사업자로, <b>IT</b> 기반... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
-        },
-        {
-            "title": "‘This Is the Best Dish I Have Ever Made From NYT Cooking’",
-            "originallink": "https://www.nytimes.com/2026/03/15/dining/this-is-the-best-dish-i-have-ever-made-from-nyt-cooking.html?partner=naver",
-            "link": "https://www.nytimes.com/2026/03/15/dining/this-is-the-best-dish-i-have-ever-made-from-nyt-cooking.html?partner=naver",
-            "description": "<b>It</b>’s Oscars night (technically, afternoon?) here in Los Angeles and there are plenty of parties all over town. With unseasonably high temperatures, <b>it</b> feels more like summer, and the tail end... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
-        }
-    ],
     "AI": [
+        {
+            "title": "나스닥·ICE, 크립토 거래소와 손잡았다…‘주식 토큰화’ 월가 인프라...",
+            "originallink": "https://www.tokenpost.kr/news/blockchain/339665",
+            "link": "https://www.tokenpost.kr/news/blockchain/339665",
+            "description": "기사요약 by TokenPost.<b>ai</b> 시장 해석 - 나스닥과 NYSE 모회사 ICE가 ‘토큰화 주식’에 본격 진입하며, 전통 주식시장(약 126조달러) 인프라가 블록체인 레일로 재편될 가능성이 커짐 - 나스닥(프레임워크 개발)×크라켄(글로벌... ",
+            "pubDate": "Mon, 16 Mar 2026 01:12:00 +0900"
+        },
+        {
+            "title": "기요사키, 사모 신용시장 자금 이탈 경고…비트코인·이더리움 매수 강...",
+            "originallink": "https://www.tokenpost.kr/news/cryptocurrency/339664",
+            "link": "https://www.tokenpost.kr/news/cryptocurrency/339664",
+            "description": "기사요약 by TokenPost.<b>ai</b> 시장 해석 로버트 기요사키는 사모 신용(Private Credit) 시장에서 자금이 빠져나가는 현상을 금융 시스템 불안의 핵심 신호로 지목했다. 투자자들이 펀드에서 자금을 인출하면서 유동성 압박이... ",
+            "pubDate": "Mon, 16 Mar 2026 01:06:00 +0900"
+        },
+        {
+            "title": "원성수, &quot;세종 교육의 틀을 바꿔 아이들이 세계로 나가는 길 열겠다&quot;",
+            "originallink": "http://www.ccnnews.co.kr/news/articleView.html?idxno=404030",
+            "link": "http://www.ccnnews.co.kr/news/articleView.html?idxno=404030",
+            "description": "지금은 <b>AI</b> 혁명 시대이지만, 우리 학교는 여전히 산업화 시대의 틀에 갇혀 있습니다. 12년간의 안정기를 지나... <b>AI</b> 시대 맞는 교육 전환 필요&quot; Q. '이중언어 교육도시' 구상은 무엇을 의미합니까? 세종은 행정수도답게... ",
+            "pubDate": "Mon, 16 Mar 2026 00:58:00 +0900"
+        },
+        {
+            "title": "‘부산 출마설’ 한동훈, 최동원 유니폼 입고 사직 깜짝 방문",
+            "originallink": "https://www.chosun.com/politics/politics_general/2026/03/16/34GNGA64IRD4BFTN6HSFNSYB6A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964722?sid=100",
+            "description": "지방선거와 함께 해당 지역구에서 보궐선거가 치러지게 된다. 현재 여권에서는 김두관 전 경남지사, 하정우 청와대 <b>AI</b>미래기획수석, 야권에서는 서병수 전 의원, 박민식 전 의원, 장예찬 여의도연구원 부원장 등이 거론된다.",
+            "pubDate": "Mon, 16 Mar 2026 00:51:00 +0900"
+        },
+        {
+            "title": "경기도여성가족재단, ‘<b>AI</b>와 젠더’ 포럼…기술 전환 속 성평등 과제 짚...",
+            "originallink": "https://www.womennews.co.kr/news/articleView.html?idxno=274918",
+            "link": "https://n.news.naver.com/mnews/article/310/0000134779?sid=102",
+            "description": "경기도여성가족재단(대표이사 김혜순)은 3월부터 5월까지 '인공지능(<b>AI</b>)과 젠더'를 주제로 '2026 경기여성가족미래의제포럼'을 연다고 밝혔다. 이번 포럼은 <b>AI</b>를 중심으로 한 신기술 확산이 노동시장과 사회정책, 돌봄체계... ",
+            "pubDate": "Mon, 16 Mar 2026 00:50:00 +0900"
+        },
+        {
+            "title": "“포항 노동자 건강, 근무 환경에 달려… 기업과 힘 합칠 것”",
+            "originallink": "https://www.chosun.com/national/national_general/2026/03/16/GOALX5EVGZHIBNORBO7AREDQTM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964717?sid=102",
+            "description": "그는 “포항은 앞으로 이차전지, 바이오, 수소, <b>AI</b>(인공지능) 산업 등 신산업으로 나아가고 있다”며 “신산업을 계속 육성하는 노력이 포항시민들의 건강 증진과 직결될 것이라고 본다”고 했다. 장 권한대행은 “특별한... ",
+            "pubDate": "Mon, 16 Mar 2026 00:49:00 +0900"
+        },
         {
             "title": "미 XRP 현물 ETF 자금 유입 멈췄다…가격은 ‘돌파’ 신호 포착",
             "originallink": "https://www.tokenpost.kr/news/cryptocurrency/339530",
@@ -343,17 +64,17 @@
             "pubDate": "Mon, 16 Mar 2026 00:40:00 +0900"
         },
         {
-            "title": "은행 <b>AI</b>, 계좌이체부터 퇴직연금까지 관리한다",
-            "originallink": "https://www.chosun.com/economy/economy_general/2026/03/16/WCYGJSD5FNGJFEIYLQUTCAIHSI/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964691?sid=101",
-            "description": "실용적인 <b>AI</b> 서비스 잇따라 직장인 김모(33)씨는 친구들과 함께 만든 카카오뱅크 모임통장 관리를 ‘인공지능(<b>AI</b>) 총무’에게 맡기고 있다. 그는 “회비를 제때 내지 않은 사람이 누구인지 바로 알려주고, 모일 때마다... ",
-            "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
-        },
-        {
             "title": "[뉴스룸에서] 월가에 퍼지는 바퀴벌레들",
             "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773552227&code=11171222&cp=nv",
             "link": "https://n.news.naver.com/mnews/article/005/0001837238?sid=110",
             "description": "그전까지 소프트웨어 기업은 성장성이 높다는 이유로 사모 대출 자금을 원활하게 조달했지만, 최근에는 인공지능(<b>AI</b>)에 밀려 기업 가치가 낮아지거나 수익성이 실제로 악화돼 나쁜 PIK가 증가한 것으로 분석된다.... ",
+            "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
+        },
+        {
+            "title": "은행 <b>AI</b>, 계좌이체부터 퇴직연금까지 관리한다",
+            "originallink": "https://www.chosun.com/economy/economy_general/2026/03/16/WCYGJSD5FNGJFEIYLQUTCAIHSI/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964691?sid=101",
+            "description": "실용적인 <b>AI</b> 서비스 잇따라 직장인 김모(33)씨는 친구들과 함께 만든 카카오뱅크 모임통장 관리를 ‘인공지능(<b>AI</b>) 총무’에게 맡기고 있다. 그는 “회비를 제때 내지 않은 사람이 누구인지 바로 알려주고, 모일 때마다... ",
             "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
         },
         {
@@ -383,262 +104,6 @@
             "link": "https://n.news.naver.com/mnews/article/020/0003704186?sid=101",
             "description": "이를 통해 국내 네트워크 인프라 중심의 사업 구조를 넘어 글로벌 <b>AI</b> 전환을 주도하는 AIDC 기업으로 한... <b>AI</b> 연산이 이뤄지는 그래픽처리장치(GPU) 칩에 전용 금속판(Cold Plate)을 붙이고, 냉각수 분배 장치(CDU)를... ",
             "pubDate": "Mon, 16 Mar 2026 00:32:00 +0900"
-        },
-        {
-            "title": "이통 3사, BTS 공연에 ‘<b>AI</b> 기술’ 총동원",
-            "originallink": "https://www.donga.com/news/It/article/all/20260315/133534157/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003704172?sid=105",
-            "description": "전 세계의 이목이 쏠리는 방탄소년단(BTS)의 공연을 앞두고 이동통신 3사가 인공지능(<b>AI</b>)을 활용한 첨단... SK텔레콤은 21일 서울 종로구 광화문 일대에서 열리는 공연에 자체 개발한 <b>AI</b> 기반 네트워크 운영 시스템 ‘에이원... ",
-            "pubDate": "Mon, 16 Mar 2026 00:31:00 +0900"
-        },
-        {
-            "title": "“메타, 직원 20%이상 대규모 구조조정 계획”",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260315/133534122/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003704178?sid=101",
-            "description": "막대한 인공지능(<b>AI</b>) 투자 비용을 상쇄하고 조직 효율성을 높이려는 조치로 풀이된다. 로이터통신은 13일... 이번 감원의 핵심 배경은 <b>AI</b> 인프라 구축에 따른 비용 급증으로 풀이된다. 마크 저커버그 최고경영자(CEO)가... ",
-            "pubDate": "Mon, 16 Mar 2026 00:31:00 +0900"
-        },
-        {
-            "title": "할리우드 뒤흔든 中 <b>AI</b>영상모델 ‘시댄스’… 저작권 침해 논란에 글로...",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260315/133534153/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003704173?sid=101",
-            "description": "미국과 중국의 인공지능(<b>AI</b>) 패권 경쟁이 지식재산권(IP) 분쟁으로 번지고 있다. 14일(현지 시간)... 오픈<b>AI</b>는 중국 딥시크가 자사 모델을 활용한 ‘지식증류’ 기법으로 데이터를 도용했다며 최근 비판 수위를 높이고 있다.... ",
-            "pubDate": "Mon, 16 Mar 2026 00:31:00 +0900"
-        },
-        {
-            "title": "“몸에 무리 가던 작업, 로봇이 대신… 車 품질-작업환경 동시 개선”",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260316/133534163/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003704171?sid=101",
-            "description": "윤학수 기아 품질혁신실 상무는 “기존에는 작업자의 숙련도가 품질을 좌우했다면 현재는 자동화 설비와 인공지능(<b>AI</b>), 데이터 등이 전 과정에서 품질 향상에 활용되고 있다”며 “숙련된 현장 엔지니어는 이 모든... ",
-            "pubDate": "Mon, 16 Mar 2026 00:31:00 +0900"
-        },
-        {
-            "title": "안장헌 아산시장 예비후보, 시장 직속 <b>AI</b>정책보좌관 신설 약속",
-            "originallink": "http://www.newstnt.com/news/articleView.html?idxno=595814",
-            "link": "http://www.newstnt.com/news/articleView.html?idxno=595814",
-            "description": "아산 : <b>AI</b>로 설계하고 혁신으로 도약하다&quot;라는 슬로건 아래 인공지능 전환(AX)과 미래 산업 혁신을 결합한 6대 핵심 공약을 제시했다. 안장헌 예비후보는 이어 &quot;현재 아산시정에는 미래를 대비할 구체적인 <b>AI</b> 정책 구상이... ",
-            "pubDate": "Mon, 16 Mar 2026 00:30:00 +0900"
-        },
-        {
-            "title": "지속가능패션 가로막던 숨은 병목…'의류 해체' 산업이 뜬다",
-            "originallink": "http://www.ktnews.com/news/articleView.html?idxno=144706",
-            "link": "http://www.ktnews.com/news/articleView.html?idxno=144706",
-            "description": "사진=<b>AI</b>생성이미지(ChatGPT제작) 재활용 고려 안하는 디자인, 지속가능패션의 주적 패션업계의 순환경제... 사진=브라이트파이버 텍스타일 자동화·<b>AI</b> 로봇, 폐의류 해체 '신세대'를 연다 이러한 병목을 해결하기 위해... ",
-            "pubDate": "Mon, 16 Mar 2026 00:22:00 +0900"
-        }
-    ],
-    "주식": [
-        {
-            "title": "미 XRP 현물 ETF 자금 유입 멈췄다…가격은 ‘돌파’ 신호 포착",
-            "originallink": "https://www.tokenpost.kr/news/cryptocurrency/339530",
-            "link": "https://www.tokenpost.kr/news/cryptocurrency/339530",
-            "description": "현물 ETF: 실제 암호화폐 가격을 그대로 추종하도록 설계된 상장지수펀드로 일반 <b>주식</b>처럼 거래소에서 매매할 수 있는 상품. 순유입(Net Inflow): 특정 기간 동안 투자 상품으로 새롭게 들어온 자금에서 빠져나간... ",
-            "pubDate": "Mon, 16 Mar 2026 00:46:00 +0900"
-        },
-        {
-            "title": "[뉴스룸에서] 월가에 퍼지는 바퀴벌레들",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773552227&code=11171222&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001837238?sid=110",
-            "description": "대출받은 기업이 현금을 대신해 채권이나 <b>주식</b>으로 먼저 이자를 갚는 ‘PIK(Payment in kind)’ 방식의 상환에서 가장 강한 경고음이 울린다. 금융업계에서 대출 계약서를 쓸 때 PIK 조항을 삽입하는 것만으로는 위험을... ",
-            "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
-        },
-        {
-            "title": "올해 배터리 전시회서 종적 감춘 ‘금양’",
-            "originallink": "https://www.chosun.com/economy/industry-company/2026/03/16/VTPN2GM5MZAUPI6BJT2FH3XHME/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964684?sid=101",
-            "description": "지난해 외부 감사인이 ‘회사 존속이 불투명하다’고 판단을 내리면서 <b>주식</b> 거래는 정지됐고, 사우디아라비아 기업으로부터 유치했다는 4050억원 규모 투자는 납입일이 7차례나 연기됐습니다. 지난달엔 대출 연체로... ",
-            "pubDate": "Mon, 16 Mar 2026 00:34:00 +0900"
-        },
-        {
-            "title": "중동 악재에 금리 껑충… 주담대 상단 6.5% 넘어, 영끌족 한숨",
-            "originallink": "https://www.donga.com/news/Economy/article/all/20260316/133534191/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003704167?sid=101",
-            "description": "대출이 이처럼 팽창하는 건 지난해 하반기 이후 주가가 크게 오르면서, 대출을 받아 <b>주식</b>에 투자해 돈을... 증권사 신용 공여 등으로 <b>주식</b>을 샀다가 마진콜(추가 증거금 요구)을 받고 마통 등으로 자금을 충당한... ",
-            "pubDate": "Mon, 16 Mar 2026 00:31:00 +0900"
-        },
-        {
-            "title": "李정부 휴일도 반납하고 ‘추경 속도전’… 10조~20조 관측",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773566029&code=11151100&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001837232?sid=101",
-            "description": "반도체 경기 호황에 늘어날 법인세수와 <b>주식</b>시장 활황으로 증가한 증권거래세수 등을 감안한 추정치다.... 여기에 증권거래세세율 인상과 <b>주식</b> 거래 증가 영향으로 급증한 증권거래세수를 더했다. KB증권은... ",
-            "pubDate": "Mon, 16 Mar 2026 00:20:00 +0900"
-        },
-        {
-            "title": "[조현숙의 시선] 우리는 이 게임을 해본 적이 있다",
-            "originallink": "https://www.joongang.co.kr/article/25411983",
-            "link": "https://n.news.naver.com/mnews/article/025/0003509244?sid=110",
-            "description": "집값과 <b>주식</b> 가격이 오르고, 금융권은 안정적이고 수익을 잘 내는 것처럼 보인다. 그러다 갑작스런 사고나 변수를 계기로 시장의 신뢰가 붕괴하고 경제는 위기의 절벽 아래로 추락한다. 여기서 등장하는 게 ‘이번엔... ",
-            "pubDate": "Mon, 16 Mar 2026 00:18:00 +0900"
-        },
-        {
-            "title": "주가 맥 못 추고, 엔 환전 사고… 인터넷전문은행 수난시대",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773563763&code=11151300&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001837229?sid=101",
-            "description": "이는 보호 예수 기간 3~6개월이 지나면 언제든 시장에 나올 수 있는 <b>주식</b>으로 여겨진다. 증권업계 한 관계자는 “케이뱅크는 지난 2월 치러진 기관 투자자 수요 예측에서 경쟁률이 199대 1로 높았다”면서도... ",
-            "pubDate": "Mon, 16 Mar 2026 00:17:00 +0900"
-        },
-        {
-            "title": "[하현옥의 세계경제전망] 2008년 금융위기 데자뷔? 커지는 사모대출 공...",
-            "originallink": "https://www.joongang.co.kr/article/25411979",
-            "link": "https://n.news.naver.com/mnews/article/025/0003509240?sid=110",
-            "description": "중소·중견기업에 <b>주식</b> 또는 대출 형태로 투자하고 발생한 이익을 배당하는 상품이다. 최근 몇 년간 자산운용사가 개인투자자 사모대출 펀드인 기업성장집합투자기구(BDC)를 통해 고액 자산가 등 개인을 상대로 자금을... ",
-            "pubDate": "Mon, 16 Mar 2026 00:14:00 +0900"
-        },
-        {
-            "title": "<b>주식</b>투자의 함정, '안다'는 착각 [삶과 문화]",
-            "originallink": "https://www.hankookilbo.com/news/article/A2026031313470000036?did=NA",
-            "link": "https://n.news.naver.com/mnews/article/469/0000919581?sid=110",
-            "description": "미래를 먹고 산다는 <b>주식</b> 얘기를 하면 미래에도 먹고 살아야 할 주변 젊은이들은 눈을 반짝인다. 코스피 6000, 코스닥 1000 시대에, 뉴스는 물론이고 축구, 테크, 시사 채널에서도 모두가 <b>주식</b> 얘기를 한다. 정치를 일컬어... ",
-            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
-        },
-        {
-            "title": "강릉시 농업기술센터 청사 신축 설계공모 당선작 발표",
-            "originallink": "https://www.kwnews.co.kr/page/view/2026031509184504104",
-            "link": "https://n.news.naver.com/mnews/article/087/0001180051?sid=102",
-            "description": "강릉시는 ‘농업기술센터 청사 신축 사업’ 설계공모 결과, ㈜공간종합건축사사무소(공동응모:<b>주식</b>회사 품은건축사무소)의 작품이 최종 당선작으로 선정됐다고 15일 밝혔다. 이번 심사에서는 △건축물 규모 및 층수 계획의... ",
-            "pubDate": "Mon, 16 Mar 2026 00:08:00 +0900"
-        },
-        {
-            "title": "시중은행 대출금리 두달새 0.2%p 올라",
-            "originallink": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051411",
-            "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051411",
-            "description": "금리 상승 사이클에서는 일반적으로 이자 부담 등에 차입 상환·축소 등이 시작되지만, 최근 은행 대출은 <b>주식</b>시장 변동성 확대 등과 얽혀 신용대출을 중심으로 늘어나는 추세다. 이에 5대 은행(KB국민·신한... ",
-            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
-        },
-        {
-            "title": "[최창영의 청년문화 돌아보기] 차라리 JOMO… FOMO여 안녕",
-            "originallink": "https://m.skyedaily.com/news_view.html?ID=300043",
-            "link": "https://m.skyedaily.com/news_view.html?ID=300043",
-            "description": "&quot; &quot;옆 팀 김 대리는 이번에 <b>주식</b>으로 차 바꿨대.&quot; 직장인들의 점심시간이나 청년들의 술자리 화두는 단연... 2021년 전후로 불어닥친 코인과 <b>주식</b> 열풍은 청년들에게 지금 이 열차에 타지 않으면 영영 계층 이동의... ",
-            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
-        },
-        {
-            "title": "9.4조 흥행 녹십자·동아ST·유한양행 잡은 '카나프테라퓨틱스' 오늘(16일...",
-            "originallink": "http://www.newswell.co.kr/news/articleView.html?idxno=16721",
-            "link": "http://www.newswell.co.kr/news/articleView.html?idxno=16721",
-            "description": "현재 자본금은 64억7800만원으로, 공모 후 발행<b>주식</b>총수 기준 이병철 대표(12.12%) 외 6인이 23.2%의 지분을 가지고 있다. 지난 5~6일 진행된 일반공모 청약에서 1899대 1의 경쟁률로, 9조4964억원의 청약 증거금을 모았다.... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
-        },
-        {
-            "title": "中 보험사 <b>주식</b> 투자 비중 4년 만에 최고",
-            "originallink": "https://www.insnews.co.kr/news/articleView.html?idxno=89626",
-            "link": "https://www.insnews.co.kr/news/articleView.html?idxno=89626",
-            "description": "중국 보험회사의 자산운용 포트폴리오에서 <b>주식</b> 비중이 최근 4년 사이 가장 높은 수준을 기록한 것으로 나타났다. 중국 국가금융감독관리총국(NFRA) 통계에 따르면 2025년 말 기준 중국 보험회사가 보유한 <b>주식</b> 잔액이 전체... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
-        },
-        {
-            "title": "유가·환율 불안에…이르면 다음주 15조 안팎 추경",
-            "originallink": "https://www.joongang.co.kr/article/25411964",
-            "link": "https://n.news.naver.com/mnews/article/025/0003509225?sid=101",
-            "description": "<b>주식</b>시장 활황에 따라 증권거래세 또한 4조~5조원가량 더 들어올 것으로 전망된다. 주원 현대경제연구원 경제연구실장은 “추경 편성에 착수한 것만으로도 내수 심리가 악화하는 것을 막는 시그널 효과가 있을 것”... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
-        }
-    ],
-    "풍력": [
-        {
-            "title": "[글로벌 배터리 대전 (29)] 철-공기 배터리(中) - 미국이 상용화에 가장...",
-            "originallink": "https://www.news2day.co.kr/article/20260315500032",
-            "link": "https://www.news2day.co.kr/article/20260315500032",
-            "description": "Ore Energy는 산업단지 및 <b>풍력</b>단지 인근에 장주기 저장 설비를 설치해 일시적인 과잉전력을 저장하고 2~4일간의 무풍 구간에 전력을 방출하는 모델이다. EU 차원에서는 ‘REPowerEU’ 및 ‘Green Deal Industrial Plan’... ",
-            "pubDate": "Mon, 16 Mar 2026 00:32:00 +0900"
-        },
-        {
-            "title": "[시론] 중국의 5개년 계획과 에너지 정책",
-            "originallink": "https://www.hankyung.com/article/2026031521221",
-            "link": "https://n.news.naver.com/mnews/article/015/0005262562?sid=110",
-            "description": "<b>풍력</b> 발전에 드라이브를 건 이유다. 이처럼 저탄소 전환을 서두른 것은 중국이 글로벌 전기자동차 생산을 주도하는 시점과도 맞물린다. 지리적으로도 유리하다. 네이멍구자치구 등 바람이 많은 북쪽 지역에서는 <b>풍력</b>... ",
-            "pubDate": "Mon, 16 Mar 2026 00:20:00 +0900"
-        },
-        {
-            "title": "[백서인의 중국 과학기술 굴기] AI 날개 단 에너지 굴기…10년 내 ‘글로...",
-            "originallink": "https://www.joongang.co.kr/article/25411982",
-            "link": "https://n.news.naver.com/mnews/article/025/0003509243?sid=110",
-            "description": "전체 전력 생산의 40%를 태양광·<b>풍력</b>·원자력 등 청정에너지를 통해 충당하고 있으며, 60%는 자립도가 높은... 여러 정치·경제·안보적인 이유로 석탄 발전의 규모를 줄이지 못하고 있음에도 <b>풍력</b>·태양광·수력·원자력 등... ",
-            "pubDate": "Mon, 16 Mar 2026 00:16:00 +0900"
-        },
-        {
-            "title": "서울서 해울이해상<b>풍력</b>1·2·3 기술 심포지엄",
-            "originallink": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051399",
-            "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051399",
-            "description": "▲ 울산 해울이해상<b>풍력</b>발전은 최근 서울 대한상공회의소 국제회의장에서 '해울이해상<b>풍력</b>1·2·3 기술 심포지엄'을 열었다고 15일 밝혔다. 코펜하겐 인프라스트럭쳐 파트너스 제공울산 해울이해상<b>풍력</b>발전은 최근... ",
-            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
-        },
-        {
-            "title": "효성중공업, 호주 퀸즐랜드 탕캄 100MW BESS 수주",
-            "originallink": "http://www.e2news.com/news/articleView.html?idxno=328679",
-            "link": "http://www.e2news.com/news/articleView.html?idxno=328679",
-            "description": "호주 정부는 2030년까지 재생에너지 비중을 82%까지 높인다는 목표 아래 태양광·<b>풍력</b>을 대폭 확대하고 있다. ESS는 출력이 불규칙한 재생에너지 발전량을 보완하고, 전력망의 주파수 안정성을 개선해주는... ",
-            "pubDate": "Mon, 16 Mar 2026 00:00:00 +0900"
-        },
-        {
-            "title": "현대건설·현대제철, 해상<b>풍력</b> 핵심 구조물 공동연구",
-            "originallink": "https://www.thedailypost.kr/news/articleView.html?idxno=113462",
-            "link": "https://www.thedailypost.kr/news/articleView.html?idxno=113462",
-            "description": "|데일리포스트=송협 대표기자| &quot;부유식 해상<b>풍력</b> 사업에서 부유체 설계 기술은 프로젝트 수행 역량을 결정짓는 핵심 기술입니다. 이번 공동연구를 통해 독자 기술을 확보하고 글로벌 해상<b>풍력</b> EPC 사업 역량을... ",
-            "pubDate": "Sun, 15 Mar 2026 23:54:00 +0900"
-        },
-        {
-            "title": "현대제철·현대건설, 부유식 해상<b>풍력</b> 모델 개발 '맞손'",
-            "originallink": "http://www.hansbiz.co.kr/news/articleView.html?idxno=824358",
-            "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=824358",
-            "description": "해상<b>풍력</b> 독자모델 공동개발 업무협약 체결식에서 기념 촬영을 하고 있다./현대제철 | 서울=한스경제 임준혁 기자 | 현대제철이 현대건설과 손잡고 해상<b>풍력</b>용 철강재 시장 확대를 통한 경쟁력 강화에 나선다. 현대제철은... ",
-            "pubDate": "Sun, 15 Mar 2026 23:44:00 +0900"
-        },
-        {
-            "title": "[사설]49년 만에 전기료 개편… 원전 재가동-송전망 확충도 서둘 때",
-            "originallink": "https://www.donga.com/news/Opinion/article/all/20260315/133535256/2",
-            "link": "https://n.news.naver.com/mnews/article/020/0003704164?sid=110",
-            "description": "정부가 태양광, <b>풍력</b>, 수력 등 재생에너지 역량을 확대하는 것은 ‘탈탄소’ 시대에 맞춰 반드시 필요한 일이다. 다만 외부 환경에 따라 효율성이 달라지는 재생에너지만으로는 전력 안정성을 담보하기 어렵다. 정부는... ",
-            "pubDate": "Sun, 15 Mar 2026 23:28:00 +0900"
-        },
-        {
-            "title": "기후부, 인천·전남·전북·보령·군산 7곳 해상<b>풍력</b> 집적화단지 조건부...",
-            "originallink": "https://daily.hankooki.com/news/articleView.html?idxno=1346989",
-            "link": "https://daily.hankooki.com/news/articleView.html?idxno=1346989",
-            "description": "기후부가 15일 5개 지자체가 신청한 7개 해상<b>풍력</b>발전단지를 집적화단지로 지정했다고 발표했다. 사진은 제주한림해상<b>풍력</b>. 사진=한국전력 제공 기후에너지환경부가 인천·전남·전북·보령·군산이 신청한 7개 사업을... ",
-            "pubDate": "Sun, 15 Mar 2026 22:42:00 +0900"
-        },
-        {
-            "title": "현대건설·현대제철, 부유식 해상<b>풍력</b> 독자모델 공동연구",
-            "originallink": "http://www.ttlnews.com/news/articleView.html?idxno=3088638",
-            "link": "http://www.ttlnews.com/news/articleView.html?idxno=3088638",
-            "description": "현대건설과 현대제철이 부유식 해상<b>풍력</b> 독자모델 개발을 위한 공동연구에 착수했다. 양사는 특화 강재와 콘크리트를 결합한 하이브리드 구조의 모듈러 부유체를 국내 최초로 자체 개발해 글로벌 해상<b>풍력</b> 시장... ",
-            "pubDate": "Sun, 15 Mar 2026 22:16:00 +0900"
-        },
-        {
-            "title": "부진경자청, 태웅서 'BJFEZ 기업현장투어'",
-            "originallink": "http://www.gnmaeil.com/news/articleView.html?idxno=582397",
-            "link": "http://www.gnmaeil.com/news/articleView.html?idxno=582397",
-            "description": "최근 인공지능(AI) 확산에 따른 전력 수요 증가로 원전과 해상<b>풍력</b> 등 에너지 산업의 중요성이 커지는 가운데, 태웅은 관련 설비에 사용되는 대형 철강 단조품을 공급하는 핵심 기업으로 주목받고 있다. 이번 행사는... ",
-            "pubDate": "Sun, 15 Mar 2026 21:50:00 +0900"
-        },
-        {
-            "title": "강임준 예비후보 &quot;어청도 해상<b>풍력</b> 지정, 재생에너지 도약 신호탄&quot;",
-            "originallink": "http://www.jjn.co.kr/news/articleView.html?idxno=1034994",
-            "link": "http://www.jjn.co.kr/news/articleView.html?idxno=1034994",
-            "description": "강임준 군산시장 예비후보가 군산시 어청도 해역 해상<b>풍력</b> 집적화단지 지정과 관련해 재생에너지 중견기업... 해상<b>풍력</b> 집적화단지로 지정했다고 밝혔다. 군산시가 이번에 지정받은 해상<b>풍력</b> 집적화단지는 어청도 인근... ",
-            "pubDate": "Sun, 15 Mar 2026 21:48:00 +0900"
-        },
-        {
-            "title": "강철의 심장 - 정창훈",
-            "originallink": "http://www.gnmaeil.com/news/articleView.html?idxno=582467",
-            "link": "http://www.gnmaeil.com/news/articleView.html?idxno=582467",
-            "description": "지배하는 <b>풍력</b>의 날개가 된다 그리고 이 위대한 산업의 성지를 넘어 세계로 나아가는 길목에서 나는 듣는다 미래의 에너지가 태어나는 가슴 벅찬 함성을 시인 약력 행정학 박사 경남매일 CEO 경남도 신지식인 1호 용접공... ",
-            "pubDate": "Sun, 15 Mar 2026 21:48:00 +0900"
-        },
-        {
-            "title": "&quot;햇빛·바람·수소연금 지급하겠다&quot;",
-            "originallink": "http://www.gnmaeil.com/news/articleView.html?idxno=582382",
-            "link": "http://www.gnmaeil.com/news/articleView.html?idxno=582382",
-            "description": "이어 3단계는 오는 2035년부터 마산·창원·진해 앞바다에 해상<b>풍력</b>단지를 조성한다는 구상이다. '기윤 프로젝트'는 총 투자비 14조원, 경제파급효과 30조원, 일자리 10만개 창출이 목표다. 또 햇빛, 바람, 수소연금... ",
-            "pubDate": "Sun, 15 Mar 2026 21:48:00 +0900"
-        },
-        {
-            "title": "&quot;한국의 해상<b>풍력</b> 시장 선도 발판 마련할 것&quot;",
-            "originallink": "http://www.ujeil.com/news/articleView.html?idxno=382545",
-            "link": "http://www.ujeil.com/news/articleView.html?idxno=382545",
-            "description": "열린 '해울이해상<b>풍력</b>1·2·3 기술 심포지엄'에서 코펜하겐 오프쇼어 파트너스(COP) 주요 임직원들이 기념촬영을 하고 있다. 사진제공=CIP 울산 해역에서 추진 중인 대규모 부유식 해상<b>풍력</b> 사업을 중심으로 글로벌... ",
-            "pubDate": "Sun, 15 Mar 2026 21:16:00 +0900"
         }
     ],
     "신재생": [
@@ -748,114 +213,335 @@
             "pubDate": "Sun, 15 Mar 2026 19:04:00 +0900"
         }
     ],
-    "경제": [
+    "테크": [
         {
-            "title": "정부, 흑자 인천공항과 적자 한국공항공사 통합 추진",
-            "originallink": "https://www.chosun.com/national/transport-environment/2026/03/16/AOC2PNLN2JB33HMOLVM7PIJ23A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964708?sid=102",
-            "description": "15일 본지 취재를 종합하면, 재정<b>경제</b>부는 최근 이 같은 내용을 담은 공공기관 통·폐합 관련 의견을... 재정<b>경제</b>부 측은 “관계 부처 중심으로 전문가 등의 의견을 반영해 결정할 것”이라고 했다.",
-            "pubDate": "Mon, 16 Mar 2026 00:46:00 +0900"
+            "title": "&quot;입점하거나, 접점 늘리거나&quot;…해외 진출 힘싣는 K-뷰티",
+            "originallink": "https://www.pointdaily.co.kr/news/articleView.html?idxno=295960",
+            "link": "https://www.pointdaily.co.kr/news/articleView.html?idxno=295960",
+            "description": "제품 전시와 더불어 방문객이 메디큐브만의 브랜드 정체성과 뷰티 <b>테크</b> 기술력을 직접 체험할 수 있는 공간도 마련한다. 에이피알은 이번 코첼라 참가를 통해 전세계 소비자들과 소통을 강화하고 인지도, 영향력을... ",
+            "pubDate": "Mon, 16 Mar 2026 00:36:00 +0900"
         },
         {
-            "title": "“직장·<b>경제</b> 문제로 너무 힘들어”… 40대가 스트레스 가장 많이 느껴",
-            "originallink": "https://www.chosun.com/national/welfare-medical/2026/03/16/3DGXUBSI6FFNRBHQUHCLZMGENM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964709?sid=102",
-            "description": "원인으로는 ‘직장 생활’과 ‘<b>경제</b> 문제’가 가장 많이 꼽혔다. 15일 질병관리청의 국민건강통계에... 이번 조사에서 스트레스를 받는 가장 큰 원인으로 ‘직장 생활’(25.7%)과 ‘<b>경제</b> 문제’(25%)가 각각 1·2위를... ",
-            "pubDate": "Mon, 16 Mar 2026 00:46:00 +0900"
-        },
-        {
-            "title": "[2026 지방선거] &quot;두 바퀴에 민심을 싣고&quot;… 안승대, 포항 전역 자전거로...",
-            "originallink": "https://www.polinews.co.kr/news/articleView.html?idxno=725485",
-            "link": "https://www.polinews.co.kr/news/articleView.html?idxno=725485",
-            "description": "지역<b>경제</b> 상황과 생활 불편사항 등을 경청했다. 특히, 포항의 대표 전통시장인 죽도시장을 방문해 상인들과... 지역<b>경제</b>가 살아난다&quot; 등의 다양한 의견을 전달했다. 안 예비후보는 시민들의 이야기를 빠짐없이 들어가며... ",
-            "pubDate": "Mon, 16 Mar 2026 00:45:00 +0900"
-        },
-        {
-            "title": "헤즈볼라 이어 이라크 친이란 민병대도 참전… ‘저항의 축’ 살아나나",
-            "originallink": "https://www.chosun.com/international/international_general/2026/03/16/T4UQO4NVI5DQ5ELOJC3WSKOFFA/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964705?sid=104",
-            "description": "이란, 중동에 제2전선 만들기 전략 미국이 이란 정권의 <b>경제</b> 중추인 하르그섬을 공습하면서, 중동 내 친(親)이란 무장 세력의 보복 움직임이 본격화하고 있다. 이란이 중동 전역에서 지원해 온 무장 세력을 통해 미국... ",
-            "pubDate": "Mon, 16 Mar 2026 00:45:00 +0900"
-        },
-        {
-            "title": "하버마스는 누구… ‘살아 있는 고전’으로 불렸던 소통 이론의 대가",
-            "originallink": "https://www.chosun.com/culture-life/culture_general/2026/03/16/UFS6KSR76NGQXK5LMZ3LLNJSMI/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964700?sid=103",
-            "description": "현대 자본주의 시장<b>경제</b>, 복지국가, 패권적 세계주의의 한계를 예리하게 분석하면서 인류의 미래를 ‘소통 이론’으로 열고자 노력했다. 1929년 뒤셀도르프의 중산층 개신교 가정에서 태어난 그는... ",
-            "pubDate": "Mon, 16 Mar 2026 00:42:00 +0900"
-        },
-        {
-            "title": "대규모 정전에 항의… 쿠바 시위대, 공산당 사무실 불질러",
-            "originallink": "https://www.chosun.com/international/mideast-africa-latin/2026/03/16/CF77GQ5M7ZHIZJ5DMS56DAGG4E/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964697?sid=104",
-            "description": "쿠바 <b>경제</b>는 즉각 충격을 받았고, 전력·교통·의료·교육 등 사회 전반에 연쇄적인 타격이 나타났다. 특히... 관광업은 연간 약 13억달러(약 1조9400억원)의 외화를 벌어들이며 쿠바 <b>경제</b>를 떠받쳐왔다. 그러나 항공기 연료... ",
-            "pubDate": "Mon, 16 Mar 2026 00:42:00 +0900"
-        },
-        {
-            "title": "[가리사니] 교열과 검열",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773562911&code=11171425&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001837239?sid=110",
-            "description": "정부 부처가 검열의 신호로 읽는 순간이 가장 위험하다. 누군가의 반발을 부르고 사회 분열도 부를 수 있다. 긍정적 효과가 사라진 도널드 트럼프 미 대통령식 SNS 정치의 전례를 밟지 않았으면 한다. 세종=신준섭 <b>경제</b>부 차장",
-            "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
-        },
-        {
-            "title": "[뉴스룸에서] 월가에 퍼지는 바퀴벌레들",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773552227&code=11171222&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001837238?sid=110",
-            "description": "이런 시장에 신용 위기가 발생하면 미국을 넘어 세계 <b>경제</b>에 악영향을 미칠 수 있다. 다이먼 CEO는 지난 2일 뉴욕에서 열린 JP모건 투자자 설명회에서 “현재 벌어지는 일들이 2005년과 2006년, 2007년에 목격된 것과... ",
-            "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
-        },
-        {
-            "title": "[국민논단] 대학등록금 논란, 액수 아닌 값어치가 본질",
-            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773554045&code=11171320&cp=nv",
-            "link": "https://n.news.naver.com/mnews/article/005/0001837237?sid=110",
-            "description": "그럼에도 무형의 교육 서비스에 ‘<b>경제</b>적 효용’이라는 가시적 지표를 대입하는 것은 오늘날 대중의 공감을... 등록금 인상 여부에 머물기보다 대학이 제공하는 교육 서비스의 <b>경제</b>적·사회적 효용을 투명하게 입증하는... ",
+            "title": "AI·우주항공에 직접 투자… 체급 키우는 韓 VC",
+            "originallink": "https://www.chosun.com/economy/tech_it/2026/03/16/VYQGH6DIKNF4ZJTNEZOKKC4W5Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964685?sid=105",
+            "description": "실리콘밸리 딥<b>테크</b> 초기 단계 참여 한국 벤처캐피털(VC)과 기관 투자자들이 미국 실리콘밸리 딥<b>테크</b> 생태계에 직접 참여하며 투자 체급을 키우고 있다. 과거 글로벌 대형 운용사의 재간접 펀드(Fund of Funds)에 자금을... ",
             "pubDate": "Mon, 16 Mar 2026 00:35:00 +0900"
         },
         {
-            "title": "전남도·순천시, BBQ 대규모 투자 유치로 ‘체류형 관광’ 방점~ 남해안...",
-            "originallink": "https://www.wikitree.co.kr/articles/1125074",
-            "link": "https://www.wikitree.co.kr/articles/1125074",
-            "description": "◆ 생태자원+레저+MICE 결합… 지역 <b>경제</b> 패러다임 전환 이번 협약에 따라 제너시스비비큐는 2031년까지 순천 연향·오천·해룡 일원에 500~1,000실 규모의 랜드마크 호텔, 국제회의가 가능한 컨벤션센터, 워터파크 및... ",
-            "pubDate": "Mon, 16 Mar 2026 00:34:00 +0900"
-        },
-        {
-            "title": "韓·日, 일방적 수출 규제 자제 합의",
-            "originallink": "https://www.chosun.com/economy/industry-company/2026/03/16/JTOOJKUHC5EPLAE5TXKQ7CQE6Q/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964679?sid=101",
-            "description": "김정관 산업통상부 장관과 아카자와 료세이 일본 <b>경제</b>산업상은 핵심 광물 및 자원 분야의 공동 탐사·투자와 기술 협력에 합의하고 상호 공급망에 부정적인 영향을 미치는 조치를 자제하기로 뜻을 모았다. 파트너십... ",
-            "pubDate": "Mon, 16 Mar 2026 00:33:00 +0900"
-        },
-        {
-            "title": "[주간<b>경제</b>지표] 2026년 3월 13일자",
-            "originallink": "https://www.chosun.com/economy/stock-finance/2026/03/16/C37ULIYCANFIPJJHSQXUQTH274/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964677?sid=101",
-            "description": "2026년 3월 13일자",
+            "title": "[DBR]‘ONE LG’ 역량 총동원… AI 데이터센터로 글로벌 시장 공략",
+            "originallink": "https://www.donga.com/news/Economy/article/all/20260315/133525889/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003704186?sid=101",
+            "description": "15일 LG유플러스는 이달 초 스페인 바르셀로나에서 열린 MWC 26(Mobile World Congress 2026)에서 공개한 ‘ONE LG’ AIDC 전략이 글로벌 통신사, 빅<b>테크</b>들의 큰 관심을 받고 있다고 밝혔다. AIDC 가동의 핵심은 발열을 잡는... ",
             "pubDate": "Mon, 16 Mar 2026 00:32:00 +0900"
         },
         {
-            "title": "서비스 물가, 33개월 만에 최대 폭 상승",
-            "originallink": "https://www.chosun.com/economy/economy_general/2026/03/16/F3BKTWWOCZH5ZCFRN3Y2NH5IFU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964678?sid=101",
-            "description": "이재명 대통령은 앞서 12일 “상반기까지 공공요금을 동결하겠다”고 했다. 다만 양준석 가톨릭대 <b>경제</b>학과 교수는 “에너지 공기업의 누적 적자를 고려하면 공공 요금 인상 압력은 계속 커질 수밖에 없다”고 했다.",
-            "pubDate": "Mon, 16 Mar 2026 00:32:00 +0900"
+            "title": "“메타, 직원 20%이상 대규모 구조조정 계획”",
+            "originallink": "https://www.donga.com/news/Economy/article/all/20260315/133534122/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003704178?sid=101",
+            "description": "글로벌 빅<b>테크</b> 기업 메타(Meta)가 전체 직원의 20% 이상을 감원하는 대규모 구조조정을 계획 중인 것으로... 핀<b>테크</b> 기업 블록(Block)도 최근 AI 도구 활용 확대를 이유로 인력을 대거 줄이는 등 미국 정보통신업계 전반에... ",
+            "pubDate": "Mon, 16 Mar 2026 00:31:00 +0900"
+        },
+        {
+            "title": "교육은 결국 '신뢰'의 문제… &quot;2년 내 세종을 떠나지 않는 교육 환경 만...",
+            "originallink": "http://www.ccnnews.co.kr/news/articleView.html?idxno=404028",
+            "link": "http://www.ccnnews.co.kr/news/articleView.html?idxno=404028",
+            "description": "특히 저는 에듀<b>테크</b>를 결합한 '단계형 독서 시스템' 도입을 구상 중입니다. 아이들이 게임처럼 성취감을 느끼며 책을 읽다 보면 문해력이 살아나고, 그것이 곧 모든 공부의 기초 체력이 될 것입니다. Q. 세종시 고교 체제가... ",
+            "pubDate": "Mon, 16 Mar 2026 00:30:00 +0900"
+        },
+        {
+            "title": "기술은 앞서가고 전력은 못 따라오고… AI 인프라 투자 ‘딜레마’",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773563299&code=11151400&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001837231?sid=101",
+            "description": "스타게이트가 주춤하는 사이 빅<b>테크</b>들의 공세도 강화되고 있다. 마이크로소프트(MS)와 메타는 오픈AI... 구글 MS 메타 아마존 등 이미 탄탄한 자체 핵심 사업을 ‘캐시카우’로 보유하고 있는 빅<b>테크</b>들은 자금을 바탕으로... ",
+            "pubDate": "Mon, 16 Mar 2026 00:19:00 +0900"
+        },
+        {
+            "title": "[백서인의 중국 과학기술 굴기] AI 날개 단 에너지 굴기…10년 내 ‘글로...",
+            "originallink": "https://www.joongang.co.kr/article/25411982",
+            "link": "https://n.news.naver.com/mnews/article/025/0003509243?sid=110",
+            "description": "트럼프 대통령이 ‘AI 데이터센터 전기요금 보호 서약’을 통해 빅<b>테크</b>에게 데이터센터 구축에 필요한 전력을 자체적으로 확보하도록 요구했는데, 결국 중국의 신재생 에너지 기업들을 바라볼 수밖에 없는 상황이... ",
+            "pubDate": "Mon, 16 Mar 2026 00:16:00 +0900"
+        },
+        {
+            "title": "주식투자의 함정, '안다'는 착각 [삶과 문화]",
+            "originallink": "https://www.hankookilbo.com/news/article/A2026031313470000036?did=NA",
+            "link": "https://n.news.naver.com/mnews/article/469/0000919581?sid=110",
+            "description": "코스피 6000, 코스닥 1000 시대에, 뉴스는 물론이고 축구, <b>테크</b>, 시사 채널에서도 모두가 주식 얘기를 한다. 정치를 일컬어 '살아 움직이는 생물'이라고 하는데, 주식 시장이야말로 사람들의 맹렬한 욕망과 짙은 공포를 양분... ",
+            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
+        },
+        {
+            "title": "&quot;메모리 품귀, 내년 말까지&quot;…IT업계 '비용 폭탄' 비상",
+            "originallink": "https://www.namdonews.com/news/articleView.html?idxno=904052",
+            "link": "https://www.namdonews.com/news/articleView.html?idxno=904052",
+            "description": "황 애널리스트는 &quot;빅<b>테크</b>들의 구매 의지가 꺾이지 않는 한 하반기 공급 부족 현상이 완화될 가능성은... 끌어올릴 것으로 보이며, 낸드 시장에서도 양쯔메모리<b>테크</b>놀로지(YMTC)의 영향력이 꾸준히 확대되는 추세다.",
+            "pubDate": "Mon, 16 Mar 2026 00:06:00 +0900"
+        },
+        {
+            "title": "비트버니 퀴즈 3월 16일 정답은",
+            "originallink": "https://www.namdonews.com/news/articleView.html?idxno=904055",
+            "link": "https://www.namdonews.com/news/articleView.html?idxno=904055",
+            "description": "매일 걷기만 해도 돈 버는 앱, 용돈과 건강까지 두 마리 토끼를 챙기는 성장형 앱<b>테크</b>를 지향하는 비트버니... 한편 최근 스마트폰의 앱을 이용한 '앱<b>테크</b>'가 인기를 끌고 있다. 앱<b>테크</b>란 '애플리케이션(Application)'과... ",
+            "pubDate": "Mon, 16 Mar 2026 00:06:00 +0900"
+        },
+        {
+            "title": "대덕특구 &quot;원스톱지원센터, 특구기업 성장 지원 물꼬 틀었다&quot;",
+            "originallink": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2099266",
+            "link": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2099266",
+            "description": "연구개발특구진흥재단은 지난 10일 대전 대덕<b>테크</b>비즈센터에서 '대덕특구 딥커넥트 네트워크 데이'를 열고 원스톱지원센터의 운영 성과를 공유했다. 센터는 2025년 4월 개소 이후 대덕특구 기업과 예비 창업자를... ",
+            "pubDate": "Mon, 16 Mar 2026 00:06:00 +0900"
+        },
+        {
+            "title": "쏠퀴즈 정답 3월 16일",
+            "originallink": "https://www.bntnews.co.kr/article/view/bnt202603150060",
+            "link": "https://www.bntnews.co.kr/article/view/bnt202603150060",
+            "description": "앱<b>테크</b>는 '앱'과 '재<b>테크</b>'의 합성어로, 스마트폰 애플리케이션을 통해 돈을 벌거나 절약하는 활동을 말한다. 사용자가 특정 앱을 다운로드하거나 미션을 수행하면 소정의 포인트나 현금, 상품권 등을 지급받는... ",
+            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
+        },
+        {
+            "title": "[윤주혜의 C] 손끝이 맞닿는 순간, 생명을 느끼다",
+            "originallink": "https://www.ajunews.com/view/20260313082835989",
+            "link": "https://www.ajunews.com/view/20260313082835989",
+            "description": "미국 빅<b>테크</b>는 물론이고 삼성, 현대차, LG 등 국내 주요 기업들이 로봇손 개발에 매달리는 것은 '아담의 창조'와 묘하게 겹친다. 훗날 미켈란젤로를 닮은 휴머노이드가 '아틀란티스의 창조' 혹은 '옵티머스의 창조'를... ",
+            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
+        },
+        {
+            "title": "자율주행 경쟁 시대, 한국만 브레이크[동십자각]",
+            "originallink": "https://www.sedaily.com/article/20019610?ref=naver",
+            "link": "https://n.news.naver.com/mnews/article/011/0004599510?sid=110",
+            "description": "지난해 11월 정부는 ‘자율주행차 산업 경쟁력 제고 방안’을 내놓으며 한국의 글로벌 경쟁력 격차를 수치로 제시했다. 구글 웨이모는 누적 실증 거리가 1억 6000만 ㎞를 돌파했고 중국의 바이두 역시 누적 1억 ㎞를... ",
+            "pubDate": "Sun, 15 Mar 2026 23:48:00 +0900"
+        },
+        {
+            "title": "에이피알, 세계 최대 음악축제 '코첼라' 공식 스폰서 참여…스킨케어·...",
+            "originallink": "http://www.econonews.co.kr/news/articleView.html?idxno=431021",
+            "link": "http://www.econonews.co.kr/news/articleView.html?idxno=431021",
+            "description": "방문객이 메디큐브를 직접 체험할 수 있는 공간도 마련한다. 메디큐브 부스 현장에는 음악과 뷰티 <b>테크</b>, 게임 프로그램 등을 결합한 다양한 이벤트가 운영될 계획이다.",
+            "pubDate": "Sun, 15 Mar 2026 23:46:00 +0900"
+        }
+    ],
+    "풍력": [
+        {
+            "title": "폐광이 ‘물 배터리’로 변신?…美 버려진 탄광, 청정에너지 저장소로 ...",
+            "originallink": "https://www.g-enews.com/view.php?ud=2026031517401454599a1f309431_1",
+            "link": "https://www.g-enews.com/view.php?ud=2026031517401454599a1f309431_1",
+            "description": "이 아이디어는 <b>풍력</b>과 태양광 같은 재생에너지의 가장 큰 문제 가운데 하나인 전력 저장 문제를 해결할 가능성이 있다는 평가가 나온다. 동시에 석탄 산업 쇠퇴로 경제적 어려움을 겪는 광산 지역에 새로운 산업 기반을... ",
+            "pubDate": "Mon, 16 Mar 2026 01:02:00 +0900"
         },
         {
             "title": "[글로벌 배터리 대전 (29)] 철-공기 배터리(中) - 미국이 상용화에 가장...",
             "originallink": "https://www.news2day.co.kr/article/20260315500032",
             "link": "https://www.news2day.co.kr/article/20260315500032",
-            "description": "[정리=최봉 산업<b>경제</b> 전문기자] ◀ 곽대종(Daejong Gwak) ▶ 한국외국어대학교 <b>경제</b>학박사 / 산업연구원 명예 KIET Fellow / (전) 산업연구원 연구위원 / (전) 한국자동차산업협회 환경·기술분과 위원 / (전)... ",
+            "description": "Ore Energy는 산업단지 및 <b>풍력</b>단지 인근에 장주기 저장 설비를 설치해 일시적인 과잉전력을 저장하고 2~4일간의 무풍 구간에 전력을 방출하는 모델이다. EU 차원에서는 ‘REPowerEU’ 및 ‘Green Deal Industrial Plan’... ",
             "pubDate": "Mon, 16 Mar 2026 00:32:00 +0900"
+        },
+        {
+            "title": "[시론] 중국의 5개년 계획과 에너지 정책",
+            "originallink": "https://www.hankyung.com/article/2026031521221",
+            "link": "https://n.news.naver.com/mnews/article/015/0005262562?sid=110",
+            "description": "<b>풍력</b> 발전에 드라이브를 건 이유다. 이처럼 저탄소 전환을 서두른 것은 중국이 글로벌 전기자동차 생산을 주도하는 시점과도 맞물린다. 지리적으로도 유리하다. 네이멍구자치구 등 바람이 많은 북쪽 지역에서는 <b>풍력</b>... ",
+            "pubDate": "Mon, 16 Mar 2026 00:20:00 +0900"
+        },
+        {
+            "title": "[백서인의 중국 과학기술 굴기] AI 날개 단 에너지 굴기…10년 내 ‘글로...",
+            "originallink": "https://www.joongang.co.kr/article/25411982",
+            "link": "https://n.news.naver.com/mnews/article/025/0003509243?sid=110",
+            "description": "전체 전력 생산의 40%를 태양광·<b>풍력</b>·원자력 등 청정에너지를 통해 충당하고 있으며, 60%는 자립도가 높은... 여러 정치·경제·안보적인 이유로 석탄 발전의 규모를 줄이지 못하고 있음에도 <b>풍력</b>·태양광·수력·원자력 등... ",
+            "pubDate": "Mon, 16 Mar 2026 00:16:00 +0900"
+        },
+        {
+            "title": "서울서 해울이해상<b>풍력</b>1·2·3 기술 심포지엄",
+            "originallink": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051399",
+            "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051399",
+            "description": "▲ 울산 해울이해상<b>풍력</b>발전은 최근 서울 대한상공회의소 국제회의장에서 '해울이해상<b>풍력</b>1·2·3 기술 심포지엄'을 열었다고 15일 밝혔다. 코펜하겐 인프라스트럭쳐 파트너스 제공울산 해울이해상<b>풍력</b>발전은 최근... ",
+            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
+        },
+        {
+            "title": "효성중공업, 호주 퀸즐랜드 탕캄 100MW BESS 수주",
+            "originallink": "http://www.e2news.com/news/articleView.html?idxno=328679",
+            "link": "http://www.e2news.com/news/articleView.html?idxno=328679",
+            "description": "호주 정부는 2030년까지 재생에너지 비중을 82%까지 높인다는 목표 아래 태양광·<b>풍력</b>을 대폭 확대하고 있다. ESS는 출력이 불규칙한 재생에너지 발전량을 보완하고, 전력망의 주파수 안정성을 개선해주는... ",
+            "pubDate": "Mon, 16 Mar 2026 00:00:00 +0900"
+        },
+        {
+            "title": "현대건설·현대제철, 해상<b>풍력</b> 핵심 구조물 공동연구",
+            "originallink": "https://www.thedailypost.kr/news/articleView.html?idxno=113462",
+            "link": "https://www.thedailypost.kr/news/articleView.html?idxno=113462",
+            "description": "|데일리포스트=송협 대표기자| &quot;부유식 해상<b>풍력</b> 사업에서 부유체 설계 기술은 프로젝트 수행 역량을 결정짓는 핵심 기술입니다. 이번 공동연구를 통해 독자 기술을 확보하고 글로벌 해상<b>풍력</b> EPC 사업 역량을... ",
+            "pubDate": "Sun, 15 Mar 2026 23:54:00 +0900"
+        },
+        {
+            "title": "현대제철·현대건설, 부유식 해상<b>풍력</b> 모델 개발 '맞손'",
+            "originallink": "http://www.hansbiz.co.kr/news/articleView.html?idxno=824358",
+            "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=824358",
+            "description": "해상<b>풍력</b> 독자모델 공동개발 업무협약 체결식에서 기념 촬영을 하고 있다./현대제철 | 서울=한스경제 임준혁 기자 | 현대제철이 현대건설과 손잡고 해상<b>풍력</b>용 철강재 시장 확대를 통한 경쟁력 강화에 나선다. 현대제철은... ",
+            "pubDate": "Sun, 15 Mar 2026 23:44:00 +0900"
+        },
+        {
+            "title": "[사설]49년 만에 전기료 개편… 원전 재가동-송전망 확충도 서둘 때",
+            "originallink": "https://www.donga.com/news/Opinion/article/all/20260315/133535256/2",
+            "link": "https://n.news.naver.com/mnews/article/020/0003704164?sid=110",
+            "description": "정부가 태양광, <b>풍력</b>, 수력 등 재생에너지 역량을 확대하는 것은 ‘탈탄소’ 시대에 맞춰 반드시 필요한 일이다. 다만 외부 환경에 따라 효율성이 달라지는 재생에너지만으로는 전력 안정성을 담보하기 어렵다. 정부는... ",
+            "pubDate": "Sun, 15 Mar 2026 23:28:00 +0900"
+        },
+        {
+            "title": "기후부, 인천·전남·전북·보령·군산 7곳 해상<b>풍력</b> 집적화단지 조건부...",
+            "originallink": "https://daily.hankooki.com/news/articleView.html?idxno=1346989",
+            "link": "https://daily.hankooki.com/news/articleView.html?idxno=1346989",
+            "description": "기후부가 15일 5개 지자체가 신청한 7개 해상<b>풍력</b>발전단지를 집적화단지로 지정했다고 발표했다. 사진은 제주한림해상<b>풍력</b>. 사진=한국전력 제공 기후에너지환경부가 인천·전남·전북·보령·군산이 신청한 7개 사업을... ",
+            "pubDate": "Sun, 15 Mar 2026 22:42:00 +0900"
+        },
+        {
+            "title": "현대건설·현대제철, 부유식 해상<b>풍력</b> 독자모델 공동연구",
+            "originallink": "http://www.ttlnews.com/news/articleView.html?idxno=3088638",
+            "link": "http://www.ttlnews.com/news/articleView.html?idxno=3088638",
+            "description": "현대건설과 현대제철이 부유식 해상<b>풍력</b> 독자모델 개발을 위한 공동연구에 착수했다. 양사는 특화 강재와 콘크리트를 결합한 하이브리드 구조의 모듈러 부유체를 국내 최초로 자체 개발해 글로벌 해상<b>풍력</b> 시장... ",
+            "pubDate": "Sun, 15 Mar 2026 22:16:00 +0900"
+        },
+        {
+            "title": "부진경자청, 태웅서 'BJFEZ 기업현장투어'",
+            "originallink": "http://www.gnmaeil.com/news/articleView.html?idxno=582397",
+            "link": "http://www.gnmaeil.com/news/articleView.html?idxno=582397",
+            "description": "최근 인공지능(AI) 확산에 따른 전력 수요 증가로 원전과 해상<b>풍력</b> 등 에너지 산업의 중요성이 커지는 가운데, 태웅은 관련 설비에 사용되는 대형 철강 단조품을 공급하는 핵심 기업으로 주목받고 있다. 이번 행사는... ",
+            "pubDate": "Sun, 15 Mar 2026 21:50:00 +0900"
+        },
+        {
+            "title": "강임준 예비후보 &quot;어청도 해상<b>풍력</b> 지정, 재생에너지 도약 신호탄&quot;",
+            "originallink": "http://www.jjn.co.kr/news/articleView.html?idxno=1034994",
+            "link": "http://www.jjn.co.kr/news/articleView.html?idxno=1034994",
+            "description": "강임준 군산시장 예비후보가 군산시 어청도 해역 해상<b>풍력</b> 집적화단지 지정과 관련해 재생에너지 중견기업... 해상<b>풍력</b> 집적화단지로 지정했다고 밝혔다. 군산시가 이번에 지정받은 해상<b>풍력</b> 집적화단지는 어청도 인근... ",
+            "pubDate": "Sun, 15 Mar 2026 21:48:00 +0900"
+        },
+        {
+            "title": "&quot;햇빛·바람·수소연금 지급하겠다&quot;",
+            "originallink": "http://www.gnmaeil.com/news/articleView.html?idxno=582382",
+            "link": "http://www.gnmaeil.com/news/articleView.html?idxno=582382",
+            "description": "이어 3단계는 오는 2035년부터 마산·창원·진해 앞바다에 해상<b>풍력</b>단지를 조성한다는 구상이다. '기윤 프로젝트'는 총 투자비 14조원, 경제파급효과 30조원, 일자리 10만개 창출이 목표다. 또 햇빛, 바람, 수소연금... ",
+            "pubDate": "Sun, 15 Mar 2026 21:48:00 +0900"
+        },
+        {
+            "title": "강철의 심장 - 정창훈",
+            "originallink": "http://www.gnmaeil.com/news/articleView.html?idxno=582467",
+            "link": "http://www.gnmaeil.com/news/articleView.html?idxno=582467",
+            "description": "지배하는 <b>풍력</b>의 날개가 된다 그리고 이 위대한 산업의 성지를 넘어 세계로 나아가는 길목에서 나는 듣는다 미래의 에너지가 태어나는 가슴 벅찬 함성을 시인 약력 행정학 박사 경남매일 CEO 경남도 신지식인 1호 용접공... ",
+            "pubDate": "Sun, 15 Mar 2026 21:48:00 +0900"
+        }
+    ],
+    "주식": [
+        {
+            "title": "나스닥·ICE, 크립토 거래소와 손잡았다…‘<b>주식</b> 토큰화’ 월가 인프라...",
+            "originallink": "https://www.tokenpost.kr/news/blockchain/339665",
+            "link": "https://www.tokenpost.kr/news/blockchain/339665",
+            "description": "월가 핵심 거래소들이 ‘토큰화 <b>주식</b>’에 본격적으로 뛰어들고 있다. 나스닥과 뉴욕증권거래소(NYSE) 모회사 인터콘티넨털익스체인지(ICE)가 블록체인 위에 <b>주식</b>을 올리기 위해 크립토 거래소와 손을 잡으면서... ",
+            "pubDate": "Mon, 16 Mar 2026 01:12:00 +0900"
+        },
+        {
+            "title": "미 XRP 현물 ETF 자금 유입 멈췄다…가격은 ‘돌파’ 신호 포착",
+            "originallink": "https://www.tokenpost.kr/news/cryptocurrency/339530",
+            "link": "https://www.tokenpost.kr/news/cryptocurrency/339530",
+            "description": "현물 ETF: 실제 암호화폐 가격을 그대로 추종하도록 설계된 상장지수펀드로 일반 <b>주식</b>처럼 거래소에서 매매할 수 있는 상품. 순유입(Net Inflow): 특정 기간 동안 투자 상품으로 새롭게 들어온 자금에서 빠져나간... ",
+            "pubDate": "Mon, 16 Mar 2026 00:46:00 +0900"
+        },
+        {
+            "title": "[뉴스룸에서] 월가에 퍼지는 바퀴벌레들",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773552227&code=11171222&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001837238?sid=110",
+            "description": "대출받은 기업이 현금을 대신해 채권이나 <b>주식</b>으로 먼저 이자를 갚는 ‘PIK(Payment in kind)’ 방식의 상환에서 가장 강한 경고음이 울린다. 금융업계에서 대출 계약서를 쓸 때 PIK 조항을 삽입하는 것만으로는 위험을... ",
+            "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
+        },
+        {
+            "title": "올해 배터리 전시회서 종적 감춘 ‘금양’",
+            "originallink": "https://www.chosun.com/economy/industry-company/2026/03/16/VTPN2GM5MZAUPI6BJT2FH3XHME/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964684?sid=101",
+            "description": "지난해 외부 감사인이 ‘회사 존속이 불투명하다’고 판단을 내리면서 <b>주식</b> 거래는 정지됐고, 사우디아라비아 기업으로부터 유치했다는 4050억원 규모 투자는 납입일이 7차례나 연기됐습니다. 지난달엔 대출 연체로... ",
+            "pubDate": "Mon, 16 Mar 2026 00:34:00 +0900"
         },
         {
             "title": "중동 악재에 금리 껑충… 주담대 상단 6.5% 넘어, 영끌족 한숨",
             "originallink": "https://www.donga.com/news/Economy/article/all/20260316/133534191/2",
             "link": "https://n.news.naver.com/mnews/article/020/0003704167?sid=101",
-            "description": "금융 당국 관계자는 “영끌·빚투족 이자 부담이 한계에 다다른 상황에서 자산 가치까지 하락할 경우 상환 능력이 급격히 떨어질 것”이라며 “가계부채 부실이 실물 <b>경제</b> 전반으로 전이되지 않도록 관리할... ",
+            "description": "대출이 이처럼 팽창하는 건 지난해 하반기 이후 주가가 크게 오르면서, 대출을 받아 <b>주식</b>에 투자해 돈을... 증권사 신용 공여 등으로 <b>주식</b>을 샀다가 마진콜(추가 증거금 요구)을 받고 마통 등으로 자금을 충당한... ",
             "pubDate": "Mon, 16 Mar 2026 00:31:00 +0900"
+        },
+        {
+            "title": "李정부 휴일도 반납하고 ‘추경 속도전’… 10조~20조 관측",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773566029&code=11151100&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001837232?sid=101",
+            "description": "반도체 경기 호황에 늘어날 법인세수와 <b>주식</b>시장 활황으로 증가한 증권거래세수 등을 감안한 추정치다.... 여기에 증권거래세세율 인상과 <b>주식</b> 거래 증가 영향으로 급증한 증권거래세수를 더했다. KB증권은... ",
+            "pubDate": "Mon, 16 Mar 2026 00:20:00 +0900"
+        },
+        {
+            "title": "[조현숙의 시선] 우리는 이 게임을 해본 적이 있다",
+            "originallink": "https://www.joongang.co.kr/article/25411983",
+            "link": "https://n.news.naver.com/mnews/article/025/0003509244?sid=110",
+            "description": "집값과 <b>주식</b> 가격이 오르고, 금융권은 안정적이고 수익을 잘 내는 것처럼 보인다. 그러다 갑작스런 사고나 변수를 계기로 시장의 신뢰가 붕괴하고 경제는 위기의 절벽 아래로 추락한다. 여기서 등장하는 게 ‘이번엔... ",
+            "pubDate": "Mon, 16 Mar 2026 00:18:00 +0900"
+        },
+        {
+            "title": "주가 맥 못 추고, 엔 환전 사고… 인터넷전문은행 수난시대",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773563763&code=11151300&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001837229?sid=101",
+            "description": "이는 보호 예수 기간 3~6개월이 지나면 언제든 시장에 나올 수 있는 <b>주식</b>으로 여겨진다. 증권업계 한 관계자는 “케이뱅크는 지난 2월 치러진 기관 투자자 수요 예측에서 경쟁률이 199대 1로 높았다”면서도... ",
+            "pubDate": "Mon, 16 Mar 2026 00:17:00 +0900"
+        },
+        {
+            "title": "[하현옥의 세계경제전망] 2008년 금융위기 데자뷔? 커지는 사모대출 공...",
+            "originallink": "https://www.joongang.co.kr/article/25411979",
+            "link": "https://n.news.naver.com/mnews/article/025/0003509240?sid=110",
+            "description": "중소·중견기업에 <b>주식</b> 또는 대출 형태로 투자하고 발생한 이익을 배당하는 상품이다. 최근 몇 년간 자산운용사가 개인투자자 사모대출 펀드인 기업성장집합투자기구(BDC)를 통해 고액 자산가 등 개인을 상대로 자금을... ",
+            "pubDate": "Mon, 16 Mar 2026 00:14:00 +0900"
+        },
+        {
+            "title": "<b>주식</b>투자의 함정, '안다'는 착각 [삶과 문화]",
+            "originallink": "https://www.hankookilbo.com/news/article/A2026031313470000036?did=NA",
+            "link": "https://n.news.naver.com/mnews/article/469/0000919581?sid=110",
+            "description": "미래를 먹고 산다는 <b>주식</b> 얘기를 하면 미래에도 먹고 살아야 할 주변 젊은이들은 눈을 반짝인다. 코스피 6000, 코스닥 1000 시대에, 뉴스는 물론이고 축구, 테크, 시사 채널에서도 모두가 <b>주식</b> 얘기를 한다. 정치를 일컬어... ",
+            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
+        },
+        {
+            "title": "강릉시 농업기술센터 청사 신축 설계공모 당선작 발표",
+            "originallink": "https://www.kwnews.co.kr/page/view/2026031509184504104",
+            "link": "https://n.news.naver.com/mnews/article/087/0001180051?sid=102",
+            "description": "강릉시는 ‘농업기술센터 청사 신축 사업’ 설계공모 결과, ㈜공간종합건축사사무소(공동응모:<b>주식</b>회사 품은건축사무소)의 작품이 최종 당선작으로 선정됐다고 15일 밝혔다. 이번 심사에서는 △건축물 규모 및 층수 계획의... ",
+            "pubDate": "Mon, 16 Mar 2026 00:08:00 +0900"
+        },
+        {
+            "title": "[최창영의 청년문화 돌아보기] 차라리 JOMO… FOMO여 안녕",
+            "originallink": "https://m.skyedaily.com/news_view.html?ID=300043",
+            "link": "https://m.skyedaily.com/news_view.html?ID=300043",
+            "description": "&quot; &quot;옆 팀 김 대리는 이번에 <b>주식</b>으로 차 바꿨대.&quot; 직장인들의 점심시간이나 청년들의 술자리 화두는 단연... 2021년 전후로 불어닥친 코인과 <b>주식</b> 열풍은 청년들에게 지금 이 열차에 타지 않으면 영영 계층 이동의... ",
+            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
+        },
+        {
+            "title": "시중은행 대출금리 두달새 0.2%p 올라",
+            "originallink": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051411",
+            "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051411",
+            "description": "금리 상승 사이클에서는 일반적으로 이자 부담 등에 차입 상환·축소 등이 시작되지만, 최근 은행 대출은 <b>주식</b>시장 변동성 확대 등과 얽혀 신용대출을 중심으로 늘어나는 추세다. 이에 5대 은행(KB국민·신한... ",
+            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
+        },
+        {
+            "title": "9.4조 흥행 녹십자·동아ST·유한양행 잡은 '카나프테라퓨틱스' 오늘(16일...",
+            "originallink": "http://www.newswell.co.kr/news/articleView.html?idxno=16721",
+            "link": "http://www.newswell.co.kr/news/articleView.html?idxno=16721",
+            "description": "현재 자본금은 64억7800만원으로, 공모 후 발행<b>주식</b>총수 기준 이병철 대표(12.12%) 외 6인이 23.2%의 지분을 가지고 있다. 지난 5~6일 진행된 일반공모 청약에서 1899대 1의 경쟁률로, 9조4964억원의 청약 증거금을 모았다.... ",
+            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
+        },
+        {
+            "title": "유가·환율 불안에…이르면 다음주 15조 안팎 추경",
+            "originallink": "https://www.joongang.co.kr/article/25411964",
+            "link": "https://n.news.naver.com/mnews/article/025/0003509225?sid=101",
+            "description": "<b>주식</b>시장 활황에 따라 증권거래세 또한 4조~5조원가량 더 들어올 것으로 전망된다. 주원 현대경제연구원 경제연구실장은 “추경 편성에 착수한 것만으로도 내수 심리가 악화하는 것을 막는 시그널 효과가 있을 것”... ",
+            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
         }
     ],
     "부동산": [
+        {
+            "title": "나스닥·ICE, 크립토 거래소와 손잡았다…‘주식 토큰화’ 월가 인프라...",
+            "originallink": "https://www.tokenpost.kr/news/blockchain/339665",
+            "link": "https://www.tokenpost.kr/news/blockchain/339665",
+            "description": "주식·채권·<b>부동산</b> 등 현실 자산을 온체인에서 토큰 형태로 다루는 흐름/자산군 토큰화 주식은 ‘가짜 주식’이나 파생상품과 뭐가 다른가요? 기사에서 말하는 토큰화 주식은 “기존 주식의 권리 구조를 유지한 채”... ",
+            "pubDate": "Mon, 16 Mar 2026 01:12:00 +0900"
+        },
         {
             "title": "강남 아파트 전세 거래 ‘반토막’… 빌라는 ‘공급절벽’",
             "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773565020&code=11151500&cp=nv",
@@ -871,17 +557,17 @@
             "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
         },
         {
-            "title": "서울 외곽에만 몰리는 매수세… 토지거래허가 신청 8건중 1건이 노원",
-            "originallink": "https://www.chosun.com/economy/real_estate/2026/03/16/MGVG4QZSN5HUVEI7M7ZDXAKW5A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-            "link": "https://n.news.naver.com/mnews/article/023/0003964687?sid=101",
-            "description": "15일 서울<b>부동산</b>정보광장에 따르면 이 대통령이 소셜미디어(SNS)를 통해 “다주택자 양도세 중과 유예는... <b>부동산</b> 플랫폼 아실에 따르면 같은 기간 서울의 아파트 매물은 5만6373건에서 7만4510건으로 1만8137건(32.2... ",
-            "pubDate": "Mon, 16 Mar 2026 00:37:00 +0900"
-        },
-        {
             "title": "올해 아파트 공시가격 18일 공개… 현실화율은 69% 유지",
             "originallink": "https://www.chosun.com/economy/real_estate/2026/03/15/3MKULYERYBHK3P2C6WJXIVRNQ4/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
             "link": "https://n.news.naver.com/mnews/article/023/0003964688?sid=101",
             "description": "제출된 의견에 대해 조사 기관인 한국<b>부동산</b>원의 자체 검토와 외부 전문가 심사, 중앙<b>부동산</b>가격공시위원회 심의 등을 거쳐 다음 달 30일 다시 공시한다. 이후 5월 29일까지 한 차례 더 이의 신청 절차를 거쳐 6월말쯤... ",
+            "pubDate": "Mon, 16 Mar 2026 00:37:00 +0900"
+        },
+        {
+            "title": "서울 외곽에만 몰리는 매수세… 토지거래허가 신청 8건중 1건이 노원",
+            "originallink": "https://www.chosun.com/economy/real_estate/2026/03/16/MGVG4QZSN5HUVEI7M7ZDXAKW5A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964687?sid=101",
+            "description": "15일 서울<b>부동산</b>정보광장에 따르면 이 대통령이 소셜미디어(SNS)를 통해 “다주택자 양도세 중과 유예는... <b>부동산</b> 플랫폼 아실에 따르면 같은 기간 서울의 아파트 매물은 5만6373건에서 7만4510건으로 1만8137건(32.2... ",
             "pubDate": "Mon, 16 Mar 2026 00:37:00 +0900"
         },
         {
@@ -927,10 +613,10 @@
             "pubDate": "Mon, 16 Mar 2026 00:06:00 +0900"
         },
         {
-            "title": "울산 아파트값 상승세…매수심리 광역시중 1위",
-            "originallink": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051413",
-            "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051413",
-            "description": "▲ 수도권 중심 <b>부동산</b> 규제 강화 속에서도 울산의 아파트값이 비수도권 최고 상승률을 기록하는 등... 경상일보 자료사진수도권 중심 <b>부동산</b> 규제 강화 속에서도 울산의 아파트값이 비수도권 최고 상승률을... ",
+            "title": "서울 마곡 '반값 아파트' 등 이번주 전국 5645가구 분양",
+            "originallink": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051410",
+            "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051410",
+            "description": "15일 <b>부동산</b>R114에 따르면 3월 셋째주에는 전국 10개 단지에서 총 5645가구(일반분양 2837가구)가 분양을 시작한다. 수도권에서는 서울 강서구 마곡동 '마곡지구17단지'와 방화동 '래미안엘라비네', 경기 가평군 설악면... ",
             "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
         },
         {
@@ -941,10 +627,10 @@
             "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
         },
         {
-            "title": "서울 마곡 '반값 아파트' 등 이번주 전국 5645가구 분양",
-            "originallink": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051410",
-            "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051410",
-            "description": "15일 <b>부동산</b>R114에 따르면 3월 셋째주에는 전국 10개 단지에서 총 5645가구(일반분양 2837가구)가 분양을 시작한다. 수도권에서는 서울 강서구 마곡동 '마곡지구17단지'와 방화동 '래미안엘라비네', 경기 가평군 설악면... ",
+            "title": "울산 아파트값 상승세…매수심리 광역시중 1위",
+            "originallink": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051413",
+            "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051413",
+            "description": "▲ 수도권 중심 <b>부동산</b> 규제 강화 속에서도 울산의 아파트값이 비수도권 최고 상승률을 기록하는 등... 경상일보 자료사진수도권 중심 <b>부동산</b> 규제 강화 속에서도 울산의 아파트값이 비수도권 최고 상승률을... ",
             "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
         },
         {
@@ -953,13 +639,327 @@
             "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1051378",
             "description": "59년생 책은 말 없는 스승. 71년생 재테크나 <b>부동산</b>은 지금이 적기가 아니다. 83년생 충동구매로 물건을 사면 후회할 수 있다. 95년생 모든 일에 정면승부가 답이다. 두려워 말라.",
             "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
+        }
+    ],
+    "IT": [
+        {
+            "title": "스타벅스, 미국 직원 889명 정보 유출…피싱으로 HR 포털 계정 침해",
+            "originallink": "https://www.dailysecu.com/news/articleView.html?idxno=205715",
+            "link": "https://www.dailysecu.com/news/articleView.html?idxno=205715",
+            "description": "복수의 미국 <b>IT</b> 보안 전문매체 보도에 따르면, 스타벅스(Starbucks)가 직원 전용 인사 포털 계정 침해로 미국 내 직원 889명의 개인정보가 유출된 사실을 공개했다. 이번 사고는 고객정보가 아니라 미국 직원 계정을 겨냥한... ",
+            "pubDate": "Mon, 16 Mar 2026 01:10:00 +0900"
         },
         {
-            "title": "15억 키맞추는 강북 집값",
-            "originallink": "https://www.joongang.co.kr/article/25411961",
-            "link": "https://n.news.naver.com/mnews/article/025/0003509220?sid=101",
-            "description": "서울 <b>부동산</b> 시장이 1주택 실수요 중심으로 재편되는 가운데, 중저가 아파트의 15억원 키 맞추기 현상이 심화하고 있다. 15일 한국<b>부동산</b>원에 따르면 3월 둘째 주 서울 성북구와 중구 아파트값이 0.27% 오르며 전주... ",
-            "pubDate": "Mon, 16 Mar 2026 00:02:00 +0900"
+            "title": "백석대, 14년 연속 해외취업연수사업 운영기관 선정 쾌거",
+            "originallink": "http://www.ccnnews.co.kr/news/articleView.html?idxno=404031",
+            "link": "http://www.ccnnews.co.kr/news/articleView.html?idxno=404031",
+            "description": "백석대는 그동안 K-Move스쿨, 청해진대학, 대학연합 해외취업 과정 등 다양한 해외취업 연수사업을 진행하며 글로벌 취업 인재 양성 체계를 꾸준히 구축해 호텔·리조트, 외식, <b>IT</b>, 비즈니스, 태권도, 스포츠, 항공 등... ",
+            "pubDate": "Mon, 16 Mar 2026 00:56:00 +0900"
+        },
+        {
+            "title": "MIDEAST ISRAEL IRAN USA",
+            "originallink": "",
+            "link": "https://n.news.naver.com/mnews/article/091/0010151718?sid=104",
+            "description": "Iranian ballistic missile in Petah Tikva, Israel, 15 March 2026. The Israeli military said that <b>it</b> detected missiles launched from Iran following earlier US and Israeli strikes. EPA/ABIR SULTAN",
+            "pubDate": "Mon, 16 Mar 2026 00:52:00 +0900"
+        },
+        {
+            "title": "MIDEAST ISRAEL IRAN USA",
+            "originallink": "",
+            "link": "https://n.news.naver.com/mnews/article/091/0010151717?sid=104",
+            "description": "Iranian ballistic missile in Petah Tikva, Israel, 15 March 2026. The Israeli military said that <b>it</b> detected missiles launched from Iran following earlier US and Israeli strikes. EPA/ABIR SULTAN",
+            "pubDate": "Mon, 16 Mar 2026 00:52:00 +0900"
+        },
+        {
+            "title": "MIDEAST ISRAEL IRAN USA",
+            "originallink": "",
+            "link": "https://n.news.naver.com/mnews/article/091/0010151715?sid=104",
+            "description": "Iranian ballistic missile in Petah Tikva, Israel, 15 March 2026. The Israeli military said that <b>it</b> detected missiles launched from Iran following earlier US and Israeli strikes. EPA/ABIR SULTAN",
+            "pubDate": "Mon, 16 Mar 2026 00:51:00 +0900"
+        },
+        {
+            "title": "State Department Cuts Price of Renouncing U.S. Citizenship to $450",
+            "originallink": "https://www.nytimes.com/2026/03/15/us/us-citizenship-renounce-price-cut.html?partner=naver",
+            "link": "https://www.nytimes.com/2026/03/15/us/us-citizenship-renounce-price-cut.html?partner=naver",
+            "description": "In an update published in the Federal Register on Friday, the State Department said <b>it</b> was... The change announced on Friday returns the fee to what <b>it</b> was in 2010, when the State Department... ",
+            "pubDate": "Mon, 16 Mar 2026 00:50:00 +0900"
+        },
+        {
+            "title": "[CISO 조찬] 카스퍼스키 &quot;기술보다 중요한 것은 공격 전체 흐름을 보는 ...",
+            "originallink": "https://www.dailysecu.com/news/articleView.html?idxno=205714",
+            "link": "https://www.dailysecu.com/news/articleView.html?idxno=205714",
+            "description": "이 구조는 SIEM이 여러 네트워크 장비와 <b>IT</b> 시스템의 로그를 수집한 뒤, 원시 로그를 카스퍼스키 사이버 트레이스(Cyber Trace)로 보내고, 여기서 위협 데이터 피드와 대조해 탐지 이벤트만 다시 SIEM과 웹 콘솔로 돌려주는... ",
+            "pubDate": "Mon, 16 Mar 2026 00:44:00 +0900"
+        },
+        {
+            "title": "Iran US Israel",
+            "originallink": "",
+            "link": "https://n.news.naver.com/mnews/article/077/0006937464?sid=104",
+            "description": "Iran US Israel The shattered structure of a police station is seen after <b>it</b> was hit Friday in a U.S.-Israeli strike in Tehran, Iran, Sunday, March 15, 2026. (AP Photo/Vahid Salemi)",
+            "pubDate": "Mon, 16 Mar 2026 00:42:00 +0900"
+        },
+        {
+            "title": "[뉴스룸에서] 월가에 퍼지는 바퀴벌레들",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773552227&code=11171222&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001837238?sid=110",
+            "description": "앞서 지난달에는 정보기술(<b>IT</b>) 분야 투자를 늘리던 미국 사모펀드 블루아울캐피털이 자사 펀드 3개 중 하나의 환매를 영구 중단해 시장을 충격에 빠뜨렸다. 사모 대출 자금이 동결되면 미국에서 연 매출 10억 달러 미만... ",
+            "pubDate": "Mon, 16 Mar 2026 00:38:00 +0900"
+        },
+        {
+            "title": "Nations Respond With Caution to Trump’s Call to Send Warships to Strait...",
+            "originallink": "https://www.nytimes.com/2026/03/15/world/middleeast/trump-strait-of-hormuz-iran-warships.html?partner=naver",
+            "link": "https://www.nytimes.com/2026/03/15/world/middleeast/trump-strait-of-hormuz-iran-warships.html?partner=naver",
+            "description": "“<b>It</b> is very important that we get the Strait of Hormuz reopened,” he told the BBC in an... South Korea: The office of President Lee Jae Myung of South Korea said in a statement that <b>it</b> would... ",
+            "pubDate": "Mon, 16 Mar 2026 00:16:00 +0900"
+        },
+        {
+            "title": "&quot;메모리 품귀, 내년 말까지&quot;…<b>IT</b>업계 '비용 폭탄' 비상",
+            "originallink": "https://www.namdonews.com/news/articleView.html?idxno=904052",
+            "link": "https://www.namdonews.com/news/articleView.html?idxno=904052",
+            "description": "메모리 단가 상승은 고스란히 <b>IT</b> 제조사의 부담으로 전이되고 있다. 스마트폰의 경우 전체 부품원가(BOM)에서 D램과 낸드플래시가 차지하는 비중이 절반 수준까지 육박할 것으로 전망된다. 원가 상승분을 소비자 가격에... ",
+            "pubDate": "Mon, 16 Mar 2026 00:06:00 +0900"
+        },
+        {
+            "title": "Between two cities",
+            "originallink": "https://koreajoongangdaily.joins.com/news/2026-03-16/opinion/letters/Between-two-cities/2543244",
+            "link": "https://n.news.naver.com/mnews/article/640/0000085695?sid=110",
+            "description": "“I need time to think about <b>it</b>,” I replied. I was happy enough at my elementary school in... <b>It</b> almost never snows in Busan. My classmates’ eyes widened when they saw the snowflakes. Nobody... ",
+            "pubDate": "Mon, 16 Mar 2026 00:05:00 +0900"
+        },
+        {
+            "title": "LEBANON ISRAEL CONFLICT",
+            "originallink": "",
+            "link": "https://n.news.naver.com/mnews/article/091/0010151670?sid=104",
+            "description": "airstrikes on Lebanon since the start of renewed hostilities. The Israeli military stated <b>it</b> is conducting strikes across the country targeting Hezbollah infrastructure and personnel. EPA/WAEL HAMZEH",
+            "pubDate": "Mon, 16 Mar 2026 00:05:00 +0900"
+        },
+        {
+            "title": "‘Trash’ Review: Bickering About Chores, in Sign Language",
+            "originallink": "https://www.nytimes.com/2026/03/15/theater/trash-review-perelman.html?partner=naver",
+            "link": "https://www.nytimes.com/2026/03/15/theater/trash-review-perelman.html?partner=naver",
+            "description": "<b>It</b> wouldn’t seem of much use to a pair of Deaf 20-something roommates, except that <b>it</b> is touched with a kind of theatrical magic. <b>It</b> still plays songs, but its more practical use is as a real... ",
+            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
+        },
+        {
+            "title": "[사설]활기 잃어가는 강원도 명산, 콘텐츠 개발 시급하다",
+            "originallink": "https://www.kwnews.co.kr/page/view/2026031518180428102",
+            "link": "https://n.news.naver.com/mnews/article/087/0001179990?sid=110",
+            "description": "인근 지자체의 로컬 축제와 연계한 패키지, 산 위에서 즐기는 요가나 명상 같은 웰니스 프로그램, <b>IT</b>를 접목한 스마트 탐방로 등 MZ세대의 취향을 저격할 디테일한 기획이 필요하다. 강원의 명산들이 ‘추억 속의... ",
+            "pubDate": "Mon, 16 Mar 2026 00:04:00 +0900"
+        }
+    ],
+    "날씨": [
+        {
+            "title": "쌀, ‘이렇게’ 깨끗하게 보관했는데… “세균 증식, 배탈난다” 왜?",
+            "originallink": "https://kormedi.com/?p=2798374",
+            "link": "https://n.news.naver.com/mnews/article/296/0000098554?sid=103",
+            "description": "냉장고에 자리가 없다면 <b>날씨</b>가 서늘한 10월에서 4월까지는 상온에 둬도 된다. 이때는 난방 등으로 실내가 더워지지 않도록 조심하고 햇빛이 들지 않는 장소를 선택해야 한다. 반대로 너무 낮은 온도에 두는 것도 조심하자.... ",
+            "pubDate": "Mon, 16 Mar 2026 01:07:00 +0900"
+        },
+        {
+            "title": "BFX '랩터' &quot;바이퍼-온 잘하지만, 우리 바텀도 충분히 강하다&quot; [퍼스트 ...",
+            "originallink": "https://www.xportsnews.com/article/2123463",
+            "link": "https://m.sports.naver.com/esports/article/311/0001986116",
+            "description": "한국은 추웠는데 여기는 <b>날씨</b>가 더워서 (브라질에 온 게) 느껴진다. Q. 사상 첫 국제대회 출전을 앞둔 소감은. LCK에서와는 확실히 다른 느낌일 것 같다. 우리 팀원들과 국제전에 오게 되어 좋고, 우리가 잘해서 기회를... ",
+            "pubDate": "Mon, 16 Mar 2026 00:50:00 +0900"
+        },
+        {
+            "title": "[살며 사랑하며] 달라지는 소리",
+            "originallink": "https://www.kmib.co.kr/article/view.asp?arcid=1773551880&code=11171315&cp=nv",
+            "link": "https://n.news.naver.com/mnews/article/005/0001837236?sid=110",
+            "description": "따듯한 햇볕과 차가운 바람이 오고 가는 <b>날씨</b>. 감기에 걸리기 딱 좋은 <b>날씨</b>. 겨울의 추위는 당연해서 추워도 이상할 게 없는데, 봄의 추위는 차가움을 더 정확하게 느끼게 한다. 봄을 떠올리면 봄볕과 꽃 축제와 산들바람이... ",
+            "pubDate": "Mon, 16 Mar 2026 00:34:00 +0900"
+        },
+        {
+            "title": "'에이스' 이동경의 냉정한 현실인식 &quot;울산, 아직 우승후보 아냐&quot;[현장 인...",
+            "originallink": "https://www.sportschosun.com/football/2026-03-15/202603150100101830007195",
+            "link": "https://m.sports.naver.com/kfootball/article/076/0004384873",
+            "description": "1로빈에 <b>날씨</b>도 춥고 개막한지 얼마 안되는 상황에서 결과가 중요하다. 그런 부분에서 조금 부족하더라도 경기력 측면에서 가져갈 수 있게 하려는 부분이 크다&quot;고 했다. 올 시즌 2경기에서 3골을 기록 중인 야고에... ",
+            "pubDate": "Mon, 16 Mar 2026 00:21:00 +0900"
+        },
+        {
+            "title": "[시론] 중국의 5개년 계획과 에너지 정책",
+            "originallink": "https://www.hankyung.com/article/2026031521221",
+            "link": "https://n.news.naver.com/mnews/article/015/0005262562?sid=110",
+            "description": "AI 시대 전력 수요가 급증하는 상황에서 태양광, 풍력 등 재생에너지는 <b>날씨</b>와 기후 조건에 크게 좌우되는 데 비해 원자력 에너지는 이와 관계없이 꾸준한 발전이 가능하다. 상대적으로 소비지 근처에서 생산할 수... ",
+            "pubDate": "Mon, 16 Mar 2026 00:20:00 +0900"
+        },
+        {
+            "title": "[오늘<b>날씨</b>] 아침 영하권 기온 쌀쌀...서울 낮 13도-부산 15도 '미세먼지...",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529582",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529582",
+            "description": "봄 나들이 시기, 인천시 섬 나들이 이용객 러시 (사진=안희영 기자) 월요일인 16일은 낮과 밤의 기온차가 크겠고 아침 기온이 영하권으로 낮겠다. 기상청 예보에 따르면 전국 대부분 지역에서 아침 기온이 0도 이하가... ",
+            "pubDate": "Mon, 16 Mar 2026 00:16:00 +0900"
+        },
+        {
+            "title": "[<b>날씨</b>] 수도권, 경기 북부 -3~2℃ 한파· · ·낮과 밤 기온차 15℃ 안팎",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529693",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529693",
+            "description": "기상청은 &quot;경기도 내륙을 중심으로 서리가 내리는 곳이 많겠다&quot;며 &quot;내륙을 중심으로 낮과 밤의 기온차가 15℃ 안팎으로 크겠다&quot;고 예보했다. 특히, 오늘(16일)과 내일(17일) 아침기온이 영하로 내려가는 곳이 많고... ",
+            "pubDate": "Mon, 16 Mar 2026 00:12:00 +0900"
+        },
+        {
+            "title": "월드컵 엔트리 간절한 K리그 MVP…이동경 &quot;올 상반기 가장 큰 목표, 좋은...",
+            "originallink": "https://www.xportsnews.com/article/2123380",
+            "link": "https://m.sports.naver.com/kfootball/article/311/0001986107",
+            "description": "우리도 지지 않고 하려는 마음을 가장 크게 갖고 있다&quot;면서 &quot;1로빈에서 <b>날씨</b>도 춥고, 개막한 지 얼마 되지 않은 상황에서 무엇보다 중요한 것을 결과다. 경기력이 부족하더라도 경기력 측면보다는 결과를 가져올 수 있도록... ",
+            "pubDate": "Mon, 16 Mar 2026 00:11:00 +0900"
+        },
+        {
+            "title": "“골프계 판도 바꿀 TGL…골프를 더 멋지게 만들 것”",
+            "originallink": "https://www.mk.co.kr/article/11988675",
+            "link": "https://m.sports.naver.com/golf/article/009/0005650566",
+            "description": "이어 “PGA 투어 대회의 경우 바람과 <b>날씨</b> 등의 영향을 받는 만큼 동일한 규정을 적용하기 어려울 것이라고 생각한다”며 “미국프로야구 메이저리그(MLB)에서도 피치 클록이 성공적으로 운영되고 있다. 각 투어에... ",
+            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
+        },
+        {
+            "title": "[<b>날씨</b>] 충청북도, 새벽 안개 또는 서리· · ·아침 기온 0℃ 이하 쌀쌀",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529691",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529691",
+            "description": "기상청은 &quot;충청북도는 오늘과 내일 서리가 내리는 곳이 있겠다&quot;며 &quot;오늘 새벽에서 아침 사이 곳에 따라 안개가 끼겠다&quot;고 예보했다. 한편, 오늘과 내일 서리가 내리는 곳이 있겠으니, 농작물 관리에 유의하기... ",
+            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
+        },
+        {
+            "title": "[오늘<b>날씨</b>]출근길 '쌀쌀' 낮최고 16도...미세먼지 '나쁨'",
+            "originallink": "https://www.gametoc.co.kr/news/articleView.html?idxno=107056",
+            "link": "https://www.gametoc.co.kr/news/articleView.html?idxno=107056",
+            "description": "오늘(16일) <b>날씨</b>는 전국이 가끔 구름 많겠으나, 강원영동과 경상권 동해안은 대체로 흐리겠다. 미세먼지는... 기상청 오늘<b>날씨</b> 예보에 따르면 당분간 기온은 평년(최저 -3~5도, 최고 10~14도)과 비슷하거나 조금 높겠다.... ",
+            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
+        },
+        {
+            "title": "[<b>날씨</b>] 경남권, 당분간 0~5℃ 꽃샘 추위· · ·남해안 너울성 파도 유입",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529692",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529692",
+            "description": "기상청은 &quot;경남권은 내일까지 내륙을 중심으로 낮과 밤의 기온차가 크겠다&quot;며 &quot;남해안에는 너울이 유입되겠다&quot;고 예보했다. 특히, 내일(17일)까지 경남내륙은 낮과 밤의 기온차가 15℃ 안팎으로 크겠다. 그리고... ",
+            "pubDate": "Mon, 16 Mar 2026 00:10:00 +0900"
+        },
+        {
+            "title": "속초 설악산 구름의 신비 기상청 사진공모 대상",
+            "originallink": "https://www.kado.net/news/articleView.html?idxno=2038900",
+            "link": "https://n.news.naver.com/mnews/article/654/0000170796?sid=102",
+            "description": "작품은 거센 눈보라와 강풍을 이겨내며 묵묵히 발걸음을 옮기는 장면을 통해 <b>날씨</b>와 함께 살아가는 삶의 현장을 생생하게 표현했다. 이번 수상작들은 오는 23일 세계기상의 날을 기념해 대전 엑스포시민광장에서의... ",
+            "pubDate": "Mon, 16 Mar 2026 00:08:00 +0900"
+        },
+        {
+            "title": "&quot;오기 직전까지 드론 공격…남편은 아직 일해야 해서 남아 걱정&quot;",
+            "originallink": "https://www.newsis.com/view/NISX20260315_0003548991",
+            "link": "https://n.news.naver.com/mnews/article/003/0013823214?sid=100",
+            "description": "전반적으로 얇은 옷차림이 많았고 쌀쌀한 <b>날씨</b> 때문에 추위를 타는 모습도 보였다. 남자 형제로 추정되는 아이들은 한국에 온 것에 만족해하면서도 &quot;아 근데 너무 추워&quot;, &quot;패딩 못 챙겼어&quot;라고 안타까워하기도 했다. 한국... ",
+            "pubDate": "Mon, 16 Mar 2026 00:08:00 +0900"
+        },
+        {
+            "title": "[<b>날씨</b>] 강원도, 산지 아침 기온 영하권· · ·도로 얼었다 녹았다 반복",
+            "originallink": "https://www.gukjenews.com/news/articleView.html?idxno=3529690",
+            "link": "https://www.gukjenews.com/news/articleView.html?idxno=3529690",
+            "description": "기상청은 &quot;당분간 강원도 내륙과 산지는 아침 기온이 영하권으로 낮겠다&quot;며 &quot;오늘과 내일 내륙을 중심으로 서리가 내리는 곳이 있겠다&quot;고 예보했다. 특히, 내일(17일)까지 강원도 내륙과 산지를 중심으로 아침 기온이 0... ",
+            "pubDate": "Mon, 16 Mar 2026 00:08:00 +0900"
+        }
+    ],
+    "경제": [
+        {
+            "title": "기요사키, 사모 신용시장 자금 이탈 경고…비트코인·이더리움 매수 강...",
+            "originallink": "https://www.tokenpost.kr/news/cryptocurrency/339664",
+            "link": "https://www.tokenpost.kr/news/cryptocurrency/339664",
+            "description": "그는 대형 은행과 주요 금융기관 역시 압박을 받고 있으며, <b>경제</b> 분석가 짐 리카즈(Jim Rickards)는 이미 미국이 ‘신(新) 대공황’ 국면에 진입했다고 선언했다고 전했다. “충돌 가속화”…사모 신용 시장 불안 지목... ",
+            "pubDate": "Mon, 16 Mar 2026 01:06:00 +0900"
+        },
+        {
+            "title": "폐광이 ‘물 배터리’로 변신?…美 버려진 탄광, 청정에너지 저장소로 ...",
+            "originallink": "https://www.g-enews.com/view.php?ud=2026031517401454599a1f309431_1",
+            "link": "https://www.g-enews.com/view.php?ud=2026031517401454599a1f309431_1",
+            "description": "동시에 석탄 산업 쇠퇴로 <b>경제</b>적 어려움을 겪는 광산 지역에 새로운 산업 기반을 제공할 수도 있다는 점에서... ◇광산 지역 <b>경제</b>에도 새로운 기회 이 기술이 현실화될 경우 쇠퇴한 광산 지역 <b>경제</b>에도 긍정적인 영향을 줄... ",
+            "pubDate": "Mon, 16 Mar 2026 01:02:00 +0900"
+        },
+        {
+            "title": "달리오 “세계 질서 ‘빅 사이클’ 위험 국면 진입”…“전후 체제 이전...",
+            "originallink": "https://www.g-enews.com/view.php?ud=2026031517263393319a1f309431_1",
+            "link": "https://www.g-enews.com/view.php?ud=2026031517263393319a1f309431_1",
+            "description": "달리오는 14일(현지시각) 미국 <b>경제</b>전문지 포춘에 낸 기고문에서 “지난 500년의 역사 흐름을 연구한 결과... 그는 자신이 글로벌 매크로 투자자로 50년 이상 활동하면서 역사 속 거시<b>경제</b> 흐름과 원인·결과 관계를... ",
+            "pubDate": "Mon, 16 Mar 2026 01:00:00 +0900"
+        },
+        {
+            "title": "민주당 중동사태 TF, 에너지 수급 동향 등 추가점검",
+            "originallink": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8508857&ref=A",
+            "link": "https://n.news.naver.com/mnews/article/056/0012142327?sid=100",
+            "description": "더불어민주당이 오늘(16일) 중동사태 <b>경제</b>대응 TF 회의를 열고 유가동향 등 국내 <b>경제</b>에 미치는 영향을 점검합니다. TF는 오늘 오전 국회에서 2차 회의를 열고, 중동 사태로 인한 국내외 에너지 수급 동향과 환율, 금융... ",
+            "pubDate": "Mon, 16 Mar 2026 01:00:00 +0900"
+        },
+        {
+            "title": "[마켓인사이드] 이란, ‘위안화 결제 원유만 통과’…페트로달러 패권 ...",
+            "originallink": "https://www.news2day.co.kr/article/20260316500001",
+            "link": "https://www.news2day.co.kr/article/20260316500001",
+            "description": "미국 <b>경제</b>매체 CNBC는 유조선 추적 데이터를 인용해 이란이 전쟁이 시작된 이후 최소 1170만 배럴의 원유를... 이란이 호르무즈 해협이라는 전략적 지점을 활용해 위안화 결제를 확대하려 한다면 이는 단순한 <b>경제</b> 문제가... ",
+            "pubDate": "Mon, 16 Mar 2026 00:58:00 +0900"
+        },
+        {
+            "title": "강원특별자치도 고성군문화재단, 납북어부의 온전한 삶을 위한 ‘출항’...",
+            "originallink": "http://www.cfnews.kr/news/view.php?no=106007",
+            "link": "http://www.cfnews.kr/news/view.php?no=106007",
+            "description": "납북 귀환어부 과거사 전시 평화 <b>경제</b> 거점 도시 강원 고성군 산하 (재)고성문화재단은 납북어부 사건을 다룬 우리동네 과거사 전시 『출항』을 오는 3월17일부터 4월28일까지 달홀문화센터 전시 마루에서 개최한다.... ",
+            "pubDate": "Mon, 16 Mar 2026 00:56:00 +0900"
+        },
+        {
+            "title": "1.2㎞ 두고… 포항 남구는 회식, 북구는 운동",
+            "originallink": "https://www.chosun.com/national/national_general/2026/03/16/2GWVT3CO4NBUZDZWYG6BXHPLNI/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964727?sid=102",
+            "description": "송승주 수원대 <b>경제</b>금융학과 교수는 “남구는 10년 전부터 고혈압·당뇨병 관리 센터(고당센터) 시범 사업에 참여해왔고 그 결과 만성 질환 관리 점수가 북구보다 높았다”며 “인접 지역들이 각기 성공한 건강 정책을... ",
+            "pubDate": "Mon, 16 Mar 2026 00:55:00 +0900"
+        },
+        {
+            "title": "하르그섬, 이란 원유 90% 수출… 석유시설 때리면 세계 ‘오일 쇼크’",
+            "originallink": "https://www.chosun.com/international/international_general/2026/03/16/IKKRPROBOFEGLKSLXBREGIDQEY/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964724?sid=104",
+            "description": "이란 원유 수출량의 90%가 통과하는 ‘목줄’을 파괴할 경우 국제 유가 등 <b>경제</b>적·외교적 여파가 워낙 크기... 이란 국가 <b>경제</b>에서 이 섬에 대한 의존도는 절대적이다. 전 세계 원유 공급의 약 4.5%를 담당하는 이란의... ",
+            "pubDate": "Mon, 16 Mar 2026 00:53:00 +0900"
+        },
+        {
+            "title": "청소년 생활장학금 신청기간과 방법",
+            "originallink": "https://www.bntnews.co.kr/article/view/bnt202603160003",
+            "link": "https://www.bntnews.co.kr/article/view/bnt202603160003",
+            "description": "도 관계자는 생활장학금이 <b>경제</b>적 어려움을 겪는 청소년들의 학업 성취와 건강한 성장에 실질적인 보탬이 되기를 바란다며 해당 가정의 적극적인 관심과 신청을 당부했다. 자세한 사항은 각 지자체 행정복지센터 및... ",
+            "pubDate": "Mon, 16 Mar 2026 00:52:00 +0900"
+        },
+        {
+            "title": "“포항 노동자 건강, 근무 환경에 달려… 기업과 힘 합칠 것”",
+            "originallink": "https://www.chosun.com/national/national_general/2026/03/16/GOALX5EVGZHIBNORBO7AREDQTM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964717?sid=102",
+            "description": "포항에선 <b>경제</b> 활동 인구의 건강 지표가 특히 취약한데 이를 개선하는 것이 목표”라고 했다. 장 권한대행은 2024년 1월 부시장으로 취임했다. 지난 2월 이강덕 전 포항시장이 경북도지사 선거 출마를 위해 사퇴하면서 시장... ",
+            "pubDate": "Mon, 16 Mar 2026 00:49:00 +0900"
+        },
+        {
+            "title": "정부, 흑자 인천공항과 적자 한국공항공사 통합 추진",
+            "originallink": "https://www.chosun.com/national/transport-environment/2026/03/16/AOC2PNLN2JB33HMOLVM7PIJ23A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964708?sid=102",
+            "description": "15일 본지 취재를 종합하면, 재정<b>경제</b>부는 최근 이 같은 내용을 담은 공공기관 통·폐합 관련 의견을... 재정<b>경제</b>부 측은 “관계 부처 중심으로 전문가 등의 의견을 반영해 결정할 것”이라고 했다.",
+            "pubDate": "Mon, 16 Mar 2026 00:46:00 +0900"
+        },
+        {
+            "title": "“직장·<b>경제</b> 문제로 너무 힘들어”… 40대가 스트레스 가장 많이 느껴",
+            "originallink": "https://www.chosun.com/national/welfare-medical/2026/03/16/3DGXUBSI6FFNRBHQUHCLZMGENM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964709?sid=102",
+            "description": "원인으로는 ‘직장 생활’과 ‘<b>경제</b> 문제’가 가장 많이 꼽혔다. 15일 질병관리청의 국민건강통계에... 이번 조사에서 스트레스를 받는 가장 큰 원인으로 ‘직장 생활’(25.7%)과 ‘<b>경제</b> 문제’(25%)가 각각 1·2위를... ",
+            "pubDate": "Mon, 16 Mar 2026 00:46:00 +0900"
+        },
+        {
+            "title": "[2026 지방선거] &quot;두 바퀴에 민심을 싣고&quot;… 안승대, 포항 전역 자전거로...",
+            "originallink": "https://www.polinews.co.kr/news/articleView.html?idxno=725485",
+            "link": "https://www.polinews.co.kr/news/articleView.html?idxno=725485",
+            "description": "지역<b>경제</b> 상황과 생활 불편사항 등을 경청했다. 특히, 포항의 대표 전통시장인 죽도시장을 방문해 상인들과... 지역<b>경제</b>가 살아난다&quot; 등의 다양한 의견을 전달했다. 안 예비후보는 시민들의 이야기를 빠짐없이 들어가며... ",
+            "pubDate": "Mon, 16 Mar 2026 00:45:00 +0900"
+        },
+        {
+            "title": "헤즈볼라 이어 이라크 친이란 민병대도 참전… ‘저항의 축’ 살아나나",
+            "originallink": "https://www.chosun.com/international/international_general/2026/03/16/T4UQO4NVI5DQ5ELOJC3WSKOFFA/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964705?sid=104",
+            "description": "이란, 중동에 제2전선 만들기 전략 미국이 이란 정권의 <b>경제</b> 중추인 하르그섬을 공습하면서, 중동 내 친(親)이란 무장 세력의 보복 움직임이 본격화하고 있다. 이란이 중동 전역에서 지원해 온 무장 세력을 통해 미국... ",
+            "pubDate": "Mon, 16 Mar 2026 00:45:00 +0900"
+        },
+        {
+            "title": "대규모 정전에 항의… 쿠바 시위대, 공산당 사무실 불질러",
+            "originallink": "https://www.chosun.com/international/mideast-africa-latin/2026/03/16/CF77GQ5M7ZHIZJ5DMS56DAGG4E/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+            "link": "https://n.news.naver.com/mnews/article/023/0003964697?sid=104",
+            "description": "쿠바 <b>경제</b>는 즉각 충격을 받았고, 전력·교통·의료·교육 등 사회 전반에 연쇄적인 타격이 나타났다. 특히... 관광업은 연간 약 13억달러(약 1조9400억원)의 외화를 벌어들이며 쿠바 <b>경제</b>를 떠받쳐왔다. 그러나 항공기 연료... ",
+            "pubDate": "Mon, 16 Mar 2026 00:42:00 +0900"
         }
     ]
 }
